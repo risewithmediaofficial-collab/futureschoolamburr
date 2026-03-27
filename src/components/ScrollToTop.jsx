@@ -1,18 +1,24 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation()
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant', // Instant is better for route changes to avoid seeing the jump
-    });
-  }, [pathname]);
+    if (hash) {
+      // Let the page render before attempting to scroll to anchors.
+      const id = hash.replace('#', '')
+      const t = window.setTimeout(() => {
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 0)
+      return () => window.clearTimeout(t)
+    }
 
-  return null;
-};
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+  }, [pathname, hash])
 
-export default ScrollToTop;
+  return null
+}
+
+export default ScrollToTop

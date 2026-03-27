@@ -22,7 +22,14 @@ const navLinks = [
     { name: 'SOCIAL INITIATIVES', href: '/programs#social-initiatives' },
     { name: 'OTHERS', href: '/programs#others' },
   ]},
-  { name: 'Admissions', href: '/admissions' },
+  { name: 'Curriculum', href: '/admissions', hasDropdown: true, submenu: [
+    { name: 'ADMISSION OFFERED IN 2026-2027', href: '/admissions' },
+    { name: 'TIMINGS', href: '/admissions#timings' },
+    { name: 'CODE OF CONDUCT', href: '/admissions#code-of-conduct' },
+    { name: 'USES OF IT & ELECTRONIC GADGETS', href: '/admissions#uses-it-electronic-gadgets' },
+    { name: 'ACTIVITIES', href: '/admissions#activities' },
+    { name: 'TRANSPORTATION', href: '/admissions#transportation' },
+  ]},
   { name: 'Gallery',    href: '/gallery' },
   { name: 'Contact',    href: '/contact' },
 ]
@@ -180,23 +187,44 @@ export default function Header() {
             <nav className="hidden lg:flex items-center" ref={dropdownRef}>
               {navLinks.map((link) => (
                 <div key={link.name} className="relative group">
-                  <button
-                    onClick={() => link.hasDropdown && setOpenDropdown(openDropdown === link.name ? null : link.name)}
-                    className="relative px-4 py-2 group flex items-center gap-1"
-                  >
-                    <span
-                      className={`text-sm font-semibold tracking-wide transition-colors duration-200 ${
-                        isActive(link.href) ? 'text-red-600' : 'text-gray-600 group-hover:text-red-600'
-                      }`}
+                  {link.hasDropdown ? (
+                    <button
+                      type="button"
+                      onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)}
+                      className="relative px-4 py-2 group flex items-center gap-1"
                     >
-                      {link.name}
-                    </span>
-                    {link.hasDropdown && (
-                      <svg className={`w-4 h-4 transition-transform duration-200 text-gray-600 group-hover:text-red-600 ${openDropdown === link.name ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <span
+                        className={`text-sm font-semibold tracking-wide transition-colors duration-200 ${
+                          isActive(link.href) ? 'text-red-600' : 'text-gray-600 group-hover:text-red-600'
+                        }`}
+                      >
+                        {link.name}
+                      </span>
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 text-gray-600 group-hover:text-red-600 ${openDropdown === link.name ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M19 14l-7 7m0 0l-7-7m7 7V3" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                    )}
-                  </button>
+                    </button>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="relative px-4 py-2 group flex items-center gap-1"
+                      onClick={() => setOpenDropdown(null)}
+                    >
+                      <span
+                        className={`text-sm font-semibold tracking-wide transition-colors duration-200 ${
+                          isActive(link.href) ? 'text-red-600' : 'text-gray-600 group-hover:text-red-600'
+                        }`}
+                      >
+                        {link.name}
+                      </span>
+                    </Link>
+                  )}
 
                   {/* Dropdown menu */}
                   {link.hasDropdown && link.submenu && (
@@ -204,34 +232,14 @@ export default function Header() {
                       openDropdown === link.name ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                     }`}>
                       {link.submenu.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
-                          href={item.href}
-                          onClick={(e) => {
-                            e.preventDefault()
-                            setOpenDropdown(null)
-                            
-                            // Check if it's a hash-based link or regular navigation
-                            if (item.href.includes('#')) {
-                              const [targetPath, hash] = item.href.split('#')
-                              if (hash && location.pathname === targetPath) {
-                                const element = document.getElementById(hash)
-                                if (element) {
-                                  element.scrollIntoView({ behavior: 'smooth' })
-                                  window.history.replaceState(null, '', `#${hash}`)
-                                }
-                              } else {
-                                window.location.href = item.href
-                              }
-                            } else {
-                              // Regular navigation
-                              window.location.href = item.href
-                            }
-                          }}
+                          to={item.href}
+                          onClick={() => setOpenDropdown(null)}
                           className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors duration-150 border-b border-gray-50 last:border-0 cursor-pointer"
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -336,12 +344,17 @@ export default function Header() {
                   if (link.hasDropdown) {
                     setOpenDropdown(openDropdown === link.name ? null : link.name)
                   } else {
-                    // Navigate for regular links
-                    window.location.href = link.href
+                    setDrawerOpen(false)
                   }
                 }}
               >
-                <span>{link.name}</span>
+                {link.hasDropdown ? (
+                  <span>{link.name}</span>
+                ) : (
+                  <Link to={link.href} className="flex-1" onClick={() => setDrawerOpen(false)}>
+                    {link.name}
+                  </Link>
+                )}
                 {link.hasDropdown ? (
                   <svg className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                     <path d="M19 14l-7 7m0 0l-7-7m7 7V3" strokeLinecap="round" strokeLinejoin="round" />
@@ -357,34 +370,17 @@ export default function Header() {
               {link.hasDropdown && link.submenu && openDropdown === link.name && (
                 <div className="space-y-1 ml-4 mt-1 border-l border-gray-200 pl-4">
                   {link.submenu.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault()
+                      to={item.href}
+                      onClick={() => {
                         setDrawerOpen(false)
-                        
-                        // Check if it's a hash-based link or regular navigation
-                        if (item.href.includes('#')) {
-                          const [targetPath, hash] = item.href.split('#')
-                          if (hash && location.pathname === targetPath) {
-                            const element = document.getElementById(hash)
-                            if (element) {
-                              element.scrollIntoView({ behavior: 'smooth' })
-                              window.history.replaceState(null, '', `#${hash}`)
-                            }
-                          } else {
-                            window.location.href = item.href
-                          }
-                        } else {
-                          // Regular navigation
-                          window.location.href = item.href
-                        }
+                        setOpenDropdown(null)
                       }}
                       className="block px-4 py-2 text-xs font-medium text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-150 cursor-pointer"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
