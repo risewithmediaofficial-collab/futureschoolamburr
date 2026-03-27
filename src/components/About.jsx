@@ -7,6 +7,80 @@ import imgPR from '../assets/pic-assets/Ms.P.Rameshbabu SECRETARY.png'
 import imgJS from '../assets/pic-assets/Ms.Jayanthi Suresh.png'
 import imgJY from '../assets/pic-assets/YUVARANI.png'
 
+/* ─── INSTRUCTOR TEAM DATA ─── */
+const instructorsTeam = [
+  { sno: 1, name: 'Mrs. YUVARANI J', designation: 'PRINCIPAL' },
+  { sno: 2, name: 'Mrs. DEEPA R', designation: 'VICE PRINCIPAL' },
+  { sno: 3, name: 'IMMANUEL I', designation: 'PGT' },
+  { sno: 4, name: 'NIRMAL KUMAR M', designation: 'PGT' },
+  { sno: 5, name: 'B PRIYANGA', designation: 'PGT' },
+  { sno: 6, name: 'PRIYA K', designation: 'PGT' },
+  { sno: 7, name: 'ANGELIN JAYAKUMARI', designation: 'PGT' },
+  { sno: 8, name: 'DEEPAK T', designation: 'TGT' },
+  { sno: 9, name: 'KANCHANAMALA G N', designation: 'TGT' },
+  { sno: 10, name: 'NIRMALA DEVI P', designation: 'TGT' },
+  { sno: 11, name: 'SHYAMALA C', designation: 'TGT' },
+  { sno: 12, name: 'MALATHI G', designation: 'TGT' },
+  { sno: 13, name: 'ASMA TASNEEM M S', designation: 'PRT' },
+  { sno: 14, name: 'C DHANALAKSHMI', designation: 'PRT' },
+  { sno: 15, name: 'SANIYA MUSKAN N', designation: 'PRT' },
+  { sno: 16, name: 'AYEESHA NEELURI S', designation: 'PRT' },
+  { sno: 17, name: 'T.KALAIVANI', designation: 'PRT' },
+  { sno: 18, name: 'G M PRIYANKA', designation: 'PRT' },
+  { sno: 19, name: 'JAGADESWARI N', designation: 'PRT' },
+  { sno: 20, name: 'VIMALA M', designation: 'PRT' },
+  { sno: 21, name: 'KEERTHANA B', designation: 'PRT' },
+  { sno: 22, name: 'HUMERA ANJUM C', designation: 'PRT' },
+  { sno: 23, name: 'SAVITHA K', designation: 'PRT' },
+  { sno: 24, name: 'SHAHINA B', designation: 'PRT' },
+  { sno: 25, name: 'GEETHA S', designation: 'PRT' },
+  { sno: 26, name: 'IRFANA KOUSER N', designation: 'PRT' },
+  { sno: 27, name: 'SEETHA V', designation: 'NTT' },
+  { sno: 28, name: 'ANU W', designation: 'NTT' },
+  { sno: 29, name: 'LAVANYA S', designation: 'NTT' },
+  { sno: 30, name: 'SHAGUFTHA THASEEN H', designation: 'OTHER' },
+  { sno: 31, name: 'J MURUGAN', designation: 'PET' },
+  { sno: 32, name: 'V KOMATHI', designation: 'ADMIN' },
+]
+
+/* ─── FACULTY TEAM DATA ─── */
+const facultyTeam = [
+  { sno: 1, name: 'Mrs. YUVARANI J', designation: 'PRINCIPAL' },
+  { sno: 2, name: 'Mrs. DEEPA R', designation: 'Vice PRINCIPAL' },
+  { sno: 3, name: 'RAJEANUIEL J', designation: 'PGT' },
+  { sno: 4, name: 'NIRMAL KUMAR M', designation: 'PGT' },
+  { sno: 5, name: 'PRIYA K', designation: 'PGT' },
+  { sno: 6, name: 'B PRIYANDA', designation: 'PGT' },
+  { sno: 7, name: 'ANIRUDN JAYALKUMARI', designation: 'PGT' },
+  { sno: 8, name: 'DEEPAK T', designation: 'TGT' },
+  { sno: 9, name: 'HIMALLA DEVI P', designation: 'TGT' },
+  { sno: 10, name: 'SHYAMALA C', designation: 'TGT' },
+  { sno: 11, name: 'MALATHI D', designation: 'TGT' },
+  { sno: 12, name: 'KANCHINAMALA O M', designation: 'TGT' },
+  { sno: 13, name: 'ASMA TAYYEEM M S', designation: 'PRT' },
+  { sno: 14, name: 'C CHARULAKSHMI', designation: 'PRT' },
+  { sno: 15, name: 'SANIYA MAUSEAN H', designation: 'PRT' },
+  { sno: 16, name: 'AYESHA NEELLARI S', designation: 'PRT' },
+  { sno: 17, name: 'T KALAIVANI', designation: 'PRT' },
+  { sno: 18, name: 'G M PRIYANKA', designation: 'PRT' },
+  { sno: 19, name: 'JAGADESWARI H', designation: 'PRT' },
+  { sno: 20, name: 'VINILA M', designation: 'PRT' },
+  { sno: 21, name: 'KEERITHANA B', designation: 'PRT' },
+  { sno: 22, name: 'HUMERA ANJUM C', designation: 'PRT' },
+  { sno: 23, name: 'SAVITHA K', designation: 'PRT' },
+  { sno: 24, name: 'BHAVSA B', designation: 'PRT' },
+  { sno: 25, name: 'GEETHA S', designation: 'PRT' },
+  { sno: 26, name: 'BIYANA KOUSER N', designation: 'PRT' },
+  { sno: 27, name: 'BETHA V', designation: 'NIT' },
+  { sno: 28, name: 'ANU W', designation: 'NIT' },
+  { sno: 29, name: 'LAVANYA S', designation: 'NIT' },
+  { sno: 30, name: 'LAVANYA S', designation: 'NIT' },
+  { sno: 31, name: 'SHARIQUE THAHSEN H', designation: 'OTHER' },
+  { sno: 32, name: 'J MURUGAN', designation: 'PRT' },
+  { sno: 33, name: 'SATHISH E S', designation: 'PFI' },
+  { sno: 34, name: 'V KOMATHI', designation: 'ADMIN' },
+]
+
 /* ─── Scroll-reveal hook ─── */
 function useReveal(threshold = 0.15) {
   const ref = useRef(null)
@@ -71,11 +145,26 @@ function FacultyCard({ name, subject, delay, img }) {
    ABOUT PAGE
 ══════════════════════════════════════════ */
 export default function About() {
+  useEffect(() => {
+    // Handle hash navigation on component mount and location change
+    const hash = window.location.hash.slice(1) // Remove the '#' character
+    
+    if (hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    }
+  }, [])
+
   return (
     <main className="bg-white overflow-x-hidden">
 
-      {/* ══ PAGE HERO ══ */}
-      <section className="relative bg-white py-20 md:py-28 overflow-hidden">
+      {/* ══ PAGE HERO (OVERVIEW) ══ */}
+      <section className="relative bg-white py-20 md:py-28 overflow-hidden" id="overview">
         {/* Dot grid */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -175,7 +264,7 @@ export default function About() {
       </section>
 
       {/* ══ MISSION & VISION ══ */}
-      <section className="py-20 md:py-28 bg-gray-50">
+      <section className="py-20 md:py-28 bg-gray-50" id="mission-vision">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-14">
             <Reveal><p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">Our Foundation</p></Reveal>
@@ -186,35 +275,12 @@ export default function About() {
             </Reveal>
           </div>
 
+          {/* Mission & Vision Grid */}
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Mission */}
-            <Reveal direction="left" delay={100}>
-              <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 relative overflow-hidden hover:shadow-[0_12px_50px_rgba(185,28,28,0.08)] transition-shadow duration-300">
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-red-600 to-transparent rounded-l-2xl" />
-                <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center mb-6">
-                  <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Georgia', serif" }}>Our Mission</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
-                  The mission of Future Senior Secondary School is to provide a futuristic learning environment that integrates universal human values and transforms students into empathetic, empowered leaders.
-                </p>
-                <ul className="mt-5 space-y-2">
-                  {['Futuristic learning environment', 'Universal human values', 'Training students to lead and transform', 'Developing responsible individuals', 'Encouraging self-refinement', 'Promoting empathy and empowerment'].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-gray-500">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-
             {/* Vision */}
-            <Reveal direction="right" delay={200}>
-              <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 relative overflow-hidden hover:shadow-[0_12px_50px_rgba(185,28,28,0.08)] transition-shadow duration-300">
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-red-400 to-transparent rounded-l-2xl" />
+            <Reveal direction="left" delay={100}>
+              <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 relative overflow-hidden hover:shadow-[0_12px_50px_rgba(185,28,28,0.08)] transition-shadow duration-300" id="vision">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-red-600 to-transparent rounded-l-2xl" />
                 <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center mb-6">
                   <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" strokeLinecap="round" strokeLinejoin="round" />
@@ -222,21 +288,63 @@ export default function About() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Georgia', serif" }}>Our Vision</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
-                  Learn • Discover • Share
+                <p className="text-gray-500 leading-relaxed text-sm font-semibold mb-6">
+                  Future Senior Secondary School believes in <em className="text-red-600 not-italic">Learn, Discover and Share.</em>
                 </p>
                 <div className="mt-5 space-y-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold">LEARN</span>
-                    <p className="text-xs text-gray-500">Learning is Continuous</p>
+                  <div className="flex items-start gap-3 pb-4 border-b border-gray-100">
+                    <span className="text-red-600 font-black text-lg min-w-fit">LEARN</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Learning is Continuous</p>
+                  </div>
+                  <div className="flex items-start gap-3 pb-4 border-b border-gray-100">
+                    <span className="text-red-600 font-black text-lg min-w-fit">DISCOVER</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Discover the Self to bring a change & Transformation</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold">DISCOVER</span>
-                    <p className="text-xs text-gray-500">Discover the Self to bring change & Transformation</p>
+                    <span className="text-red-600 font-black text-lg min-w-fit">SHARE</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Share your knowledge & give back to the society</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Mission */}
+            <Reveal direction="right" delay={200}>
+              <div className="bg-white rounded-2xl border border-gray-100 p-8 md:p-10 relative overflow-hidden hover:shadow-[0_12px_50px_rgba(185,28,28,0.08)] transition-shadow duration-300" id="mission">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 to-transparent rounded-l-2xl" />
+                <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center mb-6">
+                  <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4" style={{ fontFamily: "'Georgia', serif" }}>Our Mission</h3>
+                <p className="text-gray-500 leading-relaxed text-sm font-semibold mb-6">
+                  Future Senior Secondary School's mission is depicted as:
+                </p>
+                <div className="mt-5 space-y-3">
+                  <div className="flex items-start gap-3 pb-3 border-b border-gray-100">
+                    <span className="text-orange-600 font-black text-sm min-w-fit">F –</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Futuristic Learning comes from Continuous Learning & Participation</p>
+                  </div>
+                  <div className="flex items-start gap-3 pb-3 border-b border-gray-100">
+                    <span className="text-orange-600 font-black text-sm min-w-fit">U –</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Universal Value to be integrated through Education</p>
+                  </div>
+                  <div className="flex items-start gap-3 pb-3 border-b border-gray-100">
+                    <span className="text-orange-600 font-black text-sm min-w-fit">T –</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Train to live; lead & Transform</p>
+                  </div>
+                  <div className="flex items-start gap-3 pb-3 border-b border-gray-100">
+                    <span className="text-orange-600 font-black text-sm min-w-fit">U –</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Useful & Meaningful Human beings who can give back to the Society</p>
+                  </div>
+                  <div className="flex items-start gap-3 pb-3 border-b border-gray-100">
+                    <span className="text-orange-600 font-black text-sm min-w-fit">R –</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Refinement & Reinventing of the Self</p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <span className="text-red-500 font-bold">SHARE</span>
-                    <p className="text-xs text-gray-500">Share your knowledge & give back to society</p>
+                    <span className="text-orange-600 font-black text-sm min-w-fit">E –</span>
+                    <p className="text-sm text-gray-600 leading-relaxed">Empathy & Empowerment resulting from Holistic Education</p>
                   </div>
                 </div>
               </div>
@@ -245,60 +353,88 @@ export default function About() {
         </div>
       </section>
 
-      {/* ══ CORE VALUES ══ */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-xl mx-auto mb-14">
-            <Reveal><p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">What We Stand For</p></Reveal>
-            <Reveal delay={100}>
-              <h2 className="text-3xl md:text-4xl font-light text-gray-900" style={{ fontFamily: "'Georgia', serif" }}>
-                Our Core <em className="text-red-600 not-italic">Values</em>
-              </h2>
-            </Reveal>
+      {/* ══ CHAIRMAN'S DESK ══ */}
+      <section className="relative bg-white py-20 md:py-28 overflow-hidden" id="chairman-desk">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">From The Office of The Chairman</p>
+            <h2 className="text-3xl md:text-4xl font-light text-gray-900 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
+              <em className="text-red-600 not-italic">Chairman's</em> Message
+            </h2>
+            <div className="w-10 h-0.5 bg-red-600 mt-5" />
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            <ValueCard
-              icon={<path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" />}
-              title="Excellence"
-              desc="We pursue the highest standards in academics, character, and every endeavour we undertake."
-              delay={0}
-            />
-            <ValueCard
-              icon={<><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /></>}
-              title="Integrity"
-              desc="Honesty, transparency, and ethical conduct in everything — from classrooms to corridors."
-              delay={100}
-            />
-            <ValueCard
-              icon={<><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></>}
-              title="Inclusivity"
-              desc="Every student is valued, respected, and given equal opportunity to learn and grow."
-              delay={200}
-            />
-            <ValueCard
-              icon={<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />}
-              title="Innovation"
-              desc="Embracing modern pedagogy, technology, and creative thinking to prepare future-ready students."
-              delay={300}
-            />
-            <ValueCard
-              icon={<><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></>}
-              title="Community"
-              desc="Building strong bonds between students, parents, teachers, and the wider Ambur community."
-              delay={400}
-            />
-            <ValueCard
-              icon={<><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></>}
-              title="Responsibility"
-              desc="Nurturing a sense of duty towards self, family, school, society, and the environment."
-              delay={500}
-            />
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-start">
+            <div className="md:col-span-2 space-y-6">
+              <div className="bg-gray-50 border-l-4 border-red-600 p-6 md:p-8 rounded-r-lg">
+                <p className="text-gray-700 italic leading-relaxed text-base md:text-lg">
+                  "Education is the passport to the future, for tomorrow belongs to those who prepare for it today".
+                </p>
+                <p className="text-gray-600 font-semibold mt-4">— Malcolm X.</p>
+              </div>
+              <div className="space-y-4 text-gray-700 leading-relaxed text-sm">
+                <p>It's a moment of pride to share with all the stakeholders and our dear parents & students, within a short span of time Future Senior Secondary School has imprinted its vibrant presence in the educational map of Ambur and the surrounding localities.</p>
+                <p>At Future we believe all students can be successful and this belief drives the work we do on a daily basis. We aim to inculcate a respect for diversity, tolerance, mutual understanding and to promote peaceful co-existence among our children. As a progressive school our system is meant to bring out the best out of not only every learner but also every educator.</p>
+                <p>Our success lies in what pupils achieve in their lives. Our consistent endeavor is to work with them, share their vision and goals and become anchors in their life during schooldays at Future.</p>
+              </div>
+            </div>
+            <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/5] bg-gray-50">
+                <img src={imgKP} alt="Mr. K. PANDURANGAN" className="w-full h-full object-contain object-top" />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-lg font-bold text-red-600">Mr. K. PANDURANGAN</h3>
+                <p className="text-gray-900 font-semibold mt-2">Chairman</p>
+                <p className="text-sm text-gray-600 mt-1">Future Senior Secondary School</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ PRINCIPAL'S DESK ══ */}
+      <section className="relative bg-gray-50 py-20 md:py-28 overflow-hidden" id="principal-desk">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">From The Office of The Principal</p>
+            <h2 className="text-3xl md:text-4xl font-light text-gray-900 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
+              <em className="text-red-600 not-italic">Principal's</em> Message
+            </h2>
+            <div className="w-10 h-0.5 bg-red-600 mt-5" />
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-start">
+            <div className="md:col-span-2 space-y-6">
+              <div className="bg-white border-l-4 border-red-600 p-6 md:p-8 rounded-r-lg">
+                <p className="text-gray-700 italic leading-relaxed font-semibold mb-4">
+                  "Education awakens the power and beauty that lie within us."
+                </p>
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  Education does not only mean academic excellence. It rather is a harmonious and synchronized combination of hand (skills like various arts), head (Intellectual Power) and heart (Value System).
+                </p>
+              </div>
+              <div className="space-y-4 text-gray-700 leading-relaxed text-sm">
+                <p>In the present era of digitalized world, the biggest challenge before educators and parents is to nurture the young minds with the indelible impressions of a holistic education.</p>
+                <p>We come up with a vision to foster different facets of a student in order to see him/her developing as a vibrant student, responsible citizen and a generous and sentient human being. Our pedagogy is child centric.</p>
+                <p>Today's India is an empowered and enlightened nation. We wish to make it even more powerful with smart and confident citizens who would make us proud of their multifaceted growth.</p>
+              </div>
+            </div>
+            <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/5] bg-gray-50">
+                <img src={imgJY} alt="Mrs. YUVARANI J" className="w-full h-full object-contain object-top" />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-lg font-bold text-red-600">Mrs. YUVARANI J</h3>
+                <p className="text-gray-900 font-semibold mt-2">Principal</p>
+                <p className="text-sm text-gray-600 mt-1">Future Senior Secondary School</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ══ FACULTY ══ */}
-      <section className="py-20 md:py-24 bg-gray-50">
+      <section className="py-20 md:py-24 bg-white" id="faculty">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-14">
             <Reveal><p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">Our Team</p></Reveal>
@@ -319,6 +455,189 @@ export default function About() {
             <FacultyCard img={imgPR} name="P. Rameshbabu"       subject="Secretary"      delay={160} />
             <FacultyCard img={imgJS} name="Jayanthi Suresh"     subject="Academic Director" delay={240} />
             <FacultyCard img={imgJY} name="J. Yuvarani"         subject="Principal"         delay={320} />
+          </div>
+        </div>
+      </section>
+
+      {/* ══ INSTRUCTORS ══ */}
+      <section className="py-16 md:py-24 bg-gray-50" id="instructors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">Faculty Directory</p>
+            <h2 className="text-3xl md:text-4xl font-light text-gray-900" style={{ fontFamily: "'Georgia', serif" }}>
+              Our <em className="text-red-600 not-italic">Teaching</em> Team
+            </h2>
+            <div className="w-10 h-0.5 bg-red-600 mt-5" />
+          </div>
+
+          {/* Instructors Table */}
+          <div className="overflow-x-auto bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-200 bg-gradient-to-r from-red-600 to-red-700">
+                  <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">S.NO.</th>
+                  <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">NAME</th>
+                  <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">DESIGNATION</th>
+                </tr>
+              </thead>
+              <tbody>
+                {instructorsTeam.map((member, idx) => (
+                  <tr
+                    key={member.sno}
+                    className={`border-b border-gray-100 hover:bg-red-50/30 transition-colors duration-150 ${
+                      idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'
+                    }`}
+                  >
+                    <td className="px-4 md:px-6 py-4 text-sm text-gray-600 font-medium">{member.sno}</td>
+                    <td className="px-4 md:px-6 py-4 text-sm text-gray-900 font-medium">{member.name}</td>
+                    <td className="px-4 md:px-6 py-4 text-sm">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700">
+                        {member.designation}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Legend */}
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">PGT</span>
+              <span className="text-xs text-gray-600">Post Graduate</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">TGT</span>
+              <span className="text-xs text-gray-600">Graduate Teacher</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">PRT</span>
+              <span className="text-xs text-gray-600">Primary Teacher</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">NTT</span>
+              <span className="text-xs text-gray-600">Non-Teaching</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">PET</span>
+              <span className="text-xs text-gray-600">Physical Ed.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══ AFFILIATIONS ══ */}
+      <section className="py-16 md:py-24 bg-white" id="affiliations">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">Affiliations & Recognition</p>
+            <h2 className="text-3xl md:text-4xl font-light text-gray-900" style={{ fontFamily: "'Georgia', serif" }}>
+              Our <em className="text-red-600 not-italic">Affiliations</em>
+            </h2>
+            <div className="w-10 h-0.5 bg-red-600 mt-5" />
+          </div>
+
+          {/* Affiliation Info */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* CBSE Affiliation */}
+            <div className="bg-gradient-to-br from-red-50 to-red-100/50 border border-red-200 rounded-2xl p-6 md:p-8">
+              <div className="flex items-start gap-4 mb-4">
+                <svg className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">CBSE Affiliation</h3>
+                  <div className="space-y-2 text-sm text-gray-700">
+                    <p><span className="font-semibold">Board:</span> Central Board of Secondary Education (CBSE), New Delhi</p>
+                    <p><span className="font-semibold">Affiliation Number:</span> 1930465</p>
+                    <p><span className="font-semibold">School Code:</span> 55386</p>
+                    <p className="text-xs text-gray-600 pt-2">
+                      Future Senior Secondary School is affiliated to the Central Board of Secondary Education (CBSE), New Delhi, vide Affiliation Number 1930465 in accordance with that as prepared and submitted under CBSE guidelines.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Board Affiliations */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200 rounded-2xl p-6 md:p-8">
+              <div className="flex items-start gap-4 mb-4">
+                <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">Other Board Examinations</h3>
+                  <div className="space-y-2 text-sm text-gray-700">
+                    <p>✓ All India Secondary School Certificate Examination (AISSE)</p>
+                    <p>✓ All India Senior School Certificate Examination (AISSCIE)</p>
+                    <p className="text-xs text-gray-600 pt-2">
+                      Students are eligible for All India Secondary School Certificate and All India Senior School Certificate Examination conducted by the Board of Studies X and XII respectively.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Faculty Table for Affiliations */}
+          <div className="mb-12">
+            <h3 className="text-xl md:text-2xl font-light text-gray-900 mb-8" style={{ fontFamily: "'Georgia', serif" }}>
+              <em className="text-red-600 not-italic">Faculty</em> Team
+            </h3>
+            <div className="overflow-x-auto bg-white rounded-2xl border border-gray-100 shadow-sm">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-gray-200 bg-gradient-to-r from-red-600 to-red-700">
+                    <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">S.NO.</th>
+                    <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">NAME</th>
+                    <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">DESIGNATION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {facultyTeam.map((member, idx) => (
+                    <tr
+                      key={member.sno}
+                      className={`border-b border-gray-100 hover:bg-red-50/30 transition-colors duration-150 ${
+                        idx % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'
+                      }`}
+                    >
+                      <td className="px-4 md:px-6 py-3 text-sm text-gray-600 font-medium">{member.sno}</td>
+                      <td className="px-4 md:px-6 py-3 text-sm text-gray-900 font-medium">{member.name}</td>
+                      <td className="px-4 md:px-6 py-3 text-sm">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700">
+                          {member.designation}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Legend */}
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">PGT</span>
+                <span className="text-sm text-gray-600">Post Graduate Teacher</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">TGT</span>
+                <span className="text-sm text-gray-600">Trained Graduate Teacher</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">PRT</span>
+                <span className="text-sm text-gray-600">Primary Teacher</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">NIT</span>
+                <span className="text-sm text-gray-600">Non-Teaching</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-1 rounded text-xs font-bold bg-red-100 text-red-700">PFI</span>
+                <span className="text-sm text-gray-600">Physical Education</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

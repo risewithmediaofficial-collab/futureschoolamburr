@@ -14,13 +14,7 @@ const navLinks = [
     { name: 'Affiliations', href: '/about#affiliations' },
   ]},
   { name: 'Programs',   href: '/programs', hasDropdown: true, submenu: [
-    { name: 'KINDERGARTEN LEVEL', href: '/programs#kindergarten-level' },
-    { name: 'PRIMARY LEVEL', href: '/programs#primary-level' },
-    { name: 'SECONDARY LEVEL', href: '/programs#secondary-level' },
-    { name: 'SENIOR SECONDARY LEVEL', href: '/programs#senior-secondary-level' },
-    { name: 'TEACHING METHODOLOGY', href: '/programs#teaching-methodology' },
-    { name: 'SOCIAL INITIATIVES', href: '/programs#social-initiatives' },
-    { name: 'OTHERS', href: '/programs#others' },
+    { name: 'Kindergarten', href: '/kindergarten' },
   ]},
   { name: 'Admissions', href: '/admissions' },
   { name: 'Gallery',    href: '/gallery' },
@@ -213,15 +207,20 @@ export default function Header() {
                             
                             // Check if it's a hash-based link or regular navigation
                             if (item.href.includes('#')) {
-                              const [targetPath, hash] = item.href.split('#')
-                              if (hash && location.pathname === targetPath) {
-                                const element = document.getElementById(hash)
-                                if (element) {
-                                  element.scrollIntoView({ behavior: 'smooth' })
-                                  window.history.replaceState(null, '', `#${hash}`)
+                              // Hash-based navigation
+                              const hash = item.href.split('#')[1]
+                              if (hash) {
+                                // Navigate to /about first if not already there
+                                if (location.pathname !== '/about') {
+                                  window.location.href = item.href
+                                } else {
+                                  // Scroll to element
+                                  const element = document.getElementById(hash)
+                                  if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' })
+                                    window.location.hash = hash
+                                  }
                                 }
-                              } else {
-                                window.location.href = item.href
                               }
                             } else {
                               // Regular navigation
@@ -366,15 +365,20 @@ export default function Header() {
                         
                         // Check if it's a hash-based link or regular navigation
                         if (item.href.includes('#')) {
-                          const [targetPath, hash] = item.href.split('#')
-                          if (hash && location.pathname === targetPath) {
-                            const element = document.getElementById(hash)
-                            if (element) {
-                              element.scrollIntoView({ behavior: 'smooth' })
-                              window.history.replaceState(null, '', `#${hash}`)
+                          // Hash-based navigation
+                          const hash = item.href.split('#')[1]
+                          if (hash) {
+                            // Navigate to /about first if not already there
+                            if (location.pathname !== '/about') {
+                              window.location.href = item.href
+                            } else {
+                              // Scroll to element
+                              const element = document.getElementById(hash)
+                              if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' })
+                                window.location.hash = hash
+                              }
                             }
-                          } else {
-                            window.location.href = item.href
                           }
                         } else {
                           // Regular navigation
