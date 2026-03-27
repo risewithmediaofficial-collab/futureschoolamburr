@@ -214,14 +214,17 @@ export default function Header() {
                             // Check if it's a hash-based link or regular navigation
                             if (item.href.includes('#')) {
                               const [targetPath, hash] = item.href.split('#')
-                              if (hash && location.pathname === targetPath) {
-                                const element = document.getElementById(hash)
-                                if (element) {
-                                  element.scrollIntoView({ behavior: 'smooth' })
-                                  window.history.replaceState(null, '', `#${hash}`)
+                              if (hash) {
+                                // Navigate first if not on the target page
+                                if (location.pathname !== targetPath) {
+                                  window.location.href = item.href
+                                } else {
+                                  const element = document.getElementById(hash)
+                                  if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' })
+                                    window.location.hash = hash
+                                  }
                                 }
-                              } else {
-                                window.location.href = item.href
                               }
                             } else {
                               // Regular navigation
@@ -355,7 +358,7 @@ export default function Header() {
               
               {/* Mobile dropdown submenu */}
               {link.hasDropdown && link.submenu && openDropdown === link.name && (
-                <div className="space-y-1 ml-4 mt-1 border-l border-gray-200 pl-4">
+                    <div className="space-y-1 ml-4 mt-1 border-l border-gray-200 pl-4">
                   {link.submenu.map((item) => (
                     <a
                       key={item.name}
@@ -367,14 +370,16 @@ export default function Header() {
                         // Check if it's a hash-based link or regular navigation
                         if (item.href.includes('#')) {
                           const [targetPath, hash] = item.href.split('#')
-                          if (hash && location.pathname === targetPath) {
-                            const element = document.getElementById(hash)
-                            if (element) {
-                              element.scrollIntoView({ behavior: 'smooth' })
-                              window.history.replaceState(null, '', `#${hash}`)
+                          if (hash) {
+                            if (location.pathname !== targetPath) {
+                              window.location.href = item.href
+                            } else {
+                              const element = document.getElementById(hash)
+                              if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' })
+                                window.location.hash = hash
+                              }
                             }
-                          } else {
-                            window.location.href = item.href
                           }
                         } else {
                           // Regular navigation
