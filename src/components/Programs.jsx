@@ -81,27 +81,27 @@ const programs = [
 function ProgramCard({ program, delay, reversed }) {
   return (
     <Reveal delay={delay} direction={reversed ? 'right' : 'left'}>
-      <div id={program.anchorId} className="bg-[#efefef] border border-gray-200 p-5 md:p-7">
+      <div id={program.anchorId} className="bg-[#efefef] border border-gray-200 p-4 sm:p-5 md:p-7">
         <div className="border border-gray-200 bg-white overflow-hidden">
           <img
             src={program.img}
             alt={program.title}
-            className="w-full h-64 md:h-[520px] object-cover"
+            className="w-full h-56 sm:h-64 md:h-[520px] object-cover"
           />
         </div>
 
-        <div className="mt-6 border-y border-gray-300 py-4">
-          <h3 className="text-2xl md:text-[2rem] font-semibold text-gray-900" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <div className="mt-5 sm:mt-6 border-y border-gray-300 py-4">
+          <h3 className="text-xl sm:text-2xl md:text-[2rem] font-semibold text-gray-900" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             {program.title} : {program.classes}
           </h3>
         </div>
 
-        <div className="mt-5 space-y-5 text-gray-700 leading-relaxed text-xl">
+        <div className="mt-5 space-y-4 sm:space-y-5 text-gray-700 leading-relaxed text-base sm:text-lg md:text-xl">
           {program.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
           {program.streams && (
-            <ol className="list-decimal pl-7 space-y-1">
+            <ol className="list-decimal pl-5 sm:pl-7 space-y-1">
               {program.streams.map((stream) => (
                 <li key={stream}>{stream}</li>
               ))}
@@ -109,7 +109,7 @@ function ProgramCard({ program, delay, reversed }) {
           )}
           <Link
             to="/admissions"
-            className="inline-flex items-center text-red-600 font-bold text-[2rem] hover:text-red-700 transition-colors duration-200"
+            className="inline-flex items-center text-red-600 font-bold text-lg sm:text-xl md:text-[2rem] hover:text-red-700 transition-colors duration-200"
           >
             Click Here To Know The Admission Process
           </Link>
@@ -154,12 +154,12 @@ export default function Programs() {
           </Reveal>
           {/* Quick jump pills */}
           <Reveal delay={400}>
-            <div className="flex flex-wrap justify-center gap-3 mt-8">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-8">
               {programs.map((p) => (
                 <a
                   key={p.id}
                   href={`#${p.anchorId}`}
-                  className="px-4 py-1.5 rounded-full border border-red-200 bg-red-50 text-red-700 text-xs font-semibold hover:bg-red-600 hover:text-white transition-colors duration-200"
+                  className="px-3 sm:px-4 py-1.5 rounded-full border border-red-200 bg-red-50 text-red-700 text-[11px] sm:text-xs font-semibold hover:bg-red-600 hover:text-white transition-colors duration-200"
                 >
                   {p.title.toUpperCase()} LEVEL
                 </a>
@@ -170,7 +170,7 @@ export default function Programs() {
       </section>
 
       {/* ══ PROGRAM CARDS (alternating layout) ══ */}
-      <section className="py-20 md:py-28 bg-gray-50">
+      <section className="py-16 md:py-28 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
           {programs.map((program, i) => (
             <ProgramCard key={program.id} program={program} delay={0} reversed={i % 2 !== 0} />

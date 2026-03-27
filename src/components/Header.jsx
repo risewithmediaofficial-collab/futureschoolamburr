@@ -25,8 +25,6 @@ const navLinks = [
   { name: 'Curriculum', href: '/admissions', hasDropdown: true, submenu: [
     { name: 'ADMISSION OFFERED IN 2026-2027', href: '/admissions' },
     { name: 'TIMINGS', href: '/admissions#timings' },
-    { name: 'CODE OF CONDUCT', href: '/admissions#code-of-conduct' },
-    { name: 'USES OF IT & ELECTRONIC GADGETS', href: '/admissions#uses-it-electronic-gadgets' },
     { name: 'ACTIVITIES', href: '/admissions#activities' },
     { name: 'TRANSPORTATION', href: '/admissions#transportation' },
   ]},
@@ -119,7 +117,7 @@ export default function Header() {
         className="bg-red-700 text-white overflow-hidden transition-all duration-500 ease-in-out"
         style={{ maxHeight: topBarVisible ? '48px' : '0px', opacity: topBarVisible ? 1 : 0 }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-10 py-1 flex items-center justify-between gap-3">
           {/* Left — contact info */}
           <div className="hidden sm:flex items-center gap-5">
             {topBarItems.map(({ icon, text, href }) => (
@@ -137,15 +135,15 @@ export default function Header() {
           </div>
 
           {/* Mobile — just location */}
-          <div className="sm:hidden flex items-center gap-1.5 text-red-100 text-xs">
+          <div className="sm:hidden min-w-0 flex items-center gap-1.5 text-red-100 text-[11px]">
             <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Ambur, Tamil Nadu
+            <span className="truncate">Ambur, Tamil Nadu</span>
           </div>
 
           {/* Right — affiliation badge */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <span className="hidden md:flex items-center gap-1.5 text-[0.65rem] font-bold tracking-widest uppercase text-red-200">
               <span className="w-1 h-1 rounded-full bg-red-300" />
               CBSE Affiliation No. 1930465
@@ -154,7 +152,7 @@ export default function Header() {
             </span>
             <Link
               to="/admissions"
-              className="px-3 py-0.5 rounded-sm bg-white text-red-700 text-[0.65rem] font-bold tracking-wide hover:bg-red-50 transition-colors duration-150"
+              className="px-2.5 sm:px-3 py-1 rounded-sm bg-white text-red-700 text-[0.6rem] sm:text-[0.65rem] font-bold tracking-wide text-center whitespace-nowrap hover:bg-red-50 transition-colors duration-150"
             >
               Admissions 2026–2027
             </Link>
@@ -176,10 +174,10 @@ export default function Header() {
         <div className="h-[3px] w-full bg-gradient-to-r from-red-800 via-red-500 to-red-800" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[72px]">
+          <div className="flex items-center justify-between gap-3 h-[72px]">
 
             {/* ── LOGO ── */}
-            <Link to="/" className="flex items-center group flex-shrink-0">
+            <Link to="/" className="flex items-center group flex-shrink-0 min-w-0">
                <img src={imgLogo} alt="Future School Logo" className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105" />
             </Link>
 
@@ -310,7 +308,7 @@ export default function Header() {
 
       {/* Drawer panel */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-[300px] bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${
+        className={`fixed top-0 right-0 z-50 h-full w-full max-w-[340px] bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden flex flex-col ${
           drawerOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
