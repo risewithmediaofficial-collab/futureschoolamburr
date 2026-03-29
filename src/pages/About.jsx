@@ -3,7 +3,7 @@ import Achievements from '../components/Achievements'
 
 const About = () => {
   return (
-    <main className="overflow-x-hidden pt-20 bg-[#fafaf8]">
+    <main className="overflow-x-hidden bg-[#fafaf8]">
       <AboutComponent />
       <Achievements />
     </main>

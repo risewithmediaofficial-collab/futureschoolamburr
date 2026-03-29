@@ -100,7 +100,7 @@ export default function Gallery() {
   }
 
   return (
-    <main className="bg-gray-50 flex flex-col gap-16 md:gap-24 overflow-hidden pb-20 pt-20">
+    <main className="bg-gray-50 flex flex-col gap-16 md:gap-24 overflow-hidden pb-20 pt-8">
 
       {/* ══ HEADER ══ */}
       <section className="bg-white border-b border-gray-100 py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative">

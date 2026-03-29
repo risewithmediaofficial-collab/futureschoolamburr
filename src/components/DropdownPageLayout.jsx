@@ -14,7 +14,7 @@ function getToneClasses(tone) {
 export function DropdownPageLayout({ eyebrow, title, subtitle, highlights = [], children, image, imageAlt, ctaTo = '/admissions', ctaLabel = 'Know the Admission Process', hideImageSection = false }) {
   return (
     <main className="overflow-x-hidden bg-white">
-      <section className="relative w-full overflow-hidden bg-white pb-16 pt-12 md:pt-24 md:pb-24 border-b border-gray-100">
+      <section className="relative w-full overflow-hidden bg-white pb-16 pt-4 md:pt-8 md:pb-24 border-b border-gray-100">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">

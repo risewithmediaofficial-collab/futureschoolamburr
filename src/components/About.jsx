@@ -89,12 +89,12 @@ export default function About() {
     <div className="bg-gray-50 overflow-x-hidden flex flex-col gap-16 md:gap-24 pb-20">
 
       {/* ══ PAGE HERO / OVERVIEW ══ */}
-      <section className="relative w-full overflow-hidden bg-white pb-16 pt-20 md:pt-32 md:pb-24 border-b border-gray-100" id="overview">
+      <section className="relative w-full overflow-hidden bg-white pb-16 pt-4 border-b border-gray-100" id="overview">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
           
-          <div className="flex flex-col items-center max-w-4xl mb-12 sm:mb-16">
+          <div className="flex flex-col items-center max-w-2xl mb-12 sm:mb-16">
             <Reveal>
               <span className="text-[#c0392b] text-[0.65rem] sm:text-[0.7rem] tracking-[0.2em] uppercase font-black px-4 py-2 bg-red-50/50 rounded-full inline-flex items-center gap-2 mb-6 border border-red-50 shadow-sm transition-all duration-300">
                 <Building2 className="w-3.5 h-3.5" /> About Us
@@ -104,8 +104,7 @@ export default function About() {
             <Reveal delay={100}>
               <h1 className="serif text-gray-900 leading-[1.1] tracking-tight mt-2 mb-6" 
                 style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.8rem)' }}>
-                About <span className="text-[#c0392b]">Future</span><br />
-                Senior Secondary School
+                About <span className="text-[#c0392b]">Future</span> Senior Secondary School
               </h1>
             </Reveal>
 
@@ -139,8 +138,8 @@ export default function About() {
               <img src={imgBuilding} alt="School" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none z-10" />
               
-              <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 bg-white/95 backdrop-blur-sm border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl flex items-center gap-4 z-20 hover:scale-105 transition-transform duration-300">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-[#c0392b] rounded-xl flex items-center justify-center text-white font-black text-2xl shadow-sm">
+              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-10 md:left-10 bg-white/95 backdrop-blur-sm border border-white/20 rounded-2xl p-3 sm:p-4 md:p-6 shadow-2xl flex items-center gap-3 sm:gap-4 z-20 hover:scale-105 transition-transform duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#c0392b] rounded-xl flex items-center justify-center text-white font-black text-xl sm:text-2xl shadow-sm">
                   25
                 </div>
                 <div className="text-left">

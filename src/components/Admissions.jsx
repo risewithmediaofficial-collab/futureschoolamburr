@@ -120,7 +120,7 @@ export default function Admissions() {
     <main className="bg-white overflow-x-hidden">
 
       {/* ══ PAGE HEADER ══ */}
-      <section className="relative w-full overflow-hidden bg-white pb-16 pt-20 md:pt-32 md:pb-24 border-b border-gray-100">
+      <section className="relative w-full overflow-hidden bg-white pb-16 pt-8 md:pb-24 border-b border-gray-100">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10">

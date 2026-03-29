@@ -21,7 +21,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-white pb-16 pt-12 md:pt-24 md:pb-24">
+      <section className="relative w-full overflow-hidden bg-white pb-16 pt-4 md:pt-8 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
           
           {/* Top — Text content */}
