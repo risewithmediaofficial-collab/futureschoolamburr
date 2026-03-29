@@ -13,27 +13,19 @@ import uploadRoutes from './routes/upload.js'
 // Load environment variables
 dotenv.config()
 
-// Connect to database
-connectDB()
-
 const app = express()
 
 // Middleware
-app.use(cors({
-  origin: function(origin, callback) {
-    // Allow all origins (Vercel, localhost, etc.)
-    callback(null, true)
-  },
-  credentials: true
-}))
+app.use(cors({ origin: true, credentials: true }))
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ limit: '10mb', extended: true }))
 
-// Health check
+// Health check (no DB needed)
 app.get('/api/health', (req, res) => {
   res.status(200).json({ 
     message: 'Backend is running',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    env: process.env.NODE_ENV
   })
 })
 
@@ -45,20 +37,33 @@ app.use('/api/upload', uploadRoutes)
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ message: 'Route not found' })
+  res.status(404).json({ message: `Route not found: ${req.method} ${req.url}` })
 })
 
 // Error handling middleware
 app.use(errorHandler)
 
-// Start server only in local dev (not in Vercel serverless)
+// Connect to DB then start server (for local dev only)
+const startServer = async () => {
+  try {
+    await connectDB()
+    const PORT = process.env.PORT || 3000
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`)
+    })
+  } catch (err) {
+    console.error('Failed to connect to DB:', err)
+    process.exit(1)
+  }
+}
+
+// In serverless (Vercel), DB connects per-request via connectDB() inside routes
+// In local dev, we start a persistent server
 if (process.env.NODE_ENV !== 'production') {
-  const PORT = process.env.PORT || 3000
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`)
-    console.log(`Environment: ${process.env.NODE_ENV}`)
-  })
+  startServer()
+} else {
+  // For Vercel: connect DB once when the function cold-starts
+  connectDB().catch(err => console.error('DB connection error:', err))
 }
 
 export default app
-
