@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Phone, Mail, MapPin, ChevronDown, ChevronRight, X, Menu, LogIn, Play, ClipboardList, Clock, Trophy, MoveRight, Users, GraduationCap, Map, Fingerprint, Activity, CarFront, Landmark, Target, CheckCircle2 } from 'lucide-react'
+import { Phone, Mail, MapPin, ChevronDown, ChevronRight, X, Menu, LogIn, Play, ClipboardList, Clock, Trophy, MoveRight, Users, GraduationCap, Map, Fingerprint, Activity, CarFront, Landmark, Target, CheckCircle2, Navigation } from 'lucide-react'
 import imgLogo from '../assets/logo.png'
 
 /* ── nav link data ── */
@@ -57,13 +57,17 @@ export default function Header() {
   const [topBarVisible, setTopBarVisible] = useState(true)
   const [openDropdown, setOpenDropdown] = useState(null)
   const dropdownRef = useRef(null)
+  const mobileNavRef = useRef(null)
   const lastY = useRef(0)
   const location = useLocation()
 
   /* Close dropdown on click outside */
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      const isOutsideDesktop = dropdownRef.current && !dropdownRef.current.contains(e.target)
+      const isOutsideMobile = mobileNavRef.current && !mobileNavRef.current.contains(e.target)
+      
+      if (isOutsideDesktop && isOutsideMobile) {
         setOpenDropdown(null)
       }
     }
@@ -262,6 +266,7 @@ export default function Header() {
 
       {/* Drawer panel */}
       <div
+        ref={mobileNavRef}
         className={`fixed top-0 right-0 z-50 h-[100dvh] w-full max-w-[340px] bg-white shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] lg:hidden flex flex-col ${
           drawerOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
