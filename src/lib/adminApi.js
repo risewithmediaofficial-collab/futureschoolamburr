@@ -1,6 +1,6 @@
 const TOKEN_KEY = 'future_school_admin_token'
 const ADMIN_KEY = 'future_school_admin_profile'
-const BASE_URL = import.meta.env.VITE_API_URL || ''
+const BASE_URL = ''
 
 function getHeaders(isJson = true) {
   const token = localStorage.getItem(TOKEN_KEY)

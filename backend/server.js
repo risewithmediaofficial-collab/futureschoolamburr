@@ -1,7 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
-import mongoose from 'mongoose'
 import connectDB from './config/db.js'
 import { errorHandler } from './middleware/auth.js'
 
@@ -22,25 +21,13 @@ const app = express()
 // Middleware
 app.use(cors({
   origin: function(origin, callback) {
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://localhost:3001',
-      process.env.FRONTEND_URL,
-    ].filter(Boolean)
-    // Allow requests with no origin (like mobile apps or curl) or known origins
-    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
-      callback(null, true)
-    } else {
-      callback(null, true) // Allow all for now; restrict later in production
-    }
+    // Allow all origins (Vercel, localhost, etc.)
+    callback(null, true)
   },
   credentials: true
 }))
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ limit: '10mb', extended: true }))
-
-// Serve uploaded files as static
-app.use('/uploads', express.static('uploads'))
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -64,9 +51,14 @@ app.use((req, res) => {
 // Error handling middleware
 app.use(errorHandler)
 
-// Start server
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`)
-  console.log(`Environment: ${process.env.NODE_ENV}`)
-})
+// Start server only in local dev (not in Vercel serverless)
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 3000
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`)
+    console.log(`Environment: ${process.env.NODE_ENV}`)
+  })
+}
+
+export default app
+
