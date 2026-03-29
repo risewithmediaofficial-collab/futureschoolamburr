@@ -1,8 +1,12 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import authRoutes from './routes/auth.js'
+import publicRoutes from './routes/public.js'
+import adminRoutes from './routes/admin.js'
+import uploadRoutes from './routes/upload.js'
 
-// Load environment variables first
+// Load environment variables
 dotenv.config()
 
 const app = express()
@@ -12,53 +16,39 @@ app.use(cors({ origin: true, credentials: true }))
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ limit: '10mb', extended: true }))
 
-// ── Health check (no DB required) ─────────────────────────────────────────────
+// Health check — no DB required, great for debugging
 app.get('/api/health', (req, res) => {
   res.status(200).json({
-    message: 'Backend is running',
+    message: 'Backend is running ✅',
     timestamp: new Date().toISOString(),
-    env: process.env.NODE_ENV,
+    env: process.env.NODE_ENV || 'unknown',
     dbUri: process.env.MONGODB_URI ? 'SET ✅' : 'NOT SET ❌'
   })
 })
 
-// ── Lazy DB connection + routes ───────────────────────────────────────────────
+// ── Lazy DB connection ─────────────────────────────────────────────────────────
 let dbReady = false
+let dbError = null
 
-async function ensureDB() {
-  if (dbReady) return
-  const { default: connectDB } = await import('./config/db.js')
-  await connectDB()
-  dbReady = true
+async function ensureDB(req, res, next) {
+  if (dbReady) return next()
+  if (dbError) return res.status(500).json({ message: 'Database unavailable', error: dbError })
+  try {
+    const { default: connectDB } = await import('./config/db.js')
+    await connectDB()
+    dbReady = true
+    next()
+  } catch (e) {
+    dbError = e.message
+    res.status(500).json({ message: 'Database connection failed', error: e.message })
+  }
 }
 
-// DB middleware — connects lazily on first real API call
-app.use('/api/auth', async (req, res, next) => {
-  try { await ensureDB(); next() } catch (e) {
-    res.status(500).json({ message: 'Database connection failed', error: e.message })
-  }
-})
-app.use('/api/public', async (req, res, next) => {
-  try { await ensureDB(); next() } catch (e) {
-    res.status(500).json({ message: 'Database connection failed', error: e.message })
-  }
-})
-app.use('/api/admin', async (req, res, next) => {
-  try { await ensureDB(); next() } catch (e) {
-    res.status(500).json({ message: 'Database connection failed', error: e.message })
-  }
-})
-app.use('/api/upload', async (req, res, next) => {
-  try { await ensureDB(); next() } catch (e) {
-    res.status(500).json({ message: 'Database connection failed', error: e.message })
-  }
-})
-
-// Now register the actual route handlers
-import('./routes/auth.js').then(m => app.use('/api/auth', m.default))
-import('./routes/public.js').then(m => app.use('/api/public', m.default))
-import('./routes/admin.js').then(m => app.use('/api/admin', m.default))
-import('./routes/upload.js').then(m => app.use('/api/upload', m.default))
+// Routes (with lazy DB connection guard)
+app.use('/api/auth', ensureDB, authRoutes)
+app.use('/api/public', ensureDB, publicRoutes)
+app.use('/api/admin', ensureDB, adminRoutes)
+app.use('/api/upload', ensureDB, uploadRoutes)
 
 // 404 handler
 app.use((req, res) => {
@@ -71,10 +61,10 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ message: err.message || 'Internal server error' })
 })
 
-// Local dev server
+// Local dev only — start a persistent server
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3000
-  app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`))
+  app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`))
 }
 
 export default app
