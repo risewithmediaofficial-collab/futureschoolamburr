@@ -241,15 +241,15 @@ export default function WhyChooseUs() {
       </section>
 
       {/* ══ CTA ══ */}
-      <section className="text-center pt-10">
+      <section className="text-center pt-10 pb-10">
          <Reveal>
-            <div className="max-w-4xl mx-auto bg-[#c0392b] rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden shadow-2xl shadow-red-900/30">
-               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+            <div className="max-w-2xl mx-auto bg-[#c0392b] rounded-3xl p-8 md:p-10 text-white relative overflow-hidden shadow-2xl shadow-red-900/30">
+               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
                <div className="relative z-10 flex flex-col items-center">
-                  <h2 className="serif text-4xl md:text-6xl mb-6">Ready to Start?</h2>
-                  <p className="text-red-100 font-medium mb-12 max-w-sm mx-auto text-base">Join a community dedicated to academic greatness and personal growth.</p>
-                  <Link to="/apply" className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[#c0392b] font-bold text-[0.7rem] uppercase tracking-widest rounded-xl hover:bg-red-50 transition-all hover:scale-105 active:scale-95">
-                     Secure Your Seat <ArrowRight className="w-5 h-5" />
+                  <h2 className="serif text-2xl md:text-4xl mb-3">Ready to Start?</h2>
+                  <p className="text-red-100 font-medium mb-8 max-w-sm mx-auto text-sm">Join a community dedicated to academic greatness and personal growth.</p>
+                  <Link to="/apply" className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-[#c0392b] font-bold text-[0.65rem] uppercase tracking-widest rounded-xl hover:bg-red-50 transition-all hover:scale-105 active:scale-95">
+                     Secure Your Seat <ArrowRight className="w-4 h-4" />
                   </Link>
                </div>
             </div>
