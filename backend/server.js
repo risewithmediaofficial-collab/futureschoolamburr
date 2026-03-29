@@ -1,13 +1,16 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
 import authRoutes from './routes/auth.js'
 import publicRoutes from './routes/public.js'
 import adminRoutes from './routes/admin.js'
 import uploadRoutes from './routes/upload.js'
 
-// Load environment variables
-dotenv.config()
+// Load environment variables — explicit path works in both local and Vercel
+const __dirname = dirname(fileURLToPath(import.meta.url))
+dotenv.config({ path: join(__dirname, '.env') })
 
 const app = express()
 
