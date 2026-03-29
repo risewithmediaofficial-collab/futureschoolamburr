@@ -130,9 +130,9 @@ function FeaturedCard({ item }) {
   const style = categoryStyle[item.category] || categoryStyle.Notice
   return (
     <Reveal direction="left">
-      <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-[0_12px_40px_rgba(185,28,28,0.08)] transition-all duration-300 h-full flex flex-col">
+      <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-sm transition-all duration-300 h-full flex flex-col">
         {/* Top image area */}
-        <div className="relative h-52 bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center overflow-hidden">
+        <div className="relative h-52 bg-white border border-gray-100 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(185,28,28,0.06) 1px, transparent 1px)', backgroundSize: '18px 18px' }} />
           <span className="text-8xl opacity-25 select-none group-hover:scale-105 transition-transform duration-300">{item.emoji}</span>
           {/* Featured badge */}
@@ -172,7 +172,7 @@ function NewsCard({ item, delay }) {
   const style = categoryStyle[item.category] || categoryStyle.Notice
   return (
     <Reveal delay={delay} direction="up">
-      <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-[0_6px_25px_rgba(185,28,28,0.06)] transition-all duration-300 flex flex-col">
+      <div className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-sm transition-all duration-300 flex flex-col">
         {/* Left red border accent */}
         <div className="flex flex-1">
           <div className="w-1 bg-gradient-to-b from-red-600 to-transparent flex-shrink-0 rounded-l-2xl" />
@@ -316,7 +316,7 @@ export default function News() {
                     onClick={() => { setActiveFilter(cat); setVisibleCount(6) }}
                     className={`px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
                       activeFilter === cat
-                        ? 'bg-red-600 text-white border-red-600 shadow-[0_4px_16px_rgba(185,28,28,0.3)]'
+                        ? 'bg-red-600 text-white border-red-600 shadow-sm'
                         : 'bg-white text-gray-500 border-gray-200 hover:border-red-300 hover:text-red-600 hover:bg-red-50'
                     }`}
                   >

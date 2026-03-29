@@ -14,7 +14,7 @@ import InstagramBand from '../components/sections/InstagramBand'
 
 const Home = () => {
   return (
-    <main style={{ fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif", background: '#fafaf8' }} className="overflow-x-hidden">
+    <main className="overflow-x-hidden bg-[#fafaf8]">
       <Hero />
       <Welcome />
       <ProgrammesBand />

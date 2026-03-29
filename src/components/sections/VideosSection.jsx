@@ -46,20 +46,25 @@ export default function VideosSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div>
             <Reveal>
-              <p className="text-xs tracking-[0.25em] uppercase font-semibold mb-4" style={{ color: '#c0392b' }}>Watch & Learn</p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50/50 text-[#c0392b] text-[0.65rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-6 font-sans">
+                 Watch & Learn
+              </div>
             </Reveal>
-            <Reveal delay={80}>
-              <h2 className="serif text-4xl md:text-5xl font-normal text-gray-900">School Videos</h2>
+            <Reveal delay={100}>
+              <h2 className="serif text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight">
+                School <span className="text-[#c0392b]">Videos</span>
+              </h2>
             </Reveal>
           </div>
           <Reveal delay={200}>
             <Link to="/gallery"
-              className="text-xs font-bold tracking-wider uppercase flex items-center gap-2 transition-opacity hover:opacity-50"
-              style={{ color: 'rgba(0,0,0,0.28)' }}>
-              View All
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              className="text-[0.65rem] font-black tracking-widest uppercase flex items-center gap-3 transition-all hover:text-[#c0392b] group text-gray-400">
+              View All Gallery
+              <div className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-[#c0392b] group-hover:text-white group-hover:border-[#c0392b] transition-all">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
             </Link>
           </Reveal>
         </div>

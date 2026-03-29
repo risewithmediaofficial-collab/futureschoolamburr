@@ -48,12 +48,27 @@ const upcoming = [
 export default function EventsGrid() {
   return (
     <section className="py-24 bg-white overflow-hidden border-t border-gray-50">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16">
+        <div className="text-center">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-red-50/50 text-[#c0392b] text-[0.65rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-6 font-sans">
+              Stay Updated
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="serif text-4xl md:text-5xl lg:text-5xl text-gray-900 leading-tight">
+              Latest News & <span className="text-[#c0392b]">Events</span>
+            </h2>
+          </Reveal>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-16">
         
         {/* News Column */}
         <div className="flex flex-col gap-10">
           <Reveal>
-            <h2 className="serif text-3xl font-normal pb-4 border-b border-gray-100" style={{ color: '#c0392b' }}>Latest News & Events</h2>
+            <h3 className="serif text-2xl pb-4 border-b border-gray-100 text-gray-900">Recent Highlights</h3>
           </Reveal>
           <div className="flex flex-col gap-6">
             {news.map((item, i) => (
@@ -78,7 +93,7 @@ export default function EventsGrid() {
         {/* Upcoming Events Column */}
         <div className="flex flex-col gap-10">
           <Reveal>
-            <h2 className="serif text-3xl font-normal pb-4 border-b border-gray-100" style={{ color: '#c0392b' }}>Upcoming Events</h2>
+            <h3 className="serif text-2xl pb-4 border-b border-gray-100 text-gray-900">Upcoming Occasions</h3>
           </Reveal>
           <div className="flex flex-col gap-6">
             {upcoming.map((item, i) => (

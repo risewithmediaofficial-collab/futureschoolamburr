@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { Reveal } from '../utils/reveal'
+import { ClipboardList, Clock, Activity, CarFront, ShieldCheck, Mail, ArrowRight, BookOpen } from 'lucide-react'
 
 const ageRequirements = [
   { grade: 'KG 2', age: '3 Years 6 Months' },
@@ -41,25 +43,35 @@ const admissionSteps = [
 
 const Admissions = () => {
   return (
-    <main className="pt-20 overflow-x-hidden" style={{ fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif", background: '#fafaf8' }}>
+    <main className="overflow-x-hidden bg-[#fafaf8]">
       {/* ══ ADMISSION PROCEDURE ══ */}
-      <section className="py-16 md:py-24" style={{ background: '#fafaf8' }}>
+      <section className="pt-32 pb-24 border-b border-gray-100 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="text-xs tracking-[0.25em] uppercase font-semibold mb-3" style={{ color: '#c0392b' }}>Admissions</p>
-            <h1 className="serif text-4xl md:text-5xl font-normal leading-[1.04] relative" style={{ color: '#111' }}>
-              Admission<br />Procedure
-            </h1>
-            <div className="w-8 h-0.5 mt-3" style={{ background: '#c0392b' }} />
-            
-            <p className="text-sm leading-relaxed font-light mt-6" style={{ color: '#777', maxWidth: '65ch' }}>
-              For all grade registration and for the admission to the new academic year commences on 1st Monday of April every year. In all cases, admission procedures laid down by the CBSE, will be followed.
-            </p>
+          <div className="text-center mb-16">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50/50 text-[#c0392b] text-[0.65rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-6 font-sans">
+                 <ClipboardList className="w-3.5 h-3.5" /> Admissions
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h1 className="serif text-4xl md:text-5xl lg:text-7xl text-gray-900 leading-tight">
+                Admission <span className="text-[#c0392b]">Procedure</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={200}>
+              <p className="mt-8 text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+                Our admission process is designed to be transparent and straightforward, ensuring a smooth transition for both students and parents into the Future School community.
+              </p>
+            </Reveal>
           </div>
 
           {/* Age Eligibility */}
           <div className="mb-12">
-            <h2 className="serif text-2xl md:text-3xl font-normal mb-6 relative" style={{ color: '#111' }}>Age Eligibility:</h2>
+            <Reveal>
+              <h2 className="serif text-2xl md:text-3xl text-gray-900 mb-8 flex items-center gap-3">
+                <span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full" /> Age Eligibility
+              </h2>
+            </Reveal>
             <p className="text-sm leading-relaxed font-light mb-6" style={{ color: '#777' }}>
               For admission to K2, the child must be three & half years old by 31st of July. Corresponding age limits will be followed for respective classes. Children have to meet the stipulated age requirement for admission to Future Senior Secondary School as on June 1st of the year. The required age limit for each grade is mentioned in the following table:
             </p>
@@ -150,20 +162,28 @@ const Admissions = () => {
       </section>
 
       {/* ══ TIMINGS / CODE OF CONDUCT ══ */}
-      <section id="timings" className="py-16 md:py-24" style={{ background: '#fff' }}>
+      <section id="timings" className="py-24 bg-gray-50/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-xs tracking-[0.25em] uppercase font-semibold mb-3" style={{ color: '#c0392b' }}>Curriculum</p>
-            <h2 className="serif text-3xl md:text-4xl font-normal leading-[1.08]" style={{ color: '#111' }}>
-              Timings &amp; Code of Conduct
-            </h2>
-            <div className="w-8 h-0.5 mt-3" style={{ background: '#c0392b' }} />
+          <div className="text-center mb-16">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50/50 text-[#c0392b] text-[0.65rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-6 font-sans">
+                 <Clock className="w-3.5 h-3.5" /> School Life
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="serif text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight">
+                Timings & <span className="text-[#c0392b]">Conduct</span>
+              </h2>
+            </Reveal>
           </div>
 
-          <div className="mb-10">
-            <h3 className="text-base font-bold mb-2" style={{ color: '#111' }}>HOW TO MEET THE PRINCIPAL / TEACHER ?</h3>
-            <p className="text-sm leading-relaxed font-light mb-4" style={{ color: '#777' }}>
-              You can call the school office for an appointment to meet the Principal / Teacher in any working days.
+          <div className="mb-12">
+            <h3 className="serif text-xl md:text-2xl text-gray-900 mb-4 flex items-center gap-3">
+              <span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full" />
+              How to Meet the Principal / Teacher?
+            </h3>
+            <p className="text-gray-500 text-sm md:text-base leading-relaxed mb-6 font-medium">
+              You can call the school office for an appointment to meet the Principal / Teacher on any working day.
             </p>
 
             <div className="overflow-x-auto rounded-lg bg-white" style={{ border: '1px solid #e5e5e0' }}>
@@ -197,37 +217,45 @@ const Admissions = () => {
 
           <div className="space-y-10">
             <div id="code-of-conduct">
-              <h3 className="text-base font-bold mb-3" style={{ color: '#111' }}>GENERAL DISCIPLINE</h3>
-              <p className="text-sm leading-relaxed font-light mb-3" style={{ color: '#777' }}>
-                We expect our students to maintain the high standards of personal conduct. This:
+              <h3 className="serif text-xl md:text-2xl text-gray-900 mb-4 flex items-center gap-3">
+                <span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full" />
+                General Discipline
+              </h3>
+              <p className="text-gray-500 text-sm md:text-base leading-relaxed mb-6 font-medium">
+                We expect our students to maintain high standards of personal conduct. This:
               </p>
-              <ul className="space-y-2" style={{ color: '#777' }}>
+              <ul className="grid gap-4 bg-white p-6 md:p-8 border border-gray-100 rounded-3xl text-gray-500">
                 {[
-                  'includes honesty, discipline, integrity, punctuality, ethics and other values.',
-                  'students are accountable to the school authorities for their conduct in the school premises, in the school transport, at any events / activities inside & outside the school and their general behaviour outside.',
-                  'Any objectionable conduct on the part of the student will lead to commensurate consequences at the discretion of the Principal, whose decision on such matters is final.',
+                  'Includes honesty, discipline, integrity, punctuality, ethics and other values.',
+                  'Students are accountable to school authorities for their conduct in school premises, transport, and general behavior outside.',
+                  'Any objectionable conduct will lead to consequences at the discretion of the Principal, whose decision is final.',
                 ].map((item, idx) => (
-                  <li key={idx} className="text-sm leading-relaxed font-light">
-                    <span className="font-semibold" style={{ color: '#c0392b' }}>•</span> {item}
+                  <li key={idx} className="text-sm leading-relaxed font-medium flex gap-3">
+                    <span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full mt-1.5 shrink-0" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h3 className="text-base font-bold mb-3" style={{ color: '#111' }}>UNIFORM</h3>
-              <ul className="space-y-2 mb-6" style={{ color: '#777' }}>
+              <h3 className="serif text-xl md:text-2xl text-gray-900 mb-4 flex items-center gap-3">
+                <span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full" />
+                Uniform Policy
+              </h3>
+              <ul className="grid gap-4 bg-white p-6 md:p-8 border border-gray-100 rounded-3xl text-gray-500">
                 {[
                   'Students should neatly dress in full School Uniform stitched in the prescribed pattern.',
-                  'Students should wear Sports Uniform on every Wednesdays and Saturdays.',
+                  'Students should wear Sports Uniform on every Wednesday and Saturday.',
                   'Students should wear black shoes and blue socks from Monday to Friday.',
                   'Boys should wear vests and girls should wear slips and cycling shorts.',
                   'Colour clothes, fancy or expensive footwear are strictly not allowed.',
                   'Girls from Grade 1 to Grade 5 must wear short leggings.',
-                  'Fancy or expensive watches, colourful jorkins or different colour contact lenses, fancy bags and trolley bags are not permitted.',
+                  'Fancy watches, jorkins, contact lenses, and trolley bags are not permitted.',
                 ].map((item, idx) => (
-                  <li key={idx} className="text-sm leading-relaxed font-light">
-                    <span className="font-semibold" style={{ color: '#c0392b' }}>•</span> {item}
+                  <li key={idx} className="text-sm leading-relaxed font-medium flex gap-3">
+                    <span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full mt-1.5 shrink-0" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -320,14 +348,19 @@ const Admissions = () => {
       </section>
 
       {/* ══ ACTIVITIES ══ */}
-      <section id="activities" className="py-16 md:py-24" style={{ background: '#fafaf8' }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-xs tracking-[0.25em] uppercase font-semibold mb-3" style={{ color: '#c0392b' }}>Curriculum</p>
-            <h2 className="serif text-3xl md:text-4xl font-normal leading-[1.08]" style={{ color: '#111' }}>
-              Activities
-            </h2>
-            <div className="w-8 h-0.5 mt-3" style={{ background: '#c0392b' }} />
+      <section id="activities" className="py-24 bg-white border-y border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50/50 text-[#c0392b] text-[0.65rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-6 font-sans">
+                 <Activity className="w-3.5 h-3.5" /> Growth
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="serif text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight">
+                Holistic <span className="text-[#c0392b]">Activities</span>
+              </h2>
+            </Reveal>
           </div>
 
           <div className="space-y-10">
@@ -421,14 +454,19 @@ const Admissions = () => {
       </section>
 
       {/* ══ TRANSPORTATION ══ */}
-      <section id="transportation" className="py-16 md:py-24" style={{ background: '#fff' }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-xs tracking-[0.25em] uppercase font-semibold mb-3" style={{ color: '#c0392b' }}>Curriculum</p>
-            <h2 className="serif text-3xl md:text-4xl font-normal leading-[1.08]" style={{ color: '#111' }}>
-              Transportation
-            </h2>
-            <div className="w-8 h-0.5 mt-3" style={{ background: '#c0392b' }} />
+      <section id="transportation" className="py-24 bg-gray-50/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <Reveal>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50/50 text-[#c0392b] text-[0.65rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-6 font-sans">
+                 <CarFront className="w-3.5 h-3.5" /> Logistics
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="serif text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight">
+                Campus <span className="text-[#c0392b]">Transportation</span>
+              </h2>
+            </Reveal>
           </div>
 
           <div className="space-y-4 text-sm leading-relaxed font-light" style={{ color: '#777' }}>

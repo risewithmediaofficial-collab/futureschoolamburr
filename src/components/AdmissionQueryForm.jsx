@@ -199,7 +199,7 @@ const AdmissionQueryForm = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
-              className="w-full py-4 bg-gradient-to-r from-red-600 to-red-400 text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2"
+              className="w-full py-4 bg-white border border-gray-100 text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2"
             >
               <Send size={20} />
               Submit Inquiry

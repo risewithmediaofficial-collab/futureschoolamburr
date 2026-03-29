@@ -211,7 +211,7 @@ function FacultyCard({ member, delay }) {
 
           {/* ── BACK ── */}
           <div
-            className="absolute inset-0 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl p-6 flex flex-col justify-between"
+            className="absolute inset-0 bg-white border border-gray-100 rounded-2xl p-6 flex flex-col justify-between"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
           >
             {/* Dot pattern */}
@@ -286,7 +286,7 @@ export default function Faculty() {
               <div className="flex flex-wrap gap-4 pt-1">
                 {[['200+', 'Faculty Members'], ['15 yrs', 'Avg. Experience'], ['8', 'Departments']].map(([n, l]) => (
                   <div key={l} className="flex items-center gap-2.5">
-                    <div className="w-0.5 h-8 bg-gradient-to-b from-red-600 to-red-200 rounded-full" />
+                    <div className="w-0.5 h-8 bg-white border border-gray-100 rounded-full" />
                     <div>
                       <p className="text-lg font-black text-gray-900 leading-none" style={{ fontFamily: "'Georgia', serif" }}>{n}</p>
                       <p className="text-[0.62rem] tracking-widest uppercase text-gray-400 font-semibold">{l}</p>
@@ -299,7 +299,7 @@ export default function Faculty() {
 
           {/* Right info card */}
           <Reveal direction="right" delay={200}>
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-[0_8px_50px_rgba(0,0,0,0.07)] p-8 relative overflow-hidden">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-red-400 to-transparent rounded-t-2xl" />
               <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-5">Faculty Highlights</p>
               <ul className="space-y-4">
@@ -361,7 +361,7 @@ export default function Faculty() {
                   onClick={() => setActiveFilter(d)}
                   className={`px-4 py-2 rounded-full text-xs font-bold border transition-all duration-200 ${
                     activeFilter === d
-                      ? 'bg-red-600 text-white border-red-600 shadow-[0_4px_16px_rgba(185,28,28,0.3)]'
+                      ? 'bg-red-600 text-white border-red-600 shadow-sm'
                       : 'bg-white text-gray-500 border-gray-200 hover:border-red-300 hover:text-red-600 hover:bg-red-50'
                   }`}
                 >
@@ -391,7 +391,7 @@ export default function Faculty() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal direction="none">
-            <div className="rounded-2xl bg-gradient-to-br from-red-50 to-red-100 border border-red-100 p-8 md:p-12 relative overflow-hidden">
+            <div className="rounded-2xl bg-white border border-gray-100 border border-red-100 p-8 md:p-12 relative overflow-hidden">
               <div className="absolute inset-0 pointer-events-none"
                 style={{ backgroundImage: 'radial-gradient(circle, rgba(185,28,28,0.06) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
               <div className="relative grid md:grid-cols-2 gap-8 items-center">
@@ -405,7 +405,7 @@ export default function Faculty() {
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
-                  <button className="flex items-center justify-center gap-2 px-7 py-3 bg-transparent text-red-700 text-sm font-bold rounded-lg border-2 border-red-700 hover:bg-red-50 hover:shadow-[0_8px_25px_rgba(185,28,28,0.15)] transition-all duration-200">
+                  <button className="flex items-center justify-center gap-2 px-7 py-3 bg-transparent text-red-700 text-sm font-bold rounded-lg border-2 border-red-700 hover:bg-red-50 hover:shadow-sm transition-all duration-200">
                     View Open Positions
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                       <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />

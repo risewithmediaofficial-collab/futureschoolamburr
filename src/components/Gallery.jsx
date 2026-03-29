@@ -1,19 +1,20 @@
-import { useEffect, useRef, useState } from 'react'
-import { useReveal } from '../utils/reveal'
-
-function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
-  const [ref, visible] = useReveal(0.1)
-  const transforms = { up: 'translateY(36px)', left: 'translateX(-40px)', right: 'translateX(40px)', none: 'none' }
-  return (
-    <div ref={ref} className={className} style={{
-      opacity: visible ? 1 : 0,
-      transform: visible ? 'none' : transforms[direction],
-      transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
-    }}>
-      {children}
-    </div>
-  )
-}
+import { useEffect, useState } from 'react'
+import { Reveal } from '../utils/reveal'
+import { 
+  Image as ImageIcon, 
+  Camera, 
+  Play, 
+  Maximize2, 
+  X, 
+  ChevronLeft, 
+  ChevronRight, 
+  Search, 
+  Filter,
+  Zap,
+  Star,
+  Clapperboard,
+  Monitor
+} from 'lucide-react'
 
 /* ─── Gallery data ─── */
 const categories = ['All', 'Campus', 'Facilities', 'Sports', 'Events', 'Achievements']
@@ -33,54 +34,19 @@ import imgEvent3 from '../assets/pic-assets/IMG_4400-1024x683.jpg'
 import imgAchieve from '../assets/pic-assets/Purple-and-Gold-Simple-Congratulations-Poster-1.png'
 
 const images = [
-  { id: 1,  title: 'Main Campus Building',     category: 'Campus',       src: imgCampus1, span: 'col-span-2 row-span-2' },
+  { id: 1,  title: 'Main Campus Building',     category: 'Campus',       src: imgCampus1, span: 'lg:col-span-2 lg:row-span-2' },
   { id: 2,  title: 'Modern Science Lab',       category: 'Facilities',   src: imgLab,     span: '' },
   { id: 3,  title: 'Computer Education',       category: 'Facilities',   src: imgComp,    span: '' },
   { id: 4,  title: 'School Library',           category: 'Facilities',   src: imgLib,     span: '' },
-  { id: 5,  title: 'Sports Activities',        category: 'Sports',       src: imgSports1, span: 'col-span-2' },
+  { id: 5,  title: 'Sports Activities',        category: 'Sports',       src: imgSports1, span: 'lg:col-span-2' },
   { id: 6,  title: 'Christmas Celebration',    category: 'Events',       src: imgEvent1,  span: '' },
   { id: 7,  title: 'Playground Area',          category: 'Campus',       src: imgPlay,    span: '' },
   { id: 8,  title: 'Children\'s Day Events',   category: 'Events',       src: imgEvent2,  span: '' },
   { id: 9,  title: 'Auditorium Hall',          category: 'Facilities',   src: imgAud,     span: '' },
-  { id: 10, title: 'Board Exam Toppers',       category: 'Achievements', src: imgAchieve, span: 'col-span-2' },
+  { id: 10, title: 'Board Exam Toppers',       category: 'Achievements', src: imgAchieve, span: 'lg:col-span-2' },
   { id: 11, title: 'Primary Wing',             category: 'Campus',       src: imgCampus3, span: '' },
   { id: 12, title: 'Cultural Fest Highlights', category: 'Events',       src: imgEvent3,  span: '' },
 ]
-
-function GalleryCard({ image, delay, onClick }) {
-  const [ref, visible] = useReveal(0.08)
-  return (
-    <div
-      ref={ref}
-      onClick={() => onClick(image)}
-      className={`${image.span} relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-500`}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'none' : 'translateY(30px) scale(0.97)',
-        transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms`,
-        minHeight: image.span.includes('row-span-2') ? '360px' : '200px',
-      }}
-    >
-      <img src={image.src} alt={image.title} className="absolute inset-0 w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-400" />
-      
-      {/* Category tag */}
-      <div className="absolute top-3 left-3 z-10">
-        <span className="px-2.5 py-1 rounded-full bg-white/90 text-red-700 text-[0.6rem] font-black tracking-widest uppercase shadow-sm">
-          {image.category}
-        </span>
-      </div>
-
-      {/* Info Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 p-5 z-10 bg-gradient-to-t from-black/80 via-black/20 to-transparent translate-y-1 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-        <p className="text-white font-bold text-sm tracking-tight">{image.title}</p>
-        <div className="w-8 h-0.5 bg-red-500 mt-2 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-      </div>
-
-      <div className="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/30 transition-all duration-200 pointer-events-none" />
-    </div>
-  )
-}
 
 /* ─── Lightbox ─── */
 function Lightbox({ image, onClose, onPrev, onNext }) {
@@ -95,54 +61,30 @@ function Lightbox({ image, onClose, onPrev, onNext }) {
   }, [onClose, onNext, onPrev])
 
   return (
-    <div
-      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <div
-        className="relative w-full max-w-2xl bg-white rounded-2xl overflow-hidden shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Image area */}
-        <div className="relative h-96 md:h-[450px] bg-black flex items-center justify-center">
-          <img src={image.src} alt={image.title} className="w-full h-full object-contain" />
+    <div className="fixed inset-0 z-[100] bg-gray-950/95 backdrop-blur-md flex items-center justify-center p-4">
+      <button onClick={onClose} className="absolute top-6 right-6 p-3 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-all z-20">
+        <X className="w-6 h-6" />
+      </button>
 
-          {/* Nav arrows */}
-          <button onClick={onPrev} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center hover:bg-red-600 transition-all duration-300">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path d="M15 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <button onClick={onNext} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md text-white flex items-center justify-center hover:bg-red-600 transition-all duration-300">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+      <button onClick={(e) => { e.stopPropagation(); onPrev(); }} className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 text-white rounded-full hover:bg-white/20 hover:scale-110 transition-all">
+        <ChevronLeft className="w-8 h-8" />
+      </button>
+
+      <button onClick={(e) => { e.stopPropagation(); onNext(); }} className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 text-white rounded-full hover:bg-white/20 hover:scale-110 transition-all">
+        <ChevronRight className="w-8 h-8" />
+      </button>
+
+      <div className="relative w-full max-w-5xl aspect-[16/10] md:aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <img src={image.src} alt={image.title} className="w-full h-full object-cover" />
+        <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+           <p className="text-[0.7rem] font-black uppercase text-red-500 tracking-[0.2em] mb-2">{image.category}</p>
+           <h3 className="text-2xl md:text-3xl font-black text-white">{image.title}</h3>
         </div>
-
-        {/* Info */}
-        <div className="p-5 flex items-center justify-between">
-          <div>
-            <p className="font-bold text-gray-900">{image.title}</p>
-            <span className="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-red-50 text-red-600 text-xs font-semibold">{image.category}</span>
-          </div>
-          <button onClick={onClose} className="w-9 h-9 rounded-full bg-gray-100 hover:bg-red-50 hover:text-red-600 flex items-center justify-center transition-colors">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path d="M6 18L18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
-
-        {/* keyboard hint */}
-        <p className="text-center text-[0.65rem] text-gray-300 pb-3 tracking-wide">← → arrow keys to navigate · Esc to close</p>
       </div>
     </div>
   )
 }
 
-/* ══════════════════════════════════════════
-   GALLERY PAGE
-══════════════════════════════════════════ */
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [lightbox, setLightbox] = useState(null)
@@ -151,9 +93,6 @@ export default function Gallery() {
     ? images
     : images.filter((img) => img.category === activeFilter)
 
-  const openLightbox = (image) => setLightbox(image)
-  const closeLightbox = () => setLightbox(null)
-
   const navigate = (dir) => {
     const idx = filtered.findIndex((i) => i.id === lightbox.id)
     const next = (idx + dir + filtered.length) % filtered.length
@@ -161,163 +100,151 @@ export default function Gallery() {
   }
 
   return (
-    <main className="bg-white overflow-x-hidden">
+    <main className="bg-gray-50 flex flex-col gap-16 md:gap-24 overflow-hidden pb-20 pt-20">
 
-      {/* ══ PAGE HEADER ══ */}
-      <section className="relative bg-white py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: 'radial-gradient(circle, rgba(185,28,28,0.05) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-50/60 to-transparent pointer-events-none" />
-        <div className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-red-100/50 blur-[90px] pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ══ HEADER ══ */}
+      <section className="bg-white border-b border-gray-100 py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <Reveal>
-            <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-4">Visual Tour</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="text-4xl md:text-6xl font-light text-gray-900 leading-tight mb-5" style={{ fontFamily: "'Georgia', serif" }}>
-              Our <em className="text-red-600 not-italic">Gallery</em>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50/50 border border-red-50 text-[#c0392b] text-[0.6rem] font-black tracking-widest uppercase mb-6 font-sans">
+              <Camera className="w-3.5 h-3.5" /> Moments of Excellence
+            </div>
+            <h1 className="serif text-4xl md:text-5xl lg:text-7xl text-gray-900 leading-tight">
+              Our <span className="text-[#c0392b]">Visual Journey</span>
             </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <div className="w-12 h-0.5 bg-gradient-to-r from-red-600 to-transparent mx-auto mb-5" />
-          </Reveal>
-          <Reveal delay={300}>
-            <p className="text-base md:text-lg text-gray-500 max-w-xl mx-auto leading-relaxed font-light">
-              A glimpse into life at Future School — our campus, classrooms, sports, events, and proud moments.
+            <p className="mt-6 text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              A glimpse into life at Future School — explore our world-class infrastructure, high-tech labs, and vibrant campus life.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* ══ STATS BAND ══ */}
-      <section className="bg-red-600">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-red-500">
-            {[['12+', 'Facilities'], ['50+', 'Annual Events'], ['10 Acres', 'Campus Area'], ['Since 1998', 'Our Legacy']].map(([n, l]) => (
-              <div key={l} className="flex flex-col items-center py-5 px-4">
-                <span className="text-xl md:text-2xl font-bold text-white" style={{ fontFamily: "'Georgia', serif" }}>{n}</span>
-                <span className="text-red-200 text-[0.62rem] tracking-wider uppercase font-medium text-center mt-1">{l}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* ══ STATS ══ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <Reveal>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+               {[
+                 { icon: <Monitor className="w-4 h-4" />, label: 'Modern Labs', n: '12+' },
+                 { icon: <Star className="w-4 h-4" />, label: 'Annual Events', n: '50+' },
+                 { icon: <Zap className="w-4 h-4" />, label: 'Acres Campus', n: '10+' },
+                 { icon: <ImageIcon className="w-4 h-4" />, label: 'Photos Logged', n: '500+' },
+               ].map(s => (
+                 <div key={s.label} className="bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
+                    <p className="serif text-2xl text-gray-900 mb-2">{s.n}</p>
+                    <p className="text-[0.55rem] font-black uppercase text-[#c0392b] tracking-widest">{s.label}</p>
+                 </div>
+               ))}
+            </div>
+         </Reveal>
       </section>
 
-      {/* ══ FILTER + GRID ══ */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Filter tabs */}
-          <Reveal>
-            <div className="flex flex-wrap justify-center gap-2 mb-12">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveFilter(cat)}
-                  className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
-                    activeFilter === cat
-                      ? 'bg-red-600 text-white border-red-600 shadow-[0_4px_16px_rgba(185,28,28,0.3)]'
-                      : 'bg-white text-gray-500 border-gray-200 hover:border-red-300 hover:text-red-600 hover:bg-red-50'
-                  }`}
-                >
-                  {cat}
-                  {activeFilter === cat && (
-                    <span className="ml-2 text-xs bg-white/20 px-1.5 py-0.5 rounded-full">
-                      {cat === 'All' ? images.length : images.filter(i => i.category === cat).length}
-                    </span>
-                  )}
-                </button>
-              ))}
-            </div>
-          </Reveal>
-
-          {/* Masonry-style grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
-            {filtered.map((image, i) => (
-              <GalleryCard
-                key={image.id}
-                image={image}
-                delay={i * 60}
-                onClick={openLightbox}
-              />
-            ))}
-          </div>
-
-          {/* Empty state */}
-          {filtered.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-4xl mb-3">📷</p>
-              <p className="text-gray-400 text-sm">No images in this category yet.</p>
-            </div>
-          )}
-
-          {/* View more */}
-          <Reveal delay={200}>
-            <div className="text-center mt-12">
-              <button className="flex items-center gap-2 px-8 py-3 bg-transparent text-red-700 text-sm font-bold rounded-lg border-2 border-red-700 hover:bg-red-50 hover:shadow-[0_8px_25px_rgba(185,28,28,0.15)] transition-all duration-200 mx-auto">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                Load More Photos
-              </button>
-            </div>
-          </Reveal>
+      {/* ══ GALLERY GRID ══ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Filters */}
+        <div className="flex flex-wrap justify-center items-center gap-2 mb-16">
+           <Filter className="w-4 h-4 text-gray-400 mr-2 hidden sm:block" />
+           {categories.map((cat) => (
+             <button
+               key={cat}
+               onClick={() => setActiveFilter(cat)}
+               className={`
+                 px-6 py-2.5 rounded-xl text-[0.65rem] font-bold uppercase tracking-widest transition-all
+                 ${activeFilter === cat 
+                   ? 'bg-[#c0392b] text-white shadow-lg shadow-red-900/10 px-8' 
+                   : 'bg-white border border-gray-100 text-gray-400 hover:border-[#c0392b] hover:text-[#c0392b]'}
+               `}
+             >
+               {cat}
+             </button>
+           ))}
         </div>
+
+        {/* Masonry-Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[220px] gap-6">
+          {filtered.map((img, i) => (
+            <Reveal key={img.id} delay={i * 50} className={img.span}>
+               <div 
+                 onClick={() => setLightbox(img)}
+                 className="group relative w-full h-full rounded-[2rem] overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl hover:shadow-[#c0392b]/5 transition-all duration-500 bg-gray-200"
+               >
+                  <img src={img.src} alt={img.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                     <p className="text-[0.6rem] font-black uppercase text-[#c0392b] tracking-[0.2em] mb-1">{img.category}</p>
+                     <p className="serif text-white text-lg leading-tight">{img.title}</p>
+                     <div className="mt-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all delay-100">
+                        <Maximize2 className="w-4 h-4 text-white" />
+                     </div>
+                  </div>
+                  <div className="absolute top-6 right-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[0.6rem] font-black uppercase text-gray-900 tracking-widest shadow-sm">
+                     {img.category}
+                  </div>
+               </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {filtered.length === 0 && (
+          <div className="py-32 text-center">
+             <ImageIcon className="w-12 h-12 text-gray-200 mx-auto mb-4" />
+             <p className="text-gray-400 font-black uppercase tracking-widest text-xs">No media found in this category.</p>
+          </div>
+        )}
       </section>
 
       {/* ══ VIDEO SECTION ══ */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Reveal><p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">Watch</p></Reveal>
-            <Reveal delay={100}>
-              <h2 className="text-3xl md:text-4xl font-light text-gray-900" style={{ fontFamily: "'Georgia', serif" }}>
-                School <em className="text-red-600 not-italic">Highlights</em>
-              </h2>
-            </Reveal>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { title: 'Annual Day 2024', dur: '4:32', emoji: '🎭' },
-              { title: 'Sports Meet 2024', dur: '6:15', emoji: '🏆' },
-              { title: 'Campus Tour', dur: '3:48', emoji: '🏫' },
-            ].map(({ title, dur, emoji }, i) => (
-              <Reveal key={title} delay={i * 100} direction="up">
-                <div className="group relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden cursor-pointer hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] transition-all duration-300">
-                  <div className="h-44 flex items-center justify-center relative">
-                    <span className="text-6xl opacity-20 select-none">{emoji}</span>
-                    {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(185,28,28,0.4)] transition-all duration-200">
-                        <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="bg-gray-900 rounded-[3rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+            
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 relative z-10 mb-16">
+               <div className="max-w-xl">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-[0.65rem] font-black tracking-widest uppercase mb-6 font-sans">
+                     <Clapperboard className="w-4 h-4" /> Feature Reels
+                  </div>
+                  <h2 className="serif text-3xl md:text-5xl lg:text-5xl text-white">Watch Life in <span className="text-[#c0392b]">Motion.</span></h2>
+               </div>
+               <a href="#" className="px-10 py-5 bg-white text-gray-900 font-bold text-[0.7rem] uppercase tracking-widest rounded-xl hover:scale-105 transition-all">
+                  View More Reels
+               </a>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+               {[
+                 { title: 'Annual Day Highlights 2024', dur: '4:32', id: '1' },
+                 { title: 'Sports Meet Championship', dur: '6:15', id: '2' },
+                 { title: 'Campus Virtual Tour', dur: '3:48', id: '3' },
+               ].map(v => (
+                 <div key={v.id} className="group relative bg-white/5 border border-white/10 rounded-3xl p-3 hover:bg-white/10 transition-all cursor-pointer overflow-hidden">
+                    <div className="aspect-video bg-gray-800 rounded-2xl overflow-hidden relative mb-6">
+                       <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-full bg-[#c0392b] flex items-center justify-center text-white shadow-2xl group-hover:scale-110 transition-transform">
+                             <Play className="w-6 h-6 fill-current ml-1" />
+                          </div>
+                       </div>
+                       <span className="absolute bottom-4 right-4 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg text-white font-mono text-xs font-bold tracking-widest">{v.dur}</span>
                     </div>
-                    {/* Duration badge */}
-                    <span className="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-black/60 text-white text-xs font-mono">{dur}</span>
-                  </div>
-                  <div className="p-4 border-t border-white/10">
-                    <p className="text-white font-semibold text-sm">{title}</p>
-                    <p className="text-gray-400 text-xs mt-0.5">Future School · Ambur</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+                    <div className="px-2 pb-2">
+                       <h4 className="serif text-white font-bold mb-2 leading-tight">{v.title}</h4>
+                       <p className="text-gray-500 font-black text-[0.55rem] uppercase tracking-widest">Future Senior Secondary School</p>
+                    </div>
+                 </div>
+               ))}
+            </div>
+         </div>
       </section>
 
-      {/* Lightbox */}
+      {/* Lightbox Overlay */}
       {lightbox && (
         <Lightbox
           image={lightbox}
-          onClose={closeLightbox}
+          onClose={() => setLightbox(null)}
           onPrev={() => navigate(-1)}
           onNext={() => navigate(1)}
         />
       )}
+
     </main>
   )
 }

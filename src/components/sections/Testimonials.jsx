@@ -8,16 +8,18 @@ export default function Testimonials() {
       
       <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
         <Reveal>
-          <p className="text-xs tracking-[0.25em] uppercase font-black mb-10 text-red-600">Parent Voices</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50/50 text-[#c0392b] text-[0.6rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-10 font-sans mx-auto">
+             Parent Voices
+          </div>
         </Reveal>
         <Reveal delay={80}>
-          <p className="serif text-3xl md:text-4xl font-normal text-gray-900 leading-[1.3] italic">
+          <p className="serif text-3xl md:text-5xl text-gray-900 leading-tight italic">
             "Future School gave our children more than an education — it gave them confidence, discipline, and a lifelong love for learning."
           </p>
         </Reveal>
         <Reveal delay={200}>
           <div className="mt-14 flex flex-col items-center gap-4">
-            <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg bg-red-700 shadow-lg shadow-red-700/20">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg bg-[#c0392b] shadow-xl shadow-red-900/20">
               R
             </div>
             <div>

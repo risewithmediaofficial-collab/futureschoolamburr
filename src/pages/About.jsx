@@ -1,13 +1,11 @@
 import AboutComponent from '../components/About'
 import Achievements from '../components/Achievements'
-import Faculty from '../components/Faculty'
 
 const About = () => {
   return (
-    <main className="pt-20">
+    <main className="overflow-x-hidden pt-20 bg-[#fafaf8]">
       <AboutComponent />
       <Achievements />
-      <Faculty />
     </main>
   )
 }

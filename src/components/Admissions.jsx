@@ -120,35 +120,39 @@ export default function Admissions() {
     <main className="bg-white overflow-x-hidden">
 
       {/* ══ PAGE HEADER ══ */}
-      <section className="relative bg-white py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: 'radial-gradient(circle, rgba(185,28,28,0.05) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-50/60 to-transparent pointer-events-none" />
-        <div className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-red-100/50 blur-[90px] pointer-events-none" />
+      <section className="relative w-full overflow-hidden bg-white pb-16 pt-20 md:pt-32 md:pb-24 border-b border-gray-100">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10">
+          <div className="flex flex-col items-center max-w-4xl mb-8 sm:mb-12">
+            <Reveal>
+              <span className="text-[#c0392b] text-[0.65rem] sm:text-[0.7rem] tracking-[0.2em] uppercase font-black px-4 py-2 bg-red-50/50 rounded-full inline-flex items-center gap-2 mb-6 border border-red-50 shadow-sm transition-all duration-300">
+                Join Us
+              </span>
+            </Reveal>
+            
+            <Reveal delay={100}>
+              <h1 className="text-gray-900 leading-[1.1] tracking-tight mt-2 mb-6" 
+                style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4.8rem)', fontFamily: "'Georgia', serif" }}>
+                Admissions <span className="text-[#c0392b]">2026–2027</span>
+              </h1>
+            </Reveal>
+            
+            <Reveal delay={200}>
+              <div className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 font-medium max-w-3xl mx-auto space-y-4">
+                <p>
+                  We welcome motivated students from Kindergarten to Grade XII. Admissions are open from April (First Monday) for the upcoming academic year.
+                </p>
+              </div>
+            </Reveal>
+          </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Reveal>
-            <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-4">Join Us</p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="text-4xl md:text-6xl font-light text-gray-900 leading-tight mb-5" style={{ fontFamily: "'Georgia', serif" }}>
-              Admissions <em className="text-red-600 not-italic">2026–2027</em>
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <div className="w-12 h-0.5 bg-gradient-to-r from-red-600 to-transparent mx-auto mb-5" />
-          </Reveal>
-          <Reveal delay={300}>
-            <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed font-light">
-              We welcome motivated students from Kindergarten to Grade XII. Admissions are open from April (First Monday) for the upcoming academic year.
-            </p>
-          </Reveal>
           {/* Key info pills */}
-          <Reveal delay={400}>
-            <div className="flex flex-wrap justify-center gap-3 mt-8">
+          <Reveal delay={300}>
+            <div className="flex flex-wrap justify-center gap-3 mt-4">
               {[['📅', 'Deadline: June 30, 2025'], ['💳', 'App. Fee: ₹500'], ['📚', 'Classes I – XII'], ['✅', 'CBSE Affiliated']].map(([icon, text]) => (
-                <span key={text} className="flex items-center gap-2 px-4 py-2 rounded-full border border-red-100 bg-red-50 text-red-700 text-xs font-semibold">
-                  {icon} {text}
+                <span key={text} className="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 bg-white text-gray-700 hover:border-red-300 hover:text-red-700 hover:bg-red-50 transition-all font-semibold text-xs uppercase tracking-widest shadow-sm">
+                  <span className="text-base">{icon}</span> {text}
                 </span>
               ))}
             </div>
@@ -173,29 +177,33 @@ export default function Admissions() {
       {/* ══ PROCESS STEPS ══ */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-xl mx-auto mb-16">
-            <Reveal><p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">How It Works</p></Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <Reveal>
+              <span className="text-[#c0392b] text-[0.65rem] sm:text-[0.7rem] tracking-[0.2em] uppercase font-black px-4 py-2 bg-red-50/50 rounded-full inline-block mb-4 border border-red-50 shadow-sm transition-all duration-300">
+                How It Works
+              </span>
+            </Reveal>
             <Reveal delay={100}>
-              <h2 className="text-3xl md:text-4xl font-light text-gray-900" style={{ fontFamily: "'Georgia', serif" }}>
-                Admission <em className="text-red-600 not-italic">Process</em>
+              <h2 className="text-3xl md:text-5xl text-gray-900 mt-2 mb-4 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
+                Admission <span className="text-[#c0392b]">Process</span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="text-gray-400 text-sm mt-3">Simple, transparent, and student-friendly — four easy steps to join Future School.</p>
+              <p className="text-gray-500 text-base md:text-lg mt-3 font-medium">Simple, transparent, and student-friendly — four easy steps to join Future School.</p>
             </Reveal>
           </div>
 
           {/* Desktop: horizontal stepper | Mobile: vertical */}
           <div className="relative">
             {/* Connecting line (desktop only) */}
-            <div className="hidden md:block absolute top-14 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-red-200 via-red-400 to-red-200 z-0" />
+            <div className="hidden md:block absolute top-14 left-[12.5%] right-[12.5%] h-0.5 bg-white border border-gray-100 z-0" />
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
               {steps.map((step, i) => (
                 <Reveal key={step.num} delay={i * 120} direction="up">
                   <div className="group flex flex-col items-center text-center gap-4">
                     {/* Circle */}
-                    <div className="w-28 h-28 rounded-full bg-white border-2 border-red-100 shadow-[0_4px_24px_rgba(185,28,28,0.1)] flex flex-col items-center justify-center group-hover:border-red-500 group-hover:shadow-[0_8px_32px_rgba(185,28,28,0.2)] transition-all duration-300 relative">
+                    <div className="w-28 h-28 rounded-full bg-white border-2 border-red-100 shadow-sm flex flex-col items-center justify-center group-hover:border-red-500 group-hover:shadow-sm transition-all duration-300 relative">
                       <svg className="w-7 h-7 text-red-500 mb-1" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
                         {step.icon}
                       </svg>
@@ -222,12 +230,14 @@ export default function Admissions() {
           {/* ── Form ── */}
           <div className="lg:col-span-2">
             <Reveal direction="left">
-              <div className="bg-white border border-gray-100 rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.05)] overflow-hidden">
+              <div className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
                 {/* Card top bar */}
                 <div className="h-1 w-full bg-gradient-to-r from-red-600 via-red-400 to-transparent" />
                 <div className="p-8 md:p-10">
-                  <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-2">Enquiry Form</p>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1" style={{ fontFamily: "'Georgia', serif" }}>
+                  <span className="text-[#c0392b] text-[0.6rem] tracking-[0.2em] uppercase font-black px-3 py-1.5 bg-red-50/50 rounded-full inline-block mb-3 border border-red-50 shadow-sm transition-all duration-300">
+                    Enquiry Form
+                  </span>
+                  <h2 className="text-3xl font-bold text-gray-900 mt-2 mb-2 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
                     Apply for Admission
                   </h2>
                   <p className="text-sm text-gray-400 mb-8">Fill in your details and we'll get back to you within 24 hours.</p>
@@ -306,7 +316,7 @@ export default function Admissions() {
                       </div>
                       <button
                         type="submit"
-                        className="w-full py-3.5 bg-transparent text-red-700 text-sm font-bold rounded-xl border-2 border-red-700 hover:bg-red-50 hover:shadow-[0_8px_25px_rgba(185,28,28,0.15)] transition-all duration-200"
+                        className="w-full py-3.5 bg-transparent text-red-700 text-sm font-bold rounded-xl border-2 border-red-700 hover:bg-red-50 hover:shadow-sm transition-all duration-200"
                       >
                         Submit Application →
                       </button>
@@ -393,11 +403,15 @@ export default function Admissions() {
       {/* ══ FAQ ══ */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <Reveal><p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">FAQs</p></Reveal>
+          <div className="text-center mb-16">
+            <Reveal>
+              <span className="text-[#c0392b] text-[0.65rem] sm:text-[0.7rem] tracking-[0.2em] uppercase font-black px-4 py-2 bg-red-50/50 rounded-full inline-block mb-4 border border-red-50 shadow-sm transition-all duration-300">
+                FAQs
+              </span>
+            </Reveal>
             <Reveal delay={100}>
-              <h2 className="text-3xl md:text-4xl font-light text-gray-900" style={{ fontFamily: "'Georgia', serif" }}>
-                Frequently Asked <em className="text-red-600 not-italic">Questions</em>
+              <h2 className="text-3xl md:text-5xl text-gray-900 mt-2 mb-4 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
+                Frequently Asked <span className="text-[#c0392b]">Questions</span>
               </h2>
             </Reveal>
           </div>

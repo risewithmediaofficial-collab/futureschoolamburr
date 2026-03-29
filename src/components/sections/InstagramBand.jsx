@@ -16,16 +16,20 @@ export default function InstagramBand() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
           <div>
             <Reveal>
-              <p className="text-xs tracking-[0.25em] uppercase font-semibold mb-3" style={{ color: '#c0392b' }}>Social</p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50/50 text-[#c0392b] text-[0.6rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-6 font-sans">
+                 Social
+              </div>
             </Reveal>
             <Reveal delay={80}>
-              <h2 className="serif text-3xl font-normal" style={{ color: '#111' }}>@futureschoolambur</h2>
+              <h2 className="serif text-3xl md:text-5xl lg:text-5xl text-gray-900 leading-tight">
+                @futureschoolambur
+              </h2>
             </Reveal>
           </div>
           <Reveal delay={200}>
             <a href="https://instagram.com" target="_blank" rel="noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white transition-all duration-200 hover:shadow-lg"
-              style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}>
+              className="inline-flex items-center gap-3 px-8 py-4 text-[0.7rem] font-bold text-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1 rounded-xl uppercase tracking-widest shadow-red-900/10"
+              style={{ background: 'linear-gradient(135deg, #833ab4, #c0392b, #fcb045)' }}>
               Follow Us
             </a>
           </Reveal>

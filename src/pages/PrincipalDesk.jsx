@@ -1,29 +1,19 @@
 import { Link } from 'react-router-dom'
+import { DropdownPageLayout } from '../components/DropdownPageLayout'
 import imgYuvarani from '../assets/pic-assets/YUVARANI.png'
+import heroImg from '../assets/pic-assets/banner-2026-2-1.png'
 
 export default function PrincipalDesk() {
   return (
-    <main className="pt-20 bg-white overflow-x-hidden">
-      {/* ══ PAGE HERO ══ */}
-      <section className="relative bg-white py-20 md:py-28 overflow-hidden">
-        {/* Dot grid */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(185,28,28,0.05) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-50/60 to-transparent pointer-events-none" />
-
+    <DropdownPageLayout
+      hideImageSection={true}
+      eyebrow="From The Office of The Principal"
+      title="Principal's Message"
+      subtitle="Education awakens the power and beauty that lie within us."
+      image={heroImg}
+    >
+      <section className="relative bg-white pt-8 pb-16 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-14">
-            <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">From The Office of The Principal</p>
-            <h1 className="text-3xl md:text-5xl font-light text-gray-900 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
-              <em className="text-red-600 not-italic">Principal's</em> <strong className="font-bold">Message</strong>
-            </h1>
-            <div className="w-10 h-0.5 bg-red-600 mt-5" />
-          </div>
 
           {/* Principal Message Section */}
           <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-start">
@@ -104,7 +94,7 @@ export default function PrincipalDesk() {
       </section>
 
       {/* ══ EDUCATIONAL PHILOSOPHY ══ */}
-      <section className="py-16 md:py-20 bg-gradient-to-r from-red-600 to-red-700">
+      <section className="py-16 md:py-20 bg-white border border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
@@ -137,27 +127,6 @@ export default function PrincipalDesk() {
           </div>
         </div>
       </section>
-
-      {/* ══ CTA SECTION ══ */}
-      <section className="py-16 md:py-20 bg-red-50 border-t border-red-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-4" style={{ fontFamily: "'Georgia', serif" }}>
-            Nurture Your <em className="text-red-600 not-italic">Child's Potential</em>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-sm md:text-base">
-            Foster all-round development with our holistic education approach combining skills, intellect, and values.
-          </p>
-          <Link
-            to="/admissions"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-200"
-          >
-            Apply for Admission
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-        </div>
-      </section>
-    </main>
+    </DropdownPageLayout>
   )
 }

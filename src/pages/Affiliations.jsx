@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { DropdownPageLayout } from '../components/DropdownPageLayout'
+import heroImg from '../assets/pic-assets/banner-2026-4-1.png'
 
 const facultyTeam = [
   { sno: 1, name: 'Mrs. YUVARANI J', designation: 'PRINCIPAL' },
@@ -39,31 +41,20 @@ const facultyTeam = [
 
 export default function Affiliations() {
   return (
-    <main className="pt-20 bg-white overflow-x-hidden">
-      {/* ══ PAGE HERO ══ */}
-      <section className="relative bg-white py-16 md:py-24 overflow-hidden">
-        {/* Dot grid */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(185,28,28,0.05) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
-
+    <DropdownPageLayout
+      hideImageSection={true}
+      eyebrow="Affiliations & Recognition"
+      title="Our Affiliations"
+      subtitle="Future Senior Secondary School is affiliated to the Central Board of Secondary Education (CBSE), New Delhi."
+      image={heroImg}
+    >
+      <section className="relative bg-white pt-8 pb-16 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-3">Affiliations & Recognition</p>
-            <h1 className="text-3xl md:text-5xl font-light text-gray-900 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
-              Our <em className="text-red-600 not-italic">Affiliations</em>
-            </h1>
-            <div className="w-10 h-0.5 bg-red-600 mt-5" />
-          </div>
 
           {/* Affiliation Info */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* CBSE Affiliation */}
-            <div className="bg-gradient-to-br from-red-50 to-red-100/50 border border-red-200 rounded-2xl p-6 md:p-8">
+            <div className="bg-white border border-gray-100 border border-red-200 rounded-2xl p-6 md:p-8">
               <div className="flex items-start gap-4 mb-4">
                 <svg className="w-6 h-6 text-red-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
@@ -133,7 +124,7 @@ export default function Affiliations() {
           <div className="overflow-x-auto bg-white rounded-2xl border border-gray-100 shadow-sm">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-200 bg-gradient-to-r from-red-600 to-red-700">
+                <tr className="border-b border-gray-200 bg-white border border-gray-100">
                   <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">S.NO.</th>
                   <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">NAME</th>
                   <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">DESIGNATION</th>
@@ -185,27 +176,6 @@ export default function Affiliations() {
           </div>
         </div>
       </section>
-
-      {/* ══ CTA SECTION ══ */}
-      <section className="py-16 md:py-20 bg-red-50 border-t border-red-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-4" style={{ fontFamily: "'Georgia', serif" }}>
-            Discover Our <em className="text-red-600 not-italic">Educational Excellence</em>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-sm md:text-base">
-            Experience quality education with our dedicated faculty and world-class infrastructure.
-          </p>
-          <Link
-            to="/admissions"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-200"
-          >
-            Apply for Admission
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-        </div>
-      </section>
-    </main>
+    </DropdownPageLayout>
   )
 }

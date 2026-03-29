@@ -2,7 +2,7 @@ import ProgramsComponent from '../components/Programs'
 
 const Programs = () => {
   return (
-    <main className="pt-20">
+    <main className="overflow-x-hidden pt-20 bg-[#fafaf8]">
       <ProgramsComponent />
     </main>
   )

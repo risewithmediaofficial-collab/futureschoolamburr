@@ -50,9 +50,23 @@ export default function Management() {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal>
-          <h2 className="serif text-4xl md:text-5xl font-normal mb-16 text-center" style={{ color: '#c0392b' }}>Management</h2>
-        </Reveal>
+        <div className="text-center mb-16">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-red-50/50 text-[#c0392b] text-[0.65rem] font-black uppercase tracking-widest rounded-full border border-red-50 mb-6">
+              Leadership
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="serif text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight">
+              Our Visionary <span className="text-[#c0392b]">Management</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-6 text-gray-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-medium">
+              Guided by decades of experience and a passion for holistic education, our leadership team ensures that every child receives the best foundation for life.
+            </p>
+          </Reveal>
+        </div>
         
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {management.map((m, i) => (

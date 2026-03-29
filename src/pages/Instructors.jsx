@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { DropdownPageLayout } from '../components/DropdownPageLayout'
+import heroImg from '../assets/pic-assets/banner-2026-3-1.png'
 
 const instructorsTeam = [
   { sno: 1, name: 'Mrs. YUVARANI J', designation: 'PRINCIPAL' },
@@ -37,40 +39,17 @@ const instructorsTeam = [
 
 export default function Instructors() {
   return (
-    <main className="pt-20 bg-white overflow-x-hidden">
-      {/* ══ PAGE HERO WITH IMAGE SPACE ══ */}
-      <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 py-16 md:py-24 overflow-hidden">
-        {/* Hero Image Placeholder */}
-        <div className="relative h-64 md:h-96 bg-gray-800 mb-8">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-transparent" />
-          <img
-            src="https://via.placeholder.com/1200x400/1a1a1a/ffffff?text=Instructors"
-            alt="Instructors"
-            className="w-full h-full object-cover"
-          />
-          {/* Overlay text */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center z-10">
-              <h1 className="text-4xl md:text-6xl font-light text-white mb-4" style={{ fontFamily: "'Georgia', serif" }}>
-                Our <em className="text-red-400 not-italic font-bold">Instructors</em>
-              </h1>
-              <p className="text-red-200 text-sm md:text-base tracking-widest uppercase font-medium">
-                Dedicated Educators Shaping Future Leaders
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Header Info */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="text-xs font-bold tracking-widest uppercase text-red-400 mb-2">Our Teaching Staff</p>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Future Senior Secondary School is proud to have a team of experienced and compassionate educators who are committed to inspiring every student to achieve their full potential.
-            </p>
-          </div>
-        </div>
-      </section>
+    <DropdownPageLayout
+      hideImageSection={true}
+      eyebrow="Our Teaching Staff"
+      title="Our Instructors"
+      subtitle="Future Senior Secondary School is proud to have a team of experienced and compassionate educators who are committed to inspiring every student to achieve their full potential."
+      image={heroImg}
+      highlights={[
+        { label: 'Excellence', value: '32+ highly qualified educators' },
+        { label: 'Impact', value: 'Guiding students toward their future' },
+      ]}
+    >
 
       {/* ══ INSTRUCTORS TABLE ══ */}
       <section className="py-16 md:py-24 bg-gray-50">
@@ -87,7 +66,7 @@ export default function Instructors() {
           <div className="overflow-x-auto bg-white rounded-2xl border border-gray-100 shadow-sm">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-gray-200 bg-gradient-to-r from-red-600 to-red-700">
+                <tr className="border-b border-gray-200 bg-white border border-gray-100">
                   <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">S.NO.</th>
                   <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">NAME</th>
                   <th className="px-4 md:px-6 py-4 text-left text-sm font-bold text-white">DESIGNATION</th>
@@ -173,26 +152,6 @@ export default function Instructors() {
         </div>
       </section>
 
-      {/* ══ CTA SECTION ══ */}
-      <section className="py-16 md:py-20 bg-red-50 border-t border-red-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-light text-gray-900 mb-4" style={{ fontFamily: "'Georgia', serif" }}>
-            Meet Our <em className="text-red-600 not-italic">Expert Faculty</em>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-sm md:text-base">
-            Experience learning from experienced educators who are dedicated to your success and overall development.
-          </p>
-          <Link
-            to="/admissions"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-200"
-          >
-            Join Our School
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-        </div>
-      </section>
-    </main>
+    </DropdownPageLayout>
   )
 }
