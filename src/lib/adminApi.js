@@ -1,5 +1,6 @@
 const TOKEN_KEY = 'future_school_admin_token'
 const ADMIN_KEY = 'future_school_admin_profile'
+const BASE_URL = import.meta.env.VITE_API_URL || ''
 
 function getHeaders(isJson = true) {
   const token = localStorage.getItem(TOKEN_KEY)
@@ -48,7 +49,7 @@ export const adminStorage = {
 
 export const adminApi = {
   async login(payload) {
-    const response = await fetch('/api/auth/login', {
+    const response = await fetch(`${BASE_URL}/api/auth/login`, {
       method: 'POST',
       headers: getHeaders(),
       body: JSON.stringify(payload),
@@ -58,7 +59,7 @@ export const adminApi = {
   },
 
   async getApplications() {
-    const response = await fetch('/api/admin/applications', {
+    const response = await fetch(`${BASE_URL}/api/admin/applications`, {
       headers: getHeaders(false),
     })
 
@@ -66,7 +67,7 @@ export const adminApi = {
   },
 
   async updateApplicationStatus(id, payload) {
-    const response = await fetch(`/api/admin/applications/${id}/status`, {
+    const response = await fetch(`${BASE_URL}/api/admin/applications/${id}/status`, {
       method: 'PATCH',
       headers: getHeaders(),
       body: JSON.stringify(payload),
@@ -76,7 +77,7 @@ export const adminApi = {
   },
 
   async getNews() {
-    const response = await fetch('/api/admin/news', {
+    const response = await fetch(`${BASE_URL}/api/admin/news`, {
       headers: getHeaders(false),
     })
 
@@ -84,7 +85,7 @@ export const adminApi = {
   },
 
   async createNews(formData) {
-    const response = await fetch('/api/admin/news', {
+    const response = await fetch(`${BASE_URL}/api/admin/news`, {
       method: 'POST',
       headers: getHeaders(false),
       body: formData,
@@ -94,7 +95,7 @@ export const adminApi = {
   },
 
   async deleteNews(id) {
-    const response = await fetch(`/api/admin/news/${id}`, {
+    const response = await fetch(`${BASE_URL}/api/admin/news/${id}`, {
       method: 'DELETE',
       headers: getHeaders(false),
     })
@@ -103,7 +104,7 @@ export const adminApi = {
   },
 
   async getGallery() {
-    const response = await fetch('/api/admin/gallery', {
+    const response = await fetch(`${BASE_URL}/api/admin/gallery`, {
       headers: getHeaders(false),
     })
 
@@ -111,7 +112,7 @@ export const adminApi = {
   },
 
   async createGallery(formData) {
-    const response = await fetch('/api/admin/gallery', {
+    const response = await fetch(`${BASE_URL}/api/admin/gallery`, {
       method: 'POST',
       headers: getHeaders(false),
       body: formData,
@@ -121,7 +122,7 @@ export const adminApi = {
   },
 
   async deleteGallery(id) {
-    const response = await fetch(`/api/admin/gallery/${id}`, {
+    const response = await fetch(`${BASE_URL}/api/admin/gallery/${id}`, {
       method: 'DELETE',
       headers: getHeaders(false),
     })
@@ -130,7 +131,7 @@ export const adminApi = {
   },
 
   async getStaff() {
-    const response = await fetch('/api/admin/staff', {
+    const response = await fetch(`${BASE_URL}/api/admin/staff`, {
       headers: getHeaders(false),
     })
 
@@ -138,7 +139,7 @@ export const adminApi = {
   },
 
   async createStaff(formData) {
-    const response = await fetch('/api/admin/staff', {
+    const response = await fetch(`${BASE_URL}/api/admin/staff`, {
       method: 'POST',
       headers: getHeaders(false),
       body: formData,
@@ -148,7 +149,7 @@ export const adminApi = {
   },
 
   async deleteStaff(id) {
-    const response = await fetch(`/api/admin/staff/${id}`, {
+    const response = await fetch(`${BASE_URL}/api/admin/staff/${id}`, {
       method: 'DELETE',
       headers: getHeaders(false),
     })
@@ -157,7 +158,7 @@ export const adminApi = {
   },
 
   async getSettings() {
-    const response = await fetch('/api/admin/settings', {
+    const response = await fetch(`${BASE_URL}/api/admin/settings`, {
       headers: getHeaders(false),
     })
 
@@ -165,7 +166,7 @@ export const adminApi = {
   },
 
   async updateSettings(payload) {
-    const response = await fetch('/api/admin/settings', {
+    const response = await fetch(`${BASE_URL}/api/admin/settings`, {
       method: 'PUT',
       headers: getHeaders(),
       body: JSON.stringify(payload),
@@ -175,7 +176,7 @@ export const adminApi = {
   },
 
   async submitAdmission(payload) {
-    const response = await fetch('/api/public/applications', {
+    const response = await fetch(`${BASE_URL}/api/public/applications`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -184,3 +185,4 @@ export const adminApi = {
     return parseResponse(response)
   },
 }
+

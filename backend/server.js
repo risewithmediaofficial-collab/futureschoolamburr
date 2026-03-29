@@ -21,7 +21,19 @@ const app = express()
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3001'], // Vite frontend + admin dashboard
+  origin: function(origin, callback) {
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:3001',
+      process.env.FRONTEND_URL,
+    ].filter(Boolean)
+    // Allow requests with no origin (like mobile apps or curl) or known origins
+    if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+      callback(null, true)
+    } else {
+      callback(null, true) // Allow all for now; restrict later in production
+    }
+  },
   credentials: true
 }))
 app.use(express.json({ limit: '10mb' }))
