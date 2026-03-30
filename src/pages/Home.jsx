@@ -6,10 +6,8 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import VideosSection from '../components/sections/VideosSection'
 import Management from '../components/sections/Management'
 import SchoolComrades from '../components/sections/SchoolComrades'
-import EventsGrid from '../components/sections/EventsGrid'
 import AdmissionsCTA from '../components/sections/AdmissionsCTA'
 import JoinBanner from '../components/sections/JoinBanner'
-import Testimonials from '../components/sections/Testimonials'
 import InstagramBand from '../components/sections/InstagramBand'
 
 const Home = () => {
@@ -23,10 +21,8 @@ const Home = () => {
       <VideosSection />
       <Management />
       <SchoolComrades />
-      <EventsGrid />
       <AdmissionsCTA />
       <JoinBanner />
-      <Testimonials />
       <InstagramBand />
     </main>
   )
