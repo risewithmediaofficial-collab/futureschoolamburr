@@ -117,9 +117,9 @@ export default function About() {
             </Reveal>
 
             <Reveal delay={300}>
-              <div className="flex items-center gap-4 mt-10 justify-center">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-10 justify-center">
                 <Link to="/admissions"
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[0.7rem] tracking-widest uppercase font-black transition-all bg-[#c0392b] text-white hover:bg-[#a93226] h-12 px-10 py-2 shadow-lg shadow-red-900/10 hover:-translate-y-0.5">
+                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[0.7rem] tracking-widest uppercase font-black transition-all bg-[#c0392b] text-white hover:bg-[#a93226] h-12 px-8 sm:px-10 py-2 shadow-lg shadow-red-900/10 hover:-translate-y-0.5">
                   Apply for Admission
                   <svg className="w-4 h-4 ml-3" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -156,7 +156,7 @@ export default function About() {
       {/* ══ STATS BAND ══ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {[
               { icon: <Users className="w-6 h-6 text-red-600" />, n: '5,000+', l: 'Students Enrolled' },
               { icon: <Briefcase className="w-6 h-6 text-red-600" />, n: '200+', l: 'Faculty Members' },
@@ -307,7 +307,7 @@ export default function About() {
             </Reveal>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 mb-16">
             <FacultyCard img={imgKP} name="K. Pandurangan"  subject="Chairman"          delay={0}   />
             <FacultyCard img={imgPS} name="P. Sureshbabu"   subject="Correspondent"     delay={50}  />
             <FacultyCard img={imgPR} name="P. Rameshbabu"   subject="Secretary"         delay={100} />
@@ -321,10 +321,10 @@ export default function About() {
               <h3 className="text-xl font-bold text-gray-900">Full Teaching Directory</h3>
             </div>
             <div className="p-6">
-              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-6">
                 {instructorsTeam.map((member) => (
-                  <div key={member.sno} className="flex items-center justify-between pb-2 border-b border-gray-200/50">
-                    <span className="text-sm font-bold text-gray-700">{member.name}</span>
+                  <div key={member.sno} className="flex items-center justify-between pb-2 border-b border-gray-200/50 min-w-0">
+                    <span className="text-sm font-bold text-gray-700 truncate">{member.name}</span>
                     <span className="text-[0.65rem] font-black tracking-widest uppercase text-red-600 bg-red-50 px-2 py-0.5 rounded">{member.designation}</span>
                   </div>
                 ))}
