@@ -67,14 +67,14 @@ export default function ProgrammesBand() {
                       <span className="serif text-5xl text-gray-100 group-hover:text-[#c0392b]/10 transition-colors">
                         {p.num}
                       </span>
-                      <div className="w-14 h-14 bg-white border border-gray-100 rounded-2xl flex items-center justify-center text-[#c0392b] group-hover:bg-[#c0392b] group-hover:text-white group-hover:border-[#c0392b] shadow-sm transition-all duration-300 group-hover:-translate-y-1">
+                      <div className="w-14 h-14 bg-white border border-gray-100 rounded-2xl flex items-center justify-center text-[#c0392b] group-hover:bg-red-50 group-hover:text-[#c0392b] group-hover:border-[#c0392b] shadow-sm transition-all duration-300 group-hover:-translate-y-1">
                          {p.icon}
                       </div>
                    </div>
 
                    {/* Body Content */}
                    <div className="flex-1">
-                      <p className="text-[0.6rem] font-black uppercase text-[#c0392b] tracking-widest mb-3">{p.grade}</p>
+                      <p className="text-[0.6rem] font-black uppercase text-gray-900 tracking-widest mb-3">{p.grade}</p>
                       <h3 className="serif text-xl text-gray-900 mb-4">{p.title}</h3>
                       <p className="text-sm text-gray-500 leading-relaxed font-medium">{p.desc}</p>
                    </div>

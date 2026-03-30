@@ -34,10 +34,10 @@ const Reveal = ({ children, delay = 0, direction = 'up', className = '' }) => {
 }
 
 const comrades = [
-  { name: 'ABIYAN YOUSUF V', role: 'DISCIPLINE LEADERS' },
-  { name: 'YUVAN SHANKAR S.S', role: 'DISCIPLINE LEADERS' },
-  { name: 'ROSNA SREE K', role: 'DISCIPLINE LEADERS' },
-  { name: 'BHAVAN CHANDHAR D', role: 'DISCIPLINE LEADERS' },
+  { name: 'A.N.DHARSHAN', role: 'CYBER CREW – SECRETARY' },
+  { name: 'KEZIAH MARGARET', role: 'CYBER CREW – DEPUTY' },
+  { name: 'JAISHREE B', role: 'ECO CLUB – SECRETARY' },
+  { name: 'CHINMAYAA SREE A.P', role: 'ECO CLUB – DEPUTY' },
 ]
 
 export default function SchoolComrades() {
