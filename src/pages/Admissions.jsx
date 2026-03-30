@@ -162,18 +162,18 @@ const Admissions = () => {
           {/* Apply Button */}
           <div className="mt-16 pt-12 border-t border-gray-200 text-center">
             <p className="text-sm text-gray-600 mb-6">Ready to join our learning community?</p>
-            <Link to="/apply-admission"
+            <Link to="/apply"
               className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[0.7rem] tracking-widest uppercase font-black transition-all bg-[#c0392b] text-white hover:bg-[#a93226] h-12 px-12 py-2 shadow-lg shadow-red-900/10 hover:-translate-y-0.5">
               Apply For Admission
-              <svg className="w-4 h-4 ml-3" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
+                <svg className="w-4 h-4 ml-3" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
-  )
+        </section>
+      </main>
+    )
 }
 
 export default Admissions
