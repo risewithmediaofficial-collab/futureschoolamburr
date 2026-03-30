@@ -216,30 +216,6 @@ export default function WhyChooseUs() {
          </Reveal>
       </section>
 
-      {/* ══ TESTIMONIALS (Minimal) ══ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-6">
-           {[
-             { name: 'Razia Begum', role: 'Parent · Grade 12', quote: 'Confidence, discipline, and a lifelong love for learning.' },
-             { name: 'Mohammed Farooq', role: 'Parent · Grade 9', quote: 'The teachers here genuinely care for every student.' },
-             { name: 'Priya Venkat', role: 'Parent · Grade 6', quote: 'Safe campus and excellent beyond-book activities.' },
-           ].map((t, i) => (
-             <Reveal key={i} delay={i * 100}>
-                <div className="bg-white border border-gray-100 rounded-3xl p-8 relative shadow-sm">
-                   <div className="absolute top-8 right-8 text-red-50">
-                      <Star className="w-12 h-12 fill-current" />
-                   </div>
-                   <p className="text-gray-600 font-medium italic mb-8 leading-relaxed">"{t.quote}"</p>
-                   <div>
-                      <p className="serif text-lg text-gray-900 leading-none mb-2">{t.name}</p>
-                      <p className="text-[0.6rem] font-bold text-[#c0392b] uppercase tracking-widest">{t.role}</p>
-                   </div>
-                </div>
-             </Reveal>
-           ))}
-        </div>
-      </section>
-
       {/* ══ CTA ══ */}
       <section className="text-center pt-10 pb-10">
          <Reveal>
