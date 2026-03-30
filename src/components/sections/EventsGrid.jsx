@@ -1,4 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import ecoClubImg from '../../assets/pic-assets/Eco-club-2.jpg'
+import admissionImg from '../../assets/pic-assets/admission.png'
+import sportsImg from '../../assets/pic-assets/sports-1.png'
+import christmasImg from '../../assets/pic-assets/Christmas-2.jpg'
+import greenDayImg from '../../assets/pic-assets/Eco-cul-1.jpg'
+import redDayImg from '../../assets/pic-assets/Red-Day-1.jpg'
 
 const useReveal = (threshold = 0.1) => {
   const ref = useRef(null)
@@ -34,15 +41,15 @@ const Reveal = ({ children, delay = 0, direction = 'up', className = '' }) => {
 }
 
 const news = [
-  { title: 'Eco Club', category: 'LATEST NEWS', date: 'March 2025', icon: '🌱' },
-  { title: 'ADMISSIONS', category: 'LATEST NEWS', date: 'March 2025', icon: '📋' },
-  { title: '13th Annual Sports Meet', category: 'LATEST NEWS', date: 'Feb 2025', icon: '🏆' },
+  { title: 'Eco Club', category: 'LATEST NEWS', date: 'March 2025', image: ecoClubImg },
+  { title: 'ADMISSIONS', category: 'LATEST NEWS', date: 'March 2025', image: admissionImg },
+  { title: '13th Annual Sports Meet', category: 'LATEST NEWS', date: 'Feb 2025', image: sportsImg },
 ]
 
 const upcoming = [
-  { title: 'CHRISTMAS', category: 'UPCOMING EVENTS', date: 'Dec 25', icon: '🎄' },
-  { title: 'GREEN DAY', category: 'UPCOMING EVENTS', date: 'Coming Soon', icon: '🌿' },
-  { title: 'RED DAY', category: 'UPCOMING EVENTS', date: 'Coming Soon', icon: '❤️' },
+  { title: 'CHRISTMAS', category: 'UPCOMING EVENTS', date: 'Dec 25', image: christmasImg },
+  { title: 'GREEN DAY', category: 'UPCOMING EVENTS', date: 'Coming Soon', image: greenDayImg },
+  { title: 'RED DAY', category: 'UPCOMING EVENTS', date: 'Coming Soon', image: redDayImg },
 ]
 
 export default function EventsGrid() {
@@ -74,8 +81,8 @@ export default function EventsGrid() {
             {news.map((item, i) => (
               <Reveal key={item.title} delay={i * 80} direction="left">
                 <div className="flex gap-4 group cursor-pointer p-4 hover:bg-gray-50 transition-colors rounded-lg border border-transparent hover:border-gray-200">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-50 flex-shrink-0 flex items-center justify-center overflow-hidden rounded-lg border border-blue-100">
-                    <span className="text-5xl">{item.icon}</span>
+                  <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg border border-blue-100">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-gray-800 serif group-hover:text-red-600 transition-colors">{item.title}</h4>
@@ -85,7 +92,7 @@ export default function EventsGrid() {
               </Reveal>
             ))}
             <Reveal delay={300}>
-              <button className="px-6 py-2.5 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors w-fit">View All</button>
+              <Link to="/gallery" className="px-6 py-2.5 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors w-fit inline-block">View All</Link>
             </Reveal>
           </div>
         </div>
@@ -99,8 +106,8 @@ export default function EventsGrid() {
             {upcoming.map((item, i) => (
               <Reveal key={item.title} delay={i * 80} direction="right">
                 <div className="flex gap-4 group cursor-pointer p-4 hover:bg-gray-50 transition-colors rounded-lg border border-transparent hover:border-gray-200">
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-100 to-purple-50 flex-shrink-0 flex items-center justify-center overflow-hidden rounded-lg border border-purple-100">
-                    <span className="text-5xl">{item.icon}</span>
+                  <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-lg border border-purple-100">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-gray-800 serif group-hover:text-red-600 transition-colors">{item.title}</h4>
@@ -110,7 +117,7 @@ export default function EventsGrid() {
               </Reveal>
             ))}
             <Reveal delay={300}>
-              <button className="px-6 py-2.5 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors w-fit">View All</button>
+              <Link to="/gallery" className="px-6 py-2.5 bg-red-600 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors w-fit inline-block">View All</Link>
             </Reveal>
           </div>
         </div>
