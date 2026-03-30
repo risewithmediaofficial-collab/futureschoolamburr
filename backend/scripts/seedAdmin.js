@@ -19,9 +19,10 @@ const seedAdmin = async () => {
     const existingAdmin = await Admin.findOne({ email: process.env.ADMIN_EMAIL })
 
     if (existingAdmin) {
-      console.log('Super-admin already exists')
-      console.log(`Email: ${existingAdmin.email}`)
-      console.log(`Role: ${existingAdmin.role}`)
+      console.log('Super-admin already exists, updating password...')
+      existingAdmin.password = process.env.ADMIN_PASSWORD
+      await existingAdmin.save()
+      console.log('✓ Password updated successfully')
     } else {
       // Create super-admin
       const superAdmin = new Admin({

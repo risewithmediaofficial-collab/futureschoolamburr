@@ -93,13 +93,7 @@ export const Login = () => {
             </button>
           </form>
 
-          <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <p className="text-xs text-blue-600">
-              <strong>Demo Credentials:</strong><br />
-              Email: admin@futureschool.com<br />
-              Password: Admin@123
-            </p>
-          </div>
+
         </div>
       </div>
     </div>

@@ -102,11 +102,11 @@ export default function AdminLogin() {
                 )}
               </button>
 
-              <div className="pt-2 text-center">
-                 <Link to="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-600 text-xs font-bold transition-colors">
+                <div className="text-center pt-2">
+                  <Link to="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-600 text-xs font-bold transition-colors">
                     <Home className="w-3.5 h-3.5" /> Back to Website
-                 </Link>
-              </div>
+                  </Link>
+                </div>
 
             </form>
           </div>
