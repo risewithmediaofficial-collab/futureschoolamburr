@@ -1,3 +1,4 @@
+import PromotionPopup from '../components/PromotionPopup'
 import Hero from '../components/Hero'
 import Welcome from '../components/sections/Welcome'
 import ProgrammesBand from '../components/sections/ProgrammesBand'
@@ -13,6 +14,7 @@ import InstagramBand from '../components/sections/InstagramBand'
 const Home = () => {
   return (
     <main className="overflow-x-hidden bg-[#fafaf8]">
+      <PromotionPopup />
       <Hero />
       <Welcome />
       <ProgrammesBand />
