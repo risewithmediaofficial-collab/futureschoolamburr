@@ -21,11 +21,11 @@ app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ limit: '10mb', extended: true }))
 
 // Root route — simple status check
-app.get('/', async (req, res) => {
+app.get('/', ensureDB, async (req, res) => {
   res.status(200).json({
     message: 'Future School Backend API — Online 🚀',
     database: dbReady ? 'Connected ✅' : 'Connecting/Error ⚠️',
-    health: '/api/health',
+    health: `${req.protocol}://${req.get('host')}/api/health`,
     admin: '/admin (if enabled)'
   })
 })
