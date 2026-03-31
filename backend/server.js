@@ -37,13 +37,13 @@ app.get('/api/health', (req, res) => {
 })
 
 // ── Lazy DB connection ─────────────────────────────────────────────────────────
+import connectDB from './config/db.js'
+
 let dbReady = false
-let dbError = null
 
 async function ensureDB(req, res, next) {
   if (dbReady) return next()
   try {
-    const { default: connectDB } = await import('./config/db.js')
     await connectDB()
     dbReady = true
     next()
