@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
-import { Mail, Lock, Loader } from 'lucide-react'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -9,6 +8,7 @@ export const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [showPass, setShowPass] = useState(false)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -18,83 +18,206 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-
     try {
       await login(formData.email, formData.password)
       navigate('/dashboard')
     } catch (err) {
-      setError(err.message || 'Login failed')
+      setError(err.message || 'Invalid credentials. Please try again.')
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans">
-      <div className="w-full max-w-md">
-        <div className="bg-white rounded-[2rem] shadow-2xl p-10 border border-white">
-          <div className="text-center mb-10">
-            <div className="flex justify-center mb-6">
-               <img src="/admin/logo.png" alt="Future School" className="h-20 w-auto" />
-            </div>
-            <p className="text-[0.6rem] font-bold tracking-[0.3em] uppercase text-red-600 mb-1">Admin Portal</p>
-            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">System Gateway</h1>
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: '#e8f0fe',
+      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+      padding: '20px'
+    }}>
+      <div style={{
+        width: '100%',
+        maxWidth: '340px',
+        background: '#f1f7fe',
+        overflow: 'hidden',
+        borderRadius: '16px',
+        color: '#010101',
+        boxShadow: '0 8px 40px rgba(0,102,255,0.10)'
+      }}>
+        {/* Form */}
+        <form onSubmit={handleSubmit} style={{
+          position: 'relative',
+          display: 'flex',
+          flexDirection: 'column',
+          padding: '32px 24px 24px',
+          gap: '16px',
+          textAlign: 'center'
+        }}>
+          {/* Logo */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4px' }}>
+            <img src="/admin/logo.png" alt="Future School" style={{ height: '64px', width: 'auto' }} />
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-1">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Email ID</label>
-              <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-red-600 transition-colors" size={18} />
-                <input
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full pl-11 pr-4 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 text-sm focus:bg-white outline-none focus:ring-4 focus:ring-red-50/50 focus:border-red-600 transition-all"
-                  placeholder="admin@futureschool.com"
-                  required
-                />
-              </div>
+          <span style={{ fontWeight: 'bold', fontSize: '1.5rem', lineHeight: 1.2 }}>
+            Admin Portal
+          </span>
+          <span style={{ fontSize: '0.95rem', color: '#666', marginTop: '-8px' }}>
+            Sign in to the school control panel.
+          </span>
+
+          {/* Inputs box */}
+          <div style={{
+            overflow: 'hidden',
+            borderRadius: '8px',
+            backgroundColor: '#fff',
+            margin: '0.5rem 0',
+            width: '100%'
+          }}>
+            {/* Email */}
+            <input
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              required
+              autoComplete="email"
+              style={{
+                background: 'none',
+                border: 0,
+                outline: 0,
+                height: '44px',
+                width: '100%',
+                borderBottom: '1px solid #eee',
+                fontSize: '0.9rem',
+                padding: '8px 15px',
+                fontFamily: 'inherit',
+                color: '#010101',
+                display: 'block'
+              }}
+            />
+            {/* Password */}
+            <div style={{ position: 'relative' }}>
+              <input
+                name="password"
+                type={showPass ? 'text' : 'password'}
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Password"
+                required
+                autoComplete="current-password"
+                style={{
+                  background: 'none',
+                  border: 0,
+                  outline: 0,
+                  height: '44px',
+                  width: '100%',
+                  fontSize: '0.9rem',
+                  padding: '8px 40px 8px 15px',
+                  fontFamily: 'inherit',
+                  color: '#010101',
+                  display: 'block'
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPass(!showPass)}
+                style={{
+                  position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)',
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  color: '#999', padding: 0, display: 'flex', alignItems: 'center'
+                }}
+              >
+                {showPass ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                  </svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                )}
+              </button>
             </div>
+          </div>
 
-            <div className="space-y-1">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Password</label>
-              <div className="relative group">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-red-600 transition-colors" size={18} />
-                <input
-                  name="password"
-                  type="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-full pl-11 pr-4 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 text-sm focus:bg-white outline-none focus:ring-4 focus:ring-red-50/50 focus:border-red-600 transition-all"
-                  placeholder="••••••••"
-                  required
-                />
-              </div>
+          {/* Error */}
+          {error && (
+            <div style={{
+              background: '#fff0f0',
+              border: '1px solid #ffc0c0',
+              borderRadius: '8px',
+              padding: '10px 14px',
+              textAlign: 'left',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              marginTop: '-8px'
+            }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#cc3333" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span style={{ color: '#cc3333', fontSize: '12px', fontWeight: 600 }}>{error}</span>
             </div>
+          )}
 
-            {error && (
-              <div className="p-4 rounded-xl bg-red-50 text-red-600 text-xs font-bold border border-red-100 italic">
-                {error}
-              </div>
-            )}
+          {/* Button */}
+          <button
+            type="submit"
+            disabled={loading}
+            style={{
+              backgroundColor: loading ? '#f80909ff' : '#ff0000ff',
+              color: '#fff',
+              border: 0,
+              borderRadius: '24px',
+              padding: '11px 16px',
+              fontSize: '1rem',
+              fontWeight: 600,
+              cursor: loading ? 'not-allowed' : 'pointer',
+              transition: 'background-color .3s ease',
+              fontFamily: 'inherit',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px'
+            }}
+            onMouseEnter={e => { if (!loading) e.currentTarget.style.backgroundColor = '#e60000ff' }}
+            onMouseLeave={e => { if (!loading) e.currentTarget.style.backgroundColor = '#ff0000ff' }}
+          >
+            {loading ? (
+              <>
+                <svg style={{ animation: 'spin 1s linear infinite' }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <circle cx="12" cy="12" r="10" strokeOpacity="0.3" />
+                  <path d="M12 2a10 10 0 0 1 10 10" strokeLinecap="round" />
+                </svg>
+                Signing in...
+              </>
+            ) : 'Sign in'}
+          </button>
+        </form>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-4.5 bg-red-600 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-red-700 shadow-xl shadow-red-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-            >
-              {loading ? (
-                <Loader className="animate-spin" size={20} />
-              ) : (
-                'Sign In Secret Portal'
-              )}
-            </button>
-          </form>
+        {/* Bottom section */}
+        <div style={{
+          padding: '14px 24px',
+          fontSize: '0.85rem',
+          backgroundColor: '#e0ecfb',
+          boxShadow: 'rgba(0,0,0,0.08) 0 -1px',
+          textAlign: 'center',
+          color: '#555'
+        }}>
+          <p>Future Senior Secondary School — Ambur © 2026</p>
         </div>
-        <p className="text-center mt-10 text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">Future Senior Secondary School © 2026</p>
       </div>
+
+      <style>{`
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+      `}</style>
     </div>
   )
 }

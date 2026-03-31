@@ -12,9 +12,9 @@ import Settings from './pages/Settings.jsx'
 
 function AdminLayout({ children }) {
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div style={{ display: 'flex', height: '100vh', background: 'var(--bg-primary)' }}>
       <Sidebar />
-      <div className="flex-1 overflow-auto">
+      <div style={{ flex: 1, overflowY: 'auto' }}>
         {children}
       </div>
     </div>

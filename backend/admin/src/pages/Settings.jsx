@@ -279,14 +279,16 @@ export default function Settings() {
         </div>
 
         {/* Submit */}
-        <button
-          type="submit"
-          disabled={saving}
-          className="w-full flex items-center justify-center gap-2 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 disabled:opacity-50"
-        >
-          <Save size={20} />
-          {saving ? 'Saving...' : 'Save Settings'}
-        </button>
+        <div className="flex justify-end pt-4">
+          <button
+            type="submit"
+            disabled={saving}
+            className="flex items-center justify-center gap-2 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-sm hover:shadow-md disabled:opacity-50"
+          >
+            <Save size={20} />
+            {saving ? 'Saving...' : 'Save Settings'}
+          </button>
+        </div>
       </form>
     </div>
   )

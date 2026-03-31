@@ -242,10 +242,10 @@ export default function Header() {
 
             {/* ── DESKTOP CTAs ── */}
             <div className="hidden lg:flex items-center gap-3">
-              <Link to="/admin/login" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 border border-gray-200 bg-white h-9 px-4 py-2">
+              <a href="/admin/login" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 border border-gray-200 bg-white h-9 px-4 py-2">
                 <LogIn className="w-4 h-4 mr-2" />
                 Log In
-              </Link>
+              </a>
 
               <Link
                 to="/apply"
@@ -366,10 +366,10 @@ export default function Header() {
             </a>
           </div>
 
-          <Link to="/admin/login" onClick={() => setDrawerOpen(false)} className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-gray-100 border border-gray-200 bg-white h-10 px-4 py-2 text-gray-700">
+          <a href="/admin/login" onClick={() => setDrawerOpen(false)} className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-gray-100 border border-gray-200 bg-white h-10 px-4 py-2 text-gray-700">
             <LogIn className="w-4 h-4 mr-2" />
             Log In
-          </Link>
+          </a>
           <Link
             to="/apply"
             onClick={() => setDrawerOpen(false)}

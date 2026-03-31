@@ -42,14 +42,13 @@ let dbError = null
 
 async function ensureDB(req, res, next) {
   if (dbReady) return next()
-  if (dbError) return res.status(500).json({ message: 'Database unavailable', error: dbError })
   try {
     const { default: connectDB } = await import('./config/db.js')
     await connectDB()
     dbReady = true
     next()
   } catch (e) {
-    dbError = e.message
+    console.error('Database connection failed:', e.message)
     res.status(500).json({ message: 'Database connection failed', error: e.message })
   }
 }
