@@ -102,18 +102,41 @@ function FaqItem({ q, a }) {
   )
 }
 
+import apiClient from '../utils/apiClient'
+
 /* ══════════════════════════════════════════
    ADMISSIONS PAGE
 ══════════════════════════════════════════ */
 export default function Admissions() {
   const [form, setForm] = useState({ name: '', parent: '', phone: '', email: '', class: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+    setError('')
+  }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+    try {
+      await apiClient.applications.submitAdmission({
+        studentName: form.name,
+        parentName: form.parent,
+        phone: form.phone,
+        email: form.email,
+        currentGrade: form.class,
+        message: form.message
+      })
+      setSubmitted(true)
+    } catch (err) {
+      setError(err.message || 'Submission failed. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -242,6 +265,12 @@ export default function Admissions() {
                   </h2>
                   <p className="text-sm text-gray-400 mb-8">Fill in your details and we'll get back to you within 24 hours.</p>
 
+                  {error && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-medium">
+                      ⚠️ {error}
+                    </div>
+                  )}
+
                   {submitted ? (
                     <div className="text-center py-12">
                       <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
@@ -262,16 +291,18 @@ export default function Admissions() {
                           <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Student Name *</label>
                           <input
                             name="name" value={form.name} onChange={handleChange} required
+                            disabled={loading}
                             placeholder="Full name"
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200"
+                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 disabled:opacity-50"
                           />
                         </div>
                         <div>
                           <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Parent / Guardian Name *</label>
                           <input
                             name="parent" value={form.parent} onChange={handleChange} required
+                            disabled={loading}
                             placeholder="Parent's full name"
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200"
+                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 disabled:opacity-50"
                           />
                         </div>
                       </div>
@@ -280,16 +311,18 @@ export default function Admissions() {
                           <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Mobile Number *</label>
                           <input
                             name="phone" value={form.phone} onChange={handleChange} required
+                            disabled={loading}
                             placeholder="+91 XXXXX XXXXX" type="tel"
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200"
+                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 disabled:opacity-50"
                           />
                         </div>
                         <div>
                           <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Email Address</label>
                           <input
                             name="email" value={form.email} onChange={handleChange}
+                            disabled={loading}
                             placeholder="email@example.com" type="email"
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200"
+                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 disabled:opacity-50"
                           />
                         </div>
                       </div>
@@ -297,7 +330,8 @@ export default function Admissions() {
                         <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Class Applying For *</label>
                         <select
                           name="class" value={form.class} onChange={handleChange} required
-                          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 bg-white"
+                          disabled={loading}
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 bg-white disabled:opacity-50"
                         >
                           <option value="">Select class</option>
                           {['Class I', 'Class II', 'Class III', 'Class IV', 'Class V',
@@ -310,15 +344,17 @@ export default function Admissions() {
                         <label className="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Message (Optional)</label>
                         <textarea
                           name="message" value={form.message} onChange={handleChange}
+                          disabled={loading}
                           rows={3} placeholder="Any specific questions or requirements..."
-                          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 resize-none"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 resize-none disabled:opacity-50"
                         />
                       </div>
                       <button
                         type="submit"
-                        className="w-full py-3.5 bg-transparent text-red-700 text-sm font-bold rounded-xl border-2 border-red-700 hover:bg-red-50 hover:shadow-sm transition-all duration-200"
+                        disabled={loading}
+                        className="w-full py-3.5 bg-transparent text-red-700 text-sm font-bold rounded-xl border-2 border-red-700 hover:bg-red-50 hover:shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Submit Application →
+                        {loading ? 'Sending Application...' : 'Submit Application →'}
                       </button>
                       <p className="text-xs text-gray-400 text-center">We'll respond within 24 hours · ₹500 registration fee payable after confirmation</p>
                     </form>

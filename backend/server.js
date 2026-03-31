@@ -19,6 +19,13 @@ app.use(cors({ origin: true, credentials: true }))
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ limit: '10mb', extended: true }))
 
+// ── Admin Frontend Integration ────────────────────────────────────────────────
+const adminDistPath = join(__dirname, 'admin/dist')
+app.use('/admin', express.static(adminDistPath))
+app.get('/admin/*', (req, res) => {
+  res.sendFile(join(adminDistPath, 'index.html'))
+})
+
 // Health check — no DB required, great for debugging
 app.get('/api/health', (req, res) => {
   res.status(200).json({

@@ -26,7 +26,7 @@ export default function Gallery() {
   const fetchGallery = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:3000/api/admin/gallery', {
+      const response = await fetch('/api/admin/gallery', {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (!response.ok) throw new Error('Failed to fetch gallery')
@@ -49,7 +49,7 @@ export default function Gallery() {
       const formDataUpload = new FormData()
       formDataUpload.append('file', file)
 
-      const response = await fetch('http://localhost:3000/api/upload/single', {
+      const response = await fetch('/api/upload/single', {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
         body: formDataUpload
@@ -70,8 +70,8 @@ export default function Gallery() {
     e.preventDefault()
     try {
       const url = editingId
-        ? `http://localhost:3000/api/admin/gallery/${editingId}`
-        : 'http://localhost:3000/api/admin/gallery'
+        ? `/api/admin/gallery/${editingId}`
+        : '/api/admin/gallery'
 
       const method = editingId ? 'PUT' : 'POST'
 
@@ -116,7 +116,7 @@ export default function Gallery() {
     if (!window.confirm('Delete this image?')) return
 
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/gallery/${id}`, {
+      const response = await fetch(`/api/admin/gallery/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       })

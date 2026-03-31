@@ -32,7 +32,7 @@ export default function Staff() {
   const fetchStaff = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:3000/api/admin/staff', {
+      const response = await fetch('/api/admin/staff', {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (!response.ok) throw new Error('Failed to fetch staff')
@@ -55,7 +55,7 @@ export default function Staff() {
       const formDataUpload = new FormData()
       formDataUpload.append('file', file)
 
-      const response = await fetch('http://localhost:3000/api/upload/single', {
+      const response = await fetch('/api/upload/single', {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
         body: formDataUpload
@@ -76,8 +76,8 @@ export default function Staff() {
     e.preventDefault()
     try {
       const url = editingId
-        ? `http://localhost:3000/api/admin/staff/${editingId}`
-        : 'http://localhost:3000/api/admin/staff'
+        ? `/api/admin/staff/${editingId}`
+        : '/api/admin/staff'
 
       const method = editingId ? 'PUT' : 'POST'
 
@@ -139,7 +139,7 @@ export default function Staff() {
     if (!window.confirm('Delete this staff member?')) return
 
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/staff/${id}`, {
+      const response = await fetch(`/api/admin/staff/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       })

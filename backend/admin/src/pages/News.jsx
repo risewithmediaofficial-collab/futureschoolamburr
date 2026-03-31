@@ -27,7 +27,7 @@ export default function News() {
   const fetchNews = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:3000/api/admin/news', {
+      const response = await fetch('/api/admin/news', {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (!response.ok) throw new Error('Failed to fetch news')
@@ -45,8 +45,8 @@ export default function News() {
     e.preventDefault()
     try {
       const url = editingId
-        ? `http://localhost:3000/api/admin/news/${editingId}`
-        : 'http://localhost:3000/api/admin/news'
+        ? `/api/admin/news/${editingId}`
+        : '/api/admin/news'
       
       const method = editingId ? 'PUT' : 'POST'
       
@@ -92,7 +92,7 @@ export default function News() {
     if (!window.confirm('Delete this news item?')) return
 
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/news/${id}`, {
+      const response = await fetch(`/api/admin/news/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       })
@@ -105,7 +105,7 @@ export default function News() {
 
   const togglePublish = async (id, currentStatus) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/news/${id}`, {
+      const response = await fetch(`/api/admin/news/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

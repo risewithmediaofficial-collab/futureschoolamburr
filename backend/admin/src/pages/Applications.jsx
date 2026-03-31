@@ -20,7 +20,7 @@ export default function Applications() {
   const fetchApplications = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:3000/api/admin/applications', {
+      const response = await fetch('/api/admin/applications', {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (!response.ok) throw new Error('Failed to fetch applications')
@@ -36,8 +36,8 @@ export default function Applications() {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/admin/applications/${id}`, {
-        method: 'PUT',
+      const response = await fetch(`/api/admin/applications/${id}/status`, {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
@@ -130,6 +130,11 @@ export default function Applications() {
                   <p className="text-sm text-gray-600">
                     {app.studentName ? `Parent: ${app.parentName}` : `Applied for: ${app.jobTitle}`}
                   </p>
+                  <p className="text-sm text-gray-500 italic">
+                    {app.applicationType === 'admission' 
+                      ? `Grade: ${app.currentGrade || app.grade || app.class || 'N/A'}`
+                      : `Qual: ${app.qualifications || 'N/A'}`}
+                  </p>
                   <p className="text-sm text-gray-600">{app.email}</p>
                   {app.phone && <p className="text-sm text-gray-600">Phone: {app.phone}</p>}
                 </div>
@@ -160,15 +165,34 @@ export default function Applications() {
             </div>
 
             <div className="p-6 space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm text-gray-600">Application Type</p>
+                  <p className="font-bold text-[#c0392b] uppercase tracking-wider text-xs">
+                    {selectedApp.applicationType}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Submitted On</p>
+                  <p className="font-medium text-xs">
+                    {new Date(selectedApp.createdAt).toLocaleString()}
+                  </p>
+                </div>
+              </div>
+
               {selectedApp.studentName && (
                 <>
-                  <div>
-                    <p className="text-sm text-gray-600">Parent Name</p>
-                    <p className="font-medium">{selectedApp.parentName}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Current Grade</p>
-                    <p className="font-medium">{selectedApp.currentGrade}</p>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-sm text-gray-600">Parent Name</p>
+                      <p className="font-medium">{selectedApp.parentName}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Grade Applying For</p>
+                      <p className="font-bold text-red-700">
+                        {selectedApp.currentGrade || selectedApp.grade || selectedApp.class || 'N/A'}
+                      </p>
+                    </div>
                   </div>
                 </>
               )}
@@ -195,6 +219,13 @@ export default function Applications() {
                 <div>
                   <p className="text-sm text-gray-600">Phone</p>
                   <p className="font-medium">{selectedApp.phone}</p>
+                </div>
+              )}
+
+              {selectedApp.message && (
+                <div>
+                  <p className="text-sm text-gray-600">Message / Admission Notes</p>
+                  <p className="p-3 bg-gray-50 rounded border border-gray-100 text-sm whitespace-pre-wrap italic">"{selectedApp.message}"</p>
                 </div>
               )}
 

@@ -3,8 +3,12 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, User, Phone, Mail, BookOpen, MessageSquare, CheckCircle } from 'lucide-react';
 
+import apiClient from '../utils/apiClient'
+
 const AdmissionQueryForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     parentName: '',
     studentName: '',
@@ -16,12 +20,23 @@ const AdmissionQueryForm = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate API call
-    setTimeout(() => {
+    setLoading(true);
+    setError('');
+    
+    try {
+      await apiClient.applications.submitAdmission({
+        parentName: formData.parentName,
+        studentName: formData.studentName,
+        phone: formData.phone,
+        email: formData.email,
+        currentGrade: formData.grade,
+        message: formData.message
+      });
       setIsSubmitted(true);
       setFormData({
         parentName: '',
@@ -31,7 +46,11 @@ const AdmissionQueryForm = () => {
         grade: '',
         message: ''
       });
-    }, 1000);
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -70,6 +89,11 @@ const AdmissionQueryForm = () => {
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
+            {error && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm font-medium">
+                ⚠️ {error}
+              </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Parent Name */}
               <div className="space-y-2">
@@ -81,9 +105,10 @@ const AdmissionQueryForm = () => {
                   type="text" 
                   name="parentName"
                   required
+                  disabled={loading}
                   value={formData.parentName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white disabled:opacity-50"
                   placeholder="John Doe"
                 />
               </div>
@@ -98,9 +123,10 @@ const AdmissionQueryForm = () => {
                   type="text" 
                   name="studentName"
                   required
+                  disabled={loading}
                   value={formData.studentName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white disabled:opacity-50"
                   placeholder="Jane Doe"
                 />
               </div>
@@ -115,9 +141,10 @@ const AdmissionQueryForm = () => {
                   type="tel" 
                   name="phone"
                   required
+                  disabled={loading}
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white disabled:opacity-50"
                   placeholder="+91 98765 43210"
                 />
               </div>
@@ -131,9 +158,10 @@ const AdmissionQueryForm = () => {
                 <input 
                   type="email" 
                   name="email"
+                  disabled={loading}
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white disabled:opacity-50"
                   placeholder="john@example.com"
                 />
               </div>
@@ -147,9 +175,10 @@ const AdmissionQueryForm = () => {
                 <select 
                   name="grade"
                   required
+                  disabled={loading}
                   value={formData.grade}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white appearance-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white appearance-none disabled:opacity-50"
                 >
                   <option value="" disabled>Select a grade</option>
                   <optgroup label="Kindergarten">
@@ -187,22 +216,24 @@ const AdmissionQueryForm = () => {
                 <textarea 
                   name="message"
                   rows="4"
+                  disabled={loading}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-colors bg-gray-50 focus:bg-white resize-none disabled:opacity-50"
                   placeholder="How can we help you?"
                 ></textarea>
               </div>
             </div>
 
             <motion.button 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: loading ? 1 : 1.02 }}
+              whileTap={{ scale: loading ? 1 : 0.98 }}
               type="submit"
-              className="w-full py-4 bg-white border border-gray-100 text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2"
+              disabled={loading}
+              className={`w-full py-4 bg-[#c0392b] text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
               <Send size={20} />
-              Submit Inquiry
+              {loading ? 'Submitting...' : 'Submit Inquiry'}
             </motion.button>
           </form>
         )}

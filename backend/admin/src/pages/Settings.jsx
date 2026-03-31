@@ -35,7 +35,7 @@ export default function Settings() {
   const fetchSettings = async () => {
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:3000/api/public/settings')
+      const response = await fetch('/api/public/settings')
       if (!response.ok) throw new Error('Failed to fetch settings')
       const data = await response.json()
       if (data.settings) {
@@ -53,7 +53,7 @@ export default function Settings() {
     e.preventDefault()
     try {
       setSaving(true)
-      const response = await fetch('http://localhost:3000/api/admin/settings', {
+      const response = await fetch('/api/admin/settings', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

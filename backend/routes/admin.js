@@ -458,6 +458,16 @@ router.patch('/applications/:id/status', verifyToken, checkRole('editor'), async
 
     await application.save()
 
+    // Send approval email if approved
+    if (status === 'approved') {
+      const { sendEmail, getApprovalEmailTemplate } = await import('../utils/email.js')
+      sendEmail(
+        application.email, 
+        'Good News! Your application at Future School CBSE has been approved', 
+        getApprovalEmailTemplate(application)
+      )
+    }
+
     res.status(200).json({
       message: 'Application status updated successfully',
       application

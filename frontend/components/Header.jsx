@@ -97,8 +97,17 @@ export default function Header() {
     return () => { document.body.style.overflow = '' }
   }, [drawerOpen])
 
-  const isActive = (href) =>
-    href === '/' ? location.pathname === '/' : location.pathname.startsWith(href)
+  const isActive = (link) => {
+    if (link.href === '/') return location.pathname === '/'
+    if (location.pathname.startsWith(link.href)) return true
+    
+    // Check if any sub-item is active
+    if (link.hasDropdown && link.submenu) {
+      return link.submenu.some(item => location.pathname === item.href)
+    }
+    
+    return false
+  }
 
   return (
     <>
@@ -178,7 +187,7 @@ export default function Header() {
                     >
                       <span
                         className={`text-[0.8rem] font-bold tracking-widest uppercase transition-colors duration-200 ${
-                          isActive(link.href) ? 'text-[#c0392b]' : 'text-gray-700 group-hover:text-[#c0392b]'
+                          isActive(link) ? 'text-[#c0392b]' : 'text-gray-700 group-hover:text-[#c0392b]'
                         }`}
                       >
                         {link.name}
@@ -195,7 +204,7 @@ export default function Header() {
                     >
                       <span
                         className={`text-[0.8rem] font-bold tracking-widest uppercase transition-colors duration-200 ${
-                          isActive(link.href) ? 'text-[#c0392b]' : 'text-gray-700 group-hover:text-[#c0392b]'
+                          isActive(link) ? 'text-[#c0392b]' : 'text-gray-700 group-hover:text-[#c0392b]'
                         }`}
                       >
                         {link.name}
@@ -216,8 +225,12 @@ export default function Header() {
                             onClick={() => setOpenDropdown(null)}
                             className="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-gray-700 rounded-md hover:bg-red-50 hover:text-red-600 transition-colors duration-150 cursor-pointer"
                           >
-                            <span className="text-gray-400 p-1 bg-gray-50 rounded-md group-hover:text-red-600 transition-colors">{item.icon || <Navigation className="w-4 h-4"/>}</span>
-                            <span>{item.name}</span>
+                            <span className={`text-gray-400 p-1 bg-gray-50 rounded-md group-hover:text-red-600 transition-colors ${location.pathname === item.href ? 'text-red-600 bg-red-100' : ''}`}>
+                              {item.icon || <Navigation className="w-4 h-4"/>}
+                            </span>
+                            <span className={location.pathname === item.href ? 'text-red-600 font-bold underline underline-offset-4 decoration-2' : ''}>
+                              {item.name}
+                            </span>
                           </Link>
                         ))}
                       </div>
@@ -289,7 +302,7 @@ export default function Header() {
               <div
                 style={{ transitionDelay: drawerOpen ? `${i * 30}ms` : '0ms' }}
                 className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer ${
-                  isActive(link.href)
+                  isActive(link)
                     ? 'text-red-600 bg-red-50'
                     : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
                 }`}
@@ -318,18 +331,22 @@ export default function Header() {
               {link.hasDropdown && link.submenu && openDropdown === link.name && (
                 <div className="space-y-1 ml-4 mt-2 border-l-2 border-gray-100 pl-3">
                   {link.submenu.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => {
-                        setDrawerOpen(false)
-                        setOpenDropdown(null)
-                      }}
-                      className="flex items-center gap-2.5 px-3 py-2.5 text-xs font-semibold text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-150 cursor-pointer"
-                    >
-                      <span className="text-gray-400 scale-[0.85]">{item.icon || <Navigation className="w-4 h-4"/>}</span>
-                      <span>{item.name}</span>
-                    </Link>
+                      <Link
+                        key={item.name}
+                        to={item.href}
+                        onClick={() => {
+                          setDrawerOpen(false)
+                          setOpenDropdown(null)
+                        }}
+                        className={`flex items-center gap-2.5 px-3 py-2.5 text-xs font-semibold rounded-lg transition-colors duration-150 cursor-pointer ${
+                          location.pathname === item.href ? 'text-red-600 bg-red-50' : 'text-gray-600 hover:text-red-600 hover:bg-red-50'
+                        }`}
+                      >
+                        <span className={`scale-[0.85] ${location.pathname === item.href ? 'text-red-600' : 'text-gray-400'}`}>
+                          {item.icon || <Navigation className="w-4 h-4"/>}
+                        </span>
+                        <span>{item.name}</span>
+                      </Link>
                   ))}
                 </div>
               )}

@@ -181,6 +181,15 @@ router.post('/applications', async (req, res) => {
 
     await application.save()
 
+    // Send email notification to admin asynchronously (don't block response)
+    const { sendEmail, getApplicationEmailTemplate } = await import('../utils/email.js')
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@futureschool.edu.in'
+    sendEmail(
+      adminEmail, 
+      `New ${application.applicationType} Application: ${application.studentName || application.candidateName}`, 
+      getApplicationEmailTemplate(application)
+    )
+
     res.status(201).json({
       message: 'Application submitted successfully',
       applicationId: application._id

@@ -7,19 +7,28 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "seed": "node scripts/seedAdmin.js"
+    "seed": "node scripts/seedAdmin.js",
+    "admin:install": "npm --prefix admin install",
+    "admin:build": "npm --prefix admin run build"
   },
-  "keywords": ["school", "backend", "api", "express", "mongodb"],
+  "keywords": [
+    "school",
+    "backend",
+    "api",
+    "express",
+    "mongodb"
+  ],
   "author": "Future School CBSE",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.0.0",
     "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
     "multer": "^1.4.5-lts.1",
-    "cors": "^2.8.5"
+    "nodemailer": "^8.0.4"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
