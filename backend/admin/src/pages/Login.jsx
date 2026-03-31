@@ -30,74 +30,76 @@ export const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-600 to-red-900 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-2xl p-8">
-          <div className="text-center mb-8">
-            <div className="flex justify-center mb-6">
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 relative overflow-hidden">
+      {/* Decorative patterns */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '32px 32px' }} />
+      
+      <div className="w-full max-w-[440px] relative z-10">
+        <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 p-10 md:p-12 border border-white">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center justify-center mb-8">
                <img src="/admin/logo.png" alt="Future School" className="h-20 w-auto" />
             </div>
-            <p className="text-[0.6rem] font-bold tracking-[0.3em] uppercase text-red-600 mb-1">Admin Portal</p>
-            <h1 className="text-3xl font-bold text-gray-900">Future School</h1>
+            <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight mb-2">Admin Console</h1>
+            <p className="text-slate-400 text-sm font-medium">Please enter your credentials to manage school portal</p>
           </div>
 
-          {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-600 text-sm">{error}</p>
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-3 text-gray-400" size={20} />
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-slate-400 ml-1">Email ID</label>
+              <div className="relative group">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 group-focus-within:text-red-600 transition-colors" />
                 <input
-                  type="email"
                   name="email"
+                  type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="admin@futureschool.com"
+                  className="w-full pl-11 pr-4 py-4 rounded-2xl border border-slate-100 bg-slate-50/50 text-sm font-semibold focus:bg-white"
+                  placeholder="admin@futureschool.edu"
                   required
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
                 />
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-3 text-gray-400" size={20} />
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-slate-400 ml-1">Password</label>
+              <div className="relative group">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 group-focus-within:text-red-600 transition-colors" />
                 <input
-                  type="password"
                   name="password"
+                  type="password"
                   value={formData.password}
                   onChange={handleChange}
+                  className="w-full pl-11 pr-4 py-4 rounded-2xl border border-slate-100 bg-slate-50/50 text-sm font-semibold focus:bg-white"
                   placeholder="••••••••"
                   required
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
                 />
               </div>
             </div>
+
+            {error && (
+              <div className="p-4 rounded-2xl bg-red-50 border border-red-100/50 text-red-600 text-xs font-bold animate-shake">
+                {error}
+              </div>
+            )}
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white font-semibold py-2 rounded-lg transition flex items-center justify-center gap-2"
+              className="w-full py-4.5 bg-red-600 text-white rounded-2xl font-extrabold text-sm uppercase tracking-widest shadow-xl shadow-red-600/20 hover:bg-red-700 hover:shadow-red-600/30 transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {loading ? (
-                <>
-                  <Loader size={20} className="animate-spin" />
-                  Logging in...
-                </>
+                <Loader className="w-5 h-5 animate-spin" />
               ) : (
-                'Login'
+                'Sign In Now'
               )}
             </button>
           </form>
-
-
         </div>
+        
+        <p className="text-center mt-10 text-slate-400 text-xs font-semibold uppercase tracking-widest">
+           Future Senior Secondary School © 2026
+        </p>
       </div>
     </div>
   )

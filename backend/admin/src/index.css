@@ -1,5 +1,17 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --brand-red: #c1272d;
+  --bg-soft: #FAFBFD;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-soft);
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
 
 * {
   margin: 0;
@@ -7,30 +19,35 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
+.glass {
+  @apply bg-white/80 backdrop-blur-md border border-white/20;
 }
 
-html {
-  scroll-behavior: smooth;
+.card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+input, select, textarea {
+  @apply transition-all duration-200 outline-none;
+}
+
+input:focus, select:focus, textarea:focus {
+  @apply border-red-600 ring-4 ring-red-50;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #dc2626;
-  border-radius: 4px;
+  background: #e2e8f0;
+  @apply rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #991b1b;
+  background: #cbd5e1;
 }
