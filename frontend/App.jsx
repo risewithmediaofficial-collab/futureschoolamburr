@@ -68,9 +68,7 @@ function AppLayout() {
           <Route path="/activities" element={<Activities />} />
           <Route path="/transportation" element={<Transportation />} />
           
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/transportation" element={<Transportation />} />
         </Routes>
       </div>
       {!isAdminRoute && <Footer />}
