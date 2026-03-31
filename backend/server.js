@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import fs from 'fs'
 import authRoutes from './routes/auth.js'
 import publicRoutes from './routes/public.js'
 import adminRoutes from './routes/admin.js'
@@ -33,7 +34,12 @@ app.get('/api/health', (req, res) => {
 const adminDistPath = join(__dirname, 'admin/dist')
 app.use('/admin', express.static(adminDistPath))
 app.get('/admin/*', (req, res) => {
-  res.sendFile(join(adminDistPath, 'index.html'))
+  const indexPath = join(adminDistPath, 'index.html')
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath)
+  } else {
+    res.status(404).json({ message: 'Admin portal not built. Run npm run build in the admin folder.' })
+  }
 })
 
 // ── Main School Frontend Integration (Render/Production) ──────────────────────
@@ -69,7 +75,12 @@ app.use('/api/upload', ensureDB, uploadRoutes)
 // ── SPA Catch-all (for School Website) ──────────────────────────────────────────
 // This must be the VERY LAST route in the entire file
 app.get('*', (req, res) => {
-  res.sendFile(join(mainDistPath, 'index.html'))
+  const indexPath = join(mainDistPath, 'index.html')
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath)
+  } else {
+    res.status(404).json({ message: `Route not found: ${req.method} ${req.url}` })
+  }
 })
 
 // Error handler
