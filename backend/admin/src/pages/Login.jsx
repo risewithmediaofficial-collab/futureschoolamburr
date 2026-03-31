@@ -30,47 +30,44 @@ export const Login = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 relative overflow-hidden">
-      {/* Decorative patterns */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '32px 32px' }} />
-      
-      <div className="w-full max-w-[440px] relative z-10">
-        <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200/50 p-10 md:p-12 border border-white">
+    <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans">
+      <div className="w-full max-w-md">
+        <div className="bg-white rounded-[2rem] shadow-2xl p-10 border border-white">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center justify-center mb-8">
+            <div className="flex justify-center mb-6">
                <img src="/admin/logo.png" alt="Future School" className="h-20 w-auto" />
             </div>
-            <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight mb-2">Admin Console</h1>
-            <p className="text-slate-400 text-sm font-medium">Please enter your credentials to manage school portal</p>
+            <p className="text-[0.6rem] font-bold tracking-[0.3em] uppercase text-red-600 mb-1">Admin Portal</p>
+            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">System Gateway</h1>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-1.5">
-              <label className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-slate-400 ml-1">Email ID</label>
+            <div className="space-y-1">
+              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Email ID</label>
               <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 group-focus-within:text-red-600 transition-colors" />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-red-600 transition-colors" size={18} />
                 <input
                   name="email"
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-11 pr-4 py-4 rounded-2xl border border-slate-100 bg-slate-50/50 text-sm font-semibold focus:bg-white"
-                  placeholder="admin@futureschool.edu"
+                  className="w-full pl-11 pr-4 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 text-sm focus:bg-white outline-none focus:ring-4 focus:ring-red-50/50 focus:border-red-600 transition-all"
+                  placeholder="admin@futureschool.com"
                   required
                 />
               </div>
             </div>
 
-            <div className="space-y-1.5">
-              <label className="text-[11px] font-extrabold uppercase tracking-[0.1em] text-slate-400 ml-1">Password</label>
+            <div className="space-y-1">
+              <label className="text-[10px] font-bold uppercase tracking-widest text-gray-400 ml-1">Password</label>
               <div className="relative group">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300 group-focus-within:text-red-600 transition-colors" />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-red-600 transition-colors" size={18} />
                 <input
                   name="password"
                   type="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full pl-11 pr-4 py-4 rounded-2xl border border-slate-100 bg-slate-50/50 text-sm font-semibold focus:bg-white"
+                  className="w-full pl-11 pr-4 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 text-sm focus:bg-white outline-none focus:ring-4 focus:ring-red-50/50 focus:border-red-600 transition-all"
                   placeholder="••••••••"
                   required
                 />
@@ -78,7 +75,7 @@ export const Login = () => {
             </div>
 
             {error && (
-              <div className="p-4 rounded-2xl bg-red-50 border border-red-100/50 text-red-600 text-xs font-bold animate-shake">
+              <div className="p-4 rounded-xl bg-red-50 text-red-600 text-xs font-bold border border-red-100 italic">
                 {error}
               </div>
             )}
@@ -86,20 +83,17 @@ export const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4.5 bg-red-600 text-white rounded-2xl font-extrabold text-sm uppercase tracking-widest shadow-xl shadow-red-600/20 hover:bg-red-700 hover:shadow-red-600/30 transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2"
+              className="w-full py-4.5 bg-red-600 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-red-700 shadow-xl shadow-red-600/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? (
-                <Loader className="w-5 h-5 animate-spin" />
+                <Loader className="animate-spin" size={20} />
               ) : (
-                'Sign In Now'
+                'Sign In Secret Portal'
               )}
             </button>
           </form>
         </div>
-        
-        <p className="text-center mt-10 text-slate-400 text-xs font-semibold uppercase tracking-widest">
-           Future Senior Secondary School © 2026
-        </p>
+        <p className="text-center mt-10 text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">Future Senior Secondary School © 2026</p>
       </div>
     </div>
   )
