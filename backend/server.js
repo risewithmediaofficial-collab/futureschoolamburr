@@ -30,6 +30,19 @@ app.get('/api/health', (req, res) => {
   })
 })
 
+// ── Admin Frontend Integration ────────────────────────────────────────────────
+const adminDistPath = join(__dirname, '../admin/dist')
+app.use('/admin', express.static(adminDistPath))
+
+app.get('/admin/*', (req, res) => {
+  const indexPath = join(adminDistPath, 'index.html')
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath)
+  } else {
+    res.status(404).json({ message: 'Admin portal not built. Run npm run admin:build in the root directory.' })
+  }
+})
+
 // ── Main School Frontend Integration (Render/Production) ──────────────────────
 // Main frontend is built into the root /dist folder
 const mainDistPath = join(__dirname, '../dist')
