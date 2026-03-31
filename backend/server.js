@@ -71,8 +71,8 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ message: err.message || 'Internal server error' })
 })
 
-// Local dev only — start a persistent server
-if (process.env.NODE_ENV !== 'production') {
+// Start persistent server for non-Vercel environments (like Render or Local)
+if (!process.env.VERCEL) {
   const PORT = process.env.PORT || 3000
   app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`))
 }

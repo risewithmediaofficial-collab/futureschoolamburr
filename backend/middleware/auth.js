@@ -17,19 +17,34 @@ export const verifyToken = (req, res, next) => {
   }
 }
 
-// Check if admin has specific role
-export const checkRole = (requiredRole) => {
+// Check if admin has specific role(s)
+export const checkRole = (...requiredRoles) => {
   return (req, res, next) => {
     if (!req.admin) {
       return res.status(401).json({ message: 'Authentication required' })
     }
 
-    if (requiredRole === 'super-admin' && req.admin.role !== 'super-admin') {
-      return res.status(403).json({ message: 'Super-admin access required' })
+    const adminRole = (req.admin.role || 'editor').toLowerCase()
+    
+    // Normalize required roles
+    const normalizedRequired = requiredRoles.map(r => r.toLowerCase())
+
+    // super-admin always has access
+    if (adminRole === 'super-admin') {
+       return next()
     }
 
-    if (requiredRole === 'editor' && !['super-admin', 'editor'].includes(req.admin.role)) {
-      return res.status(403).json({ message: 'Editor or super-admin access required' })
+    // Check if the current role is allowed for this route
+    const isAllowed = normalizedRequired.some(role => {
+       if (role === 'editor') return ['super-admin', 'editor', 'admin'].includes(adminRole)
+       if (role === 'admin') return ['super-admin', 'admin'].includes(adminRole)
+       return adminRole === role
+    })
+
+    if (!isAllowed) {
+      return res.status(403).json({ 
+        message: `Access denied. Required role: ${requiredRoles.join(' or ')}. Your role: ${adminRole}` 
+      })
     }
 
     next()

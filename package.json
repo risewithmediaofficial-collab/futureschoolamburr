@@ -11,7 +11,9 @@
     "admin:install": "npm --prefix backend/admin install",
     "admin:build": "npm --prefix backend/admin run build",
     "build": "vite build",
-    "vercel-build": "vite build && npm run admin:install && npm run admin:build",
+    "build:all": "vite build && npm run admin:install && npm run admin:build",
+    "vercel-build": "npm run build:all",
+    "start": "node backend/server.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
