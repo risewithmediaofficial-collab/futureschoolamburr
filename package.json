@@ -10,7 +10,7 @@
     "dev:all": "concurrently \"npm run client\" \"npm run server\"",
     "admin:install": "npm --prefix admin install",
     "admin:build": "npm --prefix admin run build",
-    "build": "vite build && npm run admin:install && npm run admin:build",
+    "build": "vite build && npm run admin:install && npm run admin:build && mkdir -p dist/admin && cp -r admin/dist/* dist/admin/",
     "build:all": "npm run build",
     "vercel-build": "npm run build:all",
     "start": "node backend/server.js",
