@@ -34,8 +34,11 @@ export const Login = () => {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Login</h1>
-            <p className="text-gray-600">Future School CBSE</p>
+            <div className="flex justify-center mb-6">
+               <img src="/admin/logo.png" alt="Future School" className="h-20 w-auto" />
+            </div>
+            <p className="text-[0.6rem] font-bold tracking-[0.3em] uppercase text-red-600 mb-1">Admin Portal</p>
+            <h1 className="text-3xl font-bold text-gray-900">Future School</h1>
           </div>
 
           {error && (

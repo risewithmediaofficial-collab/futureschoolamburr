@@ -27,7 +27,7 @@ apiClient.interceptors.response.use(
       // Redirect to login if token expired
       localStorage.removeItem('adminToken')
       localStorage.removeItem('adminUser')
-      window.location.href = '/login'
+      window.location.href = '/admin/login'
     }
     return Promise.reject(error.response?.data || error.message)
   }

@@ -35,49 +35,55 @@ export const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed md:relative w-64 h-screen bg-gray-900 text-white transition-all duration-300 ${
-          isOpen ? 'left-0' : '-left-64 md:left-0'
-        } md:translate-x-0 z-40`}
+        className={`fixed md:relative w-72 h-screen bg-white border-r border-gray-100 transition-all duration-300 ${
+          isOpen ? 'left-0' : '-left-72 md:left-0'
+        } md:translate-x-0 z-40 flex flex-col shadow-sm`}
       >
-        <div className="p-6 border-b border-gray-700">
-          <h1 className="text-2xl font-bold text-red-500">Future School</h1>
-          <p className="text-sm text-gray-400 mt-1">Admin Panel</p>
+        <div className="p-8 flex flex-col items-start">
+          <div className="mb-2">
+             <img src="/admin/logo.png" alt="Future School" className="h-16 w-auto" />
+          </div>
+          <div className="space-y-0.5">
+            <p className="text-[0.6rem] font-bold tracking-[0.2em] uppercase text-red-600">Admin Panel</p>
+            <h1 className="text-xl font-bold text-[#0f172a]">Future School</h1>
+          </div>
         </div>
 
-        <nav className="flex-1 overflow-y-auto py-4">
+        <nav className="flex-1 overflow-y-auto px-4 py-2 space-y-1">
           {menuItems.map((item) => {
             const Icon = item.icon
+            const active = isActive(item.path)
             return (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`flex items-center gap-3 px-6 py-3 transition ${
-                  isActive(item.path)
-                    ? 'bg-red-600 border-r-4 border-red-400'
-                    : 'hover:bg-gray-800 text-gray-300'
+                className={`flex items-center gap-4 px-5 py-3.5 rounded-2xl transition-all duration-200 group ${
+                  active
+                    ? 'bg-red-600 text-white shadow-lg shadow-red-200'
+                    : 'text-gray-500 hover:bg-gray-50 hover:text-red-600'
                 }`}
               >
-                <Icon size={20} />
-                <span>{item.name}</span>
+                <Icon size={22} className={`${active ? 'text-white' : 'text-gray-400 group-hover:text-red-600'} transition-colors`} />
+                <span className="font-bold text-sm tracking-wide">{item.name}</span>
               </Link>
             )
           })}
         </nav>
 
         {/* User Info & Logout */}
-        <div className="border-t border-gray-700 p-4">
-          <div className="mb-4">
-            <p className="text-sm text-gray-400">Logged in as:</p>
-            <p className="text-white font-medium text-sm truncate">{admin?.name}</p>
-            <p className="text-xs text-gray-500 capitalize">{admin?.role}</p>
+        <div className="p-6 border-t border-gray-50 bg-gray-50/50">
+          <div className="mb-4 px-2">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Current User</p>
+            <p className="text-gray-900 font-bold text-sm truncate">{admin?.name}</p>
+            <p className="text-[10px] text-gray-500 font-medium capitalize">{admin?.role}</p>
           </div>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition text-sm"
+            className="w-full flex items-center justify-center gap-2.5 px-4 py-3 bg-white border border-gray-200 text-gray-700 hover:text-red-600 hover:border-red-100 hover:bg-red-50 rounded-xl transition-all duration-200 font-bold text-xs shadow-sm"
           >
             <LogOut size={16} />
-            Logout
+            LOGOUT SYSTEM
           </button>
         </div>
       </div>
