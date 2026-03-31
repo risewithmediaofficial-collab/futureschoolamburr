@@ -20,6 +20,16 @@ app.use(cors({ origin: true, credentials: true }))
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ limit: '10mb', extended: true }))
 
+// Root route — simple status check
+app.get('/', async (req, res) => {
+  res.status(200).json({
+    message: 'Future School Backend API — Online 🚀',
+    database: dbReady ? 'Connected ✅' : 'Connecting/Error ⚠️',
+    health: '/api/health',
+    admin: '/admin (if enabled)'
+  })
+})
+
 // Health check — no DB required, great for debugging
 app.get('/api/health', (req, res) => {
   res.status(200).json({
