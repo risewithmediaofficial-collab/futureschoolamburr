@@ -19,13 +19,6 @@ app.use(cors({ origin: true, credentials: true }))
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ limit: '10mb', extended: true }))
 
-// ── Admin Frontend Integration ────────────────────────────────────────────────
-const adminDistPath = join(__dirname, 'admin/dist')
-app.use('/admin', express.static(adminDistPath))
-app.get('/admin/*', (req, res) => {
-  res.sendFile(join(adminDistPath, 'index.html'))
-})
-
 // Health check — no DB required, great for debugging
 app.get('/api/health', (req, res) => {
   res.status(200).json({
@@ -35,6 +28,20 @@ app.get('/api/health', (req, res) => {
     dbUri: process.env.MONGODB_URI ? 'SET ✅' : 'NOT SET ❌'
   })
 })
+
+// ── Admin Frontend Integration ────────────────────────────────────────────────
+const adminDistPath = join(__dirname, 'admin/dist')
+app.use('/admin', express.static(adminDistPath))
+app.get('/admin/*', (req, res) => {
+  res.sendFile(join(adminDistPath, 'index.html'))
+})
+
+// ── Main School Frontend Integration (Render/Production) ──────────────────────
+// Main frontend is built into the root /dist folder
+const mainDistPath = join(__dirname, '../dist')
+app.use(express.static(mainDistPath))
+
+// NOTE: All API routes must come BEFORE the main frontend catch-all
 
 // ── Lazy DB connection ─────────────────────────────────────────────────────────
 import connectDB from './config/db.js'
@@ -59,9 +66,10 @@ app.use('/api/public', ensureDB, publicRoutes)
 app.use('/api/admin', ensureDB, adminRoutes)
 app.use('/api/upload', ensureDB, uploadRoutes)
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({ message: `Route not found: ${req.method} ${req.url}` })
+// ── SPA Catch-all (for School Website) ──────────────────────────────────────────
+// This must be the VERY LAST route in the entire file
+app.get('*', (req, res) => {
+  res.sendFile(join(mainDistPath, 'index.html'))
 })
 
 // Error handler
