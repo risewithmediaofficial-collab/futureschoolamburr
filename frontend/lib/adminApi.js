@@ -1,6 +1,11 @@
 const TOKEN_KEY = 'future_school_admin_token'
 const ADMIN_KEY = 'future_school_admin_profile'
-const BASE_URL = ''
+let BASE_URL = import.meta.env.VITE_API_URL || ''
+
+// Ensure BASE_URL does not end with / (optional, as paths below start with /)
+if (BASE_URL) {
+  BASE_URL = BASE_URL.replace(/\/+$/, '')
+}
 
 function getHeaders(isJson = true) {
   const token = localStorage.getItem(TOKEN_KEY)
