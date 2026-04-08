@@ -53,7 +53,7 @@ export default function SchoolComrades() {
             <Reveal key={c.name} delay={i * 100} direction="up">
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-bold text-gray-900 tracking-wide serif">{c.name}</h3>
-                <p className="text-[0.65rem] tracking-widest uppercase font-semibold text-gray-400">{c.role}</p>
+                <p className="text-[0.7rem] tracking-widest uppercase font-semibold text-gray-800">{c.role}</p>
               </div>
             </Reveal>
           ))}

@@ -6,9 +6,9 @@ import bnr2 from '../assets/pic-assets/banner-2026-2-1.png'
 import bnr3 from '../assets/pic-assets/banner-2026-3-1.png'
 
 const heroSlides = [
-  { kicker: 'Est. 1998 · Ambur', heading: 'Shape Your Brightest Future.', sub: 'Future Senior Secondary School — CBSE Affiliated, nurturing excellence for 25 years.', img: bnr1 },
+  { kicker: 'Est. 2011 · Ambur', heading: 'Shape Your Brightest Future.', sub: 'Future Senior Secondary School — CBSE Affiliated, nurturing excellence for 11 years.', img: bnr1 },
   { kicker: 'Admissions 2026–27', heading: 'Every Student Belongs.', sub: 'Smart classrooms, expert faculty, and a campus that inspires discovery every day.', img: bnr2 },
-  { kicker: '25 Years of Trust',  heading: 'Academic Excellence, Holistic Growth.', sub: 'Limited seats available for Classes I–XII. Applications now open.', img: bnr3 },
+  { kicker: '11 Years of Trust',  heading: 'Academic Excellence, Holistic Growth.', sub: 'Limited seats available for Classes I–XII. Applications now open.', img: bnr3 },
 ]
 
 export default function Hero() {
@@ -21,7 +21,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-white pb-16 pt-4 md:pt-8 md:pb-24">
+      <section className="relative w-full overflow-hidden bg-[#FFFBF1] pb-16 pt-4 md:pt-8 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
           
           {/* Top — Text content */}
@@ -49,7 +49,7 @@ export default function Hero() {
             <Reveal direction="up" delay={300}>
               <div className="flex items-center gap-4 mt-10">
                 <Link to="/apply"
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[0.7rem] tracking-widest uppercase font-black transition-all bg-[#c0392b] text-white hover:bg-[#a93226] h-12 px-10 py-2 shadow-lg shadow-red-900/10 hover:-translate-y-0.5">
+                  className="btn-micro inline-flex items-center justify-center whitespace-nowrap rounded-lg text-[0.7rem] tracking-widest uppercase font-black relative overflow-hidden h-12 px-10 py-2 bg-gradient-to-r from-[#c0392b] to-[#e74c3c] text-white shadow-lg shadow-red-500/20 hover:shadow-xl hover:shadow-red-500/30 hover:-translate-y-1 transition-all duration-300">
                   Apply for Admission
                   <svg className="w-4 h-4 ml-3" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -98,10 +98,10 @@ export default function Hero() {
       </section>
 
       {/* Stats overlay (Separate band below the hero) */}
-      <section className="bg-white border-y border-gray-100 py-6">
+      <section className="bg-[#FFFBF1] border-y border-gray-100 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-8 md:gap-16 flex-wrap justify-center sm:justify-start">
-            {[['3,000+', 'Students'], ['97.8%', 'Pass Rate'], ['25 yrs', 'Legacy']].map(([n, l]) => (
+            {[['2,000+', 'Students'], ['97.8%', 'Pass Rate'], ['11 yrs', 'Legacy']].map(([n, l]) => (
               <Reveal key={l} direction="up" delay={100}>
                 <div className="flex gap-2 md:gap-3 items-center whitespace-nowrap">
                   <span className="serif text-gray-900 text-2xl md:text-3xl font-medium">{n}</span>

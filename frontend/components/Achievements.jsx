@@ -191,7 +191,7 @@ export default function Achievements() {
             <Reveal key={item.title} delay={i * 50}>
               <div className={`group bg-white border rounded-2xl p-6 h-full transition-all duration-300 hover:shadow-md ${item.highlight ? 'border-red-600 shadow-sm shadow-red-600/5' : 'border-gray-200 hover:border-red-600/30'}`}>
                 <div className="flex items-start justify-between mb-6">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${item.highlight ? 'bg-red-600 text-white' : 'bg-red-50 text-red-600 group-hover:bg-red-600 group-hover:text-white'}`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${item.highlight ? 'bg-red-600 text-white' : 'bg-red-50 text-red-600'}`}>
                     {item.icon}
                   </div>
                   <div className="text-right">

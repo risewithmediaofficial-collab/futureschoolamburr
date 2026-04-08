@@ -51,7 +51,7 @@ export default function ProgrammesBand() {
               </Reveal>
            </div>
            <Reveal delay={100}>
-              <p className="text-gray-500 text-sm md:text-base font-medium max-w-sm leading-relaxed">
+              <p className="text-black text-base md:text-lg font-medium max-w-sm leading-relaxed">
                  A seamless CBSE journey designed carefully from foundational primary years to senior secondary excellence.
               </p>
            </Reveal>
@@ -76,7 +76,7 @@ export default function ProgrammesBand() {
                    <div className="flex-1">
                       <p className="text-[0.6rem] font-black uppercase text-gray-900 tracking-widest mb-3">{p.grade}</p>
                       <h3 className="serif text-xl text-gray-900 mb-4">{p.title}</h3>
-                      <p className="text-sm text-gray-500 leading-relaxed font-medium">{p.desc}</p>
+                      <p className="text-sm text-black leading-relaxed font-medium">{p.desc}</p>
                    </div>
 
                   {/* Link Foot */}

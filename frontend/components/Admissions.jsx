@@ -230,7 +230,7 @@ export default function Admissions() {
                       <svg className="w-7 h-7 text-red-500 mb-1" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
                         {step.icon}
                       </svg>
-                      <span className="text-xs font-bold text-red-400 tracking-widest">{step.num}</span>
+                      <span className="text-xs font-bold text-black tracking-widest">{step.num}</span>
                       {/* Hover fill */}
                       <div className="absolute inset-0 rounded-full bg-red-600 opacity-0 group-hover:opacity-5 transition-opacity duration-300" />
                     </div>
@@ -293,7 +293,7 @@ export default function Admissions() {
                             name="name" value={form.name} onChange={handleChange} required
                             disabled={loading}
                             placeholder="Full name"
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 disabled:opacity-50"
+                            className="input-material w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 disabled:opacity-50"
                           />
                         </div>
                         <div>
@@ -302,7 +302,7 @@ export default function Admissions() {
                             name="parent" value={form.parent} onChange={handleChange} required
                             disabled={loading}
                             placeholder="Parent's full name"
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 disabled:opacity-50"
+                            className="input-material w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 disabled:opacity-50"
                           />
                         </div>
                       </div>
@@ -313,7 +313,7 @@ export default function Admissions() {
                             name="phone" value={form.phone} onChange={handleChange} required
                             disabled={loading}
                             placeholder="+91 XXXXX XXXXX" type="tel"
-                            className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all duration-200 disabled:opacity-50"
+                            className="input-material w-full px-4 py-3 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-300 disabled:opacity-50"
                           />
                         </div>
                         <div>
@@ -352,7 +352,7 @@ export default function Admissions() {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3.5 bg-transparent text-red-700 text-sm font-bold rounded-xl border-2 border-red-700 hover:bg-red-50 hover:shadow-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="btn-micro w-full py-4 bg-gradient-to-r from-[#c0392b] to-red-500 text-white text-sm font-bold rounded-xl shadow-lg shadow-red-500/30 hover:shadow-red-500/50 transition-all duration-200 hover:-translate-y-1 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {loading ? 'Sending Application...' : 'Submit Application →'}
                       </button>

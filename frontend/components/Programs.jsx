@@ -138,7 +138,7 @@ export default function Programs() {
             <h1 className="serif text-4xl md:text-5xl lg:text-7xl mb-8">
               Our <span className="text-[#c0392b]">Programs</span>
             </h1>
-            <p className="mt-6 text-gray-500 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="mt-6 text-black text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
               From foundational primary education to senior secondary streams — a seamless, CBSE-aligned academic journey designed to unlock every student's potential.
             </p>
           </Reveal>
@@ -170,13 +170,13 @@ export default function Programs() {
 
                 {/* Text Section */}
                 <div className="w-full lg:w-7/12 flex flex-col gap-4">
-                  <div className="inline-flex w-fit items-center gap-2 px-3 py-1 bg-gray-50 border border-gray-100 text-gray-500 text-[0.6rem] font-bold uppercase tracking-widest rounded-md">
+                  <div className="inline-flex w-fit items-center gap-2 px-3 py-1 bg-gray-50 border border-gray-100 text-black text-[0.65rem] font-bold uppercase tracking-widest rounded-md">
                     {program.classes}
                   </div>
                   <h3 className="serif text-2xl sm:text-3xl text-gray-900">
                     {program.title} Journey
                   </h3>
-                  <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
+                  <div className="space-y-4 text-black text-base sm:text-lg leading-relaxed font-medium">
                     {program.paragraphs.map((para, i) => <p key={i}>{para}</p>)}
                   </div>
                   {program.streams && (
@@ -186,7 +186,7 @@ export default function Programs() {
                       </h5>
                       <ul className="space-y-2">
                         {program.streams.map((stream, i) => (
-                          <li key={i} className="flex gap-2 text-sm text-gray-600">
+                          <li key={i} className="flex gap-2 text-base text-black font-medium">
                             <span className="text-red-500 font-bold mt-0.5">›</span>
                             {stream}
                           </li>

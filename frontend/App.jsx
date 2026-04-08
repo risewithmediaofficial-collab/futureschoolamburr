@@ -62,7 +62,7 @@ function AppLayout() {
   const isAdminRoute = location.pathname.startsWith('/admin')
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-[#FFFBF1] flex flex-col">
       {!isAdminRoute && <Header />}
       <div className="flex-grow">
         <Routes>

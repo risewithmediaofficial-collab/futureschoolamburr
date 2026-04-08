@@ -284,7 +284,7 @@ export default function Faculty() {
             </Reveal>
             <Reveal delay={400}>
               <div className="flex flex-wrap gap-4 pt-1">
-                {[['200+', 'Faculty Members'], ['15 yrs', 'Avg. Experience'], ['8', 'Departments']].map(([n, l]) => (
+                {[['30+', 'Faculty Members'], ['11 yrs', 'Avg. Experience'], ['8', 'Departments']].map(([n, l]) => (
                   <div key={l} className="flex items-center gap-2.5">
                     <div className="w-0.5 h-8 bg-white border border-gray-100 rounded-full" />
                     <div>
@@ -327,7 +327,7 @@ export default function Faculty() {
       <section className="bg-red-600">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-red-500">
-            {[['200+', 'Total Faculty'], ['15 yrs', 'Avg. Experience'], ['8', 'Departments'], ['100%', 'PG Qualified']].map(([n, l]) => (
+            {[['30+', 'Total Faculty'], ['11 yrs', 'Avg. Experience'], ['8', 'Departments'], ['100%', 'PG Qualified']].map(([n, l]) => (
               <div key={l} className="flex flex-col items-center py-5 px-4">
                 <span className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "'Georgia', serif" }}>{n}</span>
                 <span className="text-red-200 text-[0.62rem] tracking-wider uppercase font-medium text-center mt-1">{l}</span>

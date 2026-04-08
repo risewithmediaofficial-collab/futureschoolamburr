@@ -62,7 +62,7 @@ export default function Management() {
             </h2>
           </Reveal>
           <Reveal delay={200}>
-            <p className="mt-6 text-gray-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="mt-6 text-black text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
               Guided by decades of experience and a passion for holistic education, our leadership team ensures that every child receives the best foundation for life.
             </p>
           </Reveal>
@@ -84,7 +84,7 @@ export default function Management() {
                   {/* In a real app, images would go here */}
                 </div>
                 <h3 className="text-sm font-bold text-gray-900 mb-1">{m.name}</h3>
-                <p className="text-[0.6rem] tracking-widest uppercase font-semibold text-gray-400">{m.role}</p>
+                <p className="text-[0.65rem] tracking-widest uppercase font-semibold text-gray-800">{m.role}</p>
               </div>
             </Reveal>
           ))}

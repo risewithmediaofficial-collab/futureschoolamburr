@@ -52,7 +52,7 @@ export default function Welcome() {
             </Reveal>
 
             <Reveal delay={200}>
-               <div className="space-y-4 text-gray-600 text-sm md:text-base leading-relaxed">
+               <div className="space-y-4 text-black text-base md:text-lg leading-relaxed font-medium">
                   <p>
                     Future Senior Secondary School has been Ambur's most trusted institution since 1998. Affiliated with CBSE, we shape confident, compassionate, and capable individuals ready for tomorrow's world.
                   </p>
@@ -65,16 +65,16 @@ export default function Welcome() {
             <Reveal delay={300}>
               <div className="grid grid-cols-3 gap-6 py-6 border-y border-gray-100">
                 {[
-                  { icon: <Users className="w-4 h-4 text-[#c0392b]" />, n: '5,000+', l: 'Students' },
-                  { icon: <GraduationCap className="w-4 h-4 text-[#c0392b]" />, n: '200+', l: 'Faculty' },
-                  { icon: <Clock className="w-4 h-4 text-[#c0392b]" />, n: '25+', l: 'Years' },
+                  { icon: <Users className="w-4 h-4 text-[#c0392b]" />, n: '2,000+', l: 'Students' },
+                  { icon: <GraduationCap className="w-4 h-4 text-[#c0392b]" />, n: '30+', l: 'Faculty' },
+                  { icon: <Clock className="w-4 h-4 text-[#c0392b]" />, n: '11+', l: 'Years' },
                 ].map(({ icon, n, l }) => (
                   <div key={l} className="flex flex-col gap-1 items-center md:items-start">
                     <div className="flex items-center gap-2 mb-1">
                        {icon}
                        <span className="serif text-2xl text-gray-900">{n}</span>
                     </div>
-                    <span className="text-[0.6rem] font-bold text-gray-400 uppercase tracking-widest">{l}</span>
+                    <span className="text-[0.65rem] font-bold text-gray-800 uppercase tracking-widest">{l}</span>
                   </div>
                 ))}
               </div>

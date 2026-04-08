@@ -86,7 +86,7 @@ export default function EventsGrid() {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-gray-800 serif group-hover:text-red-600 transition-colors">{item.title}</h4>
-                    <p className="text-[0.6rem] tracking-widest uppercase font-semibold text-gray-400 mt-1">{item.date}</p>
+                    <p className="text-[0.65rem] tracking-widest uppercase font-semibold text-gray-800 mt-1">{item.date}</p>
                   </div>
                 </div>
               </Reveal>
@@ -111,7 +111,7 @@ export default function EventsGrid() {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-gray-800 serif group-hover:text-red-600 transition-colors">{item.title}</h4>
-                    <p className="text-[0.6rem] tracking-widest uppercase font-semibold text-gray-400 mt-1">{item.date}</p>
+                    <p className="text-[0.65rem] tracking-widest uppercase font-semibold text-gray-800 mt-1">{item.date}</p>
                   </div>
                 </div>
               </Reveal>

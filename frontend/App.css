@@ -1,1 +1,249 @@
-/* App-level styles — add only what Tailwind cannot cover */
+/* ═══════════════════════════════════════════════════════════════════ */
+/* GLASSMORPHISM & MODERN DESIGN SYSTEM */
+/* ═══════════════════════════════════════════════════════════════════ */
+
+/* 🎨 Glassmorphism Base Class */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.08);
+}
+
+.glassmorphism-dark {
+  background: rgba(45, 45, 45, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 🎯 Card Base Styles (Material Design) */
+.card-base {
+  background: #FFFBF1;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.card-base::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c0392b, #e74c3c);
+  border-radius: 16px 16px 0 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.card-base:hover::before {
+  transform: scaleX(1);
+}
+
+.card-base:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(192, 57, 43, 0.15);
+}
+
+/* 💫 Micro-interactions */
+.micro-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.micro-hover:hover {
+  transform: scale(1.02);
+}
+
+.micro-hover:active {
+  transform: scale(0.98);
+}
+
+.badge-micro {
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.badge-micro:hover {
+  transform: scale(1.12) rotate(-5deg);
+  filter: brightness(1.15);
+}
+
+/* 🔴 Red Accent Focus State */
+.focus-red:focus {
+  outline: 2px solid #c0392b;
+  outline-offset: 2px;
+}
+
+/* ─── Dropdown Active State ─── */
+.dropdown-active {
+  background: rgba(192, 57, 43, 0.1);
+  border-bottom: 3px solid #c0392b;
+}
+
+.nav-link-active {
+  color: #c0392b;
+  font-weight: 600;
+  border-bottom: 2px solid #c0392b;
+  position: relative;
+}
+
+.nav-link-active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #c0392b, transparent);
+  border-radius: 1px;
+}
+
+/* ─── Smooth Page Transitions ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+/* ─── Button Micro-interactions ─── */
+.btn-micro {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-micro::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-micro:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.btn-micro:active {
+  transform: scale(0.98);
+}
+
+/* ─── Input Focus Styles (Material Design) ─── */
+.input-material {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid #e0e0e0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.input-material:focus {
+  border-color: #c0392b;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.15);
+  transform: translateY(-2px);
+}
+
+.input-material::placeholder {
+  color: #999999;
+  font-weight: 500;
+}
+
+/* ─── Textarea Material Style ─── */
+textarea.input-material {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  resize: none;
+}
+
+/* ─── Stagger Animation for Lists ─── */
+.stagger-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0ms; }
+.stagger-item:nth-child(2) { animation-delay: 100ms; }
+.stagger-item:nth-child(3) { animation-delay: 200ms; }
+.stagger-item:nth-child(4) { animation-delay: 300ms; }
+.stagger-item:nth-child(5) { animation-delay: 400ms; }
+.stagger-item:nth-child(n+6) { animation-delay: 500ms; }
+
+/* ─── Modal Animations ─── */
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-enter {
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.backdrop-enter {
+  animation: backdropFade 0.3s ease;
+}
+
+/* ─── Smooth Scrolling ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Selection Styling ─── */
+::selection {
+  background: rgba(192, 57, 43, 0.25);
+  color: #c0392b;
+}
+
+::-webkit-selection {
+  background: rgba(192, 57, 43, 0.25);
+  color: #c0392b;
+}

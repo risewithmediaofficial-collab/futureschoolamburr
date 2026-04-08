@@ -22,7 +22,7 @@ export default function AdmissionsCTA() {
             </h2>
           </Reveal>
           <Reveal delay={160}>
-            <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-sm font-medium">
+            <p className="text-black text-lg md:text-xl leading-relaxed max-w-sm font-medium">
               Applications are now open for 2026–27. Limited seats available across all grades — secure your spot today.
             </p>
           </Reveal>
@@ -34,7 +34,7 @@ export default function AdmissionsCTA() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link to="/contact"
-                className="inline-flex items-center gap-3 px-10 py-5 text-[0.7rem] font-bold transition-all duration-200 hover:bg-white hover:shadow-lg rounded-xl uppercase tracking-widest border border-gray-100 text-gray-500 hover:text-[#c0392b] hover:border-[#c0392b]">
+                className="inline-flex items-center gap-3 px-10 py-5 text-[0.75rem] font-bold transition-all duration-200 hover:bg-white hover:shadow-lg rounded-xl uppercase tracking-widest border border-gray-100 text-black hover:text-[#c0392b] hover:border-[#c0392b]">
                 Contact Us
               </Link>
             </div>
@@ -47,7 +47,7 @@ export default function AdmissionsCTA() {
               <div key={label} className="flex items-center gap-4 p-6 bg-white border border-gray-100 rounded-3xl group hover:border-[#c0392b]/30 transition-all duration-300 hover:shadow-lg shadow-[#c0392b]/5">
                 <span className="text-3xl transition-transform group-hover:scale-110 duration-500">{icon}</span>
                 <div>
-                  <p className="text-[0.55rem] tracking-widest uppercase font-black text-gray-400 group-hover:text-[#c0392b] transition-colors">{label}</p>
+                  <p className="text-[0.6rem] tracking-widest uppercase font-black text-gray-700 group-hover:text-[#c0392b] transition-colors">{label}</p>
                   <p className="serif text-base text-gray-900 mt-1">{val}</p>
                 </div>
               </div>

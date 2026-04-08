@@ -1,5 +1,35 @@
+import { useRef, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import bnrJoin from '../../assets/pic-assets/banner-2026-5-1.png'
+
+/* ─── Scroll-reveal hook ─── */
+function useReveal(threshold = 0.1) {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect() } },
+      { threshold }
+    )
+    if (ref.current) obs.observe(ref.current)
+    return () => obs.disconnect()
+  }, [threshold])
+  return [ref, visible]
+}
+
+function Reveal({ children, delay = 0, direction = 'up', className = '' }) {
+  const [ref, visible] = useReveal()
+  const transforms = { up: 'translateY(36px)', left: 'translateX(-48px)', right: 'translateX(48px)', none: 'none' }
+  return (
+    <div ref={ref} className={className} style={{
+      opacity: visible ? 1 : 0,
+      transform: visible ? 'none' : transforms[direction],
+      transition: `opacity 0.72s ease ${delay}ms, transform 0.72s ease ${delay}ms`,
+    }}>
+      {children}
+    </div>
+  )
+}
 
 export default function JoinBanner() {
   return (
@@ -9,7 +39,7 @@ export default function JoinBanner() {
         <div className="absolute inset-0 bg-[#c0392b]/10" />
       </div>
 
-      <div className="relative z-20 h-full flex items-center max-w-7xl mx-auto px-4 md:px-12">
+      <Reveal className="relative z-20 h-full flex items-center max-w-7xl mx-auto px-4 md:px-12">
         <div className="bg-white p-10 md:p-14 max-w-xl text-gray-900 border border-gray-100 shadow-2xl rounded-3xl mx-auto md:mx-0">
            <div>
               <p className="text-[#c0392b] text-[0.6rem] font-black tracking-widest uppercase mb-6">Get Started Today</p>
@@ -21,7 +51,7 @@ export default function JoinBanner() {
               </Link>
            </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

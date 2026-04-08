@@ -58,7 +58,7 @@ export default function VideosSection() {
           </div>
           <Reveal delay={200}>
             <Link to="/gallery"
-              className="text-[0.65rem] font-black tracking-widest uppercase flex items-center gap-3 transition-all hover:text-[#c0392b] group text-gray-400">
+              className="text-[0.7rem] font-black tracking-widest uppercase flex items-center gap-3 transition-all hover:text-[#c0392b] group text-gray-700">
               View All Gallery
               <div className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center group-hover:bg-[#c0392b] group-hover:text-white group-hover:border-[#c0392b] transition-all">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -87,7 +87,7 @@ export default function VideosSection() {
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <span className="text-[0.58rem] tracking-widest uppercase font-bold px-2.5 py-0.5 mb-2 inline-block bg-[#c0392b] text-white">{videos[0].category}</span>
                 <p className="serif text-gray-900 text-xl font-normal leading-tight">{videos[0].title}</p>
-                <p className="text-xs mt-1 font-mono text-gray-400">{videos[0].dur}</p>
+                <p className="text-xs mt-1 font-mono text-gray-600">{videos[0].dur}</p>
               </div>
             </div>
           </Reveal>
@@ -108,8 +108,8 @@ export default function VideosSection() {
                   </div>
                   <div className="flex-1 min-w-0 py-0.5">
                     <p className="text-[0.56rem] tracking-widest uppercase font-black mb-1 text-[#c0392b]">{v.category}</p>
-                    <p className="text-sm font-bold leading-snug line-clamp-2 text-gray-700 group-hover:text-gray-900 transition-colors">{v.title}</p>
-                    <p className="text-[0.56rem] font-mono mt-1 text-gray-400">{v.dur}</p>
+                    <p className="text-sm font-bold leading-snug line-clamp-2 text-gray-900 group-hover:text-gray-900 transition-colors">{v.title}</p>
+                    <p className="text-[0.6rem] font-mono mt-1 text-gray-700">{v.dur}</p>
                   </div>
                 </div>
               </Reveal>

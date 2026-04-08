@@ -24,7 +24,7 @@ export default function Testimonials() {
             </div>
             <div>
               <p className="text-gray-900 text-sm font-bold tracking-tight">Razia Begum</p>
-              <p className="text-[0.62rem] tracking-widest uppercase font-black text-gray-400 mt-1">Parent · Grade 12 Student</p>
+              <p className="text-[0.65rem] tracking-widest uppercase font-black text-gray-800 mt-1">Parent · Grade 12 Student</p>
             </div>
           </div>
         </Reveal>

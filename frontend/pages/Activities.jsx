@@ -4,6 +4,7 @@ import sapphireImg from '../assets/pic-assets/Sapphire-768x576.jpg'
 import emeraldImg from '../assets/pic-assets/Emerald-768x576.jpg'
 import heroImg from '../assets/pic-assets/sports-1.png'
 import { DropdownCard, DropdownPageLayout } from '../components/DropdownPageLayout'
+import SchoolComrades from '../components/SchoolComrades'
 
 const houses = [
   { title: 'Ruby House', img: rubyImg, desc: "Red colour is associated with power, energy, love, vigour, action, determination, and the will to achieve." },
@@ -43,6 +44,8 @@ export default function Activities() {
           ))}
         </div>
       </DropdownCard>
+
+      <SchoolComrades />
     </DropdownPageLayout>
   )
 }

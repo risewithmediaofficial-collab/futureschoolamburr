@@ -8,11 +8,11 @@
     "server": "npm --prefix backend run dev",
     "client": "npm run dev",
     "dev:all": "concurrently \"npm run client\" \"npm run server\"",
-    "admin:install": "# Migrated to frontend",
-    "admin:build": "# Migrated to frontend",
+    "admin:install": "npm --prefix admin_backup install",
+    "admin:build": "npm --prefix admin_backup run build && powershell -NoProfile -Command \"$src='admin_backup/dist'; $dst='admin'; if(Test-Path $dst){Remove-Item -Path $dst -Recurse -Force}; Copy-Item -Path $src -Destination $dst -Recurse\"",
     "build": "vite build && echo '/* /index.html 200' > dist/_redirects",
-    "build:all": "npm run build",
-    "vercel-build": "npm run build",
+    "build:all": "npm run build && npm run admin:build",
+    "vercel-build": "npm run build && npm run admin:build",
     "start": "node backend/server.js",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -20,6 +20,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.2.2",
+    "axios": "^1.14.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",

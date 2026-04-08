@@ -63,7 +63,7 @@ function FacultyCard({ name, subject, delay, img }) {
           />
         </div>
         <h4 className="text-sm font-bold text-gray-900 mb-1">{name}</h4>
-        <p className="text-[0.6rem] tracking-widest uppercase font-semibold text-gray-400">{subject}</p>
+        <p className="text-[0.6rem] tracking-widest uppercase font-semibold text-gray-800">{subject}</p>
       </div>
     </Reveal>
   )
@@ -89,7 +89,7 @@ export default function About() {
     <div className="bg-gray-50 overflow-x-hidden flex flex-col gap-16 md:gap-24 pb-20">
 
       {/* ══ PAGE HERO / OVERVIEW ══ */}
-      <section className="relative w-full overflow-hidden bg-white pb-16 pt-4 border-b border-gray-100" id="overview">
+      <section className="relative w-full overflow-hidden bg-[#FFFBF1] pb-16 pt-4 border-b border-gray-100" id="overview">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
@@ -119,14 +119,14 @@ export default function About() {
             <Reveal delay={300}>
               <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-10 justify-center">
                 <Link to="/admissions"
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[0.7rem] tracking-widest uppercase font-black transition-all bg-[#c0392b] text-white hover:bg-[#a93226] h-12 px-8 sm:px-10 py-2 shadow-lg shadow-red-900/10 hover:-translate-y-0.5">
+                  className="btn-micro inline-flex items-center justify-center whitespace-nowrap rounded-lg text-[0.7rem] tracking-widest uppercase font-black relative overflow-hidden h-12 px-8 sm:px-10 py-2 bg-gradient-to-r from-[#c0392b] to-[#e74c3c] text-white shadow-lg shadow-red-500/20 hover:shadow-xl hover:shadow-red-500/30 hover:-translate-y-1 transition-all duration-300">
                   Apply for Admission
                   <svg className="w-4 h-4 ml-3" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </Link>
                 <Link to="/contact"
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[0.7rem] tracking-widest uppercase font-black transition-all bg-white border border-gray-200 text-gray-700 hover:border-red-300 hover:text-red-600 hover:bg-red-50 h-12 px-10 py-2 shadow-sm hover:-translate-y-0.5">
+                  className="btn-micro inline-flex items-center justify-center whitespace-nowrap rounded-lg text-[0.7rem] tracking-widest uppercase font-black relative overflow-hidden h-12 px-10 py-2 bg-[#FFFBF1] border border-red-200 text-[#c0392b] shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-1 transition-all duration-300 hover:bg-red-50">
                   Contact Us
                 </Link>
               </div>
@@ -138,7 +138,7 @@ export default function About() {
               <img src={imgBuilding} alt="School" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none z-10" />
               
-              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-10 md:left-10 bg-white/95 backdrop-blur-sm border border-white/20 rounded-2xl p-3 sm:p-4 md:p-6 shadow-2xl flex items-center gap-3 sm:gap-4 z-20 hover:scale-105 transition-transform duration-300">
+              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-10 md:left-10 bg-[#FFFBF1]/95 backdrop-blur-sm border border-[#FFFBF1]/20 rounded-2xl p-3 sm:p-4 md:p-6 shadow-2xl flex items-center gap-3 sm:gap-4 z-20 hover:scale-105 transition-transform duration-300">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#c0392b] rounded-xl flex items-center justify-center text-white font-black text-xl sm:text-2xl shadow-sm">
                   25
                 </div>
@@ -158,12 +158,12 @@ export default function About() {
         <Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { icon: <Users className="w-6 h-6 text-red-600" />, n: '5,000+', l: 'Students Enrolled' },
-              { icon: <Briefcase className="w-6 h-6 text-red-600" />, n: '200+', l: 'Faculty Members' },
+              { icon: <Users className="w-6 h-6 text-red-600" />, n: '2,000+', l: 'Students Enrolled' },
+              { icon: <Briefcase className="w-6 h-6 text-red-600" />, n: '30+', l: 'Faculty Members' },
               { icon: <Award className="w-6 h-6 text-red-600" />, n: '97.8%', l: 'Board Pass Rate' },
-              { icon: <Target className="w-6 h-6 text-red-600" />, n: '25+', l: 'Years Excellence' },
+              { icon: <Target className="w-6 h-6 text-red-600" />, n: '11+', l: 'Years Excellence' },
             ].map(({ icon, n, l }) => (
-              <div key={l} className="bg-white border border-gray-200 rounded-2xl p-6 text-center hover:border-red-600/30 hover:shadow-md transition-all">
+              <div key={l} className="bg-[#FFFBF1] border border-gray-200 rounded-2xl p-6 text-center hover:border-red-600/30 hover:shadow-md transition-all">
                 <div className="w-12 h-12 rounded-xl bg-red-50 mx-auto flex items-center justify-center mb-4">
                   {icon}
                 </div>

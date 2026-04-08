@@ -2,10 +2,10 @@ import { Reveal } from '../../utils/reveal'
 import { Users, GraduationCap, Award, Target } from 'lucide-react'
 
 const stats = [
-  { icon: <Users className="w-5 h-5" />, n: '5,000+', l: 'Students Enrolled' },
+  { icon: <Users className="w-5 h-5" />, n: '2,000+', l: 'Students Enrolled' },
   { icon: <Award className="w-5 h-5" />, n: '97.8%', l: 'Board Pass Rate' },
-  { icon: <GraduationCap className="w-5 h-5" />, n: '200+', l: 'Faculty Members' },
-  { icon: <Target className="w-5 h-5" />, n: '25 yrs', l: 'of Excellence' },
+  { icon: <GraduationCap className="w-5 h-5" />, n: '30+', l: 'Faculty Members' },
+  { icon: <Target className="w-5 h-5" />, n: '11 yrs', l: 'of Excellence' },
 ]
 
 export default function StatsBand() {

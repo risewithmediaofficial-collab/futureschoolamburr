@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Youtube, Linkedin, Mail, MapPin, Phone, Send, ExternalLink, ArrowUp, ChevronRight } from 'lucide-react'
 import imgLogo from '../assets/logo.png'
 
+import mapImg from '../assets/pic-assets/location-map.png'
+
 /* ─── Social icon SVGs ─── */
 const socials = [
   { name: 'Facebook', href: '#', icon: <Facebook className="w-4 h-4" /> },
@@ -13,21 +15,21 @@ const socials = [
 
 /* ─── External resources ─── */
 const resources = [
-  { name: 'CBSE Official',       href: 'https://cbse.nic.in' },
-  { name: 'NCERT',               href: 'https://ncert.nic.in' },
-  { name: 'NTA Portal',          href: 'https://nta.ac.in' },
-  { name: 'JEE Main',            href: 'https://jeemain.nta.nic.in' },
+  { name: 'CBSE Official', href: 'https://cbse.nic.in' },
+  { name: 'NCERT', href: 'https://ncert.nic.in' },
+  { name: 'NTA Portal', href: 'https://nta.ac.in' },
+  { name: 'JEE Main', href: 'https://jeemain.nta.nic.in' },
   { name: 'Ministry of Education', href: 'https://education.gov.in' },
 ]
 
 /* ─── Quick links ─── */
 const quickLinks = [
-  { name: 'Home',        href: '/' },
-  { name: 'About Us',    href: '/about' },
-  { name: 'Programs',    href: '/programs' },
-  { name: 'Admissions',  href: '/admissions' },
-  { name: 'Gallery',     href: '/gallery' },
-  { name: 'Contact',     href: '/contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Programs', href: '/programs' },
+  { name: 'Admissions', href: '/admissions' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 export default function Footer() {
@@ -58,7 +60,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-gray-900 text-[0.6rem] font-black uppercase tracking-widest">Stay Updated</p>
-                  <p className="text-gray-500 text-[0.65rem] font-medium leading-none mt-1">Get school news, events & notices in your inbox</p>
+                  <p className="text-black text-[0.7rem] font-medium leading-none mt-1">Get school news, events & notices in your inbox</p>
                 </div>
               </div>
 
@@ -79,7 +81,7 @@ export default function Footer() {
                   />
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[0.65rem] font-bold tracking-widest uppercase transition-colors bg-[#c0392b] text-white hover:bg-[#a93226] h-10 px-6 py-2 shadow-sm flex-shrink-0"
+                    className="btn-micro inline-flex items-center justify-center whitespace-nowrap rounded-lg text-[0.65rem] font-bold tracking-widest uppercase transition-all bg-gradient-to-r from-[#c0392b] to-red-500 text-white shadow-lg shadow-red-500/30 hover:shadow-red-500/50 h-10 px-6 py-2 flex-shrink-0 hover:-translate-y-1 active:translate-y-0"
                   >
                     Subscribe
                   </button>
@@ -95,29 +97,29 @@ export default function Footer() {
               <Link to="/" className="flex items-center group w-fit">
                 <img src={imgLogo} alt="Logo" className="h-12 w-auto transition-all" />
               </Link>
-              <p className="text-gray-500 text-xs leading-relaxed max-w-xs">
-                A CBSE-affiliated institution dedicated to providing world-class education with modern pedagogy, holistic development, and strong values since 1998.
+              <p className="text-black text-xs leading-relaxed max-w-xs font-medium">
+                A CBSE-affiliated institution dedicated to providing world-class education with modern pedagogy, holistic development, and strong values since 2011.
               </p>
               <div className="flex flex-wrap gap-2">
                 {[['Aff. No.', '1930465'], ['Code', '55386'], ['Board', 'CBSE']].map(([label, val]) => (
                   <div key={label} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-gray-100 shadow-sm">
-                    <span className="text-[0.58rem] font-bold tracking-widest text-gray-400 uppercase">{label}</span>
+                    <span className="text-[0.6rem] font-bold tracking-widest text-gray-700 uppercase">{label}</span>
                     <span className="text-[0.7rem] font-black text-[#c0392b]">{val}</span>
                   </div>
                 ))}
               </div>
               <div className="flex flex-col gap-2.5 mt-1">
-                <a href="tel:+919962826465" className="flex items-center gap-2.5 text-gray-500 hover:text-[#c0392b] transition-colors group">
+                <a href="tel:+919962826465" className="flex items-center gap-2.5 text-black hover:text-[#c0392b] transition-colors group">
                   <Phone className="w-3.5 h-3.5 flex-shrink-0 text-[#c0392b]/60" />
                   <span className="text-[0.65rem] font-bold tracking-widest uppercase leading-snug">+91 99628 26465</span>
                 </a>
-                <a href="mailto:futureschooloffice@gmail.com" className="flex items-center gap-2.5 text-gray-500 hover:text-[#c0392b] transition-colors group">
+                <a href="mailto:futureschooloffice@gmail.com" className="flex items-center gap-2.5 text-black hover:text-[#c0392b] transition-colors group">
                   <Mail className="w-3.5 h-3.5 flex-shrink-0 text-[#c0392b]/60" />
                   <span className="text-[0.65rem] font-bold tracking-widest uppercase leading-snug">futureschooloffice@gmail.com</span>
                 </a>
-                <span className="flex items-start gap-2.5 text-gray-500">
+                <span className="flex items-start gap-2.5 text-black">
                   <MapPin className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-red-500/60" />
-                  <span className="text-xs font-medium leading-snug">Ambur, Tamil Nadu<br/>635 814</span>
+                  <span className="text-xs font-medium leading-snug">Ambur, Tamil Nadu<br />635 814</span>
                 </span>
               </div>
               <div className="flex gap-2.5 mt-1">
@@ -159,7 +161,7 @@ export default function Footer() {
               <ul className="space-y-3">
                 {resources.map(({ name, href }) => (
                   <li key={name}>
-                    <a href={href} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-[#c0392b] text-[0.6rem] font-semibold tracking-widest uppercase transition-colors duration-200 group">
+                    <a href={href} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-700 hover:text-[#c0392b] text-[0.65rem] font-semibold tracking-widest uppercase transition-colors duration-200 group">
                       <ExternalLink className="w-3 h-3 text-gray-300 opacity-40 group-hover:opacity-100 flex-shrink-0 transition-opacity" />
                       {name}
                     </a>
@@ -175,12 +177,12 @@ export default function Footer() {
                 <div className="space-y-3">
                   {[
                     ['Mon – Fri', '8:00 AM – 4:30 PM'],
-                    ['Saturday',  '8:00 AM – 1:00 PM'],
-                    ['Sunday',    'Closed']
+                    ['Saturday', '8:00 AM – 1:00 PM'],
+                    ['Sunday', 'Closed']
                   ].map(([day, time]) => (
                     <div key={day} className="flex flex-col gap-0.5">
-                      <span className="text-[0.62rem] tracking-widest uppercase font-bold text-gray-400">{day}</span>
-                      <span className="text-[0.7rem] font-black text-gray-700">{time}</span>
+                      <span className="text-[0.65rem] tracking-widest uppercase font-bold text-gray-800">{day}</span>
+                      <span className="text-[0.75rem] font-black text-gray-900">{time}</span>
                     </div>
                   ))}
                 </div>
@@ -192,15 +194,27 @@ export default function Footer() {
                 <span className="w-4 h-0.5 bg-red-600 inline-block" />
                 Location
               </p>
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-white border border-gray-200 flex flex-col items-center justify-center mb-5 group cursor-pointer shadow-sm hover:shadow-md transition-all">
-                <div className="absolute inset-0 opacity-[0.03]"
-                  style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '16px 16px' }} />
+              <a
+                href="https://www.google.com/maps/search/Future+Senior+Secondary+School+Ambur"
+                target="_blank"
+                rel="noreferrer"
+                className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-white border border-gray-200 flex flex-col items-center justify-center mb-5 group cursor-pointer shadow-sm hover:shadow-md transition-all"
+              >
+                <img
+                  src={mapImg}
+                  alt="School Location Map"
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300 group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px] group-hover:bg-transparent transition-all duration-300" />
+
                 <div className="text-center z-10 transition-transform group-hover:-translate-y-1 duration-300">
-                  <MapPin className="w-7 h-7 text-[#c0392b] mx-auto mb-2" />
-                  <span className="text-gray-400 text-[0.55rem] font-black uppercase tracking-widest">View on Maps</span>
+                  <div className="w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center mx-auto mb-2 border border-red-50">
+                    <MapPin className="w-5 h-5 text-[#c0392b]" />
+                  </div>
+                  <span className="bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[#c0392b] text-[0.55rem] font-bold uppercase tracking-widest border border-red-50/50 shadow-sm">View on Maps</span>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#c0392b] to-[#c0392b] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-              </div>
+              </a>
 
               <address className="not-italic text-gray-500 text-xs leading-relaxed font-medium">
                 Future Senior Secondary School<br />
@@ -239,9 +253,8 @@ export default function Footer() {
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={`fixed bottom-6 right-6 z-50 w-10 h-10 bg-white border border-gray-200 text-gray-600 rounded-md shadow-sm flex items-center justify-center hover:bg-gray-50 hover:text-gray-900 transition-all duration-300 ${
-          showTop ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
-        }`}
+        className={`fixed bottom-6 right-6 z-50 w-10 h-10 bg-white border border-gray-200 text-gray-600 rounded-md shadow-sm flex items-center justify-center hover:bg-gray-50 hover:text-gray-900 transition-all duration-300 ${showTop ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+          }`}
         aria-label="Back to top"
       >
         <ArrowUp className="w-4 h-4" />

@@ -230,7 +230,7 @@ const AdmissionQueryForm = () => {
               whileTap={{ scale: loading ? 1 : 0.98 }}
               type="submit"
               disabled={loading}
-              className={`w-full py-4 bg-[#c0392b] text-white font-bold rounded-lg text-lg shadow-lg hover:shadow-xl transition-all flex justify-center items-center gap-2 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+              className={`btn-micro w-full py-4 bg-gradient-to-r from-[#c0392b] to-red-500 text-white font-bold rounded-lg text-lg shadow-lg shadow-red-500/30 hover:shadow-red-500/50 transition-all flex justify-center items-center gap-2 hover:-translate-y-1 active:translate-y-0 ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
               <Send size={20} />
               {loading ? 'Submitting...' : 'Submit Inquiry'}
