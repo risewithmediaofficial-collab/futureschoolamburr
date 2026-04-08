@@ -4,7 +4,6 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-import Breadcrumb from './components/Breadcrumb'
 
 // Main Website Pages
 import Home from './pages/Home'
@@ -65,7 +64,6 @@ function AppLayout() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {!isAdminRoute && <Header />}
-      {!isAdminRoute && <Breadcrumb />}
       <div className="flex-grow">
         <Routes>
           {/* Main Website Routes */}
