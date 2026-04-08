@@ -75,7 +75,7 @@
   filter: brightness(1.15);
 }
 
-/* 🔴 Red Accent Focus State */
+/* � Red Accent Focus State */
 .focus-red:focus {
   outline: 2px solid #c0392b;
   outline-offset: 2px;

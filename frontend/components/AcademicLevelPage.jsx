@@ -29,7 +29,7 @@ export default function AcademicLevelPage({ eyebrow, title, subtitle, image, par
         <DropdownCard title="Streams Offered" eyebrow="Academic Choices" tone="soft">
           <div className="grid gap-4 md:grid-cols-2">
             {streams.map((stream, index) => (
-              <div key={stream} className="rounded-2xl border border-red-100 bg-[#FFFBF1] p-5">
+              <div key={stream} className="rounded-2xl border border-red-100 bg-white p-5">
                 <p className="text-[0.68rem] font-bold uppercase tracking-widest text-red-600">Stream {String(index + 1).padStart(2, '0')}</p>
                 <p className="mt-3 text-sm leading-relaxed text-gray-700 md:text-base">{stream}</p>
               </div>

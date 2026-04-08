@@ -21,7 +21,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-[#FFFBF1] pb-16 pt-4 md:pt-8 md:pb-24">
+      <section className="relative w-full overflow-hidden bg-white pb-16 pt-4 md:pt-8 md:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
           
           {/* Top — Text content */}
@@ -98,7 +98,7 @@ export default function Hero() {
       </section>
 
       {/* Stats overlay (Separate band below the hero) */}
-      <section className="bg-[#FFFBF1] border-y border-gray-100 py-6">
+      <section className="bg-white border-y border-gray-100 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-8 md:gap-16 flex-wrap justify-center sm:justify-start">
             {[['2,000+', 'Students'], ['97.8%', 'Pass Rate'], ['11 yrs', 'Legacy']].map(([n, l]) => (

@@ -93,7 +93,7 @@ export default function WhyChooseUs() {
       <main className="bg-gray-50 flex flex-col gap-16 md:gap-24 overflow-hidden pb-20">
 
          {/* ══ HERO HEADER ══ */}
-         <section className="bg-[#FFFBF1] border-b border-gray-100 py-20 px-4 sm:px-6 lg:px-8 relative">
+         <section className="bg-white border-b border-gray-100 py-20 px-4 sm:px-6 lg:px-8 relative">
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center relative z-10">
                <Reveal>
@@ -111,14 +111,14 @@ export default function WhyChooseUs() {
                      <Link to="/apply" className="px-10 py-4 bg-[#c0392b] text-white font-bold text-[0.7rem] tracking-widest uppercase rounded-xl shadow-xl shadow-red-900/10 hover:bg-[#a93226] transition-all hover:-translate-y-1">
                         Apply Now
                      </Link>
-                     <Link to="/contact" className="px-10 py-4 bg-[#FFFBF1] border border-gray-100 text-black font-bold text-[0.75rem] tracking-widest uppercase rounded-xl hover:border-[#c0392b] hover:text-[#c0392b] transition-all">
+                     <Link to="/contact" className="px-10 py-4 bg-white border border-gray-100 text-black font-bold text-[0.75rem] tracking-widest uppercase rounded-xl hover:border-[#c0392b] hover:text-[#c0392b] transition-all">
                         Contact Us
                      </Link>
                   </div>
                </Reveal>
 
                <Reveal delay={200} direction="right">
-                  <div className="bg-[#FFFBF1] border border-gray-100 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                  <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
                      <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#c0392b]" />
                      <p className="text-[0.6rem] font-black uppercase text-[#c0392b] tracking-widest mb-6">Institution Snapshot</p>
                      <div className="grid grid-cols-2 gap-x-8 gap-y-6">
@@ -151,7 +151,7 @@ export default function WhyChooseUs() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                {features.map((f, i) => (
                   <Reveal key={f.title} delay={i * 50}>
-                     <div className="bg-[#FFFBF1] border border-gray-200 rounded-3xl p-8 hover:border-red-600/30 hover:shadow-xl hover:shadow-red-600/5 transition-all duration-300 group h-full flex flex-col">
+                     <div className="bg-white border border-gray-200 rounded-3xl p-8 hover:border-red-600/30 hover:shadow-xl hover:shadow-red-600/5 transition-all duration-300 group h-full flex flex-col">
                         <div className="flex items-start justify-between mb-10">
                            <div className="w-12 h-12 rounded-2xl bg-red-50/50 text-[#c0392b] flex items-center justify-center transition-colors group-hover:bg-[#c0392b] group-hover:text-white border border-red-50">
                               {f.icon}
@@ -175,7 +175,7 @@ export default function WhyChooseUs() {
          {/* ══ COMPARISON TABLE ══ */}
          <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <Reveal>
-               <div className="bg-[#FFFBF1] border border-gray-200 rounded-[2.5rem] overflow-hidden shadow-sm">
+               <div className="bg-white border border-gray-200 rounded-[2.5rem] overflow-hidden shadow-sm">
                   <div className="p-8 md:p-12 border-b border-gray-100 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-gray-50/30">
                      <div>
                         <h2 className="serif text-3xl text-gray-900">Why We <span className="text-[#c0392b]">Lead</span></h2>
@@ -224,7 +224,7 @@ export default function WhyChooseUs() {
                <div className="relative z-10 flex flex-col items-center text-center">
                   <h2 className="serif text-4xl md:text-5xl mb-3 text-white font-bold">Ready to Start?</h2>
                   <p className="text-white font-bold mb-8 max-w-sm mx-auto text-base opacity-90">Join a community dedicated to academic greatness and personal growth.</p>
-                  <Link to="/apply" className="btn-micro inline-flex items-center gap-2 px-8 py-4 bg-[#FFFBF1] text-[#c0392b] font-bold text-sm uppercase tracking-wider rounded-xl shadow-lg shadow-black/20 transition-all hover:shadow-xl hover:-translate-y-1 active:translate-y-0 group">
+                  <Link to="/apply" className="btn-micro inline-flex items-center gap-2 px-8 py-4 bg-white text-[#c0392b] font-bold text-sm uppercase tracking-wider rounded-xl shadow-lg shadow-black/20 transition-all hover:shadow-xl hover:-translate-y-1 active:translate-y-0 group">
                      <span>Secure Your Seat</span>
                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>

@@ -89,7 +89,7 @@ export default function About() {
     <div className="bg-gray-50 overflow-x-hidden flex flex-col gap-16 md:gap-24 pb-20">
 
       {/* ══ PAGE HERO / OVERVIEW ══ */}
-      <section className="relative w-full overflow-hidden bg-[#FFFBF1] pb-16 pt-4 border-b border-gray-100" id="overview">
+      <section className="relative w-full overflow-hidden bg-white pb-16 pt-4 border-b border-gray-100" id="overview">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 1.2px, transparent 1.2px)', backgroundSize: '24px 24px' }} />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
@@ -126,7 +126,7 @@ export default function About() {
                   </svg>
                 </Link>
                 <Link to="/contact"
-                  className="btn-micro inline-flex items-center justify-center whitespace-nowrap rounded-lg text-[0.7rem] tracking-widest uppercase font-black relative overflow-hidden h-12 px-10 py-2 bg-[#FFFBF1] border border-red-200 text-[#c0392b] shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-1 transition-all duration-300 hover:bg-red-50">
+                  className="btn-micro inline-flex items-center justify-center whitespace-nowrap rounded-lg text-[0.7rem] tracking-widest uppercase font-black relative overflow-hidden h-12 px-10 py-2 bg-white border border-red-200 text-[#c0392b] shadow-md shadow-red-500/20 hover:shadow-lg hover:shadow-red-500/30 hover:-translate-y-1 transition-all duration-300 hover:bg-red-50">
                   Contact Us
                 </Link>
               </div>
@@ -138,7 +138,7 @@ export default function About() {
               <img src={imgBuilding} alt="School" className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none z-10" />
               
-              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-10 md:left-10 bg-[#FFFBF1]/95 backdrop-blur-sm border border-[#FFFBF1]/20 rounded-2xl p-3 sm:p-4 md:p-6 shadow-2xl flex items-center gap-3 sm:gap-4 z-20 hover:scale-105 transition-transform duration-300">
+              <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-10 md:left-10 bg-white/95 backdrop-blur-sm border border-white/20 rounded-2xl p-3 sm:p-4 md:p-6 shadow-2xl flex items-center gap-3 sm:gap-4 z-20 hover:scale-105 transition-transform duration-300">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#c0392b] rounded-xl flex items-center justify-center text-white font-black text-xl sm:text-2xl shadow-sm">
                   25
                 </div>
@@ -163,7 +163,7 @@ export default function About() {
               { icon: <Award className="w-6 h-6 text-red-600" />, n: '97.8%', l: 'Board Pass Rate' },
               { icon: <Target className="w-6 h-6 text-red-600" />, n: '11+', l: 'Years Excellence' },
             ].map(({ icon, n, l }) => (
-              <div key={l} className="bg-[#FFFBF1] border border-gray-200 rounded-2xl p-6 text-center hover:border-red-600/30 hover:shadow-md transition-all">
+              <div key={l} className="bg-white border border-gray-200 rounded-2xl p-6 text-center hover:border-red-600/30 hover:shadow-md transition-all">
                 <div className="w-12 h-12 rounded-xl bg-red-50 mx-auto flex items-center justify-center mb-4">
                   {icon}
                 </div>
@@ -338,24 +338,24 @@ export default function About() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-10" id="affiliations">
         <div className="grid lg:grid-cols-2 gap-8">
           <Reveal>
-            <div className="bg-[#c0392b] text-white rounded-3xl p-8 md:p-12 h-full relative overflow-hidden shadow-lg">
-              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }} />
+            <div className="bg-white text-gray-900 rounded-3xl p-8 md:p-12 h-full relative overflow-hidden shadow-lg border border-gray-200">
+              <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle, #c0392b 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }} />
               <div className="relative z-10 flex flex-col h-full">
-                <BookOpen className="w-10 h-10 text-red-200 mb-8" />
-                <h3 className="serif text-3xl mb-8 text-white">CBSE Affiliation</h3>
+                <BookOpen className="w-10 h-10 text-[#c0392b] mb-8" />
+                <h3 className="serif text-3xl mb-8 text-gray-900">CBSE Affiliation</h3>
                 <div className="space-y-4 font-bold text-sm mb-10">
-                  <p className="flex justify-between border-b border-red-800/50 pb-3">
-                    <span className="text-red-200 font-medium">Board</span> <span>Central Board of Secondary Education</span>
+                  <p className="flex justify-between border-b border-gray-200 pb-3">
+                    <span className="text-[#c0392b] font-medium">Board</span> <span className="text-gray-900">Central Board of Secondary Education</span>
                   </p>
-                  <p className="flex justify-between border-b border-red-800/50 pb-3">
-                    <span className="text-red-200 font-medium">Affiliation Number</span> <span>1930465</span>
+                  <p className="flex justify-between border-b border-gray-200 pb-3">
+                    <span className="text-[#c0392b] font-medium">Affiliation Number</span> <span className="text-gray-900">1930465</span>
                   </p>
                   <p className="flex justify-between pb-3">
-                    <span className="text-red-200 font-medium">School Code</span> <span>55386</span>
+                    <span className="text-[#c0392b] font-medium">School Code</span> <span className="text-gray-900">55386</span>
                   </p>
                 </div>
                 <div className="mt-auto">
-                  <p className="text-sm text-red-100 leading-relaxed font-semibold">
+                  <p className="text-sm text-gray-500 leading-relaxed font-semibold">
                     Future Senior Secondary School strictly aligns with guidelines formulated entirely by the CBSE board in New Delhi.
                   </p>
                 </div>

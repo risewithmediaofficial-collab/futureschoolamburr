@@ -11,7 +11,7 @@ const achievements = [
     category: 'Academics',
     title: '97.8% Board Pass Rate',
     desc: 'Highest CBSE board pass rate in Vellore district for 2025, with 25 students scoring above 90%.',
-    highlight: true,
+    highlight: false,
   },
   {
     year: '2025',
@@ -59,7 +59,7 @@ const achievements = [
     category: 'Recognition',
     title: 'Best CBSE School — Vellore District',
     desc: 'Awarded by CBSE South India Regional Office for outstanding academic results and infrastructure.',
-    highlight: true,
+    highlight: false,
   },
   {
     year: '2023',

@@ -42,7 +42,7 @@ export function NewsComponentSimple() {
   if (news.length === 0) return <div className="text-center py-8">No news available</div>
 
   return (
-    <section className="py-12 bg-[#FFFBF1]">
+    <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Latest News</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -84,7 +84,7 @@ export function NewsComponentWithHook() {
   if (news.length === 0) return <div className="text-center py-8">No news available</div>
 
   return (
-    <section className="py-12 bg-[#FFFBF1]\">
+    <section className="py-12 bg-white\">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Latest News</h2>
         
@@ -145,11 +145,11 @@ export function GalleryComponent() {
   if (error) return <div className="text-center py-8 text-red-600">Error: {error}</div>
 
   return (
-    <section className="py-12 bg-[#FFFBF1]\">
+    <section className="py-12 bg-white\">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Gallery</h2>
 
-        {/* Category Filter */}
+        {/* Category Filter */}}
         <div className="flex gap-2 mb-8 flex-wrap">
           <button
             onClick={() => setSelectedCategory('')}
@@ -217,7 +217,7 @@ export function StaffComponent() {
   const positions = ['Principal', 'Vice-Principal', 'Teacher', 'Support Staff', 'Administrator']
 
   return (
-    <section className="py-12 bg-[#FFFBF1]\">
+    <section className="py-12 bg-white\">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8">Our Faculty & Staff</h2>
 
@@ -325,7 +325,7 @@ export function AdmissionFormComponent() {
   }
 
   return (
-    <div className="bg-[#FFFBF1] rounded-2xl shadow-xl p-8 max-w-2xl mx-auto">
+    <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl mx-auto">
       <h3 className="text-2xl font-bold mb-6">Apply for Admission</h3>
 
       {success && (
