@@ -35,12 +35,6 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        // Separate large dependencies into vendor chunk
-        manualChunks: {
-          'react': ['react', 'react-dom', 'react-router-dom'],
-          'lucide': ['lucide-react'],
-          'framer': ['framer-motion']
-        },
         entryFileNames: 'assets/[name].[hash].js',
         chunkFileNames: 'assets/[name].[hash].js',
         assetFileNames: ({ name }) => {
@@ -51,9 +45,7 @@ export default defineConfig({
           }
           return 'assets/[name].[hash][extname]'
         }
-      },
-      // Pre-compress assets
-      external: []
+      }
     },
     // Terser minification
     minify: 'terser',

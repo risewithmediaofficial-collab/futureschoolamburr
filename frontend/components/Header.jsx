@@ -205,120 +205,150 @@ export default function Header() {
             {/* ── MOBILE HAMBURGER ── */}
             <button
               onClick={() => setDrawerOpen(!drawerOpen)}
-              className="xl:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-gray-100 transition-colors duration-200 text-gray-700"
+              className="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 text-gray-600 hover:text-gray-900 hover:bg-red-50 active:bg-red-100"
               aria-label="Toggle menu"
+              aria-expanded={drawerOpen}
             >
-              {drawerOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {drawerOpen ? (
+                <X className="w-6 h-6 text-red-600" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
       </header>
 
       {/* ════════════════════════════════════
-          MOBILE DRAWER OVERLAY
+          MOBILE DRAWER OVERLAY WITH BLUR
       ════════════════════════════════════ */}
-      <div
-        onClick={() => setDrawerOpen(false)}
-        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${drawerOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      {drawerOpen && (
+        <div
+          onClick={() => setDrawerOpen(false)}
+          className={`fixed inset-0 z-40 bg-black/30 backdrop-blur-md transition-opacity duration-300 lg:hidden ${
+            drawerOpen ? 'opacity-100' : 'opacity-0'
           }`}
-      />
+          aria-hidden="true"
+        />
+      )}
 
       {/* Drawer panel */}
       <div
         ref={mobileNavRef}
-        className={`fixed top-0 right-0 z-50 h-[100dvh] w-full max-w-[340px] glassmorphism shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] lg:hidden flex flex-col border-l border-white/20 ${drawerOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+        className={`fixed top-0 right-0 z-50 h-screen w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden flex flex-col ${
+          drawerOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-200 bg-white">
           <Link to="/" onClick={() => {
             setDrawerOpen(false)
             handleNavClick('/')
-          }} className="flex items-center gap-2.5">
+          }} className="flex items-center gap-2">
             <img src={imgLogo} alt="Logo" className="h-8 w-auto" />
           </Link>
           <button
             onClick={() => setDrawerOpen(false)}
-            className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-700"
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-500 hover:text-gray-700"
+            aria-label="Close menu"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           </button>
         </div>
 
-        <nav className="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto">
+        {/* Navigation */}
+        <nav className="flex-1 overflow-y-auto px-2 sm:px-3 py-4 space-y-1">
           {navLinks.map((link) => (
-            <div key={link.name} className="border-b border-gray-100 last:border-0">
-              <div className="flex items-center justify-between px-6 py-4 hover:bg-gray-50 transition-colors">
-                <Link
-                  to={link.href}
-                  onClick={() => {
+            <div key={link.name}>
+              <button
+                onClick={() => {
+                  if (!link.hasDropdown) {
                     setDrawerOpen(false)
                     handleNavClick(link.href)
-                  }}
-                  className={`text-base font-bold tracking-wide uppercase ${isActive(link) ? 'text-red-600' : 'text-gray-800'}`}
-                >
-                  {link.name}
-                </Link>
+                  } else {
+                    setOpenDropdown(openDropdown === link.name ? null : link.name)
+                  }
+                }}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 text-left font-bold text-sm uppercase tracking-wide ${
+                  isActive(link)
+                    ? 'bg-red-50 text-red-600'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-red-600'
+                }`}
+              >
+                <span>{link.name}</span>
                 {link.hasDropdown && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setOpenDropdown(openDropdown === link.name ? null : link.name);
-                    }}
-                    className="p-2 -mr-2 text-gray-400 hover:text-red-600 transition-colors"
-                  >
-                    <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180 text-red-600' : ''}`} />
-                  </button>
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${
+                    openDropdown === link.name ? 'rotate-180' : ''
+                  }`} />
                 )}
                 {!link.hasDropdown && <ChevronRight className="w-4 h-4 text-gray-300" />}
-              </div>
+              </button>
 
+              {/* Submenu */}
               {link.hasDropdown && link.submenu && openDropdown === link.name && (
-                <div className="backdrop-blur-md bg-white/40 pb-2">
-                  <div className="space-y-1 ml-4 border-l-2 border-gray-200 pl-3">
-                    {link.submenu.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.href}
-                        onClick={() => {
-                          setDrawerOpen(false)
-                          setOpenDropdown(null)
-                          handleNavClick(item.href)
-                        }}
-                        className={`flex items-center gap-2.5 px-3 py-3 text-xs font-semibold rounded-lg transition-colors duration-150 cursor-pointer ${location.pathname === item.href ? 'text-red-600 bg-red-50' : 'text-gray-600 hover:text-red-600 hover:bg-red-50'}`}
-                      >
-                        <span className={`scale-[0.85] ${location.pathname === item.href ? 'text-red-600' : 'text-gray-400'}`}>
-                          {item.icon || <Navigation className="w-4 h-4" />}
-                        </span>
-                        <span>{item.name}</span>
-                      </Link>
-                    ))}
-                  </div>
+                <div className="mt-1 ml-2 space-y-1 border-l-2 border-red-200 pl-3">
+                  {link.submenu.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      onClick={() => {
+                        setDrawerOpen(false)
+                        setOpenDropdown(null)
+                        handleNavClick(item.href)
+                      }}
+                      className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wide transition-all duration-200 ${
+                        location.pathname === item.href
+                          ? 'text-red-600 bg-red-50'
+                          : 'text-gray-600 hover:text-red-600 hover:bg-red-50'
+                      }`}
+                    >
+                      <span className={`flex-shrink-0 scale-90 ${
+                        location.pathname === item.href ? 'text-red-600' : 'text-gray-400'
+                      }`}>
+                        {item.icon || <Navigation className="w-4 h-4" />}
+                      </span>
+                      <span>{item.name}</span>
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
           ))}
         </nav>
 
-        <div className="px-5 pb-6 pt-4 border-t border-gray-100 space-y-3 bg-gray-50/50 mt-auto">
-          <div className="bg-white rounded-xl border border-gray-200 px-4 py-3.5 space-y-2.5 shadow-sm">
-            <a href="tel:+919962826465" className="flex items-center gap-2.5 text-xs font-medium text-gray-600 hover:text-red-600 transition-colors">
-              <Phone className="w-3.5 h-3.5 text-red-500 flex-shrink-0" />
-              +91 99628 26465
+        {/* Footer with CTA */}
+        <div className="border-t border-gray-200 bg-gray-50 px-4 sm:px-6 py-4 space-y-3">
+          {/* Contact Info */}
+          <div className="bg-white rounded-lg border border-gray-200 p-3 space-y-2">
+            <a 
+              href="tel:+919962826465" 
+              className="flex items-center gap-2.5 text-xs font-semibold text-gray-700 hover:text-red-600 transition-colors"
+            >
+              <Phone className="w-4 h-4 text-red-600 flex-shrink-0" />
+              <span>+91 99628 26465</span>
             </a>
-            <a href="mailto:futureschooloffice@gmail.com" className="flex items-center gap-2.5 text-xs font-medium text-gray-600 hover:text-red-600 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-red-500 flex-shrink-0" />
-              futureschooloffice@gmail.com
+            <a 
+              href="mailto:futureschooloffice@gmail.com" 
+              className="flex items-center gap-2.5 text-xs font-semibold text-gray-700 hover:text-red-600 transition-colors"
+            >
+              <Mail className="w-4 h-4 text-red-600 flex-shrink-0" />
+              <span className="truncate">futureschooloffice@gmail.com</span>
             </a>
           </div>
 
-          <a href="/admin/login" onClick={() => setDrawerOpen(false)} className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-gray-100 border border-gray-200 bg-white h-10 px-4 py-2 text-gray-700">
-            <LogIn className="w-4 h-4 mr-2" />
+          {/* Buttons */}
+          <a 
+            href="/admin/login" 
+            onClick={() => setDrawerOpen(false)} 
+            className="w-full inline-flex items-center justify-center gap-2 rounded-lg text-sm font-bold uppercase tracking-wide transition-all duration-200 border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 active:bg-gray-200 py-2.5"
+          >
+            <LogIn className="w-4 h-4" />
             Log In
           </a>
           <Link
             to="/apply"
             onClick={() => setDrawerOpen(false)}
-            className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-red-600 text-white hover:bg-red-600/90 h-10 px-4 py-2 shadow-sm"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-lg text-sm font-bold uppercase tracking-wide transition-all duration-200 bg-red-600 text-white hover:bg-red-700 active:bg-red-800 shadow-md hover:shadow-lg py-2.5"
           >
             Apply Now
           </Link>
