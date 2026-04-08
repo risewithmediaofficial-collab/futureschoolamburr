@@ -1,4 +1,5 @@
 import express from 'express'
+import compression from 'compression'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import { fileURLToPath } from 'url'
@@ -14,6 +15,40 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 dotenv.config({ path: join(__dirname, '.env') })
 
 const app = express()
+
+// ── PERFORMANCE OPTIMIZATIONS ──────────────────────────────────────────────────
+// Enable gzip compression for all responses
+app.use(compression({ level: 6 }))
+
+// Cache control middleware
+app.use((req, res, next) => {
+  // Static assets with hash - cache for 1 year
+  if (/\.(js|css|woff|woff2|ttf|otf|eot)$/.test(req.path)) {
+    res.set('Cache-Control', 'public, max-age=31536000, immutable')
+  }
+  // Images - cache for 30 days
+  else if (/\.(jpg|jpeg|png|gif|svg|webp)$/.test(req.path)) {
+    res.set('Cache-Control', 'public, max-age=2592000')
+  }
+  // HTML (not cached) - cache for 1 hour
+  else if (/\.html$/.test(req.path)) {
+    res.set('Cache-Control', 'public, max-age=3600')
+  }
+  // API responses - no cache
+  else if (req.path.startsWith('/api/')) {
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+  }
+  next()
+})
+
+// Security headers
+app.use((req, res, next) => {
+  res.set('X-Content-Type-Options', 'nosniff')
+  res.set('X-Frame-Options', 'DENY')
+  res.set('X-XSS-Protection', '1; mode=block')
+  res.set('Referrer-Policy', 'strict-origin-when-cross-origin')
+  next()
+})
 
 // Middleware
 app.use(cors({ origin: true, credentials: true }))

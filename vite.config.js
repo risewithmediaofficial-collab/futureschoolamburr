@@ -8,7 +8,7 @@ export default defineConfig({
   root: path.resolve(__dirname, './frontend'),
   plugins: [react(), tailwindcss()],
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react']
+    include: ['react', 'react-dom', 'react-router-dom', 'lucide-react', 'framer-motion']
   },
   server: {
     port: 5173,
@@ -33,5 +33,42 @@ export default defineConfig({
     sourcemap: false,
     cssCodeSplit: true,
     chunkSizeWarningLimit: 500,
+    rollupOptions: {
+      output: {
+        // Separate large dependencies into vendor chunk
+        manualChunks: {
+          'react': ['react', 'react-dom', 'react-router-dom'],
+          'lucide': ['lucide-react'],
+          'framer': ['framer-motion']
+        },
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: ({ name }) => {
+          if (/\.(gif|jpe?g|png|svg|webp)$/.test(name ?? '')) {
+            return 'images/[name].[hash][extname]'
+          } else if (/\.css$/.test(name ?? '')) {
+            return 'css/[name].[hash][extname]'
+          }
+          return 'assets/[name].[hash][extname]'
+        }
+      },
+      // Pre-compress assets
+      external: []
+    },
+    // Terser minification
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info'],
+      },
+      mangle: true,
+      format: {
+        comments: false,
+      }
+    },
+    // Reporting
+    reportCompressedSize: false,
   }
 })
