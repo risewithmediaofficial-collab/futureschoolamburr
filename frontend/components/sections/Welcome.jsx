@@ -57,7 +57,7 @@ export default function Welcome() {
                     Future Senior Secondary School has been Ambur's most trusted institution since 1998. Affiliated with CBSE, we shape confident, compassionate, and capable individuals ready for tomorrow's world.
                   </p>
                   <p>
-                    Dedicated faculty, modern smart classrooms, and a student-Centered philosophy create an environment where every child thrives — academically, socially, and personally.
+                    Dedicated faculty, modern smart classrooms, and a student-Centered philosophy create an environment where every child thrives — academically, socially and personally.
                   </p>
                </div>
             </Reveal>
