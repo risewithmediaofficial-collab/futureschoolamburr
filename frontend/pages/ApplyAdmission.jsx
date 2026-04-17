@@ -261,7 +261,7 @@ export default function ApplyAdmission() {
                    <HelpCircle className="w-8 h-8 text-red-200 mb-4" />
                    <h3 className="serif text-2xl text-white mb-4 leading-tight">Need Support?</h3>
                    <p className="text-red-50 text-sm font-medium leading-relaxed mb-8">
-                     Our counselors are available to answer any questions you have about the process or school life.
+                     Our Counsellors are available to answer any questions you have about the process or school life.
                    </p>
                    <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#c0392b] font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-red-50 transition-colors shadow-sm">
                       Get Help <ArrowRight className="w-3.5 h-3.5" />

@@ -93,6 +93,33 @@ app.get('/admin/*', (req, res) => {
 const mainDistPath = join(__dirname, '../dist')
 app.use(express.static(mainDistPath))
 
+// ── Serve Uploads Folder (for PDFs and Documents) ─────────────────────────────
+const uploadsPath = join(__dirname, '../uploads')
+
+// Check if uploads directory exists
+if (!fs.existsSync(uploadsPath)) {
+  console.warn('⚠️ Uploads directory not found at:', uploadsPath)
+  fs.mkdirSync(uploadsPath, { recursive: true })
+  console.log('✅ Created uploads directory')
+}
+
+app.use('/uploads', (req, res, next) => {
+  // Allow PDFs to be viewed in browser
+  if (req.url.endsWith('.pdf')) {
+    res.type('application/pdf')
+    res.set('Content-Disposition', 'inline')
+  }
+  next()
+}, express.static(uploadsPath, {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.pdf')) {
+      res.set('Content-Type', 'application/pdf')
+      res.set('Content-Disposition', 'inline')
+      res.set('Cache-Control', 'public, max-age=3600')
+    }
+  }
+}))
+
 // NOTE: All API routes must come BEFORE the main frontend catch-all
 
 // ── Lazy DB connection ─────────────────────────────────────────────────────────

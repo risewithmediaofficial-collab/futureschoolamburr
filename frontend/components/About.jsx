@@ -111,7 +111,7 @@ export default function About() {
             <Reveal delay={200}>
               <div className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 font-medium max-w-3xl mx-auto space-y-4">
                 <p>
-                  Future Senior Secondary School, Ambur, is a CBSE-affiliated institution established in 2011. Dedicated to nurturing young minds through a balanced approach of academics, values, and innovation. With a strong focus on holistic development, students are encouraged to learn, explore, and contribute meaningfully to society.
+                  Future Senior Secondary School, Ambur, is a CBSE-affiliated institution established in 2011. Dedicated to nurturing young minds through a balanced approach of academics, values, and innovation. With a strong focus on holistic development, students are encouraged to learn, explore and contribute meaningfully to society.
                 </p>
               </div>
             </Reveal>

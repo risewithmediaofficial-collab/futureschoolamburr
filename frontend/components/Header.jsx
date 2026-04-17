@@ -34,6 +34,7 @@ const navLinks = [
       { name: 'transportation', href: '/transportation', icon: <CarFront className="w-4 h-4" /> },
     ]
   },
+  { name: 'Mandatory Disclosure', href: '/mandatory-disclosure', icon: <CheckCircle2 className="w-4 h-4" /> },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Contact', href: '/contact' },
 ]
@@ -395,7 +396,7 @@ function NavItem({ link, isActive, openDropdown, setOpenDropdown, handleNavClick
           setOpenDropdown(null);
           handleNavClick(link.href);
         }}
-        className={`px-4 py-2 text-[13px] font-bold tracking-[0.14em] uppercase transition-all duration-300 rounded-lg hover:bg-gray-50 flex items-center ${isActive(link) ? 'text-[#c0392b]' : 'text-gray-700 hover:text-[#c0392b]'}`}
+        className={`px-4 py-2 text-[13px] font-bold tracking-[0.14em] uppercase transition-all duration-300 rounded-lg hover:bg-gray-50 flex items-center whitespace-nowrap ${isActive(link) ? 'text-[#c0392b]' : 'text-gray-700 hover:text-[#c0392b]'}`}
       >
         {link.name}
       </Link>

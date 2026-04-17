@@ -1,5 +1,5 @@
 import { Reveal } from '../utils/scroll-reveal'
-import { Link } from 'react-router-dom'
+import { FileText } from 'lucide-react'
 
 export default function MandatoryDisclosure() {
   const generalInfo = [
@@ -12,19 +12,25 @@ export default function MandatoryDisclosure() {
     { label: 'Contact Details', value: '+91 99628 26465' },
   ]
 
-  const documents = [
-    { name: 'Affiliation Letter', link: '#' },
-    { name: 'Trust/Society/Company Registration', link: '#' },
-    { name: 'No Objection Certificate (NOC)', link: '#' },
-    { name: 'Recognition Certificate under RTE Act', link: '#' },
-    { name: 'Building Safety Certificate', link: '#' },
-    { name: 'Fire Safety Certificate', link: '#' },
-    { name: 'Self Certification by School', link: '#' },
-    { name: 'Water, Health and Sanitation Certificates', link: '#' },
+  const disclosureItems = [
+    { sno: 1, title: 'CBSE MANDATORY PUBLIC DISCLOSURE', file: '/uploads/cbse-mandatory-disclosure.pdf' },
+    { sno: 2, title: 'COPIES OF AFFILIATION/UPGRADATION LETTER AND RECENT EXTENSION OF AFFILIATION, IF ANY', file: '/uploads/AFFILIATION.pdf' },
+    { sno: 3, title: 'COPIES OF SOCIETIES/TRUST/COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE', file: '/uploads/Trust-Deed.pdf' },
+    { sno: 4, title: 'COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE, BY THE STATE GOVT./UT', file: '/uploads/NOC.pdf' },
+    { sno: 5, title: 'COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND ITS RENEWAL IF APPLICABLE', file: '/uploads/Recognition.pdf' },
+    { sno: 6, title: 'COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE', file: '/uploads/Document-20.pdf' },
+    { sno: 7, title: 'COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY', file: '/uploads/FireSafety.pdf' },
+    { sno: 8, title: 'COPY OF THE SELF CERTIFICATION SUBMITTED BY THE SCHOOL FOR AFFILIATION/UPGRADATION/EXTENSION OF AFFILIATION', file: '/uploads/LICENCE-FORM-D.pdf' },
+    { sno: 9, title: 'COPIES OF VALID WATER, HEALTH AND SANITATION CERTIFICATES', file: '/uploads/Sanitary-Certificate.pdf' },
+    { sno: 10, title: 'FEE STRUCTURE OF THE SCHOOL', file: '/uploads/Fee-Structure.pdf' },
+    { sno: 11, title: 'ANNUAL ACADEMIC CALENDAR', file: '/uploads/Calendar-2023-2024.pdf' },
+    { sno: 12, title: 'LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)', file: '/uploads/deocertificate.pdf' },
+    { sno: 13, title: 'LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS', file: '/uploads/PTA.pdf' },
+    { sno: 14, title: 'LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY', file: '/uploads/RESULT.pdf' },
   ]
 
   return (
-    <main className="bg-white overflow-x-hidden">
+    <main className="bg-gray-50 overflow-x-hidden">
       {/* ══ HEADER ══ */}
       <section className="relative bg-white py-12 md:py-16 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
@@ -75,71 +81,41 @@ export default function MandatoryDisclosure() {
               <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
                 <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                   <span className="w-1.5 h-6 bg-red-600 rounded-full" />
-                  B : Documents and Information
+                  B : List of Files to be Added in Mandatory Disclosure
                 </h2>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {documents.map((doc) => (
-                    <a
-                      key={doc.name}
-                      href={doc.link}
-                      className="flex items-center justify-between p-4 rounded-xl border border-gray-50 bg-gray-50/30 hover:bg-red-50 hover:border-red-100 hover:text-red-700 transition-all group"
-                    >
-                      <span className="text-sm font-medium">{doc.name}</span>
-                      <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                        <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Results & Academics */}
-            <Reveal delay={200} y={20}>
-              <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
-                <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  <span className="w-1.5 h-6 bg-red-600 rounded-full" />
-                  C : Result and Academics
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <Link to="/admissions" className="p-5 rounded-xl border border-gray-50 flex flex-col gap-2 hover:bg-gray-50 transition-colors">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-red-600">Calendar</span>
-                    <span className="text-sm font-bold">Annual Academic Calendar</span>
-                  </Link>
-                  <Link to="/about/instructors" className="p-5 rounded-xl border border-gray-50 flex flex-col gap-2 hover:bg-gray-50 transition-colors">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-red-600">Governance</span>
-                    <span className="text-sm font-bold">School Management Committee</span>
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Other Info / TC Specimen */}
-            <Reveal delay={300} y={20}>
-              <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
-                <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  <span className="w-1.5 h-6 bg-red-600 rounded-full" />
-                  D : Other Information
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <Link to="/tc-specimen" className="p-5 rounded-xl border border-gray-50 flex flex-col gap-2 hover:bg-gray-50 transition-colors">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-red-600">Compliance</span>
-                    <span className="text-sm font-bold">TC Specimen (Format)</span>
-                  </Link>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-gray-50 border-b border-gray-200">
+                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider">S.No</th>
+                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider">Particulars</th>
+                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider">Document</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {disclosureItems.map((item) => (
+                        <tr key={item.sno} className="hover:bg-gray-50 transition-colors">
+                          <td className="px-4 py-3 text-sm font-bold text-gray-800">{item.sno}</td>
+                          <td className="px-4 py-3 text-sm font-bold text-[#c0392b]">{item.title}</td>
+                          <td className="px-4 py-3">
+                            <a 
+                              href={item.file} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[#c0392b] hover:text-red-700 transition-colors text-xs font-bold hover:underline"
+                            >
+                              <FileText className="w-3.5 h-3.5" /> View
+                            </a>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </Reveal>
 
           </div>
-        </div>
-      </section>
-
-      {/* ══ CTA ══ */}
-      <section className="py-10 bg-white border-t border-gray-100">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-           <Link to="/about/affiliations" className="text-red-600 text-sm font-bold hover:underline">
-             View Deatiled Affiliation & Faculty Records →
-           </Link>
         </div>
       </section>
     </main>

@@ -22,6 +22,14 @@ const achievements = [
     highlight: false,
   },
   {
+    year: '2025',
+    icon: <Calculator className="w-6 h-6 text-red-600" />,
+    category: 'Olympiad',
+    title: 'Maths Olympiad State Rank',
+    desc: 'Student achieved outstanding state ranking in the Mathematics Olympiad 2025-26.',
+    highlight: false,
+  },
+  {
     year: '2024',
     icon: <Microscope className="w-6 h-6 text-red-600" />,
     category: 'Olympiad',

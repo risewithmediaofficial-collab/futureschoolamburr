@@ -27,6 +27,7 @@ import SocialInitiatives from './pages/SocialInitiatives'
 import Timings from './pages/Timings'
 import Activities from './pages/Activities'
 import Transportation from './pages/Transportation'
+import MandatoryDisclosure from './pages/MandatoryDisclosure'
 
 // Admin Pages
 import { Login as AdminLogin } from './pages/admin/Login'
@@ -88,6 +89,7 @@ function AppLayout() {
           <Route path="/timings" element={<Timings />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/transportation" element={<Transportation />} />
+          <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
 
           {/* 🔐 Admin Portal Routes (Integrated) */}
           <Route path="/admin/login" element={<AdminLogin />} />

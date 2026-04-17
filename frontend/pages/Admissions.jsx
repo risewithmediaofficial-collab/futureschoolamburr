@@ -33,7 +33,7 @@ const stagesOfStudy = [
   'Primary Level – Grade I to V',
   'Middle Years Programme – Grade VI to VIII',
   'Secondary School level – Grade IX and X',
-  'Senior secondary level Grades XI and XII',
+  'Senior Secondary Level – Grades XI and XII',
 ]
 
 const requiredDocuments = [

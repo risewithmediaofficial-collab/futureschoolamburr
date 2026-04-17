@@ -3,7 +3,7 @@ import { Reveal } from '../utils/reveal'
 import { BookOpen, GraduationCap, Target, Building, MonitorPlay, Zap, Palette, Trophy, Music, BicepsFlexed, ArrowRight, BookMarked, MessageCircle, Navigation, Wind } from 'lucide-react'
 
 /* ─── Program data ─── */
-import imgKG from '../assets/pic-assets/IMG_20251014_095029-410x260.jpg'
+import imgKG from '../assets/pic-assets/banner-2026-5-1.png'
 import imgPrimary from '../assets/pic-assets/IMG_20251014_095029-410x260.jpg'
 import imgSecondary from '../assets/pic-assets/IMG_4395-1024x683.jpg'
 import imgSenior from '../assets/pic-assets/Secondary.jpg'
@@ -272,7 +272,7 @@ export default function Programs() {
                   <h4 className="serif text-lg text-gray-900 mb-4">Language Options</h4>
                   <ul className="space-y-3 font-semibold text-gray-600">
                     <li className="flex items-center gap-2 tracking-tight"><span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full" /> Classes I to IV: Tamil (2nd) & Hindi (3rd)</li>
-                    <li className="flex items-center gap-2 tracking-tight"><span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full" /> Classes V to VIII: Hindi, Tamil, or Urdu (2nd) & Hindi or Tamil (3rd)</li>
+                    <li className="flex items-center gap-2 tracking-tight"><span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full" /> Classes V to VIII: Hindi, Tamil or Urdu (2nd) & Hindi or Tamil (3rd)</li>
                     <li className="flex items-center gap-2 tracking-tight"><span className="w-1.5 h-1.5 bg-[#c0392b] rounded-full" /> Classes IX to X: Hindi, Tamil, or Urdu (2nd)</li>
                   </ul>
                 </div>

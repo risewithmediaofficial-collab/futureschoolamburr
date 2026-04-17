@@ -101,7 +101,7 @@ export default function Hero() {
       <section className="bg-white border-y border-gray-100 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-8 md:gap-16 flex-wrap justify-center sm:justify-start">
-            {[['2,000+', 'Students'], ['97.8%', 'Pass Rate'], ['11 yrs', 'Legacy']].map(([n, l]) => (
+            {[['2,000+', 'Students'], ['97.8%', 'Pass Rate'], ['11 years', 'Legacy']].map(([n, l]) => (
               <Reveal key={l} direction="up" delay={100}>
                 <div className="flex gap-2 md:gap-3 items-center whitespace-nowrap">
                   <span className="serif text-gray-900 text-2xl md:text-3xl font-medium">{n}</span>

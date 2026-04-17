@@ -44,7 +44,7 @@ export default function Timings() {
             <div className="flex gap-4">
               <ShieldAlert className="w-6 h-6 text-red-600 shrink-0" />
               <div className="text-sm leading-relaxed text-gray-700 md:text-base font-medium">
-                <p className="mb-4">We expect our students to maintain high standards of personal conduct including honesty, discipline, integrity, humility, and ethics.</p>
+                <p className="mb-4">We expect our students to maintain high standards of personal conduct including honesty, discipline, integrity, humility and ethics.</p>
                 <p className="mb-4">Students are accountable to school authorities for their conduct on premises, in transport, at events, and their general behavior outside.</p>
                 <p className="text-red-700 font-bold italic">Objectionable conduct will lead to consequences at the discretion of the Principal, whose decision is final.</p>
               </div>
@@ -66,6 +66,7 @@ export default function Timings() {
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600 font-medium">
                   <li className="flex gap-2"><span>•</span> Sports Uniform every Wednesday and Saturday.</li>
+                  <li className="flex gap-2"><span>•</span> White shoe and white socks on Wednesday.</li>
                   <li className="flex gap-2"><span>•</span> Black shoes and blue socks (Mon–Fri).</li>
                   <li className="flex gap-2"><span>•</span> Fancy/expensive footwear or colored clothes are strictly forbidden.</li>
                   <li className="flex gap-2"><span>•</span> No luxury watches, colorful jerkins, or fancy bags/trolleys.</li>
