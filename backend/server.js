@@ -3,7 +3,7 @@ import compression from 'compression'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
+import { dirname, join, basename } from 'path'
 import fs from 'fs'
 import authRoutes from './routes/auth.js'
 import publicRoutes from './routes/public.js'
@@ -94,38 +94,59 @@ const mainDistPath = join(__dirname, '../dist')
 app.use(express.static(mainDistPath))
 
 // ── Serve Uploads Folder (for PDFs and Documents) ─────────────────────────────
-// More reliable path resolution for both local and production
-const uploadsPath = join(process.cwd(), 'uploads')
+// Use absolute path resolution that works in both local and production
+const rootPath = process.env.NODE_ENV === 'production' 
+  ? process.cwd()  // In production (Onrender), use current working directory
+  : __dirname.replace(/backend$/, '')  // Locally, go up one level from backend
 
+const uploadsPath = join(rootPath, 'uploads')
+
+console.log('🔍 Environment:', process.env.NODE_ENV)
+console.log('📁 Root path:', rootPath)
 console.log('📁 Uploads path:', uploadsPath)
 console.log('📁 Directory exists:', fs.existsSync(uploadsPath))
-console.log('📁 Current working directory:', process.cwd())
 
-// Serve uploads folder
-app.use('/uploads', (req, res, next) => {
-  // Log requests for debugging
-  console.log(`📄 PDF Request: ${req.url}`)
-  
-  // Allow PDFs to be viewed in browser
-  if (req.url.endsWith('.pdf')) {
-    res.type('application/pdf')
-    res.set('Content-Disposition', 'inline')
-  }
-  next()
-}, express.static(uploadsPath, {
-  setHeaders: (res, path) => {
-    if (path.endsWith('.pdf')) {
+// List files in uploads directory for debugging
+if (fs.existsSync(uploadsPath)) {
+  const files = fs.readdirSync(uploadsPath)
+  console.log('📄 Files in uploads:', files)
+} else {
+  console.warn('⚠️ Uploads directory does not exist!')
+}
+
+// Serve static files from uploads with proper headers
+app.use('/uploads', express.static(uploadsPath, {
+  maxAge: '1d',
+  etag: false,
+  setHeaders: (res, filePath) => {
+    // Set proper headers for all files
+    res.set('Access-Control-Allow-Origin', '*')
+    res.set('Cache-Control', 'public, max-age=86400')
+    
+    if (filePath.endsWith('.pdf')) {
       res.set('Content-Type', 'application/pdf')
-      res.set('Content-Disposition', 'inline')
-      res.set('Cache-Control', 'public, max-age=3600')
+      res.set('Content-Disposition', 'inline; filename=' + basename(filePath))
     }
   }
 }))
 
-// Fallback: log if file not found
-app.use('/uploads', (req, res) => {
-  console.warn(`⚠️ PDF not found: ${req.url} | Path: ${uploadsPath}`)
-  res.status(404).json({ error: 'File not found', path: req.url })
+// Debug handler to check what's being requested
+app.get('/uploads/:filename', (req, res) => {
+  const filePath = join(uploadsPath, req.params.filename)
+  console.log(`🔍 Requesting: ${req.params.filename}`)
+  console.log(`📍 Full path: ${filePath}`)
+  console.log(`✓ Exists: ${fs.existsSync(filePath)}`)
+  
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({
+      error: 'File not found',
+      requested: req.params.filename,
+      uploadPath: uploadsPath,
+      exists: fs.existsSync(uploadsPath)
+    })
+  }
+  
+  res.sendFile(filePath)
 })
 
 // NOTE: All API routes must come BEFORE the main frontend catch-all
