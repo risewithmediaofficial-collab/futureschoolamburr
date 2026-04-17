@@ -94,16 +94,18 @@ const mainDistPath = join(__dirname, '../dist')
 app.use(express.static(mainDistPath))
 
 // ── Serve Uploads Folder (for PDFs and Documents) ─────────────────────────────
-const uploadsPath = join(__dirname, '../uploads')
+// More reliable path resolution for both local and production
+const uploadsPath = join(process.cwd(), 'uploads')
 
-// Check if uploads directory exists
-if (!fs.existsSync(uploadsPath)) {
-  console.warn('⚠️ Uploads directory not found at:', uploadsPath)
-  fs.mkdirSync(uploadsPath, { recursive: true })
-  console.log('✅ Created uploads directory')
-}
+console.log('📁 Uploads path:', uploadsPath)
+console.log('📁 Directory exists:', fs.existsSync(uploadsPath))
+console.log('📁 Current working directory:', process.cwd())
 
+// Serve uploads folder
 app.use('/uploads', (req, res, next) => {
+  // Log requests for debugging
+  console.log(`📄 PDF Request: ${req.url}`)
+  
   // Allow PDFs to be viewed in browser
   if (req.url.endsWith('.pdf')) {
     res.type('application/pdf')
@@ -119,6 +121,12 @@ app.use('/uploads', (req, res, next) => {
     }
   }
 }))
+
+// Fallback: log if file not found
+app.use('/uploads', (req, res) => {
+  console.warn(`⚠️ PDF not found: ${req.url} | Path: ${uploadsPath}`)
+  res.status(404).json({ error: 'File not found', path: req.url })
+})
 
 // NOTE: All API routes must come BEFORE the main frontend catch-all
 
