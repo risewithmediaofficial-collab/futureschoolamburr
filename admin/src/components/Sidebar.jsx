@@ -60,7 +60,7 @@ export const Sidebar = () => {
       {/* Logo area */}
       <div style={{ padding: '28px 24px 20px', borderBottom: '1px solid var(--border)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <img src="/admin/logo.png" alt="Future School" style={{ height: '40px', width: 'auto' }} />
+          <img src="/logo.png" alt="Future School" style={{ height: '40px', width: 'auto' }} />
           <div>
             <p style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#e02020', marginBottom: '2px' }}>Admin Panel</p>
             <p style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1 }}>Future School</p>

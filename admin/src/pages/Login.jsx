@@ -58,7 +58,7 @@ export const Login = () => {
         }}>
           {/* Logo */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4px' }}>
-            <img src="/admin/logo.png" alt="Future School" style={{ height: '64px', width: 'auto' }} />
+            <img src="/logo.png" alt="Future School" style={{ height: '64px', width: 'auto' }} />
           </div>
 
           <span style={{ fontWeight: 'bold', fontSize: '1.5rem', lineHeight: 1.2 }}>
