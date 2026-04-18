@@ -26,12 +26,12 @@ export default function PrincipalDesk() {
                     "Education awakens the power and beauty that lie within us."
                   </p>
                   <p className="text-sm md:text-base text-gray-700">
-                    Education does not only mean academic excellence. It rather is a harmonious and synchronized combination of hand (skills like various arts), head (Intellectual Power) and heart (Value System). In the present era of digitalized world, it the biggest challenge before educators and parents is to nurture the young minds with the indelible impressions of a holistic education.
+                    Education does not only mean academic excellence. It rather is a harmonious and synchronized combination of hand (skills like various arts), head (Intellectual Power) and heart (Value System). In the present era of digitalized world, it is the biggest challenge before educators and parents is to nurture the young minds with the indelible impressions of a holistic education.
                   </p>
                 </div>
 
                 <p className="text-sm md:text-base">
-                  Therefore, we come up with a vision to foster different facets of a student in order to see him/her developing as a vibrant student, responsible citizen and above all a generous and sentient human being. Our pedagogy is child centric, with emphasis on over- all growth and development of our students.
+                  Therefore, we come up with a vision to foster different facets of a student in order to see him/her developing as a vibrant student, responsible citizen and above all a generous and sentient human being. Our pedagogy is child centric, which emphasis on over- all growth and development of our students.
                 </p>
 
                 <p className="text-sm md:text-base">

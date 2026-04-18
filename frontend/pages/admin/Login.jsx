@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext.jsx'
+import loginBgImage from '../../assets/pic-assets/IMG_0547-360x260.jpg'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -35,7 +36,10 @@ export const Login = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#ffffff',
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url(${loginBgImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
         padding: '20px',
         position: 'relative',
