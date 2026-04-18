@@ -302,7 +302,7 @@ export default function About() {
             <Reveal><p className="text-[0.6rem] font-black tracking-widest uppercase text-[#c0392b] mb-3">Our Core Team</p></Reveal>
             <Reveal delay={100}>
               <h2 className="serif text-3xl md:text-4xl">
-                Meet Our <span className="text-[#c0392b]">Faculty</span>
+                Our <span className="text-[#c0392b]">Management Team</span>
               </h2>
             </Reveal>
           </div>

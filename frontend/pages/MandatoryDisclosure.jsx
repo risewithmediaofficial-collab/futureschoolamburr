@@ -7,7 +7,7 @@ export default function MandatoryDisclosure() {
     { label: 'Affiliation No.', value: '1930465' },
     { label: 'School Code', value: '55386' },
     { label: 'Complete Address', value: 'Ambur, Vellore District, Tamil Nadu – 635 814' },
-    { label: 'Principal Name & Qualification', value: 'Mrs.VINOTHINI RAMACHANDRAN, M.Sc., B.Ed.' },
+    { label: 'Principal Name & Qualification', value: 'Mrs.VINOTHINI RAMACHANDRAN, M.A., M.Ed., D.T.Ed.' },
     { label: 'School Email ID', value: 'futureschooloffice@gmail.com' },
     { label: 'Contact Details', value: '+91 99628 26465' },
   ]
@@ -67,9 +67,9 @@ export default function MandatoryDisclosure() {
                 </h2>
                 <div className="grid gap-4">
                   {generalInfo.map((item) => (
-                    <div key={item.label} className="grid sm:grid-cols-[250px_1fr] border-b border-gray-50 pb-3 last:border-0">
-                      <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{item.label}</span>
-                      <span className="text-sm font-semibold text-gray-800">{item.value}</span>
+                    <div key={item.label} className="border-b border-gray-50 pb-4 last:border-0">
+                      <span className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">{item.label}</span>
+                      <span className="block text-sm md:text-base font-semibold text-gray-800">{item.value}</span>
                     </div>
                   ))}
                 </div>
@@ -83,13 +83,14 @@ export default function MandatoryDisclosure() {
                   <span className="w-1.5 h-6 bg-red-600 rounded-full" />
                   B : List of Files to be Added in Mandatory Disclosure
                 </h2>
-                <div className="overflow-x-auto">
+                {/* Desktop Table View */}
+                <div className="hidden md:block overflow-x-auto">
                   <table className="w-full border-collapse">
                     <thead>
                       <tr className="bg-gray-50 border-b border-gray-200">
-                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider">S.No</th>
+                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider w-12">S.No</th>
                         <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider">Particulars</th>
-                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider">Document</th>
+                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider w-20">Document</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
@@ -111,6 +112,28 @@ export default function MandatoryDisclosure() {
                       ))}
                     </tbody>
                   </table>
+                </div>
+
+                {/* Mobile Card View */}
+                <div className="md:hidden space-y-3">
+                  {disclosureItems.map((item) => (
+                    <div key={item.sno} className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all">
+                      <div className="flex items-start gap-3 mb-3">
+                        <span className="flex-shrink-0 w-6 h-6 rounded bg-red-600 text-white text-xs font-bold flex items-center justify-center">{item.sno}</span>
+                        <p className="text-sm font-bold text-[#c0392b] leading-snug">{item.title}</p>
+                      </div>
+                      <div className="flex justify-end">
+                        <a 
+                          href={item.file} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-[#c0392b] hover:text-red-700 transition-colors text-xs font-bold hover:underline"
+                        >
+                          <FileText className="w-4 h-4" /> View
+                        </a>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </Reveal>
