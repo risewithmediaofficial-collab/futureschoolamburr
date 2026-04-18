@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext'
 import { Plus, Edit2, Trash2, Upload } from 'lucide-react'
 
 export default function Gallery() {
-  const { token } = useAuth()
+  const { token, loading: authLoading } = useAuth()
   const [gallery, setGallery] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -20,8 +20,14 @@ export default function Gallery() {
   const categories = ['events', 'campus', 'activities', 'achievements', 'sports']
 
   useEffect(() => {
+    if (authLoading) return
+    if (!token) {
+      setLoading(false)
+      setError('Authentication required. Please login again.')
+      return
+    }
     fetchGallery()
-  }, [])
+  }, [token, authLoading])
 
   const fetchGallery = async () => {
     try {

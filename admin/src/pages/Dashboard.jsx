@@ -44,11 +44,17 @@ const StatCard = ({ title, count, icon, accent, delay }) => (
 )
 
 export const Dashboard = () => {
-  const { admin } = useAuth()
+  const { admin, token, loading: authLoading } = useAuth()
   const [stats, setStats] = useState({ newsCount: 0, galleryCount: 0, staffCount: 0, applicationsCount: 0 })
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    if (authLoading) return
+    if (!token) {
+      setLoading(false)
+      return
+    }
+
     const fetchStats = async () => {
       try {
         const [newsRes, galleryRes, staffRes, applicationsRes] = await Promise.all([
@@ -70,7 +76,7 @@ export const Dashboard = () => {
       }
     }
     fetchStats()
-  }, [])
+  }, [token, authLoading])
 
   const statCards = [
     {

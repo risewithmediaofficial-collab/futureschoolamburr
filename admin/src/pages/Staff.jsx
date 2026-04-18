@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext'
 import { Plus, Edit2, Trash2, Upload } from 'lucide-react'
 
 export default function Staff() {
-  const { token } = useAuth()
+  const { token, loading: authLoading } = useAuth()
   const [staff, setStaff] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -26,8 +26,14 @@ export default function Staff() {
   const positions = ['Principal', 'Vice-Principal', 'Teacher', 'Support', 'Admin']
 
   useEffect(() => {
+    if (authLoading) return
+    if (!token) {
+      setLoading(false)
+      setError('Authentication required. Please login again.')
+      return
+    }
     fetchStaff()
-  }, [])
+  }, [token, authLoading])
 
   const fetchStaff = async () => {
     try {

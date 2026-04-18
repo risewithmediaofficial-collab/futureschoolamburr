@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { CheckCircle, Clock, Eye } from 'lucide-react'
+import apiClient from '../utils/api.js'
 
 export default function Applications() {
-  const { token } = useAuth()
+  const { token, loading: authLoading } = useAuth()
   const [applications, setApplications] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -14,21 +15,29 @@ export default function Applications() {
   const statuses = ['pending', 'reviewed', 'approved', 'rejected']
 
   useEffect(() => {
+    if (authLoading) return
+    if (!token) {
+      setLoading(false)
+      setError('Authentication required. Please login again.')
+      return
+    }
     fetchApplications()
-  }, [])
+  }, [token, authLoading])
+
+  const getErrorMessage = (err, fallback) => {
+    if (typeof err === 'string') return err
+    if (err?.message) return err.message
+    return fallback
+  }
 
   const fetchApplications = async () => {
     try {
       setLoading(true)
-      const response = await fetch('/api/admin/applications', {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      if (!response.ok) throw new Error('Failed to fetch applications')
-      const data = await response.json()
+      const data = await apiClient.get('/admin/applications')
       setApplications(data.applications || [])
       setError(null)
     } catch (err) {
-      setError(err.message)
+      setError(getErrorMessage(err, 'Failed to fetch applications'))
     } finally {
       setLoading(false)
     }
@@ -36,16 +45,7 @@ export default function Applications() {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`/api/admin/applications/${id}/status`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ status: newStatus, adminNotes })
-      })
-
-      if (!response.ok) throw new Error('Failed to update application')
+      await apiClient.patch(`/admin/applications/${id}/status`, { status: newStatus, adminNotes })
       
       setApplications(applications.map(app =>
         app._id === id ? { ...app, status: newStatus, adminNotes } : app
@@ -55,7 +55,7 @@ export default function Applications() {
       setAdminNotes('')
       setError(null)
     } catch (err) {
-      setError(err.message)
+      setError(getErrorMessage(err, 'Failed to update application'))
     }
   }
 

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { Save } from 'lucide-react'
+import apiClient from '../utils/api.js'
 
 export default function Settings() {
-  const { token } = useAuth()
+  const { token, loading: authLoading } = useAuth()
   const [formData, setFormData] = useState({
     schoolName: '',
     address: '',
@@ -29,21 +30,25 @@ export default function Settings() {
   const [success, setSuccess] = useState(false)
 
   useEffect(() => {
+    if (authLoading) return
+    if (!token) {
+      setLoading(false)
+      setError('Authentication required. Please login again.')
+      return
+    }
     fetchSettings()
-  }, [])
+  }, [token, authLoading])
 
   const fetchSettings = async () => {
     try {
       setLoading(true)
-      const response = await fetch('/api/public/settings')
-      if (!response.ok) throw new Error('Failed to fetch settings')
-      const data = await response.json()
+      const data = await apiClient.get('/admin/settings')
       if (data.settings) {
         setFormData(data.settings)
       }
       setError(null)
     } catch (err) {
-      setError(err.message)
+      setError(err?.message || 'Failed to fetch settings')
     } finally {
       setLoading(false)
     }
@@ -53,22 +58,13 @@ export default function Settings() {
     e.preventDefault()
     try {
       setSaving(true)
-      const response = await fetch('/api/admin/settings', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify(formData)
-      })
-
-      if (!response.ok) throw new Error('Failed to save settings')
+      await apiClient.put('/admin/settings', formData)
       
       setSuccess(true)
       setTimeout(() => setSuccess(false), 3000)
       setError(null)
     } catch (err) {
-      setError(err.message)
+      setError(err?.message || 'Failed to save settings')
     } finally {
       setSaving(false)
     }

@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext'
 import { Plus, Edit2, Trash2, Eye, EyeOff } from 'lucide-react'
 
 export default function News() {
-  const { token } = useAuth()
+  const { token, loading: authLoading } = useAuth()
   const [news, setNews] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -21,8 +21,14 @@ export default function News() {
 
   // Fetch news
   useEffect(() => {
+    if (authLoading) return
+    if (!token) {
+      setLoading(false)
+      setError('Authentication required. Please login again.')
+      return
+    }
     fetchNews()
-  }, [])
+  }, [token, authLoading])
 
   const fetchNews = async () => {
     try {
