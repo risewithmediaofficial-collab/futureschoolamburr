@@ -92,6 +92,7 @@ function AppLayout() {
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
 
           {/* 🔐 Admin Portal Routes (Integrated) */}
+          <Route path="/dashboard" element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
           

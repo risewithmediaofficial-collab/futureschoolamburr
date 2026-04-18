@@ -177,7 +177,7 @@ export default function Header() {
             {/* ── LEFT ICON & NAV ── */}
             <div className="hidden xl:flex items-center flex-1 justify-end">
               <nav className="flex items-center">
-                {navLinks.slice(0, 3).map((link) => (
+                {navLinks.slice(0, 4).map((link) => (
                   <NavItem key={link.name} link={link} isActive={isActive} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} handleNavClick={handleNavClick} location={location} />
                 ))}
               </nav>
@@ -197,10 +197,17 @@ export default function Header() {
             {/* ── RIGHT NAV & ICON ── */}
             <div className="hidden xl:flex items-center flex-1 justify-start">
               <nav className="flex items-center">
-                {navLinks.slice(3).map((link) => (
+                {navLinks.slice(4).map((link) => (
                   <NavItem key={link.name} link={link} isActive={isActive} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} handleNavClick={handleNavClick} location={location} />
                 ))}
               </nav>
+              <Link
+                to="/admin/login"
+                className="ml-3 inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-4 py-2 text-[12px] leading-none font-bold uppercase tracking-[0.08em] whitespace-nowrap text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-[#c0392b]"
+              >
+                <LogIn className="w-3.5 h-3.5" />
+                Log In
+              </Link>
             </div>
 
             {/* ── MOBILE HAMBURGER ── */}

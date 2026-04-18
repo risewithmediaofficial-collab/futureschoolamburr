@@ -20,7 +20,7 @@ export const Login = () => {
     setLoading(true)
     try {
       await login(formData.email, formData.password)
-      navigate('/dashboard')
+      navigate('/admin/dashboard')
     } catch (err) {
       setError(err.message || 'Invalid credentials. Please try again.')
     } finally {
@@ -29,33 +29,50 @@ export const Login = () => {
   }
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background: '#e8f0fe',
-      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-      padding: '20px'
-    }}>
-      <div style={{
-        width: '100%',
-        maxWidth: '340px',
-        background: '#f1f7fe',
+    <div
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#ffffff',
+        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+        padding: '20px',
+        position: 'relative',
         overflow: 'hidden',
-        borderRadius: '16px',
-        color: '#010101',
-        boxShadow: '0 8px 40px rgba(0,102,255,0.10)'
-      }}>
-        {/* Form */}
-        <form onSubmit={handleSubmit} style={{
+      }}
+    >
+      <div className="login-float login-float-one" />
+      <div className="login-float login-float-two" />
+
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '360px',
+          background: '#ffffff',
+          overflow: 'hidden',
+          borderRadius: '20px',
+          color: '#010101',
+          border: '1px solid #eef0f4',
+          boxShadow: '0 24px 55px rgba(15, 23, 42, 0.10)',
+          animation: 'cardIn .75s cubic-bezier(0.16,1,0.3,1)',
           position: 'relative',
-          display: 'flex',
-          flexDirection: 'column',
-          padding: '32px 24px 24px',
-          gap: '16px',
-          textAlign: 'center'
-        }}>
+          zIndex: 2,
+        }}
+      >
+        {/* Form */}
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '34px 24px 26px',
+            gap: '16px',
+            textAlign: 'center',
+            background: 'linear-gradient(180deg, #ffffff 0%, #fcfcfd 100%)',
+          }}
+        >
           {/* Logo */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4px' }}>
             <img src="/admin/logo.png" alt="Future School" style={{ height: '64px', width: 'auto' }} />
@@ -128,7 +145,7 @@ export const Login = () => {
                 style={{
                   position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)',
                   background: 'none', border: 'none', cursor: 'pointer',
-                  color: '#999', padding: 0, display: 'flex', alignItems: 'center'
+                  color: '#999', padding: 0, display: 'flex', alignItems: 'center',
                 }}
               >
                 {showPass ? (
@@ -170,6 +187,7 @@ export const Login = () => {
           <button
             type="submit"
             disabled={loading}
+            className="login-submit-btn"
             style={{
               backgroundColor: loading ? '#f80909ff' : '#ff0000ff',
               color: '#fff',
@@ -184,7 +202,9 @@ export const Login = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '8px'
+              gap: '8px',
+              overflow: 'hidden',
+              position: 'relative',
             }}
             onMouseEnter={e => { if (!loading) e.currentTarget.style.backgroundColor = '#e60000ff' }}
             onMouseLeave={e => { if (!loading) e.currentTarget.style.backgroundColor = '#ff0000ff' }}
@@ -205,7 +225,7 @@ export const Login = () => {
         <div style={{
           padding: '14px 24px',
           fontSize: '0.85rem',
-          backgroundColor: '#e0ecfb',
+          backgroundColor: '#f8f9fc',
           boxShadow: 'rgba(0,0,0,0.08) 0 -1px',
           textAlign: 'center',
           color: '#555'
@@ -216,6 +236,57 @@ export const Login = () => {
 
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes cardIn {
+          from { opacity: 0; transform: translateY(26px) scale(0.97); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes floatOne {
+          0% { transform: translateY(0) translateX(0); }
+          50% { transform: translateY(-14px) translateX(8px); }
+          100% { transform: translateY(0) translateX(0); }
+        }
+        @keyframes floatTwo {
+          0% { transform: translateY(0) translateX(0); }
+          50% { transform: translateY(12px) translateX(-10px); }
+          100% { transform: translateY(0) translateX(0); }
+        }
+        @keyframes shine {
+          0% { transform: translateX(-120%); }
+          100% { transform: translateX(220%); }
+        }
+        .login-float {
+          position: absolute;
+          border-radius: 9999px;
+          filter: blur(1px);
+          pointer-events: none;
+        }
+        .login-float-one {
+          width: 220px;
+          height: 220px;
+          top: calc(50% - 230px);
+          left: calc(50% - 330px);
+          background: radial-gradient(circle at 30% 30%, rgba(255, 59, 59, 0.16), rgba(255, 59, 59, 0.02));
+          animation: floatOne 4.6s ease-in-out infinite;
+        }
+        .login-float-two {
+          width: 180px;
+          height: 180px;
+          top: calc(50% + 120px);
+          left: calc(50% + 120px);
+          background: radial-gradient(circle at 30% 30%, rgba(24, 35, 55, 0.10), rgba(24, 35, 55, 0.02));
+          animation: floatTwo 5.3s ease-in-out infinite;
+        }
+        .login-submit-btn::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 32%;
+          background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 45%, transparent 100%);
+          transform: translateX(-140%);
+          animation: shine 1.8s ease-in-out infinite;
+        }
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
       `}</style>
     </div>

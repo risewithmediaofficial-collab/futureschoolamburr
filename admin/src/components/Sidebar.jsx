@@ -33,7 +33,7 @@ export const Sidebar = () => {
 
   const handleLogout = () => {
     logout()
-    navigate('/login')
+    navigate('/')
   }
 
   const initials = admin?.name
