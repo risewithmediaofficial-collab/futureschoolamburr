@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Phone, Mail, MapPin, ChevronDown, ChevronRight, X, Menu, LogIn, Play, ClipboardList, Clock, Trophy, MoveRight, Users, GraduationCap, Map, Fingerprint, Activity, CarFront, Landmark, Target, CheckCircle2, Navigation, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
 import imgLogo from '../assets/logo.png'
 
@@ -67,6 +67,7 @@ export default function Header() {
   const mobileNavRef = useRef(null)
   const lastY = useRef(0)
   const location = useLocation()
+  const navigate = useNavigate()
 
   /* Close dropdown on click outside */
   useEffect(() => {
@@ -121,6 +122,12 @@ export default function Header() {
     if (location.pathname === href) {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
+  }
+
+  const handleAdminLoginClick = () => {
+    setDrawerOpen(false)
+    setOpenDropdown(null)
+    navigate('/admin/login')
   }
 
   return (
@@ -203,6 +210,7 @@ export default function Header() {
               </nav>
               <Link
                 to="/admin/login"
+                onClick={handleAdminLoginClick}
                 className="ml-3 inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-4 py-2 text-[12px] leading-none font-bold uppercase tracking-[0.08em] whitespace-nowrap text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-[#c0392b]"
               >
                 <LogIn className="w-3.5 h-3.5" />
@@ -233,7 +241,7 @@ export default function Header() {
       {drawerOpen && (
         <div
           onClick={() => setDrawerOpen(false)}
-          className={`fixed inset-0 z-40 bg-black/30 backdrop-blur-md transition-opacity duration-300 lg:hidden ${
+          className={`fixed inset-0 z-40 bg-black/30 backdrop-blur-md transition-opacity duration-300 xl:hidden ${
             drawerOpen ? 'opacity-100' : 'opacity-0'
           }`}
           aria-hidden="true"
@@ -243,7 +251,7 @@ export default function Header() {
       {/* Drawer panel */}
       <div
         ref={mobileNavRef}
-        className={`fixed top-0 right-0 z-50 h-[100dvh] max-h-[100dvh] w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden flex flex-col overflow-hidden ${
+        className={`fixed top-0 right-0 z-50 h-[100dvh] max-h-[100dvh] w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-out xl:hidden flex flex-col overflow-hidden ${
           drawerOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -355,14 +363,14 @@ export default function Header() {
           </div>
 
           {/* Buttons */}
-          <a 
-            href="/admin/login" 
-            onClick={() => setDrawerOpen(false)} 
+          <button
+            type="button"
+            onClick={handleAdminLoginClick}
             className="w-full inline-flex items-center justify-center gap-2 rounded-lg text-xs sm:text-sm font-bold uppercase tracking-wide transition-all duration-200 border border-gray-300 bg-white text-gray-700 hover:bg-gray-100 active:bg-gray-200 py-2.5 sm:py-3 flex-shrink-0"
           >
             <LogIn className="w-4 h-4" />
             <span>Log In</span>
-          </a>
+          </button>
           <Link
             to="/apply"
             onClick={() => setDrawerOpen(false)}
