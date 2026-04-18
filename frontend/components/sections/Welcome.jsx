@@ -54,7 +54,7 @@ export default function Welcome() {
             <Reveal delay={200}>
                <div className="space-y-4 text-black text-base md:text-lg leading-relaxed font-medium">
                   <p>
-                    Future Senior Secondary School has been Ambur's most trusted institution since 1998. Affiliated with CBSE, we shape confident, compassionate, and capable individuals ready for tomorrow's world.
+                    Future Senior Secondary School has been Ambur's most trusted institution since 1998. Affiliated with CBSE, we shape confident, compassionate and capable individuals ready for tomorrow's world.
                   </p>
                   <p>
                     Dedicated faculty, modern smart classrooms, and a student-Centered philosophy create an environment where every child thrives — academically, socially and personally.

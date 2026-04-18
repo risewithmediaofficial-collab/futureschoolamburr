@@ -7,7 +7,7 @@ export default function MandatoryDisclosure() {
     { label: 'Affiliation No.', value: '1930465' },
     { label: 'School Code', value: '55386' },
     { label: 'Complete Address', value: 'Ambur, Vellore District, Tamil Nadu – 635 814' },
-    { label: 'Principal Name & Qualification', value: 'Mrs. YUVARANI J, M.Sc., B.Ed.' },
+    { label: 'Principal Name & Qualification', value: 'Mrs.VINOTHINI RAMACHANDRAN, M.Sc., B.Ed.' },
     { label: 'School Email ID', value: 'futureschooloffice@gmail.com' },
     { label: 'Contact Details', value: '+91 99628 26465' },
   ]

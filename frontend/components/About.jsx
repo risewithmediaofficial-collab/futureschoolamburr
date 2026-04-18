@@ -7,11 +7,11 @@ import imgKP from '../assets/pic-assets/Mr. K. PANDURANGAN.png'
 import imgPS from '../assets/pic-assets/Mr.P.Sureshbabu.png'
 import imgPR from '../assets/pic-assets/Ms.P.Rameshbabu SECRETARY.png'
 import imgJS from '../assets/pic-assets/Ms.Jayanthi Suresh.png'
-import imgJY from '../assets/pic-assets/YUVARANI.png'
+import imgJY from '../assets/pic-assets/Vinothini Ramachandran.jpeg'
 
 /* ─── INSTRUCTOR TEAM DATA ─── */
 const instructorsTeam = [
-  { sno: 1, name: 'Mrs. YUVARANI J', designation: 'PRINCIPAL' },
+  { sno: 1, name: 'Mrs.VINOTHINI RAMACHANDRAN', designation: 'PRINCIPAL' },
   { sno: 2, name: 'Mrs. DEEPA R', designation: 'VICE PRINCIPAL' },
   { sno: 3, name: 'IMMANUEL I', designation: 'PGT' },
   { sno: 4, name: 'NIRMAL KUMAR M', designation: 'PGT' },
@@ -286,7 +286,7 @@ export default function About() {
                   "Education awakens the power and beauty that lie within us. We come up with a vision to foster different facets of a student in order to see them developing as a vibrant citizen."
                 </p>
                 <div className="mt-auto pt-4 border-t border-gray-100">
-                  <h4 className="font-bold text-gray-900 text-lg">Mrs. Yuvarani J</h4>
+                  <h4 className="font-bold text-gray-900 text-lg">Mrs.VINOTHINI RAMACHANDRAN</h4>
                   <p className="text-red-600 text-xs font-black uppercase tracking-widest mt-1">Principal</p>
                 </div>
               </div>
@@ -312,7 +312,7 @@ export default function About() {
             <FacultyCard img={imgPS} name="P. Sureshbabu"   subject="Correspondent"     delay={50}  />
             <FacultyCard img={imgPR} name="P. Rameshbabu"   subject="Secretary"         delay={100} />
             <FacultyCard img={imgJS} name="Jayanthi Suresh" subject="Academic Director" delay={150} />
-            <FacultyCard img={imgJY} name="J. Yuvarani"     subject="Principal"         delay={200} />
+            <FacultyCard img={imgJY} name="VINOTHINI RAMACHANDRAN" subject="Principal"         delay={200} />
           </div>
 
           <div className="max-w-4xl mx-auto bg-gray-50 border border-gray-200 rounded-3xl overflow-hidden">

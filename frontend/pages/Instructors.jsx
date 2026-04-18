@@ -3,7 +3,7 @@ import { DropdownPageLayout } from '../components/DropdownPageLayout'
 import heroImg from '../assets/pic-assets/banner-2026-3-1.png'
 
 const instructorsTeam = [
-  { sno: 1, name: 'Mrs. YUVARANI J', designation: 'PRINCIPAL' },
+  { sno: 1, name: 'Mrs.VINOTHINI RAMACHANDRAN', designation: 'PRINCIPAL' },
   { sno: 2, name: 'Mrs. DEEPA R', designation: 'VICE PRINCIPAL' },
   { sno: 3, name: 'IMMANUEL I', designation: 'PGT' },
   { sno: 4, name: 'NIRMAL KUMAR M', designation: 'PGT' },

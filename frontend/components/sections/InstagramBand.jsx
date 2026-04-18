@@ -31,7 +31,7 @@ export default function InstagramBand() {
             </h2>
           </Reveal>
           <Reveal delay={200}>
-            <a href="https://instagram.com/futureschoolambur" target="_blank" rel="noreferrer"
+            <a href="https://www.instagram.com/futureschool_ambur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 text-[0.7rem] font-bold text-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1 rounded-xl uppercase tracking-widest shadow-red-900/10"
               style={{ background: 'linear-gradient(135deg, #833ab4, #c0392b, #fcb045)' }}>
               Follow Us

@@ -9,7 +9,6 @@ import Management from '../components/sections/Management'
 import SchoolComrades from '../components/sections/SchoolComrades'
 import AdmissionsCTA from '../components/sections/AdmissionsCTA'
 import JoinBanner from '../components/sections/JoinBanner'
-import InstagramBand from '../components/sections/InstagramBand'
 
 const Home = () => {
   return (
@@ -25,7 +24,6 @@ const Home = () => {
       <SchoolComrades />
       <AdmissionsCTA />
       <JoinBanner />
-      <InstagramBand />
     </main>
   )
 }

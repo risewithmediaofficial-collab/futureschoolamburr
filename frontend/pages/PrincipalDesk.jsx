@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { DropdownPageLayout } from '../components/DropdownPageLayout'
-import imgYuvarani from '../assets/pic-assets/YUVARANI.png'
+import imgYuvarani from '../assets/pic-assets/Vinothini Ramachandran.jpeg'
 import heroImg from '../assets/pic-assets/banner-2026-2-1.png'
 
 export default function PrincipalDesk() {
@@ -12,7 +12,7 @@ export default function PrincipalDesk() {
       subtitle="Education awakens the power and beauty that lie within us."
       image={heroImg}
     >
-      <section className="relative bg-white pt-8 pb-16 overflow-hidden">
+      <section className="relative bg-white pt-2 pb-16 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Principal Message Section */}
@@ -48,20 +48,20 @@ export default function PrincipalDesk() {
             <div className="md:col-span-1 sticky top-24">
               <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 {/* Image */}
-                <div className="aspect-[4/5] bg-gray-50 overflow-hidden">
+                <div className="aspect-[3/3] bg-gray-50 overflow-hidden">
                   <img
                     src={imgYuvarani}
-                    alt="Mrs. YUVARANI J"
-                    className="w-full h-full object-contain object-top"
+                    alt="Mrs. VINOTHINI RAMACHANDRAN"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
 
                 {/* Info */}
-                <div className="p-6 text-center">
-                  <h3 className="text-lg font-bold text-red-600" style={{ fontFamily: "'Georgia', serif" }}>
-                    Mrs. YUVARANI J
+                <div className="p-3 text-center">
+                  <h3 className="text-sm font-bold text-red-600 whitespace-nowrap overflow-hidden text-ellipsis" style={{ fontFamily: "'Georgia', serif" }}>
+                    Mrs.VINOTHINI RAMACHANDRAN
                   </h3>
-                  <p className="text-gray-900 font-semibold mt-2">Principal</p>
+                  <p className="text-gray-900 font-semibold mt-1">Principal</p>
                   <p className="text-sm text-gray-600 mt-1">Future Senior Secondary School</p>
                   <div className="w-8 h-0.5 bg-red-600 mx-auto mt-4" />
                 </div>

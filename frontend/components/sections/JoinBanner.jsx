@@ -39,8 +39,8 @@ export default function JoinBanner() {
         <div className="absolute inset-0 bg-[#c0392b]/10" />
       </div>
 
-      <Reveal className="relative z-20 h-full flex items-center max-w-7xl mx-auto px-4 md:px-12">
-        <div className="bg-white p-10 md:p-14 max-w-xl text-gray-900 border border-gray-100 shadow-2xl rounded-3xl mx-auto md:mx-0">
+      <Reveal className="relative z-20 h-full w-full flex items-center justify-end px-4 md:px-10 lg:px-16">
+        <div className="bg-white p-10 md:p-14 max-w-xl text-gray-900 border border-gray-100 shadow-2xl rounded-3xl ml-auto">
            <div>
               <p className="text-[#c0392b] text-[0.6rem] font-black tracking-widest uppercase mb-6">Get Started Today</p>
               <h2 className="serif text-4xl md:text-5xl lg:text-5xl leading-tight mb-10 text-gray-900">

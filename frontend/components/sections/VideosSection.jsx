@@ -30,8 +30,8 @@ function VideoModal({ video, onClose }) {
 }
 
 const videos = [
-  { id: 1, youtubeId: 'dQw4w9WgXcQ', title: 'Future School — Campus Tour 2024', dur: '3:48', category: 'Campus',    thumb: '🏫' },
-  { id: 2, youtubeId: 'dQw4w9WgXcQ', title: 'Annual Day Celebration 2024',       dur: '6:15', category: 'Events',    thumb: '🎭' },
+  { id: 1, youtubeId: 'wMs6jXTJYO0', title: 'Future School — Campus Tour 2024', dur: '3:48', category: 'Campus',    thumb: '🏫' },
+  { id: 2, youtubeId: 'ZFBKmWL-XNM', title: 'Annual Day Celebration 2024',       dur: '6:15', category: 'Events',    thumb: '🎭' },
   { id: 3, youtubeId: 'dQw4w9WgXcQ', title: 'Sports Day 2024 Highlights',        dur: '4:22', category: 'Sports',    thumb: '⚽' },
   { id: 4, youtubeId: 'dQw4w9WgXcQ', title: 'Science Exhibition Showcase',       dur: '5:10', category: 'Academics', thumb: '🔬' },
   { id: 5, youtubeId: 'dQw4w9WgXcQ', title: 'Board Toppers Speak — 2024',        dur: '7:30', category: 'Results',   thumb: '🏆' },

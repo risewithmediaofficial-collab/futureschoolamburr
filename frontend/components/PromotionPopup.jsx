@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { X, ExternalLink } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import admissionBanner from '../assets/admission-banner.jpeg'
+import admissionBanner from '../assets/admission-banner.png'
 
 export default function PromotionPopup() {
   const [isVisible, setIsVisible] = useState(false)

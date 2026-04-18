@@ -3,7 +3,7 @@ import imgKP from '../../assets/pic-assets/Mr. K. PANDURANGAN.png'
 import imgPS from '../../assets/pic-assets/Mr.P.Sureshbabu.png'
 import imgPR from '../../assets/pic-assets/Ms.P.Rameshbabu SECRETARY.png'
 import imgJS from '../../assets/pic-assets/Ms.Jayanthi Suresh.png'
-import imgJY from '../../assets/pic-assets/YUVARANI.png'
+import imgJY from '../../assets/pic-assets/Vinothini Ramachandran.jpeg'
 
 const useReveal = (threshold = 0.1) => {
   const ref = useRef(null)
@@ -43,7 +43,7 @@ const management = [
   { name: 'Mr.P.Sureshbabu', role: 'CORRESPONDENT', img: imgPS },
   { name: 'Ms.P.Rameshbabu', role: 'SECRETARY', img: imgPR },
   { name: 'Ms.Jayanthi Suresh', role: 'ACADEMIC DIRECTOR', img: imgJS },
-  { name: 'Mrs.J.Yuvarani', role: 'PRINCIPAL', img: imgJY },
+  { name: 'Mrs.Vinothini Ramachandran', role: 'PRINCIPAL', img: imgJY },
 ]
 
 export default function Management() {
