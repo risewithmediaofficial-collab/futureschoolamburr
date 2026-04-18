@@ -121,16 +121,16 @@ export default function News() {
   }
 
   return (
-    <div className="p-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">News Management</h1>
+    <div className="p-4 sm:p-6 lg:p-8">
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">News Management</h1>
         <button
           onClick={() => {
             setShowForm(true)
             setEditingId(null)
             setFormData({ title: '', content: '', category: 'announcement', imageUrl: '', isPublished: true })
           }}
-          className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
         >
           <Plus size={20} /> Add News
         </button>
@@ -139,7 +139,7 @@ export default function News() {
       {error && <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">{error}</div>}
 
       {showForm && (
-        <div className="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="mb-8 p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="text-xl font-bold mb-4">{editingId ? 'Edit' : 'Add'} News</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
@@ -180,7 +180,7 @@ export default function News() {
               />
               <span>Published</span>
             </label>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <button type="submit" className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
                 Save
               </button>
@@ -202,7 +202,7 @@ export default function News() {
         <div className="grid gap-4">
           {news.map(item => (
             <div key={item._id} className="p-4 bg-white border rounded-lg hover:shadow-lg transition">
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-start">
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-gray-900">{item.title}</h3>
                   <p className="text-sm text-gray-600">{item.content.substring(0, 100)}...</p>
@@ -213,7 +213,7 @@ export default function News() {
                     </span>
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 self-end sm:self-auto">
                   <button
                     onClick={() => togglePublish(item._id, item.isPublished)}
                     className="p-2 hover:bg-gray-100 rounded"

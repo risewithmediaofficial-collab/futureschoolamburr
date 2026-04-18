@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../context/AuthContext'
 import { CheckCircle, Clock, Eye } from 'lucide-react'
+import apiClient from '../../utils/api.js'
 
 export default function Applications() {
-  const { token } = useAuth()
+  const { token, loading: authLoading } = useAuth()
   const [applications, setApplications] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -14,21 +15,29 @@ export default function Applications() {
   const statuses = ['pending', 'reviewed', 'approved', 'rejected']
 
   useEffect(() => {
+    if (authLoading) return
+    if (!token) {
+      setLoading(false)
+      setError('Authentication required. Please login again.')
+      return
+    }
     fetchApplications()
-  }, [])
+  }, [token, authLoading])
+
+  const getErrorMessage = (err, fallback) => {
+    if (typeof err === 'string') return err
+    if (err?.message) return err.message
+    return fallback
+  }
 
   const fetchApplications = async () => {
     try {
       setLoading(true)
-      const response = await fetch('/api/admin/applications', {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      if (!response.ok) throw new Error('Failed to fetch applications')
-      const data = await response.json()
+      const data = await apiClient.get('/admin/applications')
       setApplications(data.applications || [])
       setError(null)
     } catch (err) {
-      setError(err.message)
+      setError(getErrorMessage(err, 'Failed to fetch applications'))
     } finally {
       setLoading(false)
     }
@@ -36,16 +45,7 @@ export default function Applications() {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      const response = await fetch(`/api/admin/applications/${id}/status`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify({ status: newStatus, adminNotes })
-      })
-
-      if (!response.ok) throw new Error('Failed to update application')
+      await apiClient.patch(`/admin/applications/${id}/status`, { status: newStatus, adminNotes })
       
       setApplications(applications.map(app =>
         app._id === id ? { ...app, status: newStatus, adminNotes } : app
@@ -55,7 +55,7 @@ export default function Applications() {
       setAdminNotes('')
       setError(null)
     } catch (err) {
-      setError(err.message)
+      setError(getErrorMessage(err, 'Failed to update application'))
     }
   }
 
@@ -64,13 +64,13 @@ export default function Applications() {
     : applications.filter(app => app.status === filter)
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">Applications Management</h1>
+    <div className="p-4 sm:p-6 lg:p-8">
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">Applications Management</h1>
 
       {error && <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">{error}</div>}
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
         <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
           <p className="text-sm text-blue-600 font-medium">Total</p>
           <p className="text-2xl font-bold text-blue-900">{applications.length}</p>
@@ -117,12 +117,8 @@ export default function Applications() {
       ) : (
         <div className="grid gap-4">
           {filtered.map(app => (
-            <div
-              key={app._id}
-              className="p-4 bg-white border rounded-lg hover:shadow-lg transition cursor-pointer"
-              onClick={() => setSelectedApp(app)}
-            >
-              <div className="flex justify-between items-start">
+            <div key={app._id} className="p-4 bg-white border rounded-lg hover:shadow-lg transition cursor-pointer" onClick={() => setSelectedApp(app)}>
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start">
                 <div className="flex-1">
                   <h3 className="font-bold text-gray-900">
                     {app.studentName || app.candidateName}
@@ -138,7 +134,7 @@ export default function Applications() {
                   <p className="text-sm text-gray-600">{app.email}</p>
                   {app.phone && <p className="text-sm text-gray-600">Phone: {app.phone}</p>}
                 </div>
-                <div className="text-right">
+                <div className="text-left sm:text-right">
                   <div className={`px-3 py-1 rounded-full text-xs font-bold ${
                     app.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
                     app.status === 'reviewed' ? 'bg-blue-100 text-blue-800' :
@@ -157,15 +153,15 @@ export default function Applications() {
       {/* Detail modal */}
       {selectedApp && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-96 overflow-y-auto">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[85vh] overflow-y-auto">
             <div className="p-6 border-b">
-              <h2 className="text-2xl font-bold text-gray-900">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
                 {selectedApp.studentName || selectedApp.candidateName}
               </h2>
             </div>
 
             <div className="p-6 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm text-gray-600">Application Type</p>
                   <p className="font-bold text-[#c0392b] uppercase tracking-wider text-xs">
@@ -182,7 +178,7 @@ export default function Applications() {
 
               {selectedApp.studentName && (
                 <>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <p className="text-sm text-gray-600">Parent Name</p>
                       <p className="font-medium">{selectedApp.parentName}</p>
@@ -247,12 +243,12 @@ export default function Applications() {
                 />
               </div>
 
-              <div className="flex gap-2 pt-4 border-t">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 border-t">
                 {['pending', 'reviewed', 'approved', 'rejected'].map(status => (
                   <button
                     key={status}
                     onClick={() => updateStatus(selectedApp._id, status)}
-                    className={`flex-1 px-4 py-2 rounded-lg font-medium transition ${
+                    className={`px-4 py-2 rounded-lg font-medium transition ${
                       selectedApp.status === status
                         ? status === 'approved' ? 'bg-green-600 text-white' :
                           status === 'rejected' ? 'bg-red-600 text-white' :

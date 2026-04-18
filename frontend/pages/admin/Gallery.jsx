@@ -128,16 +128,16 @@ export default function Gallery() {
   }
 
   return (
-    <div className="p-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Gallery Management</h1>
+    <div className="p-4 sm:p-6 lg:p-8">
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Gallery Management</h1>
         <button
           onClick={() => {
             setShowForm(true)
             setEditingId(null)
             setFormData({ title: '', category: 'events', description: '', imageUrl: '' })
           }}
-          className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
         >
           <Plus size={20} /> Add Image
         </button>
@@ -146,7 +146,7 @@ export default function Gallery() {
       {error && <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">{error}</div>}
 
       {showForm && (
-        <div className="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="mb-8 p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="text-xl font-bold mb-4">{editingId ? 'Edit' : 'Add'} Gallery Item</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
@@ -173,7 +173,7 @@ export default function Gallery() {
             />
             <div className="space-y-2">
               <label className="block text-sm font-medium">Upload Image</label>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                 <input
                   type="file"
                   accept="image/*"
@@ -187,7 +187,7 @@ export default function Gallery() {
                 <img src={formData.imageUrl} alt="Preview" className="w-32 h-32 object-cover rounded" />
               )}
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <button type="submit" className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
                 Save
               </button>
@@ -206,7 +206,7 @@ export default function Gallery() {
       {loading ? (
         <div className="text-center py-8">Loading...</div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {gallery.map(item => (
             <div key={item._id} className="group relative rounded-lg overflow-hidden bg-gray-100 hover:shadow-lg transition">
               <img

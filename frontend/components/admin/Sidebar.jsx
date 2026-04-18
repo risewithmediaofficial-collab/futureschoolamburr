@@ -1,6 +1,8 @@
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext.jsx'
-import { useState } from 'react'
+
+const MOBILE_BREAKPOINT = 1024
 
 const icons = {
   dashboard: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>,
@@ -19,15 +21,44 @@ export const Sidebar = () => {
   const navigate = useNavigate()
   const { admin, logout } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth <= MOBILE_BREAKPOINT : false))
 
-  const menuItems = [
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  useEffect(() => {
+    if (!isMobile) setIsOpen(false)
+  }, [isMobile])
+
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location.pathname])
+
+  useEffect(() => {
+    if (!isMobile) return undefined
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [isMobile, isOpen])
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setIsOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
+
+  const menuItems = useMemo(() => ([
     { name: 'Dashboard', path: '/admin/dashboard', icon: icons.dashboard },
     { name: 'News', path: '/admin/news', icon: icons.news },
     { name: 'Gallery', path: '/admin/gallery', icon: icons.gallery },
     { name: 'Staff', path: '/admin/staff', icon: icons.staff },
     { name: 'Applications', path: '/admin/applications', icon: icons.applications },
     ...(admin?.role === 'super-admin' ? [{ name: 'Settings', path: '/admin/settings', icon: icons.settings }] : [])
-  ]
+  ]), [admin?.role])
 
   const isActive = (path) => location.pathname === path
 
@@ -37,39 +68,71 @@ export const Sidebar = () => {
   }
 
   const initials = admin?.name
-    ? admin.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2)
+    ? admin.name.split(' ').map((word) => word[0]).join('').toUpperCase().slice(0, 2)
     : 'A'
 
   const sidebarContent = (
-    <div style={{
-      width: '260px',
-      height: '100vh',
-      background: 'var(--bg-secondary)',
-      borderRight: '1px solid var(--border)',
-      display: 'flex',
-      flexDirection: 'column',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
-      {/* Top glow */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0, height: '1px',
-        background: 'linear-gradient(90deg, transparent, rgba(224,32,32,0.1), transparent)'
-      }} />
+    <div
+      style={{
+        width: isMobile ? 'min(86vw, 320px)' : '260px',
+        height: '100dvh',
+        background: '#ffffff',
+        borderRight: '1px solid rgba(15, 23, 42, 0.08)',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        overflow: 'hidden',
+        boxShadow: isMobile ? '0 16px 40px rgba(15, 23, 42, 0.25)' : 'none',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '2px',
+          background: 'linear-gradient(90deg, transparent, rgba(224,32,32,0.35), transparent)'
+        }}
+      />
 
-      {/* Logo area */}
-      <div style={{ padding: '28px 24px 20px', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <img src="/admin/logo.png" alt="Future School" style={{ height: '40px', width: 'auto' }} />
-          <div>
-            <p style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#e02020', marginBottom: '2px' }}>Admin Panel</p>
-            <p style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1 }}>Future School</p>
+      <div
+        style={{
+          padding: isMobile ? '22px 16px 16px' : '28px 24px 20px',
+          borderBottom: '1px solid var(--border)',
+          paddingTop: isMobile ? 'max(22px, env(safe-area-inset-top, 0px))' : '28px'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+            <img src="/admin/logo.png" alt="Future School" style={{ height: isMobile ? '36px' : '40px', width: 'auto' }} />
           </div>
+          {isMobile && (
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              style={{
+                border: '1px solid var(--border)',
+                width: '34px',
+                height: '34px',
+                borderRadius: '10px',
+                background: '#ffffff',
+                color: 'var(--text-primary)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+                cursor: 'pointer',
+              }}
+              aria-label="Close sidebar"
+            >
+              {icons.close}
+            </button>
+          )}
         </div>
       </div>
 
-      {/* Nav */}
-      <nav style={{ flex: 1, padding: '16px 12px', overflowY: 'auto' }}>
+      <nav style={{ flex: 1, padding: '14px 12px', overflowY: 'auto' }}>
         <p style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted)', padding: '0 12px', marginBottom: '8px' }}>
           Navigation
         </p>
@@ -84,51 +147,75 @@ export const Sidebar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',
-                padding: '11px 14px',
-                borderRadius: '10px',
-                marginBottom: '2px',
+                padding: isMobile ? '13px 14px' : '11px 14px',
+                borderRadius: '12px',
+                marginBottom: '4px',
                 textDecoration: 'none',
-                fontWeight: active ? 700 : 500,
-                fontSize: '13px',
+                fontWeight: active ? 700 : 600,
+                fontSize: '15px',
                 letterSpacing: '0.01em',
                 transition: 'all 0.15s ease',
-                position: 'relative',
-                color: active ? '#fff' : 'var(--text-secondary)',
-                background: active
-                  ? 'linear-gradient(135deg, #e02020 0%, #c81a1a 100%)'
-                  : 'transparent',
-                boxShadow: active ? '0 4px 16px rgba(224,32,32,0.25)' : 'none',
+                color: active ? '#ffffff' : 'var(--text-secondary)',
+                background: active ? 'linear-gradient(135deg, #e02020 0%, #c81a1a 100%)' : 'transparent',
+                boxShadow: active ? '0 6px 20px rgba(224,32,32,0.28)' : 'none',
               }}
-              onMouseEnter={e => { if (!active) { e.currentTarget.style.background = 'var(--bg-hover)'; e.currentTarget.style.color = 'var(--text-primary)'; }}}
-              onMouseLeave={e => { if (!active) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)'; }}}
+              onMouseEnter={(event) => {
+                if (active || isMobile) return
+                event.currentTarget.style.background = 'var(--bg-hover)'
+                event.currentTarget.style.color = 'var(--text-primary)'
+              }}
+              onMouseLeave={(event) => {
+                if (active || isMobile) return
+                event.currentTarget.style.background = 'transparent'
+                event.currentTarget.style.color = 'var(--text-secondary)'
+              }}
             >
-              <span style={{ opacity: active ? 1 : 0.7, display: 'flex' }}>{item.icon}</span>
-              {item.name}
+              <span style={{ opacity: active ? 1 : 0.75, display: 'flex' }}>{item.icon}</span>
+              <span>{item.name}</span>
               {active && (
-                <span style={{
-                  marginLeft: 'auto', width: '6px', height: '6px',
-                  borderRadius: '50%', background: '#ffffff'
-                }} />
+                <span
+                  style={{
+                    marginLeft: 'auto',
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: '#ffffff'
+                  }}
+                />
               )}
             </Link>
           )
         })}
       </nav>
 
-      {/* User footer */}
-      <div style={{ padding: '16px', borderTop: '1px solid var(--border)' }}>
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: '12px',
-          padding: '12px', borderRadius: '10px',
-          background: 'var(--bg-hover)', marginBottom: '10px'
-        }}>
-          <div style={{
-            width: '36px', height: '36px', borderRadius: '50%',
-            background: 'linear-gradient(135deg, #e02020, #8b0000)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '13px', fontWeight: 800, color: '#fff', flexShrink: 0,
-            boxShadow: '0 0 0 2px rgba(224,32,32,0.2)'
-          }}>
+      <div style={{ padding: '14px 14px 16px', borderTop: '1px solid var(--border)' }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            padding: '12px',
+            borderRadius: '12px',
+            background: 'var(--bg-hover)',
+            marginBottom: '10px'
+          }}
+        >
+          <div
+            style={{
+              width: '38px',
+              height: '38px',
+              borderRadius: '50%',
+              background: 'linear-gradient(135deg, #e02020, #8b0000)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '13px',
+              fontWeight: 800,
+              color: '#ffffff',
+              flexShrink: 0,
+              boxShadow: '0 0 0 2px rgba(224,32,32,0.2)'
+            }}
+          >
             {initials}
           </div>
           <div style={{ minWidth: 0 }}>
@@ -142,16 +229,39 @@ export const Sidebar = () => {
         </div>
 
         <button
+          type="button"
           onClick={handleLogout}
           style={{
-            width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-            padding: '11px', borderRadius: '10px', border: '1px solid var(--border)',
-            background: 'transparent', color: 'var(--text-secondary)',
-            fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
-            cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.15s ease'
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            padding: '11px',
+            borderRadius: '11px',
+            border: '1px solid var(--border)',
+            background: '#ffffff',
+            color: 'var(--text-secondary)',
+            fontSize: '11px',
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+            fontFamily: 'inherit',
+            transition: 'all 0.15s ease'
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(224,32,32,0.08)'; e.currentTarget.style.borderColor = 'rgba(224,32,32,0.25)'; e.currentTarget.style.color = '#e02020'; }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-secondary)'; }}
+          onMouseEnter={(event) => {
+            if (isMobile) return
+            event.currentTarget.style.background = 'rgba(224,32,32,0.08)'
+            event.currentTarget.style.borderColor = 'rgba(224,32,32,0.25)'
+            event.currentTarget.style.color = '#e02020'
+          }}
+          onMouseLeave={(event) => {
+            if (isMobile) return
+            event.currentTarget.style.background = '#ffffff'
+            event.currentTarget.style.borderColor = 'var(--border)'
+            event.currentTarget.style.color = 'var(--text-secondary)'
+          }}
         >
           {icons.logout}
           Sign Out
@@ -162,45 +272,59 @@ export const Sidebar = () => {
 
   return (
     <>
-      {/* Mobile toggle */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
         style={{
           display: 'none',
-          position: 'fixed', top: '16px', left: '16px', zIndex: 50,
-          padding: '10px', borderRadius: '10px', border: '1px solid var(--border)',
-          background: 'var(--bg-secondary)', color: 'var(--text-primary)',
-          cursor: 'pointer'
+          position: 'fixed',
+          top: 'max(12px, env(safe-area-inset-top, 0px))',
+          left: '12px',
+          zIndex: 70,
+          width: '42px',
+          height: '42px',
+          borderRadius: '12px',
+          border: '1px solid var(--border)',
+          background: '#ffffff',
+          color: 'var(--text-primary)',
+          cursor: 'pointer',
+          boxShadow: '0 6px 18px rgba(15, 23, 42, 0.14)',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
-        className="mobile-menu-btn"
+        className={`mobile-menu-btn ${isOpen ? 'hidden-while-open' : ''}`}
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
         {isOpen ? icons.close : icons.menu}
       </button>
 
-      {/* Desktop sidebar */}
       <div className="sidebar-desktop">
         {sidebarContent}
       </div>
 
-      {/* Mobile sidebar */}
-      {isOpen && (
+      {isMobile && isOpen && (
         <>
           <div
             style={{
-              position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', zIndex: 40,
-              backdropFilter: 'blur(4px)'
+              position: 'fixed',
+              inset: 0,
+              background: 'rgba(15, 23, 42, 0.45)',
+              zIndex: 60,
+              backdropFilter: 'blur(2px)'
             }}
             onClick={() => setIsOpen(false)}
+            aria-hidden="true"
           />
-          <div style={{ position: 'fixed', left: 0, top: 0, zIndex: 50 }}>
+          <div style={{ position: 'fixed', left: 0, top: 0, zIndex: 65 }}>
             {sidebarContent}
           </div>
         </>
       )}
 
       <style>{`
-        @media (max-width: 767px) {
-          .mobile-menu-btn { display: flex !important; }
+        @media (max-width: 1024px) {
+          .mobile-menu-btn { display: inline-flex !important; }
+          .mobile-menu-btn.hidden-while-open { display: none !important; }
           .sidebar-desktop { display: none !important; }
         }
       `}</style>

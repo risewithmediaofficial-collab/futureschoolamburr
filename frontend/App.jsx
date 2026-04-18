@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext.jsx'
 import './App.css'
@@ -49,9 +50,9 @@ const ProtectedRoute = ({ children }) => {
 // 🏢 Admin Layout component
 function AdminLayout({ children }) {
   return (
-    <div style={{ display: 'flex', height: '100vh', background: '#f8fafc' }}>
+    <div className="admin-shell" style={{ display: 'flex', height: '100dvh', minHeight: '100dvh', background: 'var(--bg-primary)' }}>
       <Sidebar />
-      <div style={{ flex: 1, overflowY: 'auto' }}>
+      <div className="admin-content-area" style={{ flex: 1, minWidth: 0, overflowY: 'auto' }}>
         {children}
       </div>
     </div>
@@ -61,6 +62,11 @@ function AdminLayout({ children }) {
 function AppLayout() {
   const location = useLocation()
   const isAdminRoute = location.pathname.startsWith('/admin')
+
+  useEffect(() => {
+    document.body.classList.toggle('admin-route', isAdminRoute)
+    return () => document.body.classList.remove('admin-route')
+  }, [isAdminRoute])
 
   return (
     <div className="min-h-screen bg-white flex flex-col">

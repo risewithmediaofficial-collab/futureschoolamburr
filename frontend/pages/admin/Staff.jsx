@@ -151,9 +151,9 @@ export default function Staff() {
   }
 
   return (
-    <div className="p-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Staff Management</h1>
+    <div className="p-4 sm:p-6 lg:p-8">
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Staff Management</h1>
         <button
           onClick={() => {
             setShowForm(true)
@@ -171,7 +171,7 @@ export default function Staff() {
               isActive: true
             })
           }}
-          className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
         >
           <Plus size={20} /> Add Staff
         </button>
@@ -180,7 +180,7 @@ export default function Staff() {
       {error && <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">{error}</div>}
 
       {showForm && (
-        <div className="mb-8 p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="mb-8 p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="text-xl font-bold mb-4">{editingId ? 'Edit' : 'Add'} Staff Member</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -244,7 +244,7 @@ export default function Staff() {
             />
             <div className="space-y-2">
               <label className="block text-sm font-medium">Photo</label>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                 <input
                   type="file"
                   accept="image/*"
@@ -266,7 +266,7 @@ export default function Staff() {
               />
               <span>Active</span>
             </label>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <button type="submit" className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
                 Save
               </button>
@@ -287,8 +287,8 @@ export default function Staff() {
       ) : (
         <div className="grid gap-4">
           {staff.map(member => (
-            <div key={member._id} className="p-4 bg-white border rounded-lg hover:shadow-lg transition flex justify-between items-center">
-              <div className="flex items-center gap-4">
+            <div key={member._id} className="p-4 bg-white border rounded-lg hover:shadow-lg transition flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+              <div className="flex items-center gap-3 sm:gap-4">
                 {member.imageUrl && (
                   <img src={member.imageUrl} alt={member.name} className="w-12 h-12 object-cover rounded-full" />
                 )}
@@ -298,7 +298,7 @@ export default function Staff() {
                   {member.email && <p className="text-sm text-gray-500">{member.email}</p>}
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 self-end sm:self-auto">
                 <button onClick={() => handleEdit(member)} className="p-2 hover:bg-blue-100 rounded text-blue-600">
                   <Edit2 size={18} />
                 </button>

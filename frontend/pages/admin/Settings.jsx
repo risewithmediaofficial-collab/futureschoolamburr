@@ -102,18 +102,18 @@ export default function Settings() {
     setFormData({ ...formData, email: formData.email.filter((_, i) => i !== index) })
   }
 
-  if (loading) return <div className="p-8 text-center">Loading settings...</div>
+  if (loading) return <div className="p-4 sm:p-6 lg:p-8 text-center">Loading settings...</div>
 
   return (
-    <div className="p-8 max-w-4xl">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">School Settings</h1>
+    <div className="p-4 sm:p-6 lg:p-8 max-w-4xl">
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">School Settings</h1>
 
       {error && <div className="mb-4 p-4 bg-red-100 text-red-700 rounded">{error}</div>}
       {success && <div className="mb-4 p-4 bg-green-100 text-green-700 rounded">✓ Settings saved successfully</div>}
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Basic Info */}
-        <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Basic Information</h2>
           <div className="space-y-4">
             <input
@@ -141,14 +141,14 @@ export default function Settings() {
         </div>
 
         {/* Contact Info */}
-        <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Contact Information</h2>
           
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Phone Numbers</label>
               {formData.phone.map((phone, idx) => (
-                <div key={idx} className="flex gap-2 mb-2">
+                <div key={idx} className="flex flex-col sm:flex-row gap-2 mb-2">
                   <input
                     type="tel"
                     value={phone}
@@ -179,7 +179,7 @@ export default function Settings() {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Email Addresses</label>
               {formData.email.map((email, idx) => (
-                <div key={idx} className="flex gap-2 mb-2">
+                <div key={idx} className="flex flex-col sm:flex-row gap-2 mb-2">
                   <input
                     type="email"
                     value={email}
@@ -210,7 +210,7 @@ export default function Settings() {
         </div>
 
         {/* About */}
-        <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="text-lg font-bold text-gray-900 mb-4">About School</h2>
           <div className="space-y-4">
             <input
@@ -238,7 +238,7 @@ export default function Settings() {
         </div>
 
         {/* Leadership */}
-        <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Leadership</h2>
           <div className="space-y-4">
             <input
@@ -259,7 +259,7 @@ export default function Settings() {
         </div>
 
         {/* Social Links */}
-        <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+        <div className="p-4 sm:p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Social Media</h2>
           <div className="space-y-4">
             {Object.keys(formData.socialLinks).map(platform => (
@@ -279,11 +279,11 @@ export default function Settings() {
         </div>
 
         {/* Submit */}
-        <div className="flex justify-end pt-4">
+        <div className="flex justify-stretch sm:justify-end pt-4">
           <button
             type="submit"
             disabled={saving}
-            className="flex items-center justify-center gap-2 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-sm hover:shadow-md disabled:opacity-50"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition shadow-sm hover:shadow-md disabled:opacity-50"
           >
             <Save size={20} />
             {saving ? 'Saving...' : 'Save Settings'}

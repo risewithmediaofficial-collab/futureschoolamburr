@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import apiClient from '../../utils/api.js'
 import { useAuth } from '../../context/AuthContext.jsx'
 
 const StatCard = ({ title, count, icon, accent, delay }) => (
   <div
     className={`glass-card fade-in-${delay}`}
-    style={{ padding: '24px', position: 'relative', overflow: 'hidden', cursor: 'default' }}
+    style={{ padding: 'clamp(16px, 3vw, 24px)', position: 'relative', overflow: 'hidden', cursor: 'default' }}
   >
     {/* Subtle top accent line */}
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: accent, opacity: 0.6 }} />
@@ -34,7 +35,7 @@ const StatCard = ({ title, count, icon, accent, delay }) => (
         Total
       </div>
     </div>
-    <p style={{ fontSize: '36px', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1, marginBottom: '6px' }}>
+    <p style={{ fontSize: 'clamp(28px, 8vw, 36px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1, marginBottom: '6px' }}>
       {count}
     </p>
     <p style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-secondary)', letterSpacing: '0.02em' }}>
@@ -102,14 +103,14 @@ export const Dashboard = () => {
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening'
 
   return (
-    <div style={{ padding: '32px', maxWidth: '1200px' }}>
+    <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '22px clamp(14px, 3.5vw, 32px) 28px' }}>
 
       {/* Header */}
-      <div className="fade-in" style={{ marginBottom: '32px' }}>
+      <div className="fade-in" style={{ marginBottom: '26px' }}>
         <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#e02020', marginBottom: '6px' }}>
           {greeting}
         </p>
-        <h1 style={{ fontSize: '28px', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.5px', marginBottom: '6px' }}>
+        <h1 style={{ fontSize: 'clamp(24px, 7vw, 32px)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.5px', marginBottom: '6px' }}>
           {admin?.name || 'Administrator'}
         </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '13px' }}>
@@ -119,13 +120,13 @@ export const Dashboard = () => {
 
       {/* Stat Cards */}
       {loading ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '24px' }}>
           {[1,2,3,4].map(i => (
             <div key={i} className="skeleton" style={{ height: '140px' }} />
           ))}
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginBottom: '26px' }}>
           {statCards.map((card, i) => (
             <StatCard key={i} {...card} />
           ))}
@@ -137,11 +138,11 @@ export const Dashboard = () => {
         <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '14px' }}>
           Quick Actions
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
           {quickLinks.map((item, i) => (
-            <a
+            <Link
               key={i}
-              href={`/admin${item.path}`}
+              to={`/admin${item.path}`}
               style={{
                 display: 'flex', alignItems: 'center', gap: '14px',
                 padding: '16px 18px', borderRadius: '12px',
@@ -169,13 +170,13 @@ export const Dashboard = () => {
                 <p style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{item.desc}</p>
               </div>
               <svg style={{ marginLeft: 'auto', color: 'var(--text-muted)', flexShrink: 0 }} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
 
       {/* System info strip */}
-      <div className="fade-in" style={{
+      <div className="fade-in dashboard-system-strip" style={{
         marginTop: '32px', padding: '16px 20px', borderRadius: '12px',
         border: '1px solid var(--border)', background: 'var(--bg-card)',
         display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap'
@@ -184,7 +185,7 @@ export const Dashboard = () => {
           <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b98180', animation: 'pulse-glow 2s infinite' }} />
           <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--text-secondary)' }}>System Online</span>
         </div>
-        <div style={{ width: '1px', height: '16px', background: 'var(--border)' }} />
+        <div className="dashboard-system-divider" style={{ width: '1px', height: '16px', background: 'var(--border)' }} />
         <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Future Senior Secondary School — Ambur</span>
         <div style={{ marginLeft: 'auto' }}>
           <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
@@ -192,6 +193,18 @@ export const Dashboard = () => {
           </span>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 767px) {
+          .dashboard-system-strip {
+            gap: 12px !important;
+            padding: 14px !important;
+          }
+          .dashboard-system-divider {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   )
 }
