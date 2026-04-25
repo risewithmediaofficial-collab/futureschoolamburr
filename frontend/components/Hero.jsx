@@ -6,9 +6,9 @@ import bnr2 from '../assets/pic-assets/banner-2026-2-1.png'
 import bnr3 from '../assets/pic-assets/banner-2026-3-1.png'
 
 const heroSlides = [
-  { kicker: 'Est. 2011 · Ambur', heading: 'Shape Your Brightest Future.', sub: 'Future Senior Secondary School — CBSE Affiliated, nurturing excellence for 11 years.', img: bnr1 },
+  { kicker: 'Est. 2011 · Ambur', heading: 'Shape Your Brightest Future.', sub: 'Future Senior Secondary School — CBSE Affiliated, nurturing excellence for over 16 years.', img: bnr1 },
   { kicker: 'Admissions 2026–27', heading: 'Every Student Belongs.', sub: 'Smart classrooms, expert faculty, and a campus that inspires discovery every day.', img: bnr2 },
-  { kicker: '11 Years of Trust',  heading: 'Academic Excellence, Holistic Growth.', sub: 'Limited seats available for Classes I–XII. Applications now open.', img: bnr3 },
+  { kicker: '16 Years of Trust',  heading: 'Academic Excellence, Holistic Growth.', sub: 'Limited seats available for Classes I–XII. Applications now open.', img: bnr3 },
 ]
 
 export default function Hero() {
@@ -101,7 +101,7 @@ export default function Hero() {
       <section className="bg-white border-y border-gray-100 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-8 md:gap-16 flex-wrap justify-center sm:justify-start">
-            {[['2,000+', 'Students'], ['97.8%', 'Pass Rate'], ['11 years', 'Legacy']].map(([n, l]) => (
+            {[['5,000+', 'Students'], ['100%', 'Gr.10 Pass Rate'], ['16 years', 'Legacy']].map(([n, l]) => (
               <Reveal key={l} direction="up" delay={100}>
                 <div className="flex gap-2 md:gap-3 items-center whitespace-nowrap">
                   <span className="serif text-gray-900 text-2xl md:text-3xl font-medium">{n}</span>
@@ -125,7 +125,7 @@ export default function Hero() {
       <div className="bg-[#c0392b] py-3 overflow-hidden">
         <div className="ticker-track flex gap-12 whitespace-nowrap">
           {[...Array(2)].flatMap((_, ri) =>
-            ['🏆 District Kabaddi Champions 2025', '📚 97.8% Board Pass Rate 2024', '🔬 5 Students — National Olympiad Top 100', '🎭 State Cultural Fest First Prize', '🥇 Athletics Championship — 3 Gold', '📋 Admissions Open 2026–27 · Limited Seats']
+            ['🏆 Vellore & Tirupattur District Top Rankings', '📚 100% Grade 10 Board Pass Rate — Consistently', '🎓 99% Grade 12 Board Pass Rate', '🔬 5 Students — National Olympiad Top 100', '🥇 Athletics Championship — 3 Gold', '📋 Admissions Open 2026–27 · Limited Seats']
               .map((t, i) => <span key={`${ri}-${i}`} className="text-white text-[0.65rem] font-bold tracking-[0.1em] uppercase flex-shrink-0">{t}</span>)
           )}
         </div>

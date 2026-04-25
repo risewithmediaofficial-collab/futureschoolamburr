@@ -10,6 +10,7 @@ export default function Gallery() {
   const [showForm, setShowForm] = useState(false)
   const [editingId, setEditingId] = useState(null)
   const [uploading, setUploading] = useState(false)
+  const [selectedFileName, setSelectedFileName] = useState('')
   const [formData, setFormData] = useState({
     title: '',
     category: 'events',
@@ -44,6 +45,8 @@ export default function Gallery() {
     const file = e.target.files?.[0]
     if (!file) return
 
+    setSelectedFileName(file.name)
+
     try {
       setUploading(true)
       const formDataUpload = new FormData()
@@ -61,6 +64,7 @@ export default function Gallery() {
       setError(null)
     } catch (err) {
       setError(err.message)
+      setSelectedFileName('')
     } finally {
       setUploading(false)
     }
@@ -93,6 +97,7 @@ export default function Gallery() {
       }
 
       setFormData({ title: '', category: 'events', description: '', imageUrl: '' })
+      setSelectedFileName('')
       setEditingId(null)
       setShowForm(false)
       setError(null)
@@ -108,6 +113,7 @@ export default function Gallery() {
       description: item.description || '',
       imageUrl: item.imageUrl
     })
+    setSelectedFileName('')
     setEditingId(item._id)
     setShowForm(true)
   }
@@ -135,6 +141,7 @@ export default function Gallery() {
           onClick={() => {
             setShowForm(true)
             setEditingId(null)
+            setSelectedFileName('')
             setFormData({ title: '', category: 'events', description: '', imageUrl: '' })
           }}
           className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
@@ -175,13 +182,34 @@ export default function Gallery() {
               <label className="block text-sm font-medium">Upload Image</label>
               <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                 <input
+                  id="gallery-image-upload"
                   type="file"
                   accept="image/*"
                   onChange={handleFileUpload}
                   disabled={uploading}
-                  className="flex-1"
+                  className="hidden"
                 />
-                {uploading && <span className="text-sm text-gray-600">Uploading...</span>}
+                <label
+                  htmlFor="gallery-image-upload"
+                  className={`inline-flex w-fit items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition ${
+                    uploading
+                      ? 'cursor-not-allowed bg-gray-200 text-gray-500'
+                      : 'cursor-pointer bg-gray-900 text-white hover:bg-gray-800'
+                  }`}
+                >
+                  <Upload size={16} />
+                  Choose File
+                </label>
+                <input
+                  type="text"
+                  value={
+                    uploading
+                      ? 'Uploading...'
+                      : selectedFileName || (formData.imageUrl ? 'Image uploaded' : 'No file chosen')
+                  }
+                  readOnly
+                  className="flex-1 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600"
+                />
               </div>
               {formData.imageUrl && (
                 <img src={formData.imageUrl} alt="Preview" className="w-32 h-32 object-cover rounded" />
@@ -193,7 +221,10 @@ export default function Gallery() {
               </button>
               <button
                 type="button"
-                onClick={() => setShowForm(false)}
+                onClick={() => {
+                  setShowForm(false)
+                  setSelectedFileName('')
+                }}
                 className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
               >
                 Cancel

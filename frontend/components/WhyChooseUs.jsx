@@ -51,15 +51,15 @@ const features = [
       icon: <Users className="w-6 h-6" />,
       title: 'Expert Faculty',
       desc: 'Highly qualified, experienced teachers committed to personalised mentoring and student success.',
-      stat: '30+',
-      statLabel: 'Faculty',
+      stat: '45+',
+      statLabel: 'Teaching Staff',
    },
    {
       icon: <Trophy className="w-6 h-6" />,
       title: 'Proven Results',
-      desc: 'Consistently among the top CBSE schools in Vellore district — year after year.',
-      stat: '97.8%',
-      statLabel: 'Pass Rate',
+      desc: 'Consistently among the top CBSE schools in Vellore and Tirupattur district — year after year.',
+      stat: '100%',
+      statLabel: 'Gr.10 Pass Rate',
    },
    {
       icon: <Bus className="w-6 h-6" />,
@@ -105,7 +105,7 @@ export default function WhyChooseUs() {
                      <span className="text-[#c0392b]">Future School?</span>
                   </h1>
                   <p className="text-black text-lg md:text-xl leading-relaxed max-w-md mb-8 font-medium">
-                     For over 11 years, Future School has been Ambur's most trusted institution — delivering academic excellence and character building.
+                     For over 16 years, Future School has been Ambur's most trusted institution — delivering academic excellence and character building.
                   </p>
                   <div className="flex flex-wrap gap-4">
                      <Link to="/apply" className="px-10 py-4 bg-[#c0392b] text-white font-bold text-[0.7rem] tracking-widest uppercase rounded-xl shadow-xl shadow-red-900/10 hover:bg-[#a93226] transition-all hover:-translate-y-1">
@@ -123,10 +123,10 @@ export default function WhyChooseUs() {
                      <p className="text-[0.6rem] font-black uppercase text-[#c0392b] tracking-widest mb-6">Institution Snapshot</p>
                      <div className="grid grid-cols-2 gap-x-8 gap-y-6">
                         {[
-                           { l: 'Students', n: '2,000+' },
-                           { l: 'Success Rate', n: '98%' },
+                           { l: 'Students', n: '5,000+' },
+                           { l: 'Gr.10 Pass Rate', n: '100%' },
                            { l: 'Establishment', n: '2011' },
-                           { l: 'Faculty', n: '30+' },
+                           { l: 'Teaching Staff', n: '45+' },
                         ].map(s => (
                            <div key={s.l}>
                               <p className="serif text-3xl text-gray-900 leading-none mb-1">{s.n}</p>
@@ -209,7 +209,7 @@ export default function WhyChooseUs() {
 
                   <div className="p-8 bg-gray-50/50 text-center">
                      <p className="text-sm font-bold text-gray-800 uppercase tracking-widest">
-                        Based on local educational benchmarks & Vellore district rankings
+                        Based on local educational benchmarks & Vellore and Tirupattur district rankings
                      </p>
                   </div>
                </div>

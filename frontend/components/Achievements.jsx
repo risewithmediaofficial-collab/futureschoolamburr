@@ -9,8 +9,8 @@ const achievements = [
     year: '2025',
     icon: <Target className="w-6 h-6 text-red-600" />,
     category: 'Academics',
-    title: '97.8% Board Pass Rate',
-    desc: 'Highest CBSE board pass rate in Vellore district for 2025, with 25 students scoring above 90%.',
+    title: '100% Grade 10 Board Pass Rate — Consistently',
+    desc: 'Highest CBSE Grade 10 board pass rate in Vellore and Tirupattur district, consistently achieving 100% results.',
     highlight: false,
   },
   {
@@ -65,7 +65,7 @@ const achievements = [
     year: '2023',
     icon: <Star className="w-6 h-6 text-red-600" />,
     category: 'Recognition',
-    title: 'Best CBSE School — Vellore District',
+    title: 'Best CBSE School — Vellore & Tirupattur District',
     desc: 'Awarded by CBSE South India Regional Office for outstanding academic results and infrastructure.',
     highlight: false,
   },
@@ -155,10 +155,10 @@ export default function Achievements() {
         <Reveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { target: '97.8%', label: 'Board Pass Rate' },
+              { target: '100%', label: 'Gr.10 Board Pass Rate' },
+              { target: '99%', label: 'Gr.12 Board Pass Rate' },
               { target: '50+', label: 'Awards Won' },
-              { target: '12', label: 'Olympiad Medals' },
-              { target: '25+', label: 'Years of Excellence' },
+              { target: '16+', label: 'Years of Excellence' },
             ].map(({ target, label }) => (
               <div key={label} className="bg-white border border-gray-200 rounded-2xl p-6 text-center hover:shadow-sm transition-all">
                 <span className="block text-3xl font-black text-red-600 mb-1">{target}</span>

@@ -90,8 +90,6 @@ app.get('/admin/*', (req, res) => {
 
 // ── Main School Frontend Integration (Render/Production) ──────────────────────
 // Main frontend is built into the root /dist folder
-const mainDistPath = join(__dirname, '../dist')
-app.use(express.static(mainDistPath))
 
 // ── Serve Uploads Folder (for PDFs and Documents) ─────────────────────────────
 // Use absolute path resolution that works in both local and production
@@ -121,11 +119,15 @@ app.use('/uploads', express.static(uploadsPath, {
   setHeaders: (res, filePath) => {
     // Set proper headers for all files
     res.set('Access-Control-Allow-Origin', '*')
-    res.set('Cache-Control', 'public, max-age=86400')
     
     if (filePath.endsWith('.pdf')) {
       res.set('Content-Type', 'application/pdf')
       res.set('Content-Disposition', 'inline; filename=' + basename(filePath))
+      res.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+      res.set('Pragma', 'no-cache')
+      res.set('Expires', '0')
+    } else {
+      res.set('Cache-Control', 'public, max-age=86400')
     }
   }
 }))
@@ -148,6 +150,10 @@ app.get('/uploads/:filename', (req, res) => {
   
   res.sendFile(filePath)
 })
+
+// Main frontend is built into the root /dist folder
+const mainDistPath = join(__dirname, '../dist')
+app.use(express.static(mainDistPath))
 
 // NOTE: All API routes must come BEFORE the main frontend catch-all
 

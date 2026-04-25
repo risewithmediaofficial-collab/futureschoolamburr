@@ -57,7 +57,7 @@ export default function Contact() {
               <h3 className="serif text-xl text-gray-900 mb-3 font-bold">Phone</h3>
               <p className="text-black text-sm font-semibold tracking-wide leading-relaxed">
                 +91 99628 26465<br/>
-                <span className="text-xs text-gray-700 font-black block mt-2">Office Hours: 8:00 AM - 4:30 PM</span>
+                <span className="text-xs text-gray-700 font-black block mt-2">Mon–Fri: 9:00 AM – 5:00 PM | Sat: 9:00 AM – 3:30 PM</span>
               </p>
             </div>
           </Reveal>

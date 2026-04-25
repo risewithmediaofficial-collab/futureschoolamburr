@@ -176,8 +176,8 @@ export default function Footer() {
                 </p>
                 <div className="space-y-3">
                   {[
-                    ['Mon – Fri', '8:00 AM – 4:30 PM'],
-                    ['Saturday', '8:00 AM – 1:00 PM'],
+                    ['Mon – Fri', '9:00 AM – 5:00 PM'],
+                    ['Saturday', '9:00 AM – 3:30 PM'],
                     ['Sunday', 'Closed']
                   ].map(([day, time]) => (
                     <div key={day} className="flex flex-col gap-0.5">

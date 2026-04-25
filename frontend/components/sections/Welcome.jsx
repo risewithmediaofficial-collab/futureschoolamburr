@@ -65,9 +65,9 @@ export default function Welcome() {
             <Reveal delay={300}>
               <div className="grid grid-cols-3 gap-6 py-6 border-y border-gray-100">
                 {[
-                  { icon: <Users className="w-4 h-4 text-[#c0392b]" />, n: '2,000+', l: 'Students' },
-                  { icon: <GraduationCap className="w-4 h-4 text-[#c0392b]" />, n: '30+', l: 'Faculty' },
-                  { icon: <Clock className="w-4 h-4 text-[#c0392b]" />, n: '11+', l: 'Years' },
+                  { icon: <Users className="w-4 h-4 text-[#c0392b]" />, n: '5,000+', l: 'Students' },
+                  { icon: <GraduationCap className="w-4 h-4 text-[#c0392b]" />, n: '45+', l: 'Teaching Staff' },
+                  { icon: <Clock className="w-4 h-4 text-[#c0392b]" />, n: '16+', l: 'Years' },
                 ].map(({ icon, n, l }) => (
                   <div key={l} className="flex flex-col gap-1 items-center md:items-start">
                     <div className="flex items-center gap-2 mb-1">

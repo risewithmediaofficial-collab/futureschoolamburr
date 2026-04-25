@@ -139,12 +139,12 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none z-10" />
               
               <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-10 md:left-10 bg-white/95 backdrop-blur-sm border border-white/20 rounded-2xl p-3 sm:p-4 md:p-6 shadow-2xl flex items-center gap-3 sm:gap-4 z-20 hover:scale-105 transition-transform duration-300">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#c0392b] rounded-xl flex items-center justify-center text-white font-black text-xl sm:text-2xl shadow-sm">
-                  25
-                </div>
-                <div className="text-left">
-                  <p className="text-sm md:text-base font-bold text-gray-900 tracking-tight leading-none mb-1">Years of Excellence</p>
-                  <p className="text-[0.6rem] md:text-xs text-[#c0392b] font-bold uppercase tracking-widest leading-none">Est. 1998 · Ambur</p>
+                 <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-[#c0392b] rounded-xl flex items-center justify-center text-white font-black text-xl sm:text-2xl shadow-sm">
+                   16
+                 </div>
+                 <div className="text-left">
+                   <p className="text-sm md:text-base font-bold text-gray-900 tracking-tight leading-none mb-1">Years of Excellence</p>
+                   <p className="text-[0.6rem] md:text-xs text-[#c0392b] font-bold uppercase tracking-widest leading-none">Est. 2011 · Ambur</p>
                 </div>
               </div>
             </div>
@@ -158,10 +158,10 @@ export default function About() {
         <Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { icon: <Users className="w-6 h-6 text-red-600" />, n: '2,000+', l: 'Students Enrolled' },
-              { icon: <Briefcase className="w-6 h-6 text-red-600" />, n: '30+', l: 'Faculty Members' },
-              { icon: <Award className="w-6 h-6 text-red-600" />, n: '97.8%', l: 'Board Pass Rate' },
-              { icon: <Target className="w-6 h-6 text-red-600" />, n: '11+', l: 'Years Excellence' },
+              { icon: <Users className="w-6 h-6 text-red-600" />, n: '5,000+', l: 'Students Enrolled' },
+              { icon: <Briefcase className="w-6 h-6 text-red-600" />, n: '45+', l: 'Teaching Staff' },
+              { icon: <Award className="w-6 h-6 text-red-600" />, n: '100%', l: 'Gr.10 Pass Rate' },
+              { icon: <Target className="w-6 h-6 text-red-600" />, n: '16+', l: 'Years Excellence' },
             ].map(({ icon, n, l }) => (
               <div key={l} className="bg-white border border-gray-200 rounded-2xl p-6 text-center hover:border-red-600/30 hover:shadow-md transition-all">
                 <div className="w-12 h-12 rounded-xl bg-red-50 mx-auto flex items-center justify-center mb-4">
