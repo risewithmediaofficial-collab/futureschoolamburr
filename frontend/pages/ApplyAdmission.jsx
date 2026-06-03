@@ -126,7 +126,7 @@ export default function ApplyAdmission() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <Reveal>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-50 text-[#c0392b] text-[0.6rem] font-bold tracking-widest uppercase mb-6">
-              <ShieldCheck className="w-3.5 h-3.5" /> Admissions 2025-26
+              <ShieldCheck className="w-3.5 h-3.5" /> Admissions 2026-27
             </div>
             <h1 className="serif text-4xl md:text-5xl lg:text-7xl mb-8">
               Apply for <span className="text-[#c0392b]">Admission</span>
