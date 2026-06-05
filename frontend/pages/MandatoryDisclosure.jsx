@@ -60,7 +60,7 @@ export default function MandatoryDisclosure() {
             
             {/* General Info */}
             <Reveal y={20}>
-              <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
+              <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm sm:p-8">
                 <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                   <span className="w-1.5 h-6 bg-red-600 rounded-full" />
                   A : General Information
@@ -78,62 +78,51 @@ export default function MandatoryDisclosure() {
 
             {/* Documents */}
             <Reveal delay={100} y={20}>
-              <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm">
+              <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm sm:p-8">
                 <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                   <span className="w-1.5 h-6 bg-red-600 rounded-full" />
                   B : List of Files to be Added in Mandatory Disclosure
                 </h2>
-                {/* Desktop Table View */}
-                <div className="hidden md:block overflow-x-auto">
+                <div className="overflow-hidden rounded-xl border border-gray-200">
                   <table className="w-full border-collapse">
-                    <thead>
+                    <thead className="hidden md:table-header-group">
                       <tr className="bg-gray-50 border-b border-gray-200">
-                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider w-12">S.No</th>
+                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider w-16">S.No</th>
                         <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider">Particulars</th>
-                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider w-20">Document</th>
+                        <th className="text-left px-4 py-3 text-xs font-bold text-gray-600 uppercase tracking-wider w-28">Document</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-100">
+                    <tbody className="divide-y divide-gray-200 md:divide-y-0">
                       {disclosureItems.map((item) => (
-                        <tr key={item.sno} className="hover:bg-gray-50 transition-colors">
-                          <td className="px-4 py-3 text-sm font-bold text-gray-800">{item.sno}</td>
-                          <td className="px-4 py-3 text-sm font-bold text-[#c0392b]">{item.title}</td>
-                          <td className="px-4 py-3">
-                            <a 
-                              href={item.file} 
+                        <tr
+                          key={item.sno}
+                          className="block bg-white p-4 transition-colors hover:bg-gray-50 md:table-row md:border-b md:border-gray-100 md:p-0"
+                        >
+                          <td className="flex items-center justify-between gap-4 py-2 text-sm md:table-cell md:px-4 md:py-3">
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 md:hidden">S.No</span>
+                            <span className="font-bold text-gray-800">{item.sno}</span>
+                          </td>
+                          <td className="flex items-start justify-between gap-4 py-2 text-sm md:table-cell md:px-4 md:py-3">
+                            <span className="pt-0.5 text-[11px] font-bold uppercase tracking-wider text-gray-400 md:hidden">Particulars</span>
+                            <span className="max-w-[70%] text-right font-bold leading-snug text-[#c0392b] md:max-w-none md:text-left">
+                              {item.title}
+                            </span>
+                          </td>
+                          <td className="flex items-center justify-between gap-4 py-2 text-sm md:table-cell md:px-4 md:py-3">
+                            <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 md:hidden">Document</span>
+                            <a
+                              href={item.file}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-[#c0392b] hover:text-red-700 transition-colors text-xs font-bold hover:underline"
+                              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#c0392b] transition-colors hover:text-red-700 hover:underline"
                             >
-                              <FileText className="w-3.5 h-3.5" /> View
+                              <FileText className="h-4 w-4" /> View
                             </a>
                           </td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
-                </div>
-
-                {/* Mobile Card View */}
-                <div className="md:hidden space-y-3">
-                  {disclosureItems.map((item) => (
-                    <div key={item.sno} className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all">
-                      <div className="flex items-start gap-3 mb-3">
-                        <span className="flex-shrink-0 w-6 h-6 rounded bg-red-600 text-white text-xs font-bold flex items-center justify-center">{item.sno}</span>
-                        <p className="text-sm font-bold text-[#c0392b] leading-snug">{item.title}</p>
-                      </div>
-                      <div className="flex justify-end">
-                        <a 
-                          href={item.file} 
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-[#c0392b] hover:text-red-700 transition-colors text-xs font-bold hover:underline"
-                        >
-                          <FileText className="w-4 h-4" /> View
-                        </a>
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
             </Reveal>
