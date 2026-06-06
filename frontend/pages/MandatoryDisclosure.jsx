@@ -77,9 +77,9 @@ export default function MandatoryDisclosure() {
             </Reveal>
 
             {/* Documents */}
-            <Reveal delay={100} y={20}>
+          <Reveal delay={100} y={20}>
               <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm sm:p-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <h2 className="text-lg leading-snug font-bold text-gray-900 mb-6 flex items-start gap-3 sm:text-xl sm:items-center">
                   <span className="w-1.5 h-6 bg-red-600 rounded-full" />
                   B : List of Files to be Added in Mandatory Disclosure
                 </h2>
@@ -96,15 +96,15 @@ export default function MandatoryDisclosure() {
                       {disclosureItems.map((item) => (
                         <tr
                           key={item.sno}
-                          className="block bg-white p-4 transition-colors hover:bg-gray-50 md:table-row md:border-b md:border-gray-100 md:p-0"
+                          className="block bg-white px-4 py-4 transition-colors hover:bg-gray-50 md:table-row md:border-b md:border-gray-100 md:p-0"
                         >
-                          <td className="flex items-center justify-between gap-4 py-2 text-sm md:table-cell md:px-4 md:py-3">
+                          <td className="flex items-center justify-between gap-4 py-1 text-sm md:table-cell md:px-4 md:py-3">
                             <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 md:hidden">S.No</span>
                             <span className="font-bold text-gray-800">{item.sno}</span>
                           </td>
-                          <td className="flex items-start justify-between gap-4 py-2 text-sm md:table-cell md:px-4 md:py-3">
-                            <span className="pt-0.5 text-[11px] font-bold uppercase tracking-wider text-gray-400 md:hidden">Particulars</span>
-                            <span className="max-w-[70%] text-right font-bold leading-snug text-[#c0392b] md:max-w-none md:text-left">
+                          <td className="block py-2 text-sm md:table-cell md:px-4 md:py-3">
+                            <span className="mb-2 block text-[11px] font-bold uppercase tracking-wider text-gray-400 md:hidden">Particulars</span>
+                            <span className="block text-left font-bold leading-relaxed text-[#c0392b] break-words md:leading-snug">
                               {item.title}
                             </span>
                           </td>
@@ -114,7 +114,7 @@ export default function MandatoryDisclosure() {
                               href={item.file}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#c0392b] transition-colors hover:text-red-700 hover:underline"
+                              className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-red-100 px-3 py-2 text-xs font-bold text-[#c0392b] transition-colors hover:border-red-200 hover:text-red-700 hover:underline"
                             >
                               <FileText className="h-4 w-4" /> View
                             </a>
