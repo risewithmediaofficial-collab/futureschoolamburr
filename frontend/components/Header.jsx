@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Phone, Mail, MapPin, ChevronDown, ChevronRight, X, Menu, LogIn, Play, ClipboardList, Clock, Trophy, MoveRight, Users, GraduationCap, Map, Fingerprint, Activity, CarFront, Landmark, Target, CheckCircle2, Navigation, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
-import imgLogo from '../assets/logo.png'
 
 /* ── nav link data ── */
 const navLinks = [
@@ -194,7 +193,7 @@ export default function Header() {
             <div className="flex justify-center px-8">
               <Link to="/" className="flex items-center group" onClick={() => handleNavClick('/')}>
                 <img
-                  src={imgLogo}
+                  src="/favicon.png"
                   alt="Future School Logo"
                   className="h-9 md:h-11 w-auto transition-transform duration-300 group-hover:scale-105 object-contain"
                 />
@@ -261,7 +260,7 @@ export default function Header() {
             setDrawerOpen(false)
             handleNavClick('/')
           }} className="flex items-center gap-2">
-            <img src={imgLogo} alt="Logo" className="h-8 w-auto" />
+            <img src="/favicon.png" alt="Logo" className="h-8 w-auto" />
           </Link>
           <button
             onClick={() => setDrawerOpen(false)}

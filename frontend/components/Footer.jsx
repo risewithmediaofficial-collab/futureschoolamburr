@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Youtube, Linkedin, Mail, MapPin, Phone, Send, ExternalLink, ArrowUp, ChevronRight } from 'lucide-react'
-import imgLogo from '../assets/logo.png'
 
 import mapImg from '../assets/pic-assets/location-map.png'
 
@@ -95,7 +94,7 @@ export default function Footer() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10">
             <div className="lg:col-span-2 flex flex-col gap-5">
               <Link to="/" className="flex items-center group w-fit">
-                <img src={imgLogo} alt="Logo" className="h-12 w-auto transition-all" />
+                <img src="/favicon.png" alt="Logo" className="h-12 w-auto transition-all" />
               </Link>
               <p className="text-black text-xs leading-relaxed max-w-xs font-medium">
                 A CBSE-affiliated institution dedicated to providing world-class education with modern pedagogy, holistic development, and strong values since 2011.
