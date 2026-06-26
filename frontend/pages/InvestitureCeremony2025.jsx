@@ -18,7 +18,7 @@ export default function InvestitureCeremony2025() {
       <section className="relative w-full h-[55vh] md:h-[70vh] overflow-hidden bg-gray-900">
         <img
           src={imgHero}
-          alt="Investiture Ceremony 2025 — Future School Ambur"
+          alt="Investiture Ceremony 2065 — Future School Ambur"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
         />
         {/* Dark gradient overlay */}
@@ -49,7 +49,7 @@ export default function InvestitureCeremony2025() {
               </span>
             </div>
             <h1 className="serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-3">
-              Investiture Ceremony 2025
+              Investiture Ceremony 2026
             </h1>
             <p className="text-white/70 text-base md:text-lg font-medium max-w-2xl">
               Oath Taking Ceremony — Honouring the Leaders of Tomorrow
@@ -83,7 +83,7 @@ export default function InvestitureCeremony2025() {
                 </h2>
                 <div className="w-10 h-1 bg-[#c0392b] rounded mb-6" />
                 <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-4">
-                  On the morning of <strong>June 25, 2026</strong>, Future Senior Secondary School, Ambur, witnessed one of its most cherished annual traditions — the <strong>Investiture Ceremony 2025</strong>. The school campus was adorned with vibrant decorations, and the air was filled with a sense of solemn purpose as students, faculty, parents, and distinguished guests gathered to mark a momentous occasion in the school's academic calendar.
+                  On the morning of <strong>June 25, 2026</strong>, Future Senior Secondary School, Ambur, witnessed one of its most cherished annual traditions — the <strong>Investiture Ceremony 2026</strong>. The school campus was adorned with vibrant decorations, and the air was filled with a sense of solemn purpose as students, faculty, parents, and distinguished guests gathered to mark a momentous occasion in the school's academic calendar.
                 </p>
                 <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-4">
                   The ceremony formally installed a new student leadership council, comprising the <strong>Head Boy</strong>, <strong>Head Girl</strong>, Class Prefects, Sports Captains, and the four House Captains — Emerald, Ruby, Sapphire, and Topaz — as the guiding leaders of the student body for the academic year 2025–26.
@@ -96,12 +96,12 @@ export default function InvestitureCeremony2025() {
               <figure className="mb-10 rounded-3xl overflow-hidden shadow-lg group">
                 <img
                   src={imgOath}
-                  alt="Students taking the oath at the Investiture Ceremony 2025"
+                  alt="Students taking the oath at the Investiture Ceremony 2026"
                   className="w-full h-72 md:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <figcaption className="bg-white px-5 py-3 text-xs text-gray-500 font-medium border-t border-gray-100 flex items-center gap-2">
                   <BookOpen className="w-3.5 h-3.5 text-[#c0392b]" />
-                  Student leaders take their solemn oath during the Investiture Ceremony 2025
+                  Student leaders take their solemn oath during the Investiture Ceremony 2026
                 </figcaption>
               </figure>
             </Reveal>
@@ -190,7 +190,7 @@ export default function InvestitureCeremony2025() {
                   She congratulated the outgoing leadership council for their exemplary contributions and welcomed the new council with warm encouragement, expressing confidence that the school community would continue to flourish under their stewardship.
                 </p>
                 <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                  The Investiture Ceremony 2025 was a proud reminder of Future School's unwavering commitment to nurturing not just academic excellence, but <strong>character, compassion, and capable leadership</strong> in every student.
+                  The Investiture Ceremony 2026 was a proud reminder of Future School's unwavering commitment to nurturing not just academic excellence, but <strong>character, compassion, and capable leadership</strong> in every student.
                 </p>
               </div>
             </Reveal>

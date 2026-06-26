@@ -17,8 +17,8 @@ const allNews = [
   {
     id: 0,
     date: 'June 2025',
-    title: 'Investiture Ceremony 2025 — Leadership Installed with Pride',
-    excerpt: 'Future School, Ambur held its grand Investiture Ceremony 2025, honouring a new batch of student leaders. The Head Boy, Head Girl, Prefects, and House Captains were formally invested with their badges and sashes, pledging commitment to integrity, discipline, and service. The ceremony featured a Guard of Honour, an inspiring March Past, the flag-hoisting, and an address by the Principal. The event was a proud moment for the entire school community, celebrating the spirit of leadership in the next generation.',
+    title: 'Investiture Ceremony 2026 — Leadership Installed with Pride',
+    excerpt: 'Future School, Ambur held its grand Investiture Ceremony 2026, honouring a new batch of student leaders. The Head Boy, Head Girl, Prefects, and House Captains were formally invested with their badges and sashes, pledging commitment to integrity, discipline, and service. The ceremony featured a Guard of Honour, an inspiring March Past, the flag-hoisting, and an address by the Principal. The event was a proud moment for the entire school community, celebrating the spirit of leadership in the next generation.',
     category: 'Events',
     emoji: '🎖️',
     image: imgInvestiture,

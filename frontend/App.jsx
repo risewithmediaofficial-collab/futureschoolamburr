@@ -30,7 +30,7 @@ import Activities from './pages/Activities'
 import Transportation from './pages/Transportation'
 import MandatoryDisclosure from './pages/MandatoryDisclosure'
 import Events from './pages/Events'
-import InvestitureCeremony2025 from './pages/InvestitureCeremony2025'
+import InvestitureCeremony2026 from './pages/InvestitureCeremony2025'
 
 // Admin Pages
 import { Login as AdminLogin } from './pages/admin/Login'
