@@ -20,7 +20,6 @@ import {
 const categories = ['All', 'Campus', 'Facilities', 'Sports', 'Events', 'Achievements']
 
 import imgCampus1 from '../assets/pic-assets/Secondary.jpg'
-import imgCampus2 from '../assets/pic-assets/Secondary-410x260.jpg'
 import imgCampus3 from '../assets/pic-assets/IMG_20251014_095029-410x260.jpg'
 import imgLab from '../assets/pic-assets/IMG_4395-1024x683.jpg'
 import imgComp from '../assets/pic-assets/IMG_4396-1024x683.jpg'

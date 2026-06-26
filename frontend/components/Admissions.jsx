@@ -369,7 +369,7 @@ export default function Admissions() {
             {/* Quick info */}
             <Reveal direction="right" delay={100}>
               <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
-                <div className="h-1 bg-gradient-to-r from-red-600 to-transparent" />
+                <div className="h-1 'bg-gradient-to-r' from-red-600 to-transparent" />
                 <div className="p-6">
                   <p className="text-xs font-bold tracking-widest uppercase text-red-600 mb-4">Key Dates</p>
                   <ul className="space-y-3">
@@ -381,7 +381,7 @@ export default function Admissions() {
                       ['🎓', 'Classes Begin', 'July 25, 2025'],
                     ].map(([icon, label, date]) => (
                       <li key={label} className="flex items-start gap-3">
-                        <span className="text-base flex-shrink-0 mt-0.5">{icon}</span>
+                        <span className="text-base 'flex-shrink-0 mt-0.5">{icon}</span>
                         <div>
                           <p className="text-xs font-semibold text-gray-700">{label}</p>
                           <p className="text-xs text-gray-400">{date}</p>
