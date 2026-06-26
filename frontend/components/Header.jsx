@@ -35,6 +35,7 @@ const navLinks = [
   },
   { name: 'Mandatory Disclosure', href: '/mandatory-disclosure', icon: <CheckCircle2 className="w-4 h-4" /> },
   { name: 'Gallery', href: '/gallery' },
+  { name: 'Events', href: '/events' },
   { name: 'Contact', href: '/contact' },
 ]
 
