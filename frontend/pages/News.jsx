@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Reveal } from '../utils/scroll-reveal'
+import imgInvestiture from '../assets/pic-assets/IMG_2866.JPG'
 
 /* ─── Category colors ─── */
 const categoryStyle = {
@@ -14,13 +15,24 @@ const categoryStyle = {
 /* ─── News data ─── */
 const allNews = [
   {
+    id: 0,
+    date: 'June 2025',
+    title: 'Investiture Ceremony 2025 — Leadership Installed with Pride',
+    excerpt: 'Future School, Ambur held its grand Investiture Ceremony 2025, honouring a new batch of student leaders. The Head Boy, Head Girl, Prefects, and House Captains were formally invested with their badges and sashes, pledging commitment to integrity, discipline, and service. The ceremony featured a Guard of Honour, an inspiring March Past, the flag-hoisting, and an address by the Principal. The event was a proud moment for the entire school community, celebrating the spirit of leadership in the next generation.',
+    category: 'Events',
+    emoji: '🎖️',
+    image: imgInvestiture,
+    featured: true,
+    readTime: '4 min read',
+  },
+  {
     id: 1,
     date: 'March 15, 2025',
     title: 'Class XII Board Results — Outstanding Performance',
     excerpt: '95% pass rate with 25 students scoring above 90%. Our toppers secured state-level ranks. Congratulations to all achievers and their dedicated teachers!',
     category: 'Academics',
     emoji: '🏆',
-    featured: true,
+    featured: false,
     readTime: '3 min read',
   },
   {
@@ -105,16 +117,22 @@ function FeaturedCard({ item }) {
       <div className="group relative bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-sm transition-all duration-300 h-full flex flex-col">
         {/* Top image area */}
         <div className="relative h-52 bg-white border border-gray-100 flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(185,28,28,0.06) 1px, transparent 1px)', backgroundSize: '18px 18px' }} />
-          <span className="text-8xl opacity-25 select-none group-hover:scale-105 transition-transform duration-300">{item.emoji}</span>
+          {item.image ? (
+            <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          ) : (
+            <>
+              <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, rgba(185,28,28,0.06) 1px, transparent 1px)', backgroundSize: '18px 18px' }} />
+              <span className="text-8xl opacity-25 select-none group-hover:scale-105 transition-transform duration-300">{item.emoji}</span>
+            </>
+          )}
           {/* Featured badge */}
-          <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold shadow-md">
+          <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold shadow-md z-10">
             <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
             Featured
           </div>
-          <span className={`absolute top-4 right-4 px-2.5 py-1 rounded-full ${style.bg} ${style.text} text-xs font-bold`}>{item.category}</span>
+          <span className={`absolute top-4 right-4 px-2.5 py-1 rounded-full ${style.bg} ${style.text} text-xs font-bold z-10`}>{item.category}</span>
           {/* Red top bar */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 to-transparent z-10" />
         </div>
 
         <div className="p-6 flex flex-col flex-1 gap-3">

@@ -33,19 +33,54 @@ import imgEvent2 from '../assets/pic-assets/IMG_4399-1024x683.jpg'
 import imgEvent3 from '../assets/pic-assets/IMG_4400-1024x683.jpg'
 import imgAchieve from '../assets/pic-assets/Purple-and-Gold-Simple-Congratulations-Poster-1.png'
 
+// Investiture Ceremony images
+import imgInv1 from '../assets/pic-assets/IMG_2866.JPG'
+import imgInv2 from '../assets/pic-assets/IMG_2876.JPG'
+import imgInv3 from '../assets/pic-assets/IMG_2878.JPG'
+import imgInv4 from '../assets/pic-assets/IMG_2881.JPG'
+import imgInv5 from '../assets/pic-assets/IMG_2884.JPG'
+import imgInv6 from '../assets/pic-assets/IMG_2902.JPG'
+import imgInv7 from '../assets/pic-assets/IMG_2916.JPG'
+import imgInv8 from '../assets/pic-assets/IMG_2920.JPG'
+import imgInv9 from '../assets/pic-assets/IMG_2954.JPG'
+import imgInv10 from '../assets/pic-assets/IMG_2965.JPG'
+import imgInv11 from '../assets/pic-assets/IMG_2969.JPG'
+import imgInv12 from '../assets/pic-assets/IMG_2978.JPG'
+import imgInv13 from '../assets/pic-assets/IMG_2983.JPG'
+import imgInv14 from '../assets/pic-assets/IMG_2985.JPG'
+import imgInv15 from '../assets/pic-assets/IMG_3101.JPG'
+import imgInv16 from '../assets/pic-assets/IMG_3212.JPG'
+
 const images = [
-  { id: 1,  title: 'Main Campus Building',     category: 'Campus',       src: imgCampus1, span: 'lg:col-span-2 lg:row-span-2' },
-  { id: 2,  title: 'Modern Science Lab',       category: 'Facilities',   src: imgLab,     span: '' },
-  { id: 3,  title: 'Computer Education',       category: 'Facilities',   src: imgComp,    span: '' },
-  { id: 4,  title: 'School Library',           category: 'Facilities',   src: imgLib,     span: '' },
-  { id: 5,  title: 'Sports Activities',        category: 'Sports',       src: imgSports1, span: 'lg:col-span-2' },
-  { id: 6,  title: 'Christmas Celebration',    category: 'Events',       src: imgEvent1,  span: '' },
-  { id: 7,  title: 'Playground Area',          category: 'Campus',       src: imgPlay,    span: '' },
-  { id: 8,  title: 'Children\'s Day Events',   category: 'Events',       src: imgEvent2,  span: '' },
-  { id: 9,  title: 'Auditorium Hall',          category: 'Facilities',   src: imgAud,     span: '' },
-  { id: 10, title: 'Board Exam Toppers',       category: 'Achievements', src: imgAchieve, span: 'lg:col-span-2' },
-  { id: 11, title: 'Primary Wing',             category: 'Campus',       src: imgCampus3, span: '' },
-  { id: 12, title: 'Cultural Fest Highlights', category: 'Events',       src: imgEvent3,  span: '' },
+  { id: 1,  title: 'Main Campus Building',             category: 'Campus',       src: imgCampus1, span: 'lg:col-span-2 lg:row-span-2' },
+  { id: 2,  title: 'Modern Science Lab',               category: 'Facilities',   src: imgLab,     span: '' },
+  { id: 3,  title: 'Computer Education',               category: 'Facilities',   src: imgComp,    span: '' },
+  { id: 4,  title: 'School Library',                   category: 'Facilities',   src: imgLib,     span: '' },
+  { id: 5,  title: 'Sports Activities',                category: 'Sports',       src: imgSports1, span: 'lg:col-span-2' },
+  { id: 6,  title: 'Christmas Celebration',            category: 'Events',       src: imgEvent1,  span: '' },
+  { id: 7,  title: 'Playground Area',                  category: 'Campus',       src: imgPlay,    span: '' },
+  { id: 8,  title: 'Children\'s Day Events',           category: 'Events',       src: imgEvent2,  span: '' },
+  { id: 9,  title: 'Auditorium Hall',                  category: 'Facilities',   src: imgAud,     span: '' },
+  { id: 10, title: 'Board Exam Toppers',               category: 'Achievements', src: imgAchieve, span: 'lg:col-span-2' },
+  { id: 11, title: 'Primary Wing',                     category: 'Campus',       src: imgCampus3, span: '' },
+  { id: 12, title: 'Cultural Fest Highlights',         category: 'Events',       src: imgEvent3,  span: '' },
+  // Investiture Ceremony 2025
+  { id: 13, title: 'Investiture Ceremony — Oath Taking',          category: 'Events', src: imgInv1,  span: 'lg:col-span-2 lg:row-span-2' },
+  { id: 14, title: 'Investiture Ceremony — Badge Pinning',        category: 'Events', src: imgInv2,  span: '' },
+  { id: 15, title: 'Investiture Ceremony — Head Girl Appointed',  category: 'Events', src: imgInv3,  span: '' },
+  { id: 16, title: 'Investiture Ceremony — Head Boy Appointed',   category: 'Events', src: imgInv4,  span: '' },
+  { id: 17, title: 'Investiture Ceremony — Guard of Honour',      category: 'Events', src: imgInv5,  span: 'lg:col-span-2' },
+  { id: 18, title: 'Investiture Ceremony — Sash Ceremony',        category: 'Events', src: imgInv6,  span: '' },
+  { id: 19, title: 'Investiture Ceremony — March Past',           category: 'Events', src: imgInv7,  span: '' },
+  { id: 20, title: 'Investiture Ceremony — Prize Distribution',   category: 'Events', src: imgInv8,  span: '' },
+  { id: 21, title: 'Investiture Ceremony — Principal Address',    category: 'Events', src: imgInv9,  span: '' },
+  { id: 22, title: 'Investiture Ceremony — Student Leaders',      category: 'Events', src: imgInv10, span: 'lg:col-span-2' },
+  { id: 23, title: 'Investiture Ceremony — Flag Hoisting',        category: 'Events', src: imgInv11, span: '' },
+  { id: 24, title: 'Investiture Ceremony — Group Photo',          category: 'Events', src: imgInv12, span: '' },
+  { id: 25, title: 'Investiture Ceremony — Assembly',             category: 'Events', src: imgInv13, span: '' },
+  { id: 26, title: 'Investiture Ceremony — Cultural Program',     category: 'Events', src: imgInv14, span: '' },
+  { id: 27, title: 'Investiture Ceremony — Prefect Board 2025',   category: 'Events', src: imgInv15, span: 'lg:col-span-2' },
+  { id: 28, title: 'Investiture Ceremony — Closing Ceremony',     category: 'Events', src: imgInv16, span: '' },
 ]
 
 /* ─── Lightbox ─── */
