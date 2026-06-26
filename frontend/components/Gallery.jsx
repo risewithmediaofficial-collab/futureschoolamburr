@@ -79,12 +79,12 @@ const images = [
   { id: 24, title: 'Investiture Ceremony — Group Photo',          category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv12, span: '' },
   { id: 25, title: 'Investiture Ceremony — Assembly',             category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv13, span: '' },
   { id: 26, title: 'Investiture Ceremony — Cultural Program',     category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv14, span: '' },
-  { id: 27, title: 'Investiture Ceremony — Prefect Board 2025',   category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv15, span: 'lg:col-span-2' },
+  { id: 27, title: 'Investiture Ceremony — Prefect Board 2026',   category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv15, span: 'lg:col-span-2' },
   { id: 28, title: 'Investiture Ceremony — Closing Ceremony',     category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv16, span: '' },
 ]
 
 const subEvents = [
-  'Investiture Ceremony 2025',
+  'Investiture Ceremony 2026',
   'Christmas Celebration',
   "Children's Day Events",
   'Cultural Fest'

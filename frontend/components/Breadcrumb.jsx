@@ -26,7 +26,7 @@ const breadcrumbConfig = {
   '/activities': { label: 'Activities', parent: '/' },
   '/transportation': { label: 'Transportation', parent: '/' },
   '/events': { label: 'Events', parent: '/' },
-  '/events/investiture-ceremony-2025': { label: 'Investiture Ceremony 2025', parent: '/events' },
+  '/events/investiture-ceremony-2026': { label: 'Investiture Ceremony 2026', parent: '/events' },
 }
 
 /* ─── Build Breadcrumb Path ─── */
