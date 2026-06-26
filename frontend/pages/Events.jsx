@@ -4,12 +4,12 @@ import { Reveal } from '../utils/reveal'
 
 const events = [
   {
-    slug: 'investiture-ceremony-2025',
+    slug: 'investiture-ceremony-2026',
     date: 'June 25, 2026',
-    title: 'Investiture Ceremony 2025',
+    title: 'Investiture Ceremony 2026',
     subtitle: 'Oath Taking Ceremony — Honouring the Leaders of Tomorrow',
     excerpt:
-      'Future School, Ambur held its prestigious Investiture Ceremony 2025, formally investing the new student leadership council with badges, sashes, and responsibilities. The Head Boy, Head Girl, Prefects, and House Captains took their solemn oath to serve the school with integrity, discipline, and dedication.',
+      'Future School, Ambur held its prestigious Investiture Ceremony 2026, formally investing the new student leadership council with badges, sashes, and responsibilities. The Head Boy, Head Girl, Prefects, and House Captains took their solemn oath to serve the school with integrity, discipline, and dedication.',
     category: 'Events',
     tag: 'Leadership',
     readTime: '5 min read',
