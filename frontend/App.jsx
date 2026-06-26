@@ -29,6 +29,8 @@ import Timings from './pages/Timings'
 import Activities from './pages/Activities'
 import Transportation from './pages/Transportation'
 import MandatoryDisclosure from './pages/MandatoryDisclosure'
+import Events from './pages/Events'
+import InvestitureCeremony2025 from './pages/InvestitureCeremony2025'
 
 // Admin Pages
 import { Login as AdminLogin } from './pages/admin/Login'
@@ -96,6 +98,8 @@ function AppLayout() {
           <Route path="/activities" element={<Activities />} />
           <Route path="/transportation" element={<Transportation />} />
           <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/investiture-ceremony-2025" element={<InvestitureCeremony2025 />} />
 
           {/* 🔐 Admin Portal Routes (Integrated) */}
           <Route path="/dashboard" element={<Navigate to="/admin/dashboard" replace />} />
