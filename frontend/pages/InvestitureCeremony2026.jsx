@@ -10,7 +10,7 @@ import imgMarch   from '../assets/pic-assets/IMG_2916.JPG'
 import imgGroup   from '../assets/pic-assets/IMG_2978.JPG'
 import imgFlag    from '../assets/pic-assets/IMG_2969.JPG'
 
-export default function InvestitureCeremony2025() {
+export default function InvestitureCeremony2026() {
   return (
     <main className="bg-[#fafaf8] overflow-x-hidden">
 
@@ -18,7 +18,7 @@ export default function InvestitureCeremony2025() {
       <section className="relative w-full h-[55vh] md:h-[70vh] overflow-hidden bg-gray-900">
         <img
           src={imgHero}
-          alt="Investiture Ceremony 2065 — Future School Ambur"
+          alt="Investiture Ceremony 2026 — Future School Ambur"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
         />
         {/* Dark gradient overlay */}
@@ -86,7 +86,7 @@ export default function InvestitureCeremony2025() {
                   On the morning of <strong>June 25, 2026</strong>, Future Senior Secondary School, Ambur, witnessed one of its most cherished annual traditions — the <strong>Investiture Ceremony 2026</strong>. The school campus was adorned with vibrant decorations, and the air was filled with a sense of solemn purpose as students, faculty, parents, and distinguished guests gathered to mark a momentous occasion in the school's academic calendar.
                 </p>
                 <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-4">
-                  The ceremony formally installed a new student leadership council, comprising the <strong>Head Boy</strong>, <strong>Head Girl</strong>, Class Prefects, Sports Captains, and the four House Captains — Emerald, Ruby, Sapphire, and Topaz — as the guiding leaders of the student body for the academic year 2025–26.
+                  The ceremony formally installed a new student leadership council, comprising the <strong>Head Boy</strong>, <strong>Head Girl</strong>, Class Prefects, Sports Captains, and the four House Captains — Emerald, Ruby, Sapphire, and Topaz — as the guiding leaders of the student body for the academic year 2026–27.
                 </p>
               </div>
             </Reveal>
@@ -197,14 +197,13 @@ export default function InvestitureCeremony2025() {
 
             {/* Divider */}
             <div className="flex items-center gap-4 my-8">
-              <div className="h-px bg-gray-200 flex-1" />
               <span className="text-[#c0392b] text-xl">✦</span>
               <div className="h-px bg-gray-200 flex-1" />
             </div>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2">
-              {['Leadership', 'Investiture Ceremony', 'Student Council', 'Events 2025', 'Future School Ambur'].map(t => (
+              {['Leadership', 'Investiture Ceremony', 'Student Council', 'Events 2026', 'Future School Ambur'].map(t => (
                 <span key={t} className="text-[0.6rem] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 border border-gray-200 px-3 py-1 rounded-full">
                   #{t.replace(/\s+/g, '')}
                 </span>
@@ -243,7 +242,7 @@ export default function InvestitureCeremony2025() {
             {/* Student Leaders Highlight */}
             <Reveal delay={100}>
               <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-sm">
-                <p className="text-[0.6rem] font-black uppercase tracking-widest text-[#c0392b] mb-4">Student Leadership Council 2025–26</p>
+                <p className="text-[0.6rem] font-black uppercase tracking-widest text-[#c0392b] mb-4">Student Leadership Council 2026–27</p>
                 <ul className="space-y-3">
                   {[
                     { role: 'Head Boy',         house: 'Elected by Faculty' },

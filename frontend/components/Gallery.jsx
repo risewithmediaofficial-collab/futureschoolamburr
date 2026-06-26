@@ -63,23 +63,23 @@ const images = [
   { id: 10, title: 'Board Exam Toppers',               category: 'Achievements', src: imgAchieve, span: 'lg:col-span-2' },
   { id: 11, title: 'Primary Wing',                     category: 'Campus',       src: imgCampus3, span: '' },
   { id: 12, title: 'Cultural Fest Highlights',         category: 'Events',       subEvent: 'Cultural Fest', src: imgEvent3,  span: '' },
-  // Investiture Ceremony 2025
-  { id: 13, title: 'Investiture Ceremony — Oath Taking',          category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv1,  span: 'lg:col-span-2 lg:row-span-2' },
-  { id: 14, title: 'Investiture Ceremony — Badge Pinning',        category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv2,  span: '' },
-  { id: 15, title: 'Investiture Ceremony — Head Girl Appointed',  category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv3,  span: '' },
-  { id: 16, title: 'Investiture Ceremony — Head Boy Appointed',   category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv4,  span: '' },
-  { id: 17, title: 'Investiture Ceremony — Guard of Honour',      category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv5,  span: 'lg:col-span-2' },
-  { id: 18, title: 'Investiture Ceremony — Sash Ceremony',        category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv6,  span: '' },
-  { id: 19, title: 'Investiture Ceremony — March Past',           category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv7,  span: '' },
-  { id: 20, title: 'Investiture Ceremony — Prize Distribution',   category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv8,  span: '' },
-  { id: 21, title: 'Investiture Ceremony — Principal Address',    category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv9,  span: '' },
-  { id: 22, title: 'Investiture Ceremony — Student Leaders',      category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv10, span: 'lg:col-span-2' },
-  { id: 23, title: 'Investiture Ceremony — Flag Hoisting',        category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv11, span: '' },
-  { id: 24, title: 'Investiture Ceremony — Group Photo',          category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv12, span: '' },
-  { id: 25, title: 'Investiture Ceremony — Assembly',             category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv13, span: '' },
-  { id: 26, title: 'Investiture Ceremony — Cultural Program',     category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv14, span: '' },
-  { id: 27, title: 'Investiture Ceremony — Prefect Board 2026',   category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv15, span: 'lg:col-span-2' },
-  { id: 28, title: 'Investiture Ceremony — Closing Ceremony',     category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv16, span: '' },
+  // Investiture Ceremony 2026
+  { id: 13, title: 'Investiture Ceremony — Oath Taking',          category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv1,  span: 'lg:col-span-2 lg:row-span-2' },
+  { id: 14, title: 'Investiture Ceremony — Badge Pinning',        category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv2,  span: '' },
+  { id: 15, title: 'Investiture Ceremony — Head Girl Appointed',  category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv3,  span: '' },
+  { id: 16, title: 'Investiture Ceremony — Head Boy Appointed',   category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv4,  span: '' },
+  { id: 17, title: 'Investiture Ceremony — Guard of Honour',      category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv5,  span: 'lg:col-span-2' },
+  { id: 18, title: 'Investiture Ceremony — Sash Ceremony',        category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv6,  span: '' },
+  { id: 19, title: 'Investiture Ceremony — March Past',           category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv7,  span: '' },
+  { id: 20, title: 'Investiture Ceremony — Prize Distribution',   category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv8,  span: '' },
+  { id: 21, title: 'Investiture Ceremony — Principal Address',    category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv9,  span: '' },
+  { id: 22, title: 'Investiture Ceremony — Student Leaders',      category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv10, span: 'lg:col-span-2' },
+  { id: 23, title: 'Investiture Ceremony — Flag Hoisting',        category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv11, span: '' },
+  { id: 24, title: 'Investiture Ceremony — Group Photo',          category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv12, span: '' },
+  { id: 25, title: 'Investiture Ceremony — Assembly',             category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv13, span: '' },
+  { id: 26, title: 'Investiture Ceremony — Cultural Program',     category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv14, span: '' },
+  { id: 27, title: 'Investiture Ceremony — Prefect Board 2026',   category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv15, span: 'lg:col-span-2' },
+  { id: 28, title: 'Investiture Ceremony — Closing Ceremony',     category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv16, span: '' },
 ]
 
 const subEvents = [
@@ -128,7 +128,7 @@ function Lightbox({ image, onClose, onPrev, onNext }) {
 
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('All')
-  const [activeSubEvent, setActiveSubEvent] = useState('Investiture Ceremony 2025')
+  const [activeSubEvent, setActiveSubEvent] = useState('Investiture Ceremony 2026')
   const [lightbox, setLightbox] = useState(null)
 
   const filtered = images.filter((img) => {
