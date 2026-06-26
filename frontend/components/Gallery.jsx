@@ -57,30 +57,37 @@ const images = [
   { id: 3,  title: 'Computer Education',               category: 'Facilities',   src: imgComp,    span: '' },
   { id: 4,  title: 'School Library',                   category: 'Facilities',   src: imgLib,     span: '' },
   { id: 5,  title: 'Sports Activities',                category: 'Sports',       src: imgSports1, span: 'lg:col-span-2' },
-  { id: 6,  title: 'Christmas Celebration',            category: 'Events',       src: imgEvent1,  span: '' },
+  { id: 6,  title: 'Christmas Celebration',            category: 'Events',       subEvent: 'Christmas Celebration', src: imgEvent1,  span: '' },
   { id: 7,  title: 'Playground Area',                  category: 'Campus',       src: imgPlay,    span: '' },
-  { id: 8,  title: 'Children\'s Day Events',           category: 'Events',       src: imgEvent2,  span: '' },
+  { id: 8,  title: 'Children\'s Day Events',           category: 'Events',       subEvent: 'Children\'s Day Events', src: imgEvent2,  span: '' },
   { id: 9,  title: 'Auditorium Hall',                  category: 'Facilities',   src: imgAud,     span: '' },
   { id: 10, title: 'Board Exam Toppers',               category: 'Achievements', src: imgAchieve, span: 'lg:col-span-2' },
   { id: 11, title: 'Primary Wing',                     category: 'Campus',       src: imgCampus3, span: '' },
-  { id: 12, title: 'Cultural Fest Highlights',         category: 'Events',       src: imgEvent3,  span: '' },
+  { id: 12, title: 'Cultural Fest Highlights',         category: 'Events',       subEvent: 'Cultural Fest', src: imgEvent3,  span: '' },
   // Investiture Ceremony 2025
-  { id: 13, title: 'Investiture Ceremony — Oath Taking',          category: 'Events', src: imgInv1,  span: 'lg:col-span-2 lg:row-span-2' },
-  { id: 14, title: 'Investiture Ceremony — Badge Pinning',        category: 'Events', src: imgInv2,  span: '' },
-  { id: 15, title: 'Investiture Ceremony — Head Girl Appointed',  category: 'Events', src: imgInv3,  span: '' },
-  { id: 16, title: 'Investiture Ceremony — Head Boy Appointed',   category: 'Events', src: imgInv4,  span: '' },
-  { id: 17, title: 'Investiture Ceremony — Guard of Honour',      category: 'Events', src: imgInv5,  span: 'lg:col-span-2' },
-  { id: 18, title: 'Investiture Ceremony — Sash Ceremony',        category: 'Events', src: imgInv6,  span: '' },
-  { id: 19, title: 'Investiture Ceremony — March Past',           category: 'Events', src: imgInv7,  span: '' },
-  { id: 20, title: 'Investiture Ceremony — Prize Distribution',   category: 'Events', src: imgInv8,  span: '' },
-  { id: 21, title: 'Investiture Ceremony — Principal Address',    category: 'Events', src: imgInv9,  span: '' },
-  { id: 22, title: 'Investiture Ceremony — Student Leaders',      category: 'Events', src: imgInv10, span: 'lg:col-span-2' },
-  { id: 23, title: 'Investiture Ceremony — Flag Hoisting',        category: 'Events', src: imgInv11, span: '' },
-  { id: 24, title: 'Investiture Ceremony — Group Photo',          category: 'Events', src: imgInv12, span: '' },
-  { id: 25, title: 'Investiture Ceremony — Assembly',             category: 'Events', src: imgInv13, span: '' },
-  { id: 26, title: 'Investiture Ceremony — Cultural Program',     category: 'Events', src: imgInv14, span: '' },
-  { id: 27, title: 'Investiture Ceremony — Prefect Board 2025',   category: 'Events', src: imgInv15, span: 'lg:col-span-2' },
-  { id: 28, title: 'Investiture Ceremony — Closing Ceremony',     category: 'Events', src: imgInv16, span: '' },
+  { id: 13, title: 'Investiture Ceremony — Oath Taking',          category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv1,  span: 'lg:col-span-2 lg:row-span-2' },
+  { id: 14, title: 'Investiture Ceremony — Badge Pinning',        category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv2,  span: '' },
+  { id: 15, title: 'Investiture Ceremony — Head Girl Appointed',  category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv3,  span: '' },
+  { id: 16, title: 'Investiture Ceremony — Head Boy Appointed',   category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv4,  span: '' },
+  { id: 17, title: 'Investiture Ceremony — Guard of Honour',      category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv5,  span: 'lg:col-span-2' },
+  { id: 18, title: 'Investiture Ceremony — Sash Ceremony',        category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv6,  span: '' },
+  { id: 19, title: 'Investiture Ceremony — March Past',           category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv7,  span: '' },
+  { id: 20, title: 'Investiture Ceremony — Prize Distribution',   category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv8,  span: '' },
+  { id: 21, title: 'Investiture Ceremony — Principal Address',    category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv9,  span: '' },
+  { id: 22, title: 'Investiture Ceremony — Student Leaders',      category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv10, span: 'lg:col-span-2' },
+  { id: 23, title: 'Investiture Ceremony — Flag Hoisting',        category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv11, span: '' },
+  { id: 24, title: 'Investiture Ceremony — Group Photo',          category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv12, span: '' },
+  { id: 25, title: 'Investiture Ceremony — Assembly',             category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv13, span: '' },
+  { id: 26, title: 'Investiture Ceremony — Cultural Program',     category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv14, span: '' },
+  { id: 27, title: 'Investiture Ceremony — Prefect Board 2025',   category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv15, span: 'lg:col-span-2' },
+  { id: 28, title: 'Investiture Ceremony — Closing Ceremony',     category: 'Events', subEvent: 'Investiture Ceremony 2025', src: imgInv16, span: '' },
+]
+
+const subEvents = [
+  'Investiture Ceremony 2025',
+  'Christmas Celebration',
+  "Children's Day Events",
+  'Cultural Fest'
 ]
 
 /* ─── Lightbox ─── */
@@ -122,11 +129,21 @@ function Lightbox({ image, onClose, onPrev, onNext }) {
 
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [activeSubEvent, setActiveSubEvent] = useState('Investiture Ceremony 2025')
   const [lightbox, setLightbox] = useState(null)
 
-  const filtered = activeFilter === 'All'
-    ? images
-    : images.filter((img) => img.category === activeFilter)
+  const filtered = images.filter((img) => {
+    if (activeFilter === 'All') {
+      if (img.category === 'Events') {
+        return img.subEvent === activeSubEvent
+      }
+      return true
+    }
+    if (activeFilter === 'Events') {
+      return img.category === 'Events' && img.subEvent === activeSubEvent
+    }
+    return img.category === activeFilter
+  })
 
   const navigate = (dir) => {
     const idx = filtered.findIndex((i) => i.id === lightbox.id)
@@ -178,7 +195,7 @@ export default function Gallery() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Filters */}
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-16">
+        <div className="flex flex-wrap justify-center items-center gap-2 mb-8">
            <Filter className="w-4 h-4 text-gray-400 mr-2 hidden sm:block" />
            {categories.map((cat) => (
              <button
@@ -195,6 +212,27 @@ export default function Gallery() {
              </button>
            ))}
         </div>
+
+        {/* Sub-Events Selector (displays when activeFilter is 'Events' or 'All') */}
+        {(activeFilter === 'Events' || activeFilter === 'All') && (
+          <div className="flex flex-wrap justify-center items-center gap-2 mb-12 animate-fadeIn border-t border-gray-100 pt-6">
+            <span className="text-[0.6rem] font-bold uppercase tracking-widest text-gray-450 mr-2">Select Event:</span>
+            {subEvents.map((sub) => (
+              <button
+                key={sub}
+                onClick={() => setActiveSubEvent(sub)}
+                className={`
+                  px-4 py-2 rounded-xl text-[0.6rem] font-bold uppercase tracking-wider transition-all
+                  ${activeSubEvent === sub
+                    ? 'bg-gray-800 text-white shadow-md'
+                    : 'bg-white border border-gray-200 text-gray-400 hover:border-gray-800 hover:text-gray-800'}
+                `}
+              >
+                {sub}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Masonry-Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[220px] gap-6">
