@@ -46,9 +46,9 @@ export default function Events() {
           {events.map((event, i) => (
             <Reveal key={event.slug} delay={i * 80}>
               <Link to={`/events/${event.slug}`} className="group block bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-red-900/5 transition-all duration-500">
-                <div className="grid md:grid-cols-5 min-h-[280px]">
+                <div className="grid md:grid-cols-5 md:h-[320px] min-h-[280px]">
                   {/* Cover Image */}
-                  <div className="md:col-span-2 relative overflow-hidden h-64 md:h-auto bg-gray-100">
+                  <div className="md:col-span-2 relative overflow-hidden h-64 md:h-full bg-gray-100">
                     <img
                       src={event.coverImage}
                       alt={event.title}
@@ -62,21 +62,21 @@ export default function Events() {
                     </div>
                   </div>
                   {/* Content */}
-                  <div className="md:col-span-3 p-8 md:p-10 flex flex-col justify-between">
+                  <div className="md:col-span-3 p-6 md:p-8 flex flex-col justify-center">
                     <div>
-                      <div className="flex items-center gap-3 mb-4">
+                      <div className="flex items-center gap-3 mb-3">
                         <span className="inline-flex items-center gap-1.5 text-[0.6rem] font-black uppercase tracking-widest text-purple-700 bg-purple-50 border border-purple-100 px-3 py-1 rounded-full">
                           <Tag className="w-3 h-3" /> {event.tag}
                         </span>
                         <span className="text-[0.6rem] text-gray-400 font-bold uppercase tracking-widest">{event.readTime}</span>
                       </div>
-                      <h2 className="serif text-2xl md:text-3xl text-gray-900 leading-snug mb-2 group-hover:text-[#c0392b] transition-colors duration-300">
+                      <h2 className="serif text-xl md:text-2xl lg:text-3xl text-gray-900 leading-snug mb-1.5 group-hover:text-[#c0392b] transition-colors duration-300">
                         {event.title}
                       </h2>
-                      <p className="text-sm text-[#c0392b] font-semibold mb-4">{event.subtitle}</p>
-                      <p className="text-gray-500 text-sm md:text-base leading-relaxed line-clamp-3">{event.excerpt}</p>
+                      <p className="text-xs md:text-sm text-[#c0392b] font-semibold mb-3">{event.subtitle}</p>
+                      <p className="text-gray-500 text-xs md:text-sm leading-relaxed line-clamp-3 mb-5">{event.excerpt}</p>
                     </div>
-                    <div className="mt-6 flex items-center gap-2 text-sm font-bold text-[#c0392b] group-hover:gap-4 transition-all duration-300">
+                    <div className="flex items-center gap-2 text-xs md:text-sm font-bold text-[#c0392b] group-hover:gap-4 transition-all duration-300">
                       Read Full Story <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
