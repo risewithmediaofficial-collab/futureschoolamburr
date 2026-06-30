@@ -7,8 +7,6 @@ import imgHero    from '../assets/pic-assets/IMG_2866.JPG'
 import imgOath    from '../assets/pic-assets/IMG_2876.JPG'
 import imgBadge   from '../assets/pic-assets/IMG_2878.JPG'
 import imgMarch   from '../assets/pic-assets/IMG_2916.JPG'
-import imgGroup   from '../assets/pic-assets/IMG_2978.JPG'
-import imgFlag    from '../assets/pic-assets/IMG_2969.JPG'
 
 export default function InvestitureCeremony2026() {
   return (
@@ -269,7 +267,7 @@ export default function InvestitureCeremony2026() {
               <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-sm">
                 <p className="text-[0.6rem] font-black uppercase tracking-widest text-[#c0392b] mb-3 px-2">Photo Highlights</p>
                 <div className="grid grid-cols-2 gap-2">
-                  {[imgGroup, imgFlag, imgOath, imgBadge].map((src, i) => (
+                  {[imgHero, imgMarch, imgOath, imgBadge].map((src, i) => (
                     <div key={i} className="aspect-square rounded-xl overflow-hidden bg-gray-100">
                       <img src={src} alt={`Ceremony moment ${i + 1}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
                     </div>

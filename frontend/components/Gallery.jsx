@@ -41,13 +41,6 @@ import imgInv5 from '../assets/pic-assets/IMG_2884.JPG'
 import imgInv6 from '../assets/pic-assets/IMG_2902.JPG'
 import imgInv7 from '../assets/pic-assets/IMG_2916.JPG'
 import imgInv8 from '../assets/pic-assets/IMG_2920.JPG'
-import imgInv9 from '../assets/pic-assets/IMG_2954.JPG'
-import imgInv10 from '../assets/pic-assets/IMG_2965.JPG'
-import imgInv11 from '../assets/pic-assets/IMG_2969.JPG'
-import imgInv12 from '../assets/pic-assets/IMG_2978.JPG'
-import imgInv13 from '../assets/pic-assets/IMG_2983.JPG'
-import imgInv14 from '../assets/pic-assets/IMG_2985.JPG'
-import imgInv15 from '../assets/pic-assets/IMG_3101.JPG'
 import imgInv16 from '../assets/pic-assets/IMG_3212.JPG'
 
 const images = [
@@ -72,13 +65,6 @@ const images = [
   { id: 18, title: 'Investiture Ceremony — Sash Ceremony',        category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv6,  span: '' },
   { id: 19, title: 'Investiture Ceremony — March Past',           category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv7,  span: '' },
   { id: 20, title: 'Investiture Ceremony — Prize Distribution',   category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv8,  span: '' },
-  { id: 21, title: 'Investiture Ceremony — Principal Address',    category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv9,  span: '' },
-  { id: 22, title: 'Investiture Ceremony — Student Leaders',      category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv10, span: 'lg:col-span-2' },
-  { id: 23, title: 'Investiture Ceremony — Flag Hoisting',        category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv11, span: '' },
-  { id: 24, title: 'Investiture Ceremony — Group Photo',          category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv12, span: '' },
-  { id: 25, title: 'Investiture Ceremony — Assembly',             category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv13, span: '' },
-  { id: 26, title: 'Investiture Ceremony — Cultural Program',     category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv14, span: '' },
-  { id: 27, title: 'Investiture Ceremony — Prefect Board 2026',   category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv15, span: 'lg:col-span-2' },
   { id: 28, title: 'Investiture Ceremony — Closing Ceremony',     category: 'Events', subEvent: 'Investiture Ceremony 2026', src: imgInv16, span: '' },
 ]
 
