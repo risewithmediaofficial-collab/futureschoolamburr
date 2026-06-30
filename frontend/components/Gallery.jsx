@@ -133,9 +133,6 @@ export default function Gallery() {
 
   const filtered = images.filter((img) => {
     if (activeFilter === 'All') {
-      if (img.category === 'Events') {
-        return img.subEvent === activeSubEvent
-      }
       return true
     }
     if (activeFilter === 'Events') {
@@ -212,8 +209,8 @@ export default function Gallery() {
            ))}
         </div>
 
-        {/* Sub-Events Selector (displays when activeFilter is 'Events' or 'All') */}
-        {(activeFilter === 'Events' || activeFilter === 'All') && (
+        {/* Sub-Events Selector (displays when activeFilter is 'Events') */}
+        {activeFilter === 'Events' && (
           <div className="flex flex-wrap justify-center items-center gap-2 mb-12 animate-fadeIn border-t border-gray-100 pt-6">
             <span className="text-[0.6rem] font-bold uppercase tracking-widest text-gray-450 mr-2">Select Event:</span>
             {subEvents.map((sub) => (
